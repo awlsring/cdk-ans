@@ -7,7 +7,7 @@ This is an attempt to define a CDK-esq framework for Ansible playbook definition
 
 ### App <a name="App" id="cdk-ans.App"></a>
 
-Represents a cdkans application.
+Represents a cdk-ans application.
 
 #### Initializers <a name="Initializers" id="cdk-ans.App.Initializer"></a>
 
@@ -36,8 +36,7 @@ configuration options.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.App.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.App.synth">synth</a></code> | Synthesizes all manifests to the output directory. |
-| <code><a href="#cdk-ans.App.synthYaml">synthYaml</a></code> | Synthesizes the app into a YAML string. |
+| <code><a href="#cdk-ans.App.synth">synth</a></code> | Synthesizes all resources to the output directory. |
 
 ---
 
@@ -55,15 +54,7 @@ Returns a string representation of this construct.
 public synth(): void
 ```
 
-Synthesizes all manifests to the output directory.
-
-##### `synthYaml` <a name="synthYaml" id="cdk-ans.App.synthYaml"></a>
-
-```typescript
-public synthYaml(): string
-```
-
-Synthesizes the app into a YAML string.
+Synthesizes all resources to the output directory.
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -96,9 +87,10 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.App.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-ans.App.property.inventories">inventories</a></code> | <code><a href="#cdk-ans.Inventory">Inventory</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.App.property.inventories">inventories</a></code> | <code><a href="#cdk-ans.Inventory">Inventory</a>[]</code> | Returns all the inventories in this app, sorted topologically. |
 | <code><a href="#cdk-ans.App.property.outdir">outdir</a></code> | <code>string</code> | The output directory into which files will be synthesized. |
 | <code><a href="#cdk-ans.App.property.playbooks">playbooks</a></code> | <code><a href="#cdk-ans.Playbook">Playbook</a>[]</code> | Returns all the playbooks in this app, sorted topologically. |
+| <code><a href="#cdk-ans.App.property.roles">roles</a></code> | <code><a href="#cdk-ans.Role">Role</a>[]</code> | Returns all the roles in this app, sorted topologically. |
 
 ---
 
@@ -121,6 +113,8 @@ public readonly inventories: Inventory[];
 ```
 
 - *Type:* <a href="#cdk-ans.Inventory">Inventory</a>[]
+
+Returns all the inventories in this app, sorted topologically.
 
 ---
 
@@ -145,6 +139,18 @@ public readonly playbooks: Playbook[];
 - *Type:* <a href="#cdk-ans.Playbook">Playbook</a>[]
 
 Returns all the playbooks in this app, sorted topologically.
+
+---
+
+##### `roles`<sup>Required</sup> <a name="roles" id="cdk-ans.App.property.roles"></a>
+
+```typescript
+public readonly roles: Role[];
+```
+
+- *Type:* <a href="#cdk-ans.Role">Role</a>[]
+
+Returns all the roles in this app, sorted topologically.
 
 ---
 
@@ -550,7 +556,7 @@ new Inventory(scope: Construct, name: string)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.Inventory.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.Inventory.synth">synth</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Inventory.toJson">toJson</a></code> | *No description.* |
 
 ---
 
@@ -562,17 +568,11 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `synth` <a name="synth" id="cdk-ans.Inventory.synth"></a>
+##### `toJson` <a name="toJson" id="cdk-ans.Inventory.toJson"></a>
 
 ```typescript
-public synth(outDir: string): void
+public toJson(): any
 ```
-
-###### `outDir`<sup>Required</sup> <a name="outDir" id="cdk-ans.Inventory.synth.parameter.outDir"></a>
-
-- *Type:* string
-
----
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -691,7 +691,6 @@ new Playbook(scope: Construct, name: string)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.Playbook.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.Playbook.toJson">toJson</a></code> | Renders this playbook to a set of JSON resources. |
 
 ---
 
@@ -703,21 +702,12 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `toJson` <a name="toJson" id="cdk-ans.Playbook.toJson"></a>
-
-```typescript
-public toJson(): any[]
-```
-
-Renders this playbook to a set of JSON resources.
-
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.Playbook.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#cdk-ans.Playbook.isPlaybook">isPlaybook</a></code> | *No description.* |
-| <code><a href="#cdk-ans.Playbook.of">of</a></code> | *No description.* |
 
 ---
 
@@ -753,20 +743,6 @@ Playbook.isPlaybook(x: any)
 
 ---
 
-##### `of` <a name="of" id="cdk-ans.Playbook.of"></a>
-
-```typescript
-import { Playbook } from 'cdk-ans'
-
-Playbook.of(p: IConstruct)
-```
-
-###### `p`<sup>Required</sup> <a name="p" id="cdk-ans.Playbook.of.parameter.p"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
@@ -776,6 +752,98 @@ Playbook.of(p: IConstruct)
 ---
 
 ##### `node`<sup>Required</sup> <a name="node" id="cdk-ans.Playbook.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+
+### Role <a name="Role" id="cdk-ans.Role"></a>
+
+#### Initializers <a name="Initializers" id="cdk-ans.Role.Initializer"></a>
+
+```typescript
+import { Role } from 'cdk-ans'
+
+new Role(scope: Construct, name: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.Role.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-ans.Role.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-ans.Role.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.Role.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.Role.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="cdk-ans.Role.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.Role.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-ans.Role.isConstruct"></a>
+
+```typescript
+import { Role } from 'cdk-ans'
+
+Role.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-ans.Role.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.Role.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-ans.Role.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -804,7 +872,7 @@ const appProps: AppProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-ans.AppProps.property.outdir">outdir</a></code> | <code>string</code> | The directory to output Kubernetes manifests. |
+| <code><a href="#cdk-ans.AppProps.property.outdir">outdir</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -815,17 +883,7 @@ public readonly outdir: string;
 ```
 
 - *Type:* string
-- *Default:* CDK8S_OUTDIR if defined, otherwise "dist"
-
-The directory to output Kubernetes manifests.
-
-If you synthesize your application using `cdk8s synth`, you must
-also pass this value to the CLI using the `--output` option or
-the `output` property in the `cdk8s.yaml` configuration file.
-Otherwise, the CLI will not know about the output directory,
-and synthesis will fail.
-
-This property is intended for internal and testing use.
+- *Default:* CDKANS_OUTDIR if defined, otherwise "dist"
 
 ---
 

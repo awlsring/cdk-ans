@@ -15,7 +15,7 @@ export interface HostProps {
   readonly ansibleUser?: string;
   readonly ansiblePassword?: string;
   readonly ansibleBecome?: boolean;
-  readonly hostVariables?: Record<string, string>;
+  readonly variables?: Record<string, string>;
 }
 
 export class Host extends Construct {
@@ -42,7 +42,7 @@ export class Host extends Construct {
   readonly ansibleUser?: string;
   readonly ansiblePassword?: string;
   readonly ansibleBecome?: boolean;
-  readonly hostVariables: Record<string, string> = {};
+  readonly variables: Record<string, string> = {};
 
   constructor(scope: Construct, name: string, props: HostProps) {
     super(scope, name);
@@ -53,14 +53,14 @@ export class Host extends Construct {
     this.ansibleUser = props.ansibleUser;
     this.ansiblePassword = props.ansiblePassword;
     this.ansibleBecome = props.ansibleBecome;
-    this.hostVariables = props.hostVariables ?? {};
+    this.variables = props.variables ?? {};
   }
 
   toJson() {
     const record: Record<string, any> = {
       ansible_host: this.ansibleHost,
       ansible_connection: this.ansibleConnection,
-      ...this.hostVariables,
+      ...this.variables,
     };
 
     if (this.ansiblePort) {

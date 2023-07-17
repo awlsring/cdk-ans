@@ -26,6 +26,7 @@ const project = new cdk.JsiiProject({
 
   gitignore: [
     'tmp/*',
+    'dist-test/*',
   ],
 });
 project.package.addPackageResolutions('@types/lodash@4.14.192');
