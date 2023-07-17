@@ -3,7 +3,7 @@ import { RoleTarget } from './role-target';
 import { RunDefinition } from './run-definition';
 import { Host } from '../hosts/host';
 import { Task } from '../task/task';
-import { Chainable, Nextable } from '../task/task-definition';
+import { IChainable, INextable } from '../task/task-definition';
 
 export interface PlaybookTaskProps {
   readonly hosts: Host[];
@@ -16,7 +16,7 @@ export interface PlaybookTaskProps {
  *
  * https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html#play
  */
-export class Play extends Construct implements Chainable, Nextable {
+export class Play extends Construct implements IChainable, INextable {
   public readonly taskChain: Play[] = [this];
 
   readonly roles: RoleTarget[] = [];

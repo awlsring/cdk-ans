@@ -1,10 +1,10 @@
 import { IConstruct } from 'constructs';
 
-export interface Namer {
+export interface INamer {
   name(construct: IConstruct): string;
 }
 
-export class SimpleNamer implements Namer {
+export class SimpleNamer implements INamer {
   constructor() {
   }
 

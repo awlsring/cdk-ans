@@ -2,7 +2,7 @@ import { Construct } from 'constructs';
 import { TaskAction } from './task-action';
 
 export interface TaskBaseProps {
-  readonly action: TaskAction;
+  // readonly action: TaskAction;
   readonly name?: string;
   readonly failedWhen?: string;
   readonly changedWhen?: string;
@@ -47,7 +47,8 @@ export interface TaskBaseProps {
 }
 
 export abstract class TaskBase extends Construct {
-  readonly action: TaskAction;
+  // readonly action: TaskAction;
+  abstract action: TaskAction;
   readonly name?: string;
   readonly failedWhen?: string;
   readonly changedWhen?: string;
@@ -93,7 +94,7 @@ export abstract class TaskBase extends Construct {
   constructor(scope: Construct, name: string, props: TaskBaseProps) {
     super(scope, name);
 
-    this.action = props.action;
+    // this.action = props.action;
 
     // optional
     this.name = props.name ?? name;

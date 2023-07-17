@@ -1,7 +1,7 @@
-import { Chainable, Nextable } from '../task/task-definition';
+import { IChainable, INextable } from '../task/task-definition';
 
-export class RunDefinition<T extends Nextable> implements Chainable {
-  public static sequence<T extends Nextable>(next: T, chain: T[]): RunDefinition<T> {
+export class RunDefinition<T extends INextable> implements IChainable {
+  public static sequence<T extends INextable>(next: T, chain: T[]): RunDefinition<T> {
     chain.push(next);
     return new RunDefinition<T>(chain);
   }

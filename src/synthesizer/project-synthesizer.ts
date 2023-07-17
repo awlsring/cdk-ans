@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { InventoryOutputType, PlaybookOutputType, RoleOutputType, Synthesizer } from './synthesizer';
+import { InventoryOutputType, PlaybookOutputType, RoleOutputType, ISynthesizer } from './synthesizer';
 import { Project } from '../project';
 import { Inventory } from '../resource/inventory';
 import { Playbook } from '../resource/playbook';
@@ -76,7 +76,7 @@ export interface ProjectSynthesizerOptions {
   readonly playbookOptions?: SynthesizePlaybookOptions;
 }
 
-export class ProjectSynthesizer implements Synthesizer {
+export class ProjectSynthesizer implements ISynthesizer {
   readonly options: ProjectSynthesizerOptions;
   constructor(options?: ProjectSynthesizerOptions) {
     this.options = options ?? {};

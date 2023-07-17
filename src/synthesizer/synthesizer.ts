@@ -39,6 +39,6 @@ export enum PlaybookOutputType {
   IN_DIRECTORY,
 }
 
-export interface Synthesizer {
+export interface ISynthesizer {
   synth(project: Project, outDir: string): void;
 }

@@ -1,7 +1,7 @@
 import { Construct } from 'constructs';
-import { ActionlessTaskProps } from './action-less-task-props';
 import { Task } from '../task';
 import { TaskAction, TaskActionProps } from '../task-action';
+import { TaskBaseProps } from '../task-base';
 
 export interface CommandTaskActionProps extends TaskActionProps {
   readonly cmd: string;
@@ -14,7 +14,7 @@ export interface CommandTaskActionProps extends TaskActionProps {
   readonly stdinEmptyEnds?: boolean;
 }
 
-export interface CommandTaskProps extends ActionlessTaskProps {
+export interface CommandTaskProps extends TaskBaseProps {
   readonly command: CommandTaskActionProps;
 }
 

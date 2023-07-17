@@ -6,14 +6,14 @@ import { Inventory } from './resource/inventory';
 import { Playbook } from './resource/playbook';
 import { Role } from './resource/role';
 import { ProjectSynthesizer } from './synthesizer/project-synthesizer';
-import { Synthesizer } from './synthesizer/synthesizer';
+import { ISynthesizer } from './synthesizer/synthesizer';
 
 export interface AppProps {
   /**
    * @default - CDKANS_OUTDIR if defined, otherwise "dist"
    */
   readonly outdir?: string;
-  readonly synthesizer?: Synthesizer;
+  readonly synthesizer?: ISynthesizer;
 }
 
 /**
@@ -28,7 +28,7 @@ export class App extends Construct {
   /**
    * The synthesizer that will be used to synthesize the project.
    */
-  public readonly synthesizer: Synthesizer;
+  public readonly synthesizer: ISynthesizer;
 
   /**
    * Returns all the playbooks in this app, sorted topologically.
@@ -81,7 +81,7 @@ export class App extends Construct {
     this.synthesizer = props?.synthesizer ? props.synthesizer : this.buildDefaultSynthesizer();
   }
 
-  private buildDefaultSynthesizer(): Synthesizer {
+  private buildDefaultSynthesizer(): ISynthesizer {
     return new ProjectSynthesizer();
   }
 

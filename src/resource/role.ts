@@ -80,17 +80,17 @@ export class Role extends Resource {
     this._handlers.push(handler);
   }
 
-  addVariables(...variables: { key: string; value: any }[]) {
-    this.setVariables(this._variables, ...variables);
+  addVariables(variables: Record<string, any>) {
+    this.setVariables(this._variables, variables);
   }
 
-  addDefaultVariables(...variables: { key: string; value: any }[]) {
-    this.setVariables(this._defaults, ...variables);
+  addDefaultVariables(variables: Record<string, any>) {
+    this.setVariables(this._defaults, variables);
   }
 
-  private setVariables(variableSet: Record<string, any>, ...variables: { key: string; value: any }[]) {
-    variables.forEach(v => {
-      variableSet[v.key] = v.value;
+  private setVariables(variableSet: Record<string, any>, variables: Record<string, any>) {
+    Object.keys(variables).forEach(k => {
+      variableSet[k] = variables[k];
     });
   }
 }

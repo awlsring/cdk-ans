@@ -1,6 +1,6 @@
 import { convertKeysToSnakeCase } from '../util';
 
-export class TaskActionProps {}
+export interface TaskActionProps {}
 
 export class TaskAction {
   readonly name: string;

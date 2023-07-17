@@ -1,8 +1,8 @@
 import { Construct } from 'constructs';
-import { ActionlessTaskProps } from './action-less-task-props';
 import { Task } from '../task';
 import { TaskAction, TaskActionProps } from '../task-action';
-import { Nextable } from '../task-definition';
+import { TaskBaseProps } from '../task-base';
+import { INextable } from '../task-definition';
 
 export interface FileTaskActionProps extends TaskActionProps {
   readonly path: string;
@@ -26,11 +26,11 @@ export interface FileTaskActionProps extends TaskActionProps {
   readonly unsafe_writes?: boolean;
 }
 
-export interface FileTaskProps extends ActionlessTaskProps {
+export interface FileTaskProps extends TaskBaseProps {
   readonly file: FileTaskActionProps;
 }
 
-export class FileTask extends Task implements Nextable {
+export class FileTask extends Task implements INextable {
   constructor(scope: Construct, name: string, props: FileTaskProps) {
     const action = new TaskAction('file', props.file);
     super(scope, name, { ...props, action });

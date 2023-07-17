@@ -10,6 +10,7 @@ export * from './synthesizer/synthesizer';
 export * from './resource/inventory';
 export * from './resource/role';
 export * from './resource/playbook';
+export * from './resource/resource';
 export * from './task/built-in/command';
 export * from './task/built-in/file';
 export * from './task/built-in/ping';
