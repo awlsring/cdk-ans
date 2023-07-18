@@ -33,6 +33,7 @@ jspm_packages/
 .cache
 .tmp
 .nx/cache
+.vscode
 !/.projenrc.js
 !/.github/workflows/build.yml
 !/.mergify.yml

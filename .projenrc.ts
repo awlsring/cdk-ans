@@ -26,6 +26,7 @@ const monorepo = new NxMonorepoProject({
     "eslint-plugin-header",
     "license-checker",
   ],
+  gitignore: [".vscode"],
 });
 
 const cdkans = new JsiiProject({
@@ -80,5 +81,4 @@ testProject.eslint?.addOverride({
     ],
   },
 });
-
 monorepo.synth();
