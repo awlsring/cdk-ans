@@ -21,7 +21,7 @@ const project = new JsiiProject({
   authorAddress: "awlsring@gmail.com",
   defaultReleaseBranch: "main",
   name: "cdk-ans",
-  repositoryUrl: "https://github.com/mattcanemail/cdk-ans.git",
+  repositoryUrl: "https://github.com/awlsring/cdk-ans.git",
   projenrcTs: true,
   github: false,
   jsiiVersion: "^5",
