@@ -10,7 +10,7 @@ import { Yaml } from '../yaml';
 
 const DEFAULT_INV_DIR = 'inventories';
 const DEFAULT_ROLE_DIR = 'roles';
-const DEFAULT_PLAYBOOK_DIR = 'projects';
+const DEFAULT_PLAYBOOK_DIR = 'playbooks';
 const DEFAULT_INV_OUTPUT_TYPE = InventoryOutputType.SINGLE_FILE;
 const DEFAULT_ROLE_OUTPUT_TYPE = RoleOutputType.STANDARD;
 const DEFAULT_PLAYBOOK_OUTPUT_TYPE = PlaybookOutputType.IN_ROOT;
@@ -45,9 +45,9 @@ export interface SynthesizePlaybookOptions {
   readonly outDir?: string;
   /**
    * If a `site.yaml` should be created that includes all playbooks
-   * @default true
+   * @default false
    */
-  readonly createSitePlaybook: boolean;
+  readonly dontCreateSitePlaybook?: boolean;
   /** How to organzie playbook output
    * @default PlaybookOutputType.IN_ROOT
    */
@@ -58,10 +58,6 @@ export interface SynthesizePlaybookOptions {
  * Options on how the project synthezier should behave when synthesizing a project
  */
 export interface ProjectSynthesizerOptions {
-  /** What the project output directory should be
-   * @default Project.node.id
-   */
-  readonly projectOutDir?: string;
   /**
    * Options on how to synthesize inventories
    */
@@ -88,7 +84,7 @@ export class ProjectSynthesizer implements ISynthesizer {
     // TODO: 'validate project and nodes';
 
     /// setup project output directory
-    const rootDir = path.join(outDir, this.options.projectOutDir ?? project.node.id);
+    const rootDir = path.join(outDir, project.node.id);
     fs.mkdirSync(rootDir, { recursive: true });
 
     /// if inventories exist, synthesize them
@@ -113,12 +109,15 @@ export class ProjectSynthesizer implements ISynthesizer {
       const playbookOutputType = this.options.playbookOptions?.playbookOutputType ?? DEFAULT_PLAYBOOK_OUTPUT_TYPE;
       if (playbookOutputType === PlaybookOutputType.IN_DIRECTORY) {
         playbookDir = path.join(rootDir, this.options.playbookOptions?.outDir ?? DEFAULT_PLAYBOOK_DIR);
-        fs.mkdirSync(path.join(playbookDir), { recursive: true });
+        fs.mkdirSync(playbookDir, { recursive: true });
       }
       DEFAULT_CREATE_SITE_PLAYBOOK;
       project.playbooks.forEach(p => {
         this.synthesizePlaybook(p, playbookDir, playbookOutputType);
       });
+      if (!this.options.playbookOptions?.dontCreateSitePlaybook) {
+        this.createSitePlaybook(project.playbooks, playbookDir);
+      }
     }
   }
 
@@ -168,7 +167,6 @@ export class ProjectSynthesizer implements ISynthesizer {
 
     switch (outputType) {
       case RoleOutputType.STANDARD:
-
         if (role.runDefinition.taskChain.length > 0) {
           fs.mkdirSync(path.join(roleDir, 'tasks'), { recursive: true });
           Yaml.save(path.join(roleDir, 'tasks', 'main.yaml'), [role.runDefinition.taskChain.map(t => t.toJson())]);
@@ -214,5 +212,20 @@ export class ProjectSynthesizer implements ISynthesizer {
     outputType;
     const playbookJson = playbook.toJson();
     Yaml.save(path.join(outDir, `${playbook.node.id}.yaml`), [playbookJson]);
+  }
+
+  private createSitePlaybook(playbooks: Playbook[], outDir: string) {
+    const tasks = playbooks.map(p => {
+      return {
+        include: `${p.node.id}.yaml`,
+      };
+    });
+    const site = {
+      name: 'Site Playbook',
+      hosts: 'all',
+      gather_facts: false,
+      tasks: tasks,
+    };
+    Yaml.save(path.join(outDir, 'site.yaml'), [site]);
   }
 }

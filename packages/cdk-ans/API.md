@@ -3373,7 +3373,7 @@ public readonly taskChain: INextable[];
 
 ---
 
-##### `tasks`<sup>Required</sup> <a name="tasks" id="cdk-ans.Play.property.tasks"></a>
+##### `tasks`<sup>Optional</sup> <a name="tasks" id="cdk-ans.Play.property.tasks"></a>
 
 ```typescript
 public readonly tasks: RunDefinition;
@@ -7873,8 +7873,8 @@ const playbookTaskProps: PlaybookTaskProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.PlaybookTaskProps.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
-| <code><a href="#cdk-ans.PlaybookTaskProps.property.runDefinition">runDefinition</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
 | <code><a href="#cdk-ans.PlaybookTaskProps.property.roles">roles</a></code> | <code><a href="#cdk-ans.RoleTarget">RoleTarget</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.PlaybookTaskProps.property.runDefinition">runDefinition</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
 
 ---
 
@@ -7888,16 +7888,6 @@ public readonly hosts: Host[];
 
 ---
 
-##### `runDefinition`<sup>Required</sup> <a name="runDefinition" id="cdk-ans.PlaybookTaskProps.property.runDefinition"></a>
-
-```typescript
-public readonly runDefinition: RunDefinition;
-```
-
-- *Type:* <a href="#cdk-ans.RunDefinition">RunDefinition</a>
-
----
-
 ##### `roles`<sup>Optional</sup> <a name="roles" id="cdk-ans.PlaybookTaskProps.property.roles"></a>
 
 ```typescript
@@ -7905,6 +7895,16 @@ public readonly roles: RoleTarget[];
 ```
 
 - *Type:* <a href="#cdk-ans.RoleTarget">RoleTarget</a>[]
+
+---
+
+##### `runDefinition`<sup>Optional</sup> <a name="runDefinition" id="cdk-ans.PlaybookTaskProps.property.runDefinition"></a>
+
+```typescript
+public readonly runDefinition: RunDefinition;
+```
+
+- *Type:* <a href="#cdk-ans.RunDefinition">RunDefinition</a>
 
 ---
 
@@ -7937,7 +7937,6 @@ const projectSynthesizerOptions: ProjectSynthesizerOptions = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-ans.ProjectSynthesizerOptions.property.inventoryOptions">inventoryOptions</a></code> | <code><a href="#cdk-ans.SynthesizeInventoryOptions">SynthesizeInventoryOptions</a></code> | Options on how to synthesize inventories. |
 | <code><a href="#cdk-ans.ProjectSynthesizerOptions.property.playbookOptions">playbookOptions</a></code> | <code><a href="#cdk-ans.SynthesizePlaybookOptions">SynthesizePlaybookOptions</a></code> | Options on how to synthesize playbooks. |
-| <code><a href="#cdk-ans.ProjectSynthesizerOptions.property.projectOutDir">projectOutDir</a></code> | <code>string</code> | What the project output directory should be. |
 | <code><a href="#cdk-ans.ProjectSynthesizerOptions.property.roleOptions">roleOptions</a></code> | <code><a href="#cdk-ans.SynthesizeRoleOptions">SynthesizeRoleOptions</a></code> | Options on how to synthesize roles. |
 
 ---
@@ -7963,19 +7962,6 @@ public readonly playbookOptions: SynthesizePlaybookOptions;
 - *Type:* <a href="#cdk-ans.SynthesizePlaybookOptions">SynthesizePlaybookOptions</a>
 
 Options on how to synthesize playbooks.
-
----
-
-##### `projectOutDir`<sup>Optional</sup> <a name="projectOutDir" id="cdk-ans.ProjectSynthesizerOptions.property.projectOutDir"></a>
-
-```typescript
-public readonly projectOutDir: string;
-```
-
-- *Type:* string
-- *Default:* Project.node.id
-
-What the project output directory should be.
 
 ---
 
@@ -8447,20 +8433,20 @@ const synthesizePlaybookOptions: SynthesizePlaybookOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-ans.SynthesizePlaybookOptions.property.createSitePlaybook">createSitePlaybook</a></code> | <code>boolean</code> | If a `site.yaml` should be created that includes all playbooks. |
+| <code><a href="#cdk-ans.SynthesizePlaybookOptions.property.dontCreateSitePlaybook">dontCreateSitePlaybook</a></code> | <code>boolean</code> | If a `site.yaml` should be created that includes all playbooks. |
 | <code><a href="#cdk-ans.SynthesizePlaybookOptions.property.outDir">outDir</a></code> | <code>string</code> | Where synthezied playbooks should be saved. |
 | <code><a href="#cdk-ans.SynthesizePlaybookOptions.property.playbookOutputType">playbookOutputType</a></code> | <code><a href="#cdk-ans.PlaybookOutputType">PlaybookOutputType</a></code> | How to organzie playbook output. |
 
 ---
 
-##### `createSitePlaybook`<sup>Required</sup> <a name="createSitePlaybook" id="cdk-ans.SynthesizePlaybookOptions.property.createSitePlaybook"></a>
+##### `dontCreateSitePlaybook`<sup>Optional</sup> <a name="dontCreateSitePlaybook" id="cdk-ans.SynthesizePlaybookOptions.property.dontCreateSitePlaybook"></a>
 
 ```typescript
-public readonly createSitePlaybook: boolean;
+public readonly dontCreateSitePlaybook: boolean;
 ```
 
 - *Type:* boolean
-- *Default:* true
+- *Default:* false
 
 If a `site.yaml` should be created that includes all playbooks.
 
@@ -9952,25 +9938,9 @@ YAML utilities.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-ans.Yaml.formatObjects">formatObjects</a></code> | *No description.* |
-| <code><a href="#cdk-ans.Yaml.load">load</a></code> | Downloads a set of YAML documents (k8s manifest for example) from a URL or a file and returns them as javascript objects. |
+| <code><a href="#cdk-ans.Yaml.load">load</a></code> | Downloads a set of YAML documents from a file and returns them as javascript objects. |
 | <code><a href="#cdk-ans.Yaml.save">save</a></code> | Saves a set of objects as a multi-document YAML file. |
 | <code><a href="#cdk-ans.Yaml.stringify">stringify</a></code> | Stringify a document (or multiple documents) into YAML. |
-| <code><a href="#cdk-ans.Yaml.tmp">tmp</a></code> | Saves a set of YAML documents into a temp file (in /tmp). |
-
----
-
-##### ~~`formatObjects`~~ <a name="formatObjects" id="cdk-ans.Yaml.formatObjects"></a>
-
-```typescript
-import { Yaml } from 'cdk-ans'
-
-Yaml.formatObjects(docs: any[])
-```
-
-###### `docs`<sup>Required</sup> <a name="docs" id="cdk-ans.Yaml.formatObjects.parameter.docs"></a>
-
-- *Type:* any[]
 
 ---
 
@@ -9979,18 +9949,18 @@ Yaml.formatObjects(docs: any[])
 ```typescript
 import { Yaml } from 'cdk-ans'
 
-Yaml.load(urlOrFile: string)
+Yaml.load(file: string)
 ```
 
-Downloads a set of YAML documents (k8s manifest for example) from a URL or a file and returns them as javascript objects.
+Downloads a set of YAML documents from a file and returns them as javascript objects.
 
 Empty documents are filtered out.
 
-###### `urlOrFile`<sup>Required</sup> <a name="urlOrFile" id="cdk-ans.Yaml.load.parameter.urlOrFile"></a>
+###### `file`<sup>Required</sup> <a name="file" id="cdk-ans.Yaml.load.parameter.file"></a>
 
 - *Type:* string
 
-a URL of a file path to load from.
+path to load from.
 
 ---
 
@@ -10038,24 +10008,6 @@ undefined.
 - *Type:* any
 
 A set of objects to convert to YAML.
-
----
-
-##### `tmp` <a name="tmp" id="cdk-ans.Yaml.tmp"></a>
-
-```typescript
-import { Yaml } from 'cdk-ans'
-
-Yaml.tmp(docs: any[])
-```
-
-Saves a set of YAML documents into a temp file (in /tmp).
-
-###### `docs`<sup>Required</sup> <a name="docs" id="cdk-ans.Yaml.tmp.parameter.docs"></a>
-
-- *Type:* any[]
-
-the set of documents to save.
 
 ---
 

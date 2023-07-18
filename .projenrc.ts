@@ -25,6 +25,8 @@ const monorepo = new NxMonorepoProject({
     "@aws-prototyping-sdk/nx-monorepo@^0.19.2",
     "eslint-plugin-header",
     "license-checker",
+    "tmp",
+    "@types/tmp",
   ],
   gitignore: [".vscode"],
 });
@@ -55,12 +57,8 @@ const testProject = new TypeScriptAppProject({
   outdir: path.join("packages", "test-project"),
   defaultReleaseBranch: "main",
   name: "test-cdk-ans",
-  devDeps: [
-    "constructs",
-    "@types/follow-redirects",
-    "json-schema-to-typescript",
-    cdkans.package.packageName,
-  ],
+  deps: [cdkans.package.packageName, "constructs"],
+  devDeps: ["@types/follow-redirects", "json-schema-to-typescript"],
   gitignore: ["tmp/*", "dist-test/*"],
 });
 testProject.addTask("synth", {
@@ -81,4 +79,5 @@ testProject.eslint?.addOverride({
     ],
   },
 });
+
 monorepo.synth();

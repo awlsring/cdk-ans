@@ -5,7 +5,7 @@ import { IChainable, INextable, RunDefinition } from '../task/task-definition';
 
 export interface PlaybookTaskProps {
   readonly hosts: Host[];
-  readonly runDefinition: RunDefinition;
+  readonly runDefinition?: RunDefinition;
   readonly roles?: RoleTarget[];
 }
 
@@ -18,7 +18,7 @@ export class Play extends Construct implements IChainable, INextable {
   public readonly taskChain: INextable[] = [this];
 
   readonly roles: RoleTarget[] = [];
-  readonly tasks: RunDefinition;
+  readonly tasks?: RunDefinition;
   readonly hosts: Host[] = [];
   constructor(scope: Construct, name: string, props: PlaybookTaskProps) {
     super(scope, name);
@@ -42,9 +42,12 @@ export class Play extends Construct implements IChainable, INextable {
 
   toJson(): any {
     // TODO: more jank object instead of list fix
-    let tasks = this.tasks.toJson();
-    if (!tasks.length) {
-      tasks = [tasks];
+    let tasks = [];
+    if (this.tasks) {
+      tasks = this.tasks.toJson();
+      if (!tasks.length) {
+        tasks = [tasks];
+      }
     }
     const j: Record<string, any> = {
       name: this.node.id,

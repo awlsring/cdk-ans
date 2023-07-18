@@ -1,10 +1,7 @@
-import { execFileSync } from 'child_process';
-import * as fs from 'fs';
-import * as os from 'os';
-import * as path from 'path';
-import * as YAML from 'yaml';
+// yoinked from https://github.com/cdk8s-team/cdk8s-core/blob/2.x/src/yaml.ts and modified
 
-const MAX_DOWNLOAD_BUFFER = 10 * 1024 * 1024;
+import * as fs from 'fs';
+import * as YAML from 'yaml';
 
 // Set default YAML schema to 1.1. This ensures saved YAML is backward compatible with other parsers, such as PyYAML
 // It also ensures that octal numbers in the form `0775` will be parsed
@@ -15,13 +12,6 @@ const yamlSchemaVersion = '1.1';
  * YAML utilities.
  */
 export class Yaml {
-  /**
-   * @deprecated use `stringify(doc[, doc, ...])`
-   */
-  public static formatObjects(docs: any[]): string {
-    return this.stringify(...docs);
-  }
-
   /**
    * Saves a set of objects as a multi-document YAML file.
    * @param filePath The output path
@@ -48,29 +38,15 @@ export class Yaml {
   }
 
   /**
-   * Saves a set of YAML documents into a temp file (in /tmp)
-   *
-   * @returns the path to the temporary file
-   * @param docs the set of documents to save
-   */
-  public static tmp(docs: any[]): string {
-    const tmpdir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdk8s-'));
-    const filePath = path.join(tmpdir, 'temp.yaml');
-    Yaml.save(filePath, docs);
-    return filePath;
-  }
-
-  /**
-   * Downloads a set of YAML documents (k8s manifest for example) from a URL or
-   * a file and returns them as javascript objects.
+   * Downloads a set of YAML documents from a file and returns them as javascript objects.
    *
    * Empty documents are filtered out.
    *
-   * @param urlOrFile a URL of a file path to load from
+   * @param file path to load from
    * @returns an array of objects, each represents a document inside the YAML
    */
-  public static load(urlOrFile: string): any[] {
-    const body = loadurl(urlOrFile);
+  public static load(file: string): any[] {
+    const body = fs.readFileSync(file, { encoding: 'utf-8' });
 
     const objects = YAML.parseAllDocuments(body, {
       version: yamlSchemaVersion,
@@ -96,16 +72,4 @@ export class Yaml {
   private constructor() {
     return;
   }
-}
-
-/**
- * Loads a url (or file) and returns the contents.
- * This method spawns a child process in order to perform an http call synchronously.
- */
-function loadurl(url: string): string {
-  const script = path.join(__dirname, '_loadurl.js');
-  return execFileSync(process.execPath, [script, url], {
-    encoding: 'utf-8',
-    maxBuffer: MAX_DOWNLOAD_BUFFER,
-  }).toString();
 }
