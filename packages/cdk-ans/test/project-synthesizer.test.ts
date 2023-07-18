@@ -1,3 +1,4 @@
+import * as path from 'path';
 import { Construct } from 'constructs';
 import * as YAML from 'yaml';
 import { App, Host, Playbook, Role } from '../src';
@@ -45,14 +46,14 @@ export class PingProject extends Project {
     });
 
     const tmpFile = new File(this, 'tmp-file', {
-      path: '/Users/awlsring/Code/cdkans/tmp/resources/tmp.txt',
+      path: path.join(__dirname, 'resources', 'tmp.txt'),
     });
     const tmpFileRename = new File(this, 'tmp-file-rename', {
-      path: '/Users/awlsring/Code/cdkans/tmp/resources/tmp.txt',
+      path: path.join(__dirname, 'resources', 'tmp.txt'),
       fileName: 'tmp-copy.txt',
     });
     const tmplate = new TemplateFile(this, 'tmplate-file', {
-      path: '/Users/awlsring/Code/cdkans/tmp/resources/template.json.j2',
+      path: path.join(__dirname, 'resources', 'template.j2'),
     });
 
     const handler = new Handler(this, 'test-handler', {
