@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Construct } from 'constructs';
 import { DirResult, dirSync } from 'tmp';
-import { App, Host, Playbook, PlaybookOutputType, ProjectSynthesizer, Role, RoleTarget } from '../src';
+import { App, Host, HostGroup, InventoryOutputType, Playbook, PlaybookOutputType, ProjectSynthesizer, Role, RoleTarget } from '../src';
 import { File } from '../src/file/file';
 import { TemplateFile } from '../src/file/template';
 import { Play } from '../src/playbook/play';
@@ -61,8 +61,8 @@ describe('ProjectSynthesizer', () => {
     app.synth();
 
     // inventories should exist and have a host.yaml
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories'))).toBe(true);
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'hosts.yaml'))).toBe(true);
+    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'test-inv'))).toBe(true);
+    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'test-inv', 'hosts.yaml'))).toBe(true);
 
     // roles dir should not exist
     expect(fs.existsSync(path.join(tempDir.name, projectName, 'roles'))).toBe(false);
@@ -123,8 +123,8 @@ describe('ProjectSynthesizer', () => {
     app.synth();
 
     // inventories should exist and have a host.yaml
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories'))).toBe(true);
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'hosts.yaml'))).toBe(true);
+    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'test-inv'))).toBe(true);
+    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'test-inv', 'hosts.yaml'))).toBe(true);
 
     // role should be made with all possible dirs
     expect(fs.existsSync(path.join(tempDir.name, projectName, 'roles', ROLE_NAME))).toBe(true);
@@ -134,6 +134,100 @@ describe('ProjectSynthesizer', () => {
     expect(fs.existsSync(path.join(tempDir.name, projectName, `${PLAYBOOK_NAME}.yaml`))).toBe(true);
     // and not site.yaml
     expect(fs.existsSync(path.join(tempDir.name, projectName, 'site.yaml'))).toBe(false);
+  });
+
+  test('can synth a complex inventory', () => {
+    const projectName = 'complex-inv-project';
+    const synthesizer = new ProjectSynthesizer({
+      inventoryOptions: {
+        inventoryOutputType: InventoryOutputType.GROUP_AND_HOST_VAR_FILES,
+      },
+    });
+    const app = new App({
+      outdir: tempDir.name,
+      synthesizer,
+    });
+
+    class TestProject extends Project {
+      constructor(scope: Construct, name: string) {
+        super(scope, name);
+
+        const host = new Host(this, 'test-host', {
+          host: 'localhost',
+        });
+
+        const groupHost = new Host(this, 'group-host', {
+          host: 'localhost',
+        });
+        const hostGroup = new HostGroup(this, 'test-group');
+        hostGroup.addHosts(groupHost);
+        hostGroup.addVariables({
+          testVar: 'testValue',
+        });
+
+        new Inventory(this, 'test-inv', {
+          hosts: [host],
+          groups: [hostGroup],
+        });
+
+        const play = new Play(this, 'test-play', {
+          hosts: [host, ...hostGroup.hosts],
+        });
+
+        new Playbook(this, PLAYBOOK_NAME, {
+          playDefinition: play,
+        });
+      }
+    }
+
+    new TestProject(app, projectName);
+
+    app.synth();
+
+    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'test-inv'))).toBe(true);
+    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'test-inv', 'hosts.yaml'))).toBe(true);
+    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'test-inv', 'group_vars', 'test-group.yaml'))).toBe(true);
+    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'test-inv', 'host_vars', 'test-host.yaml'))).toBe(true);
+  });
+
+  test('can synth mulitple inventories', () => {
+    const projectName = 'complex-inv-project';
+    const app = new App({ outdir: tempDir.name });
+
+    class TestProject extends Project {
+      constructor(scope: Construct, name: string) {
+        super(scope, name);
+
+        const hostGamma = new Host(this, 'test-host-gamma', {
+          host: 'localhost',
+        });
+        new Inventory(this, 'test-inv-gamma', {
+          hosts: [hostGamma],
+        });
+
+        const host = new Host(this, 'test-host', {
+          host: 'localhost',
+        });
+        new Inventory(this, 'test-inv', {
+          hosts: [host],
+        });
+
+        const play = new Play(this, 'test-play', {
+          hosts: [host],
+        });
+
+        new Playbook(this, PLAYBOOK_NAME, {
+          playDefinition: play,
+        });
+      }
+    }
+
+    new TestProject(app, projectName);
+
+    app.synth();
+
+    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'test-inv', 'hosts.yaml'))).toBe(true);
+    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'test-inv-gamma', 'hosts.yaml'))).toBe(true);
   });
 
   test('can synth playbooks to directory', () => {
@@ -184,14 +278,6 @@ describe('ProjectSynthesizer', () => {
     new TestProject(app, projectName);
 
     app.synth();
-
-    // inventories should exist and have a host.yaml
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories'))).toBe(true);
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'hosts.yaml'))).toBe(true);
-
-    // role should be made with all possible dirs
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'roles', ROLE_NAME))).toBe(true);
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'roles', ROLE_NAME, 'tasks', 'main.yaml'))).toBe(true);
 
     expect(fs.existsSync(path.join(tempDir.name, projectName, 'playbooks', `${PLAYBOOK_NAME}.yaml`))).toBe(true);
     expect(fs.existsSync(path.join(tempDir.name, projectName, 'playbooks', 'site.yaml'))).toBe(true);

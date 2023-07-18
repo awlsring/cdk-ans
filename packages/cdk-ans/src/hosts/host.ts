@@ -56,6 +56,7 @@ export class Host extends Construct {
     this.variables = props.variables ?? {};
   }
 
+  // TODO: rename this method to variables or something since thats really all it is
   toJson() {
     const record: Record<string, any> = {
       ansible_host: this.ansibleHost,

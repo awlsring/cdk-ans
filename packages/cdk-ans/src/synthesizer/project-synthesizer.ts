@@ -20,18 +20,18 @@ export interface SynthesizeInventoryOptions {
   /** Where synthezied roles should be saved
    * @default inventories
    */
-  readonly outDir: string;
+  readonly outDir?: string;
   /** How to organzie inventory output
    * @default InventoryOutputType.SINGLE_FILE
    */
-  readonly inventoryOutputType: InventoryOutputType;
+  readonly inventoryOutputType?: InventoryOutputType;
 }
 
 export interface SynthesizeRoleOptions {
   /** Where synthezied roles should be saved
    * @default roles
    */
-  readonly outDir: string;
+  readonly outDir?: string;
   /** How to organzie role output
    * @default RoleOutputType.STANDARD
    */
@@ -122,6 +122,9 @@ export class ProjectSynthesizer implements ISynthesizer {
   }
 
   private synthesizeInventory(inventory: Inventory, outDir: string, outputType: InventoryOutputType) {
+    const invDir = path.join(outDir, inventory.node.id);
+    fs.mkdirSync(invDir, { recursive: true });
+
     switch (outputType) {
       case InventoryOutputType.SINGLE_FILE:
         const invObject: Record<string, any> = {};
@@ -152,10 +155,61 @@ export class ProjectSynthesizer implements ISynthesizer {
         const file = {
           all: invObject,
         };
-        Yaml.save(path.join(outDir, 'hosts.yaml'), [file]);
+        Yaml.save(path.join(invDir, 'hosts.yaml'), [file]);
         break;
-      // case InventoryOutputType.HOST_AND_VAR_FILES:
-      //   break;
+      case InventoryOutputType.GROUP_AND_HOST_VAR_FILES:
+        const hostObjects: Record<string, any> = {};
+        const groupVars: Record<string, Record<string, any>> = {};
+        const hostVars: Record<string, Record<string, any>> = {};
+        const hostsInGroup: string[] = [];
+
+        if (inventory.groups.length !== 0) {
+          let groups: Record<string, any> = {};
+          inventory.groups.forEach(g => {
+            groups[g.node.id] = g.toJsonMinimal();
+            g.hosts.forEach(h => {
+              hostsInGroup.push(h.node.id);
+              hostVars[h.node.id] = h.toJson();
+            });
+            groupVars[g.node.id] = g.variables;
+          });
+          hostObjects.children = groups;
+        }
+
+        if (hostsInGroup.length == inventory.hosts.length || inventory.hosts.length != 0) {
+          let ungroupedHosts: Record<string, any> = {};
+          inventory.hosts.forEach(h => {
+            if (hostsInGroup.includes(h.node.id)) {
+              return;
+            }
+            ungroupedHosts[h.node.id] = {};
+            hostVars[h.node.id] = h.toJson();
+          });
+          hostObjects.hosts = ungroupedHosts;
+        };
+
+        const minimalFile = {
+          all: hostObjects,
+        };
+        Yaml.save(path.join(invDir, 'hosts.yaml'), [minimalFile]);
+
+        if (Object.keys(groupVars).length !== 0) {
+          const groupVarDir = path.join(invDir, 'group_vars');
+          fs.mkdirSync(groupVarDir, { recursive: true });
+          Object.keys(groupVars).forEach(g => {
+            Yaml.save(path.join(groupVarDir, `${g}.yaml`), [groupVars[g]]);
+          });
+        }
+
+        if (Object.keys(hostVars).length !== 0) {
+          const hostVarDir = path.join(invDir, 'host_vars');
+          fs.mkdirSync(hostVarDir, { recursive: true });
+          Object.keys(hostVars).forEach(h => {
+            Yaml.save(path.join(hostVarDir, `${h}.yaml`), [hostVars[h]]);
+          });
+        }
+
+        break;
       default:
         throw new Error(`Unknown inventory output type: ${outputType}`);
     }

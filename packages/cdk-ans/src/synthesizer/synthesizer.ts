@@ -11,7 +11,7 @@ export enum InventoryOutputType {
   /**
    * Create a file for hosts, a file for each host's vars, and a file for each group's vars
    */
-  HOST_AND_VAR_FILES,
+  GROUP_AND_HOST_VAR_FILES,
 }
 
 /**

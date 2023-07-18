@@ -18,7 +18,7 @@ export class HostGroup extends Construct {
     });
   }
 
-  public variables() {
+  public get variables() {
     return this._variables;
   }
 
@@ -32,7 +32,27 @@ export class HostGroup extends Construct {
     this.hosts.push(...hosts);
   }
 
-  public toJson() {
+  // TODO: this seems hacky, see if there is a better way to combine both methods
+  toJsonMinimal() {
+    const j: Record<string, any> = {};
+
+    Object.keys(this.groups).map(k => this.groups[k]).forEach(g => {
+      j[g.node.id] = g.toJsonMinimal();
+    });
+
+    if (this.hosts.length !== 0) {
+      let hosts: Record<string, any> = {};
+      this.hosts.forEach(h => {
+        hosts[h.node.id] = {};
+      });
+      j.hosts = hosts;
+    }
+
+    return j;
+  }
+
+  // TODO: should 'toJson' method exist? Should JSONification be done only by synthesizer?
+  toJson() {
     const j: Record<string, any> = {};
 
     Object.keys(this.groups).map(k => this.groups[k]).forEach(g => {

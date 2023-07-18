@@ -21,8 +21,4 @@ export class Inventory extends Resource {
       this.groups = props.groups;
     }
   }
-
-  toJson(): any {
-    return {};
-  }
 }
