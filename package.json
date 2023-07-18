@@ -64,7 +64,8 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/cdk-ans"
+      "packages/cdk-ans",
+      "packages/test-project"
     ],
     "nohoist": [
       "cdk-ans/fast-json-patch",

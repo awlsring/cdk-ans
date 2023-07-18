@@ -2,6 +2,7 @@ import * as path from "path";
 import { NxMonorepoProject } from "@aws-prototyping-sdk/nx-monorepo";
 import { JsiiProject } from "projen/lib/cdk";
 import { GithubCredentials } from "projen/lib/github";
+import { TypeScriptAppProject } from "projen/lib/typescript";
 
 const monorepo = new NxMonorepoProject({
   defaultReleaseBranch: "main",
@@ -27,7 +28,7 @@ const monorepo = new NxMonorepoProject({
   ],
 });
 
-const project = new JsiiProject({
+const cdkans = new JsiiProject({
   parent: monorepo,
   outdir: path.join("packages", "cdk-ans"),
   author: "Matthew Rawlings",
@@ -46,6 +47,38 @@ const project = new JsiiProject({
 
   gitignore: ["tmp/*", "dist-test/*"],
 });
-project.package.addPackageResolutions("@types/lodash@4.14.192");
+cdkans.package.addPackageResolutions("@types/lodash@4.14.192");
+
+const testProject = new TypeScriptAppProject({
+  parent: monorepo,
+  outdir: path.join("packages", "test-project"),
+  defaultReleaseBranch: "main",
+  name: "test-cdk-ans",
+  devDeps: [
+    "constructs",
+    "@types/follow-redirects",
+    "json-schema-to-typescript",
+    cdkans.package.packageName,
+  ],
+  gitignore: ["tmp/*", "dist-test/*"],
+});
+testProject.addTask("synth", {
+  description: "synth the project",
+  exec: "ts-node src/main.ts",
+});
+testProject.eslint?.addOverride({
+  files: ["*.ts"],
+  rules: {
+    "@typescript-eslint/no-require-imports": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: true,
+        optionalDependencies: false,
+        peerDependencies: true,
+      },
+    ],
+  },
+});
 
 monorepo.synth();
