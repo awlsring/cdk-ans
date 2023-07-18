@@ -2,7 +2,7 @@
   "name": "cdk-ans",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mattcanemail/cdk-ans.git"
+    "url": "https://github.com/awlsring/cdk-ans.git"
   },
   "scripts": {
     "build": "npx projen build",

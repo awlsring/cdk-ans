@@ -1,12 +1,25 @@
 import * as path from "path";
 import { NxMonorepoProject } from "@aws-prototyping-sdk/nx-monorepo";
 import { JsiiProject } from "projen/lib/cdk";
+import { GithubCredentials } from "projen/lib/github";
 
 const monorepo = new NxMonorepoProject({
   defaultReleaseBranch: "main",
   name: "cdk-ans",
   projenrcTs: true,
-  github: false,
+  github: true,
+  release: false,
+  monorepoUpgradeDeps: true,
+  autoApproveUpgrades: true,
+  autoApproveOptions: {
+    secret: "GITHUB_TOKEN",
+    allowedUsernames: ["awlsring"],
+  },
+  githubOptions: {
+    projenCredentials: GithubCredentials.fromPersonalAccessToken({
+      secret: "PROJEN_GITHUB_TOKEN",
+    }),
+  },
   devDeps: [
     "@aws-prototyping-sdk/nx-monorepo@^0.19.2",
     "eslint-plugin-header",
@@ -22,10 +35,7 @@ const project = new JsiiProject({
   defaultReleaseBranch: "main",
   name: "cdk-ans",
   repositoryUrl: "https://github.com/awlsring/cdk-ans.git",
-  projenrcTs: true,
-  github: false,
   jsiiVersion: "^5",
-
   peerDeps: ["constructs@^10"],
   bundledDeps: ["yaml", "follow-redirects", "fast-json-patch"],
   devDeps: [
