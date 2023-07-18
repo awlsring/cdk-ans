@@ -40,11 +40,11 @@ export class PingProject extends Project {
     // build plays
     const play1 = new Play(this, 'test-play', {
       hosts: [host],
-      taskDefinition: ping.next(ping2),
+      runDefinition: ping.next(ping2),
     });
     const play2 = new Play(this, 'test-play2', {
       hosts: [host],
-      taskDefinition: commandTask.next(customTask),
+      runDefinition: commandTask.next(customTask),
     });
 
     // build playbook

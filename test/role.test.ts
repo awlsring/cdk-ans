@@ -23,7 +23,7 @@ export class TestRoleConstruct extends Construct {
     const definition = task.next(task2);
 
     new Role(this, 'test-role', {
-      taskDefinition: definition,
+      runDefinition: definition,
     });
   }
 }
@@ -51,7 +51,7 @@ describe('test Role construct', () => {
     // const definition = task.next(task2);
 
     // new Role(app, 'test', {
-    //   taskDefinition: definition,
+    //   runDefinition: definition,
     // });
 
 

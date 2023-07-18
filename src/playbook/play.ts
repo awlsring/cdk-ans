@@ -1,13 +1,11 @@
 import { Construct } from 'constructs';
 import { RoleTarget } from './role-target';
-import { RunDefinition } from './run-definition';
 import { Host } from '../hosts/host';
-import { Task } from '../task/task';
-import { IChainable, INextable } from '../task/task-definition';
+import { IChainable, INextable, RunDefinition } from '../task/task-definition';
 
 export interface PlaybookTaskProps {
   readonly hosts: Host[];
-  readonly taskDefinition: RunDefinition<Task>;
+  readonly runDefinition: RunDefinition;
   readonly roles?: RoleTarget[];
 }
 
@@ -17,20 +15,20 @@ export interface PlaybookTaskProps {
  * https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html#play
  */
 export class Play extends Construct implements IChainable, INextable {
-  public readonly taskChain: Play[] = [this];
+  public readonly taskChain: INextable[] = [this];
 
   readonly roles: RoleTarget[] = [];
-  readonly tasks: RunDefinition<Task>;
+  readonly tasks: RunDefinition;
   readonly hosts: Host[] = [];
   constructor(scope: Construct, name: string, props: PlaybookTaskProps) {
     super(scope, name);
 
     this.hosts = props.hosts ?? [];
     this.roles = props.roles ?? [];
-    this.tasks = props.taskDefinition;
+    this.tasks = props.runDefinition;
   }
 
-  next(next: Play): RunDefinition<Play> {
+  next(next: INextable): RunDefinition {
     return RunDefinition.sequence(next, this.taskChain);
   }
 

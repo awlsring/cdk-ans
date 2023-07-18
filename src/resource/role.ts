@@ -2,12 +2,12 @@ import { Construct } from 'constructs';
 import { Resource } from './resource';
 import { File } from '../file/file';
 import { TemplateFile } from '../file/template';
-import { RunDefinition } from '../playbook/run-definition';
 import { Handler } from '../task/handler';
 import { Task } from '../task/task';
+import { RunDefinition } from '../task/task-definition';
 
 export interface RoleProps {
-  readonly taskDefinition?: RunDefinition<Task>;
+  readonly runDefinition: RunDefinition;
   readonly tasksAlt?: Task[];
   readonly handlers?: Handler[];
   readonly files?: File[];
@@ -17,27 +17,16 @@ export interface RoleProps {
 }
 
 export class Role extends Resource {
-  private taskDefinition?: RunDefinition<Task>;
+  readonly runDefinition: RunDefinition;
   private _files: File[] = [];
   private _templates: TemplateFile[] = [];
   private _handlers: Handler[] = [];
   private _variables: Record<string, any> = {};
   private _defaults: Record<string, any> = {};
 
-  constructor(scope: Construct, name: string, props?: RoleProps) {
+  constructor(scope: Construct, name: string, props: RoleProps) {
     super(scope, name);
-    this.taskDefinition = props?.taskDefinition;
-  }
-
-  get tasks(): Task[] {
-    if (this.taskDefinition) {
-      return this.taskDefinition.taskChain;
-    }
-    return [];
-  }
-
-  get runDefinition(): RunDefinition<Task> | undefined {
-    return this.taskDefinition;
+    this.runDefinition = props?.runDefinition;
   }
 
   get files(): File[] {
@@ -61,11 +50,7 @@ export class Role extends Resource {
   }
 
   addTask(task: Task) {
-    if (this.taskDefinition) {
-      this.taskDefinition.taskChain.push(task);
-      return;
-    }
-    this.taskDefinition = task;
+    this.runDefinition.taskChain.push(task);
   }
 
   addFile(file: File) {

@@ -3,7 +3,6 @@ export * from './file/template';
 export * from './hosts/host';
 export * from './hosts/host-group';
 export * from './playbook/play';
-export * from './playbook/run-definition';
 export * from './playbook/role-target';
 export * from './synthesizer/project-synthesizer';
 export * from './synthesizer/synthesizer';

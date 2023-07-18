@@ -23,7 +23,7 @@ export interface FileTaskActionProps extends TaskActionProps {
   readonly seuser?: string;
   readonly src?: string;
   readonly state?: string;
-  readonly unsafe_writes?: boolean;
+  readonly unsafeWrites?: boolean;
 }
 
 export interface FileTaskProps extends TaskBaseProps {

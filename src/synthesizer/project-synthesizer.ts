@@ -169,9 +169,9 @@ export class ProjectSynthesizer implements ISynthesizer {
     switch (outputType) {
       case RoleOutputType.STANDARD:
 
-        if (role.tasks?.length > 0) {
+        if (role.runDefinition.taskChain.length > 0) {
           fs.mkdirSync(path.join(roleDir, 'tasks'), { recursive: true });
-          Yaml.save(path.join(roleDir, 'tasks', 'main.yaml'), [role.runDefinition!.toJson()]);
+          Yaml.save(path.join(roleDir, 'tasks', 'main.yaml'), [role.runDefinition.toJson()]);
         }
 
         if (role.handlers?.length > 0) {

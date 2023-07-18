@@ -2,18 +2,18 @@
 // task chaining similar to aws-cdk-stepfunctions
 
 export interface INextable {
-  next(state: INextable): TaskDefinition;
+  next(state: INextable): RunDefinition;
   toJson(): any;
 }
 
 export interface IChainable {
-  taskChain: INextable[];
+  readonly taskChain: INextable[];
 }
 
-export class TaskDefinition implements IChainable {
-  public static sequence(next: INextable, chain: INextable[]): TaskDefinition {
+export class RunDefinition implements IChainable {
+  public static sequence(next: INextable, chain: INextable[]): RunDefinition {
     chain.push(next);
-    return new TaskDefinition(chain);
+    return new RunDefinition(chain);
   }
 
   readonly taskChain: INextable[] = [];
@@ -22,8 +22,12 @@ export class TaskDefinition implements IChainable {
     this.taskChain = chain;
   }
 
-  public next(next: INextable): TaskDefinition {
+  public next(next: INextable): RunDefinition {
     this.taskChain.push(next);
-    return new TaskDefinition(this.taskChain);
+    return new RunDefinition(this.taskChain);
+  }
+
+  toJson() {
+    return this.taskChain.map(t => t.toJson());
   }
 }

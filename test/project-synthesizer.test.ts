@@ -41,7 +41,7 @@ export class PingProject extends Project {
     });
 
     const role = new Role(this, 'test-role', {
-      taskDefinition: commandTask.next(customTask),
+      runDefinition: commandTask.next(customTask),
     });
 
     const tmpFile = new File(this, 'tmp-file', {
@@ -69,7 +69,7 @@ export class PingProject extends Project {
     // build plays
     const play1 = new Play(this, 'test-play', {
       hosts: [host],
-      taskDefinition: ping.next(ping2),
+      runDefinition: ping.next(ping2),
     });
 
     // build playbook

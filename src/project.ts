@@ -4,10 +4,6 @@ import { Inventory } from './resource/inventory';
 import { Playbook } from './resource/playbook';
 import { Role } from './resource/role';
 
-export interface ProjectSynthStrategies {
-
-}
-
 export interface ProjectProps {}
 
 export class Project extends Construct {
