@@ -1,0 +1,1 @@
+export const ANSIBLE_BUILT_IN_NAMESPACE = 'ansible.builtin';

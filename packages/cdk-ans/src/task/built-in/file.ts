@@ -1,4 +1,5 @@
 import { Construct } from 'constructs';
+import { ANSIBLE_BUILT_IN_NAMESPACE } from './constant';
 import { Task } from '../task';
 import { TaskAction, TaskActionProps } from '../task-action';
 import { TaskBaseProps } from '../task-base';
@@ -32,7 +33,7 @@ export interface FileTaskProps extends TaskBaseProps {
 
 export class FileTask extends Task implements INextable {
   constructor(scope: Construct, name: string, props: FileTaskProps) {
-    const action = new TaskAction('file', props.file);
+    const action = new TaskAction(ANSIBLE_BUILT_IN_NAMESPACE+'.file', props.file);
     super(scope, name, { ...props, action });
   }
 }

@@ -1,5 +1,4 @@
 import { Construct } from 'constructs';
-import * as YAML from 'yaml';
 import { App, Host, Playbook } from '../src';
 import { Play } from '../src/playbook/play';
 import { Project } from '../src/project';
@@ -48,11 +47,9 @@ export class PingProject extends Project {
     });
 
     // build playbook
-    const p = new Playbook(this, 'test-book', {
+    new Playbook(this, 'test-book', {
       playDefinition: play1.next(play2),
     });
-
-    console.log(YAML.stringify(p.toJson()));
   }
 }
 

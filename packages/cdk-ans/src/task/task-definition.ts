@@ -27,7 +27,11 @@ export class RunDefinition implements IChainable {
     return new RunDefinition(this.taskChain);
   }
 
-  toJson() {
-    return this.taskChain.map(t => t.toJson());
+  toJson(): any[] {
+    const t: any[] = [];
+    this.taskChain.forEach(task => {
+      t.push(task.toJson());
+    });
+    return t;
   }
 }

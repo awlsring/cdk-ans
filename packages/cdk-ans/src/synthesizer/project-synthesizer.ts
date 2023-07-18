@@ -171,7 +171,7 @@ export class ProjectSynthesizer implements ISynthesizer {
 
         if (role.runDefinition.taskChain.length > 0) {
           fs.mkdirSync(path.join(roleDir, 'tasks'), { recursive: true });
-          Yaml.save(path.join(roleDir, 'tasks', 'main.yaml'), [role.runDefinition.toJson()]);
+          Yaml.save(path.join(roleDir, 'tasks', 'main.yaml'), [role.runDefinition.taskChain.map(t => t.toJson())]);
         }
 
         if (role.handlers?.length > 0) {
@@ -212,6 +212,7 @@ export class ProjectSynthesizer implements ISynthesizer {
 
   private synthesizePlaybook(playbook: Playbook, outDir: string, outputType: PlaybookOutputType) {
     outputType;
-    Yaml.save(path.join(outDir, `${playbook.node.id}.yaml`), [playbook.toJson()]);
+    const playbookJson = playbook.toJson();
+    Yaml.save(path.join(outDir, `${playbook.node.id}.yaml`), [playbookJson]);
   }
 }

@@ -15,7 +15,12 @@ export class Playbook extends Resource {
     this.playDefinition = props.playDefinition;
   }
 
-  toJson(): any {
-    return this.playDefinition.toJson();
+  toJson(): any[] {
+    const p = this.playDefinition.toJson();
+    // TODO: some janky way to fix an issue where, toJson method returns object instead of array when there is only one
+    if (!p.length) {
+      return [p];
+    }
+    return p;
   }
 }

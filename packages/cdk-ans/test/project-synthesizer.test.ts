@@ -1,7 +1,7 @@
+import * as fs from 'fs';
 import * as path from 'path';
 import { Construct } from 'constructs';
-import * as YAML from 'yaml';
-import { App, Host, Playbook, Role } from '../src';
+import { App, Host, Playbook, Role, RoleTarget } from '../src';
 import { File } from '../src/file/file';
 import { TemplateFile } from '../src/file/template';
 import { Play } from '../src/playbook/play';
@@ -10,7 +10,6 @@ import { Inventory } from '../src/resource/inventory';
 import { CommandTask } from '../src/task/built-in/command';
 import { PingTask } from '../src/task/built-in/ping';
 import { Handler } from '../src/task/handler';
-import { Task } from '../src/task/task';
 import { TaskAction } from '../src/task/task-action';
 
 export class PingProject extends Project {
@@ -27,7 +26,7 @@ export class PingProject extends Project {
 
     // declare task
     const ping = new PingTask(this, 'test-ping');
-    const ping2 = new PingTask(this, 'test-ping-2');
+    // const ping2 = new PingTask(this, 'test-ping-2');
 
     const commandTask = new CommandTask(this, 'test-command', {
       command: {
@@ -35,14 +34,9 @@ export class PingProject extends Project {
         argv: ['hello', 'world'],
       },
     });
-    const customTask = new Task(this, 'test-custom', {
-      action: new TaskAction('custom', {
-        foo: 'bar',
-      }),
-    });
 
     const role = new Role(this, 'test-role', {
-      runDefinition: commandTask.next(customTask),
+      runDefinition: commandTask,
     });
 
     const tmpFile = new File(this, 'tmp-file', {
@@ -70,25 +64,26 @@ export class PingProject extends Project {
     // build plays
     const play1 = new Play(this, 'test-play', {
       hosts: [host],
-      runDefinition: ping.next(ping2),
+      runDefinition: ping,
+      roles: [RoleTarget.fromRole(this, role)],
     });
 
     // build playbook
-    const p = new Playbook(this, 'test-book', {
+    new Playbook(this, 'test-book', {
       playDefinition: play1,
     });
-
-    console.log(YAML.stringify(p.toJson()));
   }
 }
 
 describe('ProjectSynthesizer', () => {
 
   test('can synth as expected', () => {
+    fs.rmSync(path.join(__dirname, '../tmp'), { recursive: true });
     const app = new App({ outdir: 'tmp' });
 
     new PingProject(app, 'test-project');
 
     app.synth();
+
   });
 });

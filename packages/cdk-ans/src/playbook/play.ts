@@ -41,10 +41,15 @@ export class Play extends Construct implements IChainable, INextable {
   }
 
   toJson(): any {
+    // TODO: more jank object instead of list fix
+    let tasks = this.tasks.toJson();
+    if (!tasks.length) {
+      tasks = [tasks];
+    }
     const j: Record<string, any> = {
       name: this.node.id,
       hosts: this.flattenHosts(),
-      tasks: this.tasks.toJson(),
+      tasks: tasks,
     };
     if (this.roles.length > 0) {
       j.roles = this.roles.map(role => role.toJson());

@@ -3440,7 +3440,7 @@ Returns a string representation of this construct.
 ##### `toJson` <a name="toJson" id="cdk-ans.Playbook.toJson"></a>
 
 ```typescript
-public toJson(): any
+public toJson(): any[]
 ```
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
@@ -4030,40 +4030,6 @@ Represents a targetted role for use within a playbook.
 
 https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html#role
 
-#### Initializers <a name="Initializers" id="cdk-ans.RoleTarget.Initializer"></a>
-
-```typescript
-import { RoleTarget } from 'cdk-ans'
-
-new RoleTarget(scope: Construct, name: string, props: RoleTargetProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-ans.RoleTarget.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-ans.RoleTargetProps">RoleTargetProps</a></code> | *No description.* |
-
----
-
-##### `scope`<sup>Required</sup> <a name="scope" id="cdk-ans.RoleTarget.Initializer.parameter.scope"></a>
-
-- *Type:* constructs.Construct
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.RoleTarget.Initializer.parameter.name"></a>
-
-- *Type:* string
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="cdk-ans.RoleTarget.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#cdk-ans.RoleTargetProps">RoleTargetProps</a>
-
----
-
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
@@ -4084,7 +4050,7 @@ Returns a string representation of this construct.
 ##### `toJson` <a name="toJson" id="cdk-ans.RoleTarget.toJson"></a>
 
 ```typescript
-public toJson(): void
+public toJson(): {[ key: string ]: any}
 ```
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
@@ -4092,6 +4058,7 @@ public toJson(): void
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.RoleTarget.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-ans.RoleTarget.fromRole">fromRole</a></code> | Creates a role target from a role. |
 
 ---
 
@@ -4127,39 +4094,41 @@ Any object.
 
 ---
 
+##### `fromRole` <a name="fromRole" id="cdk-ans.RoleTarget.fromRole"></a>
+
+```typescript
+import { RoleTarget } from 'cdk-ans'
+
+RoleTarget.fromRole(scope: Construct, role: Role, props?: RoleTargetProps)
+```
+
+Creates a role target from a role.
+
+###### `scope`<sup>Required</sup> <a name="scope" id="cdk-ans.RoleTarget.fromRole.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `role`<sup>Required</sup> <a name="role" id="cdk-ans.RoleTarget.fromRole.parameter.role"></a>
+
+- *Type:* <a href="#cdk-ans.Role">Role</a>
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="cdk-ans.RoleTarget.fromRole.parameter.props"></a>
+
+- *Type:* <a href="#cdk-ans.RoleTargetProps">RoleTargetProps</a>
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.RoleTarget.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-ans.RoleTarget.property.role">role</a></code> | <code><a href="#cdk-ans.Role">Role</a></code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.become">become</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.connection">connection</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.port">port</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.when">when</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.RoleTarget.property.props">props</a></code> | <code><a href="#cdk-ans.RoleTargetProps">RoleTargetProps</a></code> | *No description.* |
 
 ---
 
@@ -4185,273 +4154,13 @@ public readonly role: Role;
 
 ---
 
-##### `anyErrorsFatal`<sup>Optional</sup> <a name="anyErrorsFatal" id="cdk-ans.RoleTarget.property.anyErrorsFatal"></a>
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-ans.RoleTarget.property.props"></a>
 
 ```typescript
-public readonly anyErrorsFatal: boolean;
+public readonly props: RoleTargetProps;
 ```
 
-- *Type:* boolean
-
----
-
-##### `become`<sup>Optional</sup> <a name="become" id="cdk-ans.RoleTarget.property.become"></a>
-
-```typescript
-public readonly become: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `becomeExe`<sup>Optional</sup> <a name="becomeExe" id="cdk-ans.RoleTarget.property.becomeExe"></a>
-
-```typescript
-public readonly becomeExe: string;
-```
-
-- *Type:* string
-
----
-
-##### `becomeFlags`<sup>Optional</sup> <a name="becomeFlags" id="cdk-ans.RoleTarget.property.becomeFlags"></a>
-
-```typescript
-public readonly becomeFlags: string;
-```
-
-- *Type:* string
-
----
-
-##### `becomeMethod`<sup>Optional</sup> <a name="becomeMethod" id="cdk-ans.RoleTarget.property.becomeMethod"></a>
-
-```typescript
-public readonly becomeMethod: string;
-```
-
-- *Type:* string
-
----
-
-##### `becomeUser`<sup>Optional</sup> <a name="becomeUser" id="cdk-ans.RoleTarget.property.becomeUser"></a>
-
-```typescript
-public readonly becomeUser: string;
-```
-
-- *Type:* string
-
----
-
-##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.RoleTarget.property.checkMode"></a>
-
-```typescript
-public readonly checkMode: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `collections`<sup>Optional</sup> <a name="collections" id="cdk-ans.RoleTarget.property.collections"></a>
-
-```typescript
-public readonly collections: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `connection`<sup>Optional</sup> <a name="connection" id="cdk-ans.RoleTarget.property.connection"></a>
-
-```typescript
-public readonly connection: string;
-```
-
-- *Type:* string
-
----
-
-##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.RoleTarget.property.debugger"></a>
-
-```typescript
-public readonly debugger: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.RoleTarget.property.delegateFacts"></a>
-
-```typescript
-public readonly delegateFacts: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.RoleTarget.property.delegateTo"></a>
-
-```typescript
-public readonly delegateTo: string;
-```
-
-- *Type:* string
-
----
-
-##### `diff`<sup>Optional</sup> <a name="diff" id="cdk-ans.RoleTarget.property.diff"></a>
-
-```typescript
-public readonly diff: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `environment`<sup>Optional</sup> <a name="environment" id="cdk-ans.RoleTarget.property.environment"></a>
-
-```typescript
-public readonly environment: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.RoleTarget.property.ignoreErrors"></a>
-
-```typescript
-public readonly ignoreErrors: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `ignoreUnreachable`<sup>Optional</sup> <a name="ignoreUnreachable" id="cdk-ans.RoleTarget.property.ignoreUnreachable"></a>
-
-```typescript
-public readonly ignoreUnreachable: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `moduleDefaults`<sup>Optional</sup> <a name="moduleDefaults" id="cdk-ans.RoleTarget.property.moduleDefaults"></a>
-
-```typescript
-public readonly moduleDefaults: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.RoleTarget.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
----
-
-##### `noLog`<sup>Optional</sup> <a name="noLog" id="cdk-ans.RoleTarget.property.noLog"></a>
-
-```typescript
-public readonly noLog: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.RoleTarget.property.port"></a>
-
-```typescript
-public readonly port: number;
-```
-
-- *Type:* number
-
----
-
-##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.RoleTarget.property.remoteUser"></a>
-
-```typescript
-public readonly remoteUser: string;
-```
-
-- *Type:* string
-
----
-
-##### `runOnce`<sup>Optional</sup> <a name="runOnce" id="cdk-ans.RoleTarget.property.runOnce"></a>
-
-```typescript
-public readonly runOnce: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `tags`<sup>Optional</sup> <a name="tags" id="cdk-ans.RoleTarget.property.tags"></a>
-
-```typescript
-public readonly tags: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `throttle`<sup>Optional</sup> <a name="throttle" id="cdk-ans.RoleTarget.property.throttle"></a>
-
-```typescript
-public readonly throttle: number;
-```
-
-- *Type:* number
-
----
-
-##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.RoleTarget.property.timeout"></a>
-
-```typescript
-public readonly timeout: number;
-```
-
-- *Type:* number
-
----
-
-##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.RoleTarget.property.vars"></a>
-
-```typescript
-public readonly vars: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.RoleTarget.property.when"></a>
-
-```typescript
-public readonly when: string;
-```
-
-- *Type:* string
+- *Type:* <a href="#cdk-ans.RoleTargetProps">RoleTargetProps</a>
 
 ---
 
@@ -8390,7 +8099,6 @@ const roleTargetProps: RoleTargetProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-ans.RoleTargetProps.property.role">role</a></code> | <code><a href="#cdk-ans.Role">Role</a></code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
@@ -8408,7 +8116,6 @@ const roleTargetProps: RoleTargetProps = { ... }
 | <code><a href="#cdk-ans.RoleTargetProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTargetProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.port">port</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
@@ -8418,16 +8125,6 @@ const roleTargetProps: RoleTargetProps = { ... }
 | <code><a href="#cdk-ans.RoleTargetProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.when">when</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `role`<sup>Required</sup> <a name="role" id="cdk-ans.RoleTargetProps.property.role"></a>
-
-```typescript
-public readonly role: Role;
-```
-
-- *Type:* <a href="#cdk-ans.Role">Role</a>
 
 ---
 
@@ -8598,16 +8295,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 ```
 
 - *Type:* {[ key: string ]: any}
-
----
-
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.RoleTargetProps.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
 
 ---
 
