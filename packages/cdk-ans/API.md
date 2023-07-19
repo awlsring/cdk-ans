@@ -3211,14 +3211,14 @@ https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.
 ```typescript
 import { Play } from 'cdk-ans'
 
-new Play(scope: Construct, name: string, props: PlaybookTaskProps)
+new Play(scope: Construct, name: string, props: PlayProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.Play.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#cdk-ans.Play.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Play.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-ans.PlaybookTaskProps">PlaybookTaskProps</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Play.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-ans.PlayProps">PlayProps</a></code> | *No description.* |
 
 ---
 
@@ -3236,7 +3236,7 @@ new Play(scope: Construct, name: string, props: PlaybookTaskProps)
 
 ##### `props`<sup>Required</sup> <a name="props" id="cdk-ans.Play.Initializer.parameter.props"></a>
 
-- *Type:* <a href="#cdk-ans.PlaybookTaskProps">PlaybookTaskProps</a>
+- *Type:* <a href="#cdk-ans.PlayProps">PlayProps</a>
 
 ---
 
@@ -3331,6 +3331,7 @@ Any object.
 | <code><a href="#cdk-ans.Play.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Play.property.roles">roles</a></code> | <code><a href="#cdk-ans.RoleTarget">RoleTarget</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Play.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Play.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Play.property.tasks">tasks</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
 
 ---
@@ -3374,6 +3375,16 @@ public readonly taskChain: INextable[];
 ```
 
 - *Type:* <a href="#cdk-ans.INextable">INextable</a>[]
+
+---
+
+##### `become`<sup>Optional</sup> <a name="become" id="cdk-ans.Play.property.become"></a>
+
+```typescript
+public readonly become: boolean;
+```
+
+- *Type:* boolean
 
 ---
 
@@ -7862,27 +7873,28 @@ public readonly playDefinition: RunDefinition;
 
 ---
 
-### PlaybookTaskProps <a name="PlaybookTaskProps" id="cdk-ans.PlaybookTaskProps"></a>
+### PlayProps <a name="PlayProps" id="cdk-ans.PlayProps"></a>
 
-#### Initializer <a name="Initializer" id="cdk-ans.PlaybookTaskProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk-ans.PlayProps.Initializer"></a>
 
 ```typescript
-import { PlaybookTaskProps } from 'cdk-ans'
+import { PlayProps } from 'cdk-ans'
 
-const playbookTaskProps: PlaybookTaskProps = { ... }
+const playProps: PlayProps = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-ans.PlaybookTaskProps.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
-| <code><a href="#cdk-ans.PlaybookTaskProps.property.roles">roles</a></code> | <code><a href="#cdk-ans.RoleTarget">RoleTarget</a>[]</code> | *No description.* |
-| <code><a href="#cdk-ans.PlaybookTaskProps.property.runDefinition">runDefinition</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.roles">roles</a></code> | <code><a href="#cdk-ans.RoleTarget">RoleTarget</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.runDefinition">runDefinition</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
 
 ---
 
-##### `hosts`<sup>Required</sup> <a name="hosts" id="cdk-ans.PlaybookTaskProps.property.hosts"></a>
+##### `hosts`<sup>Required</sup> <a name="hosts" id="cdk-ans.PlayProps.property.hosts"></a>
 
 ```typescript
 public readonly hosts: Host[];
@@ -7892,7 +7904,17 @@ public readonly hosts: Host[];
 
 ---
 
-##### `roles`<sup>Optional</sup> <a name="roles" id="cdk-ans.PlaybookTaskProps.property.roles"></a>
+##### `become`<sup>Optional</sup> <a name="become" id="cdk-ans.PlayProps.property.become"></a>
+
+```typescript
+public readonly become: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `roles`<sup>Optional</sup> <a name="roles" id="cdk-ans.PlayProps.property.roles"></a>
 
 ```typescript
 public readonly roles: RoleTarget[];
@@ -7902,7 +7924,7 @@ public readonly roles: RoleTarget[];
 
 ---
 
-##### `runDefinition`<sup>Optional</sup> <a name="runDefinition" id="cdk-ans.PlaybookTaskProps.property.runDefinition"></a>
+##### `runDefinition`<sup>Optional</sup> <a name="runDefinition" id="cdk-ans.PlayProps.property.runDefinition"></a>
 
 ```typescript
 public readonly runDefinition: RunDefinition;

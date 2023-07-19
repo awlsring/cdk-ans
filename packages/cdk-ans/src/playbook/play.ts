@@ -3,8 +3,9 @@ import { RoleTarget } from './role-target';
 import { Host } from '../hosts/host';
 import { IChainable, INextable, RunDefinition } from '../task/task-definition';
 
-export interface PlaybookTaskProps {
+export interface PlayProps { // TODO: add more play props
   readonly hosts: Host[];
+  readonly become?: boolean;
   readonly runDefinition?: RunDefinition;
   readonly roles?: RoleTarget[];
 }
@@ -17,10 +18,11 @@ export interface PlaybookTaskProps {
 export class Play extends Construct implements IChainable, INextable {
   public readonly taskChain: INextable[] = [this];
 
+  readonly become?: boolean;
   readonly roles: RoleTarget[] = [];
   readonly tasks?: RunDefinition;
   readonly hosts: Host[] = [];
-  constructor(scope: Construct, name: string, props: PlaybookTaskProps) {
+  constructor(scope: Construct, name: string, props: PlayProps) {
     super(scope, name);
 
     this.hosts = props.hosts ?? [];
@@ -56,6 +58,9 @@ export class Play extends Construct implements IChainable, INextable {
     };
     if (this.roles.length > 0) {
       j.roles = this.roles.map(role => role.toJson());
+    }
+    if (this.become) {
+      j.become = this.become;
     }
     return j;
   }
