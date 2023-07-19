@@ -2321,7 +2321,7 @@ new HostGroup(scope: Construct, name: string)
 | <code><a href="#cdk-ans.HostGroup.addSubGroups">addSubGroups</a></code> | *No description.* |
 | <code><a href="#cdk-ans.HostGroup.addVariables">addVariables</a></code> | *No description.* |
 | <code><a href="#cdk-ans.HostGroup.toJson">toJson</a></code> | *No description.* |
-| <code><a href="#cdk-ans.HostGroup.variables">variables</a></code> | *No description.* |
+| <code><a href="#cdk-ans.HostGroup.toJsonMinimal">toJsonMinimal</a></code> | *No description.* |
 
 ---
 
@@ -2375,10 +2375,10 @@ public addVariables(variables: {[ key: string ]: string}): void
 public toJson(): {[ key: string ]: any}
 ```
 
-##### `variables` <a name="variables" id="cdk-ans.HostGroup.variables"></a>
+##### `toJsonMinimal` <a name="toJsonMinimal" id="cdk-ans.HostGroup.toJsonMinimal"></a>
 
 ```typescript
-public variables(): {[ key: string ]: string}
+public toJsonMinimal(): {[ key: string ]: any}
 ```
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
@@ -2428,6 +2428,7 @@ Any object.
 | <code><a href="#cdk-ans.HostGroup.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-ans.HostGroup.property.groups">groups</a></code> | <code>{[ key: string ]: <a href="#cdk-ans.HostGroup">HostGroup</a>}</code> | *No description.* |
 | <code><a href="#cdk-ans.HostGroup.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.HostGroup.property.variables">variables</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
 
 ---
 
@@ -2460,6 +2461,16 @@ public readonly hosts: Host[];
 ```
 
 - *Type:* <a href="#cdk-ans.Host">Host</a>[]
+
+---
+
+##### `variables`<sup>Required</sup> <a name="variables" id="cdk-ans.HostGroup.property.variables"></a>
+
+```typescript
+public readonly variables: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
 
 ---
 
@@ -2505,7 +2516,6 @@ new Inventory(scope: Construct, name: string, props: InventoryProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.Inventory.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.Inventory.toJson">toJson</a></code> | *No description.* |
 
 ---
 
@@ -2516,12 +2526,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `toJson` <a name="toJson" id="cdk-ans.Inventory.toJson"></a>
-
-```typescript
-public toJson(): any
-```
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -8393,7 +8397,7 @@ const synthesizeInventoryOptions: SynthesizeInventoryOptions = { ... }
 
 ---
 
-##### `inventoryOutputType`<sup>Required</sup> <a name="inventoryOutputType" id="cdk-ans.SynthesizeInventoryOptions.property.inventoryOutputType"></a>
+##### `inventoryOutputType`<sup>Optional</sup> <a name="inventoryOutputType" id="cdk-ans.SynthesizeInventoryOptions.property.inventoryOutputType"></a>
 
 ```typescript
 public readonly inventoryOutputType: InventoryOutputType;
@@ -8406,7 +8410,7 @@ How to organzie inventory output.
 
 ---
 
-##### `outDir`<sup>Required</sup> <a name="outDir" id="cdk-ans.SynthesizeInventoryOptions.property.outDir"></a>
+##### `outDir`<sup>Optional</sup> <a name="outDir" id="cdk-ans.SynthesizeInventoryOptions.property.outDir"></a>
 
 ```typescript
 public readonly outDir: string;
@@ -8499,7 +8503,7 @@ const synthesizeRoleOptions: SynthesizeRoleOptions = { ... }
 
 ---
 
-##### `outDir`<sup>Required</sup> <a name="outDir" id="cdk-ans.SynthesizeRoleOptions.property.outDir"></a>
+##### `outDir`<sup>Optional</sup> <a name="outDir" id="cdk-ans.SynthesizeRoleOptions.property.outDir"></a>
 
 ```typescript
 public readonly outDir: string;
@@ -10164,7 +10168,7 @@ How inventories should be sythesized in the output directory.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.InventoryOutputType.SINGLE_FILE">SINGLE_FILE</a></code> | Create a single inventory file including all hosts, hosts vars, and groups in one. |
-| <code><a href="#cdk-ans.InventoryOutputType.HOST_AND_VAR_FILES">HOST_AND_VAR_FILES</a></code> | Create a file for hosts, a file for each host's vars, and a file for each group's vars. |
+| <code><a href="#cdk-ans.InventoryOutputType.GROUP_AND_HOST_VAR_FILES">GROUP_AND_HOST_VAR_FILES</a></code> | Create a file for hosts, a file for each host's vars, and a file for each group's vars. |
 
 ---
 
@@ -10175,7 +10179,7 @@ Create a single inventory file including all hosts, hosts vars, and groups in on
 ---
 
 
-##### `HOST_AND_VAR_FILES` <a name="HOST_AND_VAR_FILES" id="cdk-ans.InventoryOutputType.HOST_AND_VAR_FILES"></a>
+##### `GROUP_AND_HOST_VAR_FILES` <a name="GROUP_AND_HOST_VAR_FILES" id="cdk-ans.InventoryOutputType.GROUP_AND_HOST_VAR_FILES"></a>
 
 Create a file for hosts, a file for each host's vars, and a file for each group's vars.
 
