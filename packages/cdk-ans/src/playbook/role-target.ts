@@ -1,33 +1,11 @@
 import { Construct } from 'constructs';
 import { Role } from '../resource/role';
+import { TaskBaseProps } from '../task/task-base';
 import { convertKeysToSnakeCase } from '../util';
 
-export interface RoleTargetProps {
-  readonly anyErrorsFatal?: boolean;
-  readonly become?: boolean;
-  readonly becomeExe?: string;
-  readonly becomeFlags?: string;
-  readonly becomeMethod?: string;
-  readonly becomeUser?: string;
-  readonly checkMode?: boolean;
-  readonly collections?: string[]; // probably collection typing at some point
-  readonly connection?: string;
-  readonly debugger?: boolean;
+export interface RoleTargetProps extends TaskBaseProps {
   readonly delegateFacts?: boolean;
   readonly delegateTo?: string;
-  readonly diff?: boolean;
-  readonly environment?: Record<string, any>;
-  readonly ignoreErrors?: boolean;
-  readonly ignoreUnreachable?: boolean;
-  readonly moduleDefaults?: Record<string, any>;
-  readonly noLog?: boolean;
-  readonly port?: number;
-  readonly remoteUser?: string;
-  readonly runOnce?: boolean;
-  readonly tags?: string[];
-  readonly throttle?: number;
-  readonly timeout?: number;
-  readonly vars?: Record<string, any>;
   readonly when?: string;
 }
 

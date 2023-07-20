@@ -15,4 +15,17 @@ export class Handler extends TaskBase {
     this.listen = props.listen;
     this.action = props.action;
   }
+
+  toJson() {
+    const task = {
+      name: this.name,
+      ...this.action.toJson(),
+    };
+
+    if (this.listen) {
+      task.listen = this.listen;
+    }
+
+    return task;
+  }
 }

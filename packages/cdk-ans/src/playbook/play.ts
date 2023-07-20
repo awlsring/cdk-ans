@@ -1,14 +1,37 @@
 import { Construct } from 'constructs';
 import { RoleTarget } from './role-target';
 import { Host } from '../hosts/host';
+import { Handler } from '../task/handler';
+import { TaskBaseProps } from '../task/task-base';
 import { IChainable, INextable, RunDefinition } from '../task/task-definition';
 
-export interface PlayProps { // TODO: add more play props
-  readonly name?: string;
-  readonly hosts: Host[];
-  readonly become?: boolean;
+export enum PlayHostOrder {
+  INVENTORY = 'inventory',
+  SORTED = 'sorted',
+  REVERSE_SORTED = 'reverse_sorted',
+  REVERSE_INVENTORY = 'reverse_inventory',
+  SHUFFLED = 'shuffle',
+}
+
+export interface PlayProps extends TaskBaseProps {
   readonly runDefinition?: RunDefinition;
+
+  readonly factPath?: string;
+  readonly forceHandlers?: boolean;
+  readonly gatherFacts?: boolean;
+  readonly gatherSubset?: string;
+  readonly gatherTimeout?: number;
+  readonly handlers?: Handler[]; //TODO handler target class?
+  readonly hosts: Host[]; // TODO: ability to add host groups
+  readonly maxFailPercentage?: number;
+  readonly order?: PlayHostOrder;
+  readonly postTasks?: RunDefinition;
+  readonly preTasks?: RunDefinition;
   readonly roles?: RoleTarget[];
+  readonly serial?: number;
+  readonly strategy?: string; //TODO: Vaidate string is right, uses "connection strategy"
+  readonly varsFiles?: string[];
+  readonly varPrompt?: string[];
 }
 
 /**
@@ -16,7 +39,7 @@ export interface PlayProps { // TODO: add more play props
  *
  * https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html#play
  */
-export class Play extends Construct implements IChainable, INextable {
+export class Play extends Construct implements IChainable, INextable { //TODO: User props in jsonification
   public readonly taskChain: INextable[] = [this];
   readonly name: string;
   readonly become?: boolean;

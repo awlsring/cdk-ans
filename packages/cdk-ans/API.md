@@ -234,8 +234,8 @@ new CommandTask(scope: Construct, name: string, props: CommandTaskProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.CommandTask.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.CommandTask.toJson">toJson</a></code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.next">next</a></code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTask.toJson">toJson</a></code> | *No description.* |
 
 ---
 
@@ -246,12 +246,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `toJson` <a name="toJson" id="cdk-ans.CommandTask.toJson"></a>
-
-```typescript
-public toJson(): any
-```
 
 ##### `next` <a name="next" id="cdk-ans.CommandTask.next"></a>
 
@@ -264,6 +258,12 @@ public next(next: INextable): RunDefinition
 - *Type:* <a href="#cdk-ans.INextable">INextable</a>
 
 ---
+
+##### `toJson` <a name="toJson" id="cdk-ans.CommandTask.toJson"></a>
+
+```typescript
+public toJson(): any
+```
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -310,46 +310,32 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.CommandTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-ans.CommandTask.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTask.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.args">args</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.async">async</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.changedWhen">changedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.connection">connection</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.delay">delay</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTask.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.notify">notify</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.poll">poll</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.port">port</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.when">when</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.with">with</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTask.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTask.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTask.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTask.property.params">params</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
 
 ---
@@ -366,13 +352,13 @@ The tree node.
 
 ---
 
-##### `action`<sup>Required</sup> <a name="action" id="cdk-ans.CommandTask.property.action"></a>
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.CommandTask.property.name"></a>
 
 ```typescript
-public readonly action: TaskAction;
+public readonly name: string;
 ```
 
-- *Type:* <a href="#cdk-ans.TaskAction">TaskAction</a>
+- *Type:* string
 
 ---
 
@@ -383,26 +369,6 @@ public readonly anyErrorsFatal: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `args`<sup>Optional</sup> <a name="args" id="cdk-ans.CommandTask.property.args"></a>
-
-```typescript
-public readonly args: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `async`<sup>Optional</sup> <a name="async" id="cdk-ans.CommandTask.property.async"></a>
-
-```typescript
-public readonly async: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -456,16 +422,6 @@ public readonly becomeUser: string;
 
 ---
 
-##### `changedWhen`<sup>Optional</sup> <a name="changedWhen" id="cdk-ans.CommandTask.property.changedWhen"></a>
-
-```typescript
-public readonly changedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.CommandTask.property.checkMode"></a>
 
 ```typescript
@@ -496,33 +452,13 @@ public readonly connection: string;
 
 ---
 
-##### `delay`<sup>Optional</sup> <a name="delay" id="cdk-ans.CommandTask.property.delay"></a>
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.CommandTask.property.debugger"></a>
 
 ```typescript
-public readonly delay: number;
-```
-
-- *Type:* number
-
----
-
-##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.CommandTask.property.delegateFacts"></a>
-
-```typescript
-public readonly delegateFacts: boolean;
+public readonly debugger: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.CommandTask.property.delegateTo"></a>
-
-```typescript
-public readonly delegateTo: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -546,16 +482,6 @@ public readonly environment: {[ key: string ]: any};
 
 ---
 
-##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.CommandTask.property.failedWhen"></a>
-
-```typescript
-public readonly failedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.CommandTask.property.ignoreErrors"></a>
 
 ```typescript
@@ -576,36 +502,6 @@ public readonly ignoreUnreachable: boolean;
 
 ---
 
-##### `localAction`<sup>Optional</sup> <a name="localAction" id="cdk-ans.CommandTask.property.localAction"></a>
-
-```typescript
-public readonly localAction: string;
-```
-
-- *Type:* string
-
----
-
-##### `loop`<sup>Optional</sup> <a name="loop" id="cdk-ans.CommandTask.property.loop"></a>
-
-```typescript
-public readonly loop: string | string[];
-```
-
-- *Type:* string | string[]
-
----
-
-##### `loopControl`<sup>Optional</sup> <a name="loopControl" id="cdk-ans.CommandTask.property.loopControl"></a>
-
-```typescript
-public readonly loopControl: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
 ##### `moduleDefaults`<sup>Optional</sup> <a name="moduleDefaults" id="cdk-ans.CommandTask.property.moduleDefaults"></a>
 
 ```typescript
@@ -613,16 +509,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 ```
 
 - *Type:* {[ key: string ]: any}
-
----
-
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.CommandTask.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -636,26 +522,6 @@ public readonly noLog: boolean;
 
 ---
 
-##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.CommandTask.property.notify"></a>
-
-```typescript
-public readonly notify: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `poll`<sup>Optional</sup> <a name="poll" id="cdk-ans.CommandTask.property.poll"></a>
-
-```typescript
-public readonly poll: number;
-```
-
-- *Type:* number
-
----
-
 ##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.CommandTask.property.port"></a>
 
 ```typescript
@@ -666,16 +532,6 @@ public readonly port: number;
 
 ---
 
-##### `register`<sup>Optional</sup> <a name="register" id="cdk-ans.CommandTask.property.register"></a>
-
-```typescript
-public readonly register: string;
-```
-
-- *Type:* string
-
----
-
 ##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.CommandTask.property.remoteUser"></a>
 
 ```typescript
@@ -683,16 +539,6 @@ public readonly remoteUser: string;
 ```
 
 - *Type:* string
-
----
-
-##### `retries`<sup>Optional</sup> <a name="retries" id="cdk-ans.CommandTask.property.retries"></a>
-
-```typescript
-public readonly retries: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -726,43 +572,43 @@ public readonly throttle: number;
 
 ---
 
-##### `until`<sup>Optional</sup> <a name="until" id="cdk-ans.CommandTask.property.until"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.CommandTask.property.timeout"></a>
 
 ```typescript
-public readonly until: string;
+public readonly timeout: number;
 ```
 
-- *Type:* string
+- *Type:* number
 
 ---
 
-##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.CommandTask.property.when"></a>
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.CommandTask.property.vars"></a>
 
 ```typescript
-public readonly when: string;
+public readonly vars: {[ key: string ]: any};
 ```
 
-- *Type:* string
+- *Type:* {[ key: string ]: any}
 
 ---
 
-##### `with`<sup>Optional</sup> <a name="with" id="cdk-ans.CommandTask.property.with"></a>
+##### `action`<sup>Required</sup> <a name="action" id="cdk-ans.CommandTask.property.action"></a>
 
 ```typescript
-public readonly with: string[];
+public readonly action: TaskAction;
 ```
 
-- *Type:* string[]
+- *Type:* <a href="#cdk-ans.TaskAction">TaskAction</a>
 
 ---
 
-##### `withItems`<sup>Optional</sup> <a name="withItems" id="cdk-ans.CommandTask.property.withItems"></a>
+##### `params`<sup>Required</sup> <a name="params" id="cdk-ans.CommandTask.property.params"></a>
 
 ```typescript
-public readonly withItems: {[ key: string ]: any}[];
+public readonly params: {[ key: string ]: any};
 ```
 
-- *Type:* {[ key: string ]: any}[]
+- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -955,8 +801,8 @@ new FileTask(scope: Construct, name: string, props: FileTaskProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.FileTask.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.FileTask.toJson">toJson</a></code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.next">next</a></code> | *No description.* |
+| <code><a href="#cdk-ans.FileTask.toJson">toJson</a></code> | *No description.* |
 
 ---
 
@@ -967,12 +813,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `toJson` <a name="toJson" id="cdk-ans.FileTask.toJson"></a>
-
-```typescript
-public toJson(): any
-```
 
 ##### `next` <a name="next" id="cdk-ans.FileTask.next"></a>
 
@@ -985,6 +825,12 @@ public next(next: INextable): RunDefinition
 - *Type:* <a href="#cdk-ans.INextable">INextable</a>
 
 ---
+
+##### `toJson` <a name="toJson" id="cdk-ans.FileTask.toJson"></a>
+
+```typescript
+public toJson(): any
+```
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -1031,46 +877,32 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.FileTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-ans.FileTask.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
+| <code><a href="#cdk-ans.FileTask.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.args">args</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.async">async</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.changedWhen">changedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.connection">connection</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.delay">delay</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.FileTask.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.notify">notify</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.poll">poll</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.port">port</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.when">when</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.with">with</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
+| <code><a href="#cdk-ans.FileTask.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.FileTask.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.FileTask.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
+| <code><a href="#cdk-ans.FileTask.property.params">params</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
 
 ---
@@ -1087,13 +919,13 @@ The tree node.
 
 ---
 
-##### `action`<sup>Required</sup> <a name="action" id="cdk-ans.FileTask.property.action"></a>
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.FileTask.property.name"></a>
 
 ```typescript
-public readonly action: TaskAction;
+public readonly name: string;
 ```
 
-- *Type:* <a href="#cdk-ans.TaskAction">TaskAction</a>
+- *Type:* string
 
 ---
 
@@ -1104,26 +936,6 @@ public readonly anyErrorsFatal: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `args`<sup>Optional</sup> <a name="args" id="cdk-ans.FileTask.property.args"></a>
-
-```typescript
-public readonly args: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `async`<sup>Optional</sup> <a name="async" id="cdk-ans.FileTask.property.async"></a>
-
-```typescript
-public readonly async: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -1177,16 +989,6 @@ public readonly becomeUser: string;
 
 ---
 
-##### `changedWhen`<sup>Optional</sup> <a name="changedWhen" id="cdk-ans.FileTask.property.changedWhen"></a>
-
-```typescript
-public readonly changedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.FileTask.property.checkMode"></a>
 
 ```typescript
@@ -1217,33 +1019,13 @@ public readonly connection: string;
 
 ---
 
-##### `delay`<sup>Optional</sup> <a name="delay" id="cdk-ans.FileTask.property.delay"></a>
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.FileTask.property.debugger"></a>
 
 ```typescript
-public readonly delay: number;
-```
-
-- *Type:* number
-
----
-
-##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.FileTask.property.delegateFacts"></a>
-
-```typescript
-public readonly delegateFacts: boolean;
+public readonly debugger: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.FileTask.property.delegateTo"></a>
-
-```typescript
-public readonly delegateTo: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -1267,16 +1049,6 @@ public readonly environment: {[ key: string ]: any};
 
 ---
 
-##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.FileTask.property.failedWhen"></a>
-
-```typescript
-public readonly failedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.FileTask.property.ignoreErrors"></a>
 
 ```typescript
@@ -1297,36 +1069,6 @@ public readonly ignoreUnreachable: boolean;
 
 ---
 
-##### `localAction`<sup>Optional</sup> <a name="localAction" id="cdk-ans.FileTask.property.localAction"></a>
-
-```typescript
-public readonly localAction: string;
-```
-
-- *Type:* string
-
----
-
-##### `loop`<sup>Optional</sup> <a name="loop" id="cdk-ans.FileTask.property.loop"></a>
-
-```typescript
-public readonly loop: string | string[];
-```
-
-- *Type:* string | string[]
-
----
-
-##### `loopControl`<sup>Optional</sup> <a name="loopControl" id="cdk-ans.FileTask.property.loopControl"></a>
-
-```typescript
-public readonly loopControl: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
 ##### `moduleDefaults`<sup>Optional</sup> <a name="moduleDefaults" id="cdk-ans.FileTask.property.moduleDefaults"></a>
 
 ```typescript
@@ -1334,16 +1076,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 ```
 
 - *Type:* {[ key: string ]: any}
-
----
-
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.FileTask.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -1357,26 +1089,6 @@ public readonly noLog: boolean;
 
 ---
 
-##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.FileTask.property.notify"></a>
-
-```typescript
-public readonly notify: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `poll`<sup>Optional</sup> <a name="poll" id="cdk-ans.FileTask.property.poll"></a>
-
-```typescript
-public readonly poll: number;
-```
-
-- *Type:* number
-
----
-
 ##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.FileTask.property.port"></a>
 
 ```typescript
@@ -1387,16 +1099,6 @@ public readonly port: number;
 
 ---
 
-##### `register`<sup>Optional</sup> <a name="register" id="cdk-ans.FileTask.property.register"></a>
-
-```typescript
-public readonly register: string;
-```
-
-- *Type:* string
-
----
-
 ##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.FileTask.property.remoteUser"></a>
 
 ```typescript
@@ -1404,16 +1106,6 @@ public readonly remoteUser: string;
 ```
 
 - *Type:* string
-
----
-
-##### `retries`<sup>Optional</sup> <a name="retries" id="cdk-ans.FileTask.property.retries"></a>
-
-```typescript
-public readonly retries: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -1447,43 +1139,43 @@ public readonly throttle: number;
 
 ---
 
-##### `until`<sup>Optional</sup> <a name="until" id="cdk-ans.FileTask.property.until"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.FileTask.property.timeout"></a>
 
 ```typescript
-public readonly until: string;
+public readonly timeout: number;
 ```
 
-- *Type:* string
+- *Type:* number
 
 ---
 
-##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.FileTask.property.when"></a>
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.FileTask.property.vars"></a>
 
 ```typescript
-public readonly when: string;
+public readonly vars: {[ key: string ]: any};
 ```
 
-- *Type:* string
+- *Type:* {[ key: string ]: any}
 
 ---
 
-##### `with`<sup>Optional</sup> <a name="with" id="cdk-ans.FileTask.property.with"></a>
+##### `action`<sup>Required</sup> <a name="action" id="cdk-ans.FileTask.property.action"></a>
 
 ```typescript
-public readonly with: string[];
+public readonly action: TaskAction;
 ```
 
-- *Type:* string[]
+- *Type:* <a href="#cdk-ans.TaskAction">TaskAction</a>
 
 ---
 
-##### `withItems`<sup>Optional</sup> <a name="withItems" id="cdk-ans.FileTask.property.withItems"></a>
+##### `params`<sup>Required</sup> <a name="params" id="cdk-ans.FileTask.property.params"></a>
 
 ```typescript
-public readonly withItems: {[ key: string ]: any}[];
+public readonly params: {[ key: string ]: any};
 ```
 
-- *Type:* {[ key: string ]: any}[]
+- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -1602,46 +1294,31 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.Handler.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-ans.Handler.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Handler.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.args">args</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.async">async</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.changedWhen">changedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.connection">connection</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.delay">delay</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Handler.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.notify">notify</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.poll">poll</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.port">port</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.when">when</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.with">with</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.Handler.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Handler.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.Handler.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.Handler.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.listen">listen</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -1658,13 +1335,13 @@ The tree node.
 
 ---
 
-##### `action`<sup>Required</sup> <a name="action" id="cdk-ans.Handler.property.action"></a>
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.Handler.property.name"></a>
 
 ```typescript
-public readonly action: TaskAction;
+public readonly name: string;
 ```
 
-- *Type:* <a href="#cdk-ans.TaskAction">TaskAction</a>
+- *Type:* string
 
 ---
 
@@ -1675,26 +1352,6 @@ public readonly anyErrorsFatal: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `args`<sup>Optional</sup> <a name="args" id="cdk-ans.Handler.property.args"></a>
-
-```typescript
-public readonly args: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `async`<sup>Optional</sup> <a name="async" id="cdk-ans.Handler.property.async"></a>
-
-```typescript
-public readonly async: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -1748,16 +1405,6 @@ public readonly becomeUser: string;
 
 ---
 
-##### `changedWhen`<sup>Optional</sup> <a name="changedWhen" id="cdk-ans.Handler.property.changedWhen"></a>
-
-```typescript
-public readonly changedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.Handler.property.checkMode"></a>
 
 ```typescript
@@ -1788,33 +1435,13 @@ public readonly connection: string;
 
 ---
 
-##### `delay`<sup>Optional</sup> <a name="delay" id="cdk-ans.Handler.property.delay"></a>
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.Handler.property.debugger"></a>
 
 ```typescript
-public readonly delay: number;
-```
-
-- *Type:* number
-
----
-
-##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.Handler.property.delegateFacts"></a>
-
-```typescript
-public readonly delegateFacts: boolean;
+public readonly debugger: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.Handler.property.delegateTo"></a>
-
-```typescript
-public readonly delegateTo: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -1838,16 +1465,6 @@ public readonly environment: {[ key: string ]: any};
 
 ---
 
-##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.Handler.property.failedWhen"></a>
-
-```typescript
-public readonly failedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.Handler.property.ignoreErrors"></a>
 
 ```typescript
@@ -1868,36 +1485,6 @@ public readonly ignoreUnreachable: boolean;
 
 ---
 
-##### `localAction`<sup>Optional</sup> <a name="localAction" id="cdk-ans.Handler.property.localAction"></a>
-
-```typescript
-public readonly localAction: string;
-```
-
-- *Type:* string
-
----
-
-##### `loop`<sup>Optional</sup> <a name="loop" id="cdk-ans.Handler.property.loop"></a>
-
-```typescript
-public readonly loop: string | string[];
-```
-
-- *Type:* string | string[]
-
----
-
-##### `loopControl`<sup>Optional</sup> <a name="loopControl" id="cdk-ans.Handler.property.loopControl"></a>
-
-```typescript
-public readonly loopControl: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
 ##### `moduleDefaults`<sup>Optional</sup> <a name="moduleDefaults" id="cdk-ans.Handler.property.moduleDefaults"></a>
 
 ```typescript
@@ -1905,16 +1492,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 ```
 
 - *Type:* {[ key: string ]: any}
-
----
-
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.Handler.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -1928,26 +1505,6 @@ public readonly noLog: boolean;
 
 ---
 
-##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.Handler.property.notify"></a>
-
-```typescript
-public readonly notify: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `poll`<sup>Optional</sup> <a name="poll" id="cdk-ans.Handler.property.poll"></a>
-
-```typescript
-public readonly poll: number;
-```
-
-- *Type:* number
-
----
-
 ##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.Handler.property.port"></a>
 
 ```typescript
@@ -1958,16 +1515,6 @@ public readonly port: number;
 
 ---
 
-##### `register`<sup>Optional</sup> <a name="register" id="cdk-ans.Handler.property.register"></a>
-
-```typescript
-public readonly register: string;
-```
-
-- *Type:* string
-
----
-
 ##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.Handler.property.remoteUser"></a>
 
 ```typescript
@@ -1975,16 +1522,6 @@ public readonly remoteUser: string;
 ```
 
 - *Type:* string
-
----
-
-##### `retries`<sup>Optional</sup> <a name="retries" id="cdk-ans.Handler.property.retries"></a>
-
-```typescript
-public readonly retries: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -2018,43 +1555,33 @@ public readonly throttle: number;
 
 ---
 
-##### `until`<sup>Optional</sup> <a name="until" id="cdk-ans.Handler.property.until"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.Handler.property.timeout"></a>
 
 ```typescript
-public readonly until: string;
+public readonly timeout: number;
 ```
 
-- *Type:* string
+- *Type:* number
 
 ---
 
-##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.Handler.property.when"></a>
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.Handler.property.vars"></a>
 
 ```typescript
-public readonly when: string;
+public readonly vars: {[ key: string ]: any};
 ```
 
-- *Type:* string
+- *Type:* {[ key: string ]: any}
 
 ---
 
-##### `with`<sup>Optional</sup> <a name="with" id="cdk-ans.Handler.property.with"></a>
+##### `action`<sup>Required</sup> <a name="action" id="cdk-ans.Handler.property.action"></a>
 
 ```typescript
-public readonly with: string[];
+public readonly action: TaskAction;
 ```
 
-- *Type:* string[]
-
----
-
-##### `withItems`<sup>Optional</sup> <a name="withItems" id="cdk-ans.Handler.property.withItems"></a>
-
-```typescript
-public readonly withItems: {[ key: string ]: any}[];
-```
-
-- *Type:* {[ key: string ]: any}[]
+- *Type:* <a href="#cdk-ans.TaskAction">TaskAction</a>
 
 ---
 
@@ -2653,8 +2180,8 @@ new PingTask(scope: Construct, name: string, props?: PingTaskProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.PingTask.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.PingTask.toJson">toJson</a></code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.next">next</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PingTask.toJson">toJson</a></code> | *No description.* |
 
 ---
 
@@ -2665,12 +2192,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `toJson` <a name="toJson" id="cdk-ans.PingTask.toJson"></a>
-
-```typescript
-public toJson(): any
-```
 
 ##### `next` <a name="next" id="cdk-ans.PingTask.next"></a>
 
@@ -2683,6 +2204,12 @@ public next(next: INextable): RunDefinition
 - *Type:* <a href="#cdk-ans.INextable">INextable</a>
 
 ---
+
+##### `toJson` <a name="toJson" id="cdk-ans.PingTask.toJson"></a>
+
+```typescript
+public toJson(): any
+```
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -2729,46 +2256,32 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.PingTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-ans.PingTask.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PingTask.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.args">args</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.async">async</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.changedWhen">changedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.connection">connection</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.delay">delay</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PingTask.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.notify">notify</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.poll">poll</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.port">port</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.when">when</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.with">with</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
+| <code><a href="#cdk-ans.PingTask.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.PingTask.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.PingTask.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PingTask.property.params">params</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
 
 ---
@@ -2785,13 +2298,13 @@ The tree node.
 
 ---
 
-##### `action`<sup>Required</sup> <a name="action" id="cdk-ans.PingTask.property.action"></a>
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.PingTask.property.name"></a>
 
 ```typescript
-public readonly action: TaskAction;
+public readonly name: string;
 ```
 
-- *Type:* <a href="#cdk-ans.TaskAction">TaskAction</a>
+- *Type:* string
 
 ---
 
@@ -2802,26 +2315,6 @@ public readonly anyErrorsFatal: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `args`<sup>Optional</sup> <a name="args" id="cdk-ans.PingTask.property.args"></a>
-
-```typescript
-public readonly args: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `async`<sup>Optional</sup> <a name="async" id="cdk-ans.PingTask.property.async"></a>
-
-```typescript
-public readonly async: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -2875,16 +2368,6 @@ public readonly becomeUser: string;
 
 ---
 
-##### `changedWhen`<sup>Optional</sup> <a name="changedWhen" id="cdk-ans.PingTask.property.changedWhen"></a>
-
-```typescript
-public readonly changedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.PingTask.property.checkMode"></a>
 
 ```typescript
@@ -2915,33 +2398,13 @@ public readonly connection: string;
 
 ---
 
-##### `delay`<sup>Optional</sup> <a name="delay" id="cdk-ans.PingTask.property.delay"></a>
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.PingTask.property.debugger"></a>
 
 ```typescript
-public readonly delay: number;
-```
-
-- *Type:* number
-
----
-
-##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.PingTask.property.delegateFacts"></a>
-
-```typescript
-public readonly delegateFacts: boolean;
+public readonly debugger: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.PingTask.property.delegateTo"></a>
-
-```typescript
-public readonly delegateTo: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -2965,16 +2428,6 @@ public readonly environment: {[ key: string ]: any};
 
 ---
 
-##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.PingTask.property.failedWhen"></a>
-
-```typescript
-public readonly failedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.PingTask.property.ignoreErrors"></a>
 
 ```typescript
@@ -2995,36 +2448,6 @@ public readonly ignoreUnreachable: boolean;
 
 ---
 
-##### `localAction`<sup>Optional</sup> <a name="localAction" id="cdk-ans.PingTask.property.localAction"></a>
-
-```typescript
-public readonly localAction: string;
-```
-
-- *Type:* string
-
----
-
-##### `loop`<sup>Optional</sup> <a name="loop" id="cdk-ans.PingTask.property.loop"></a>
-
-```typescript
-public readonly loop: string | string[];
-```
-
-- *Type:* string | string[]
-
----
-
-##### `loopControl`<sup>Optional</sup> <a name="loopControl" id="cdk-ans.PingTask.property.loopControl"></a>
-
-```typescript
-public readonly loopControl: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
 ##### `moduleDefaults`<sup>Optional</sup> <a name="moduleDefaults" id="cdk-ans.PingTask.property.moduleDefaults"></a>
 
 ```typescript
@@ -3032,16 +2455,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 ```
 
 - *Type:* {[ key: string ]: any}
-
----
-
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.PingTask.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -3055,26 +2468,6 @@ public readonly noLog: boolean;
 
 ---
 
-##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.PingTask.property.notify"></a>
-
-```typescript
-public readonly notify: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `poll`<sup>Optional</sup> <a name="poll" id="cdk-ans.PingTask.property.poll"></a>
-
-```typescript
-public readonly poll: number;
-```
-
-- *Type:* number
-
----
-
 ##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.PingTask.property.port"></a>
 
 ```typescript
@@ -3085,16 +2478,6 @@ public readonly port: number;
 
 ---
 
-##### `register`<sup>Optional</sup> <a name="register" id="cdk-ans.PingTask.property.register"></a>
-
-```typescript
-public readonly register: string;
-```
-
-- *Type:* string
-
----
-
 ##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.PingTask.property.remoteUser"></a>
 
 ```typescript
@@ -3102,16 +2485,6 @@ public readonly remoteUser: string;
 ```
 
 - *Type:* string
-
----
-
-##### `retries`<sup>Optional</sup> <a name="retries" id="cdk-ans.PingTask.property.retries"></a>
-
-```typescript
-public readonly retries: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -3145,43 +2518,43 @@ public readonly throttle: number;
 
 ---
 
-##### `until`<sup>Optional</sup> <a name="until" id="cdk-ans.PingTask.property.until"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.PingTask.property.timeout"></a>
 
 ```typescript
-public readonly until: string;
+public readonly timeout: number;
 ```
 
-- *Type:* string
+- *Type:* number
 
 ---
 
-##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.PingTask.property.when"></a>
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.PingTask.property.vars"></a>
 
 ```typescript
-public readonly when: string;
+public readonly vars: {[ key: string ]: any};
 ```
 
-- *Type:* string
+- *Type:* {[ key: string ]: any}
 
 ---
 
-##### `with`<sup>Optional</sup> <a name="with" id="cdk-ans.PingTask.property.with"></a>
+##### `action`<sup>Required</sup> <a name="action" id="cdk-ans.PingTask.property.action"></a>
 
 ```typescript
-public readonly with: string[];
+public readonly action: TaskAction;
 ```
 
-- *Type:* string[]
+- *Type:* <a href="#cdk-ans.TaskAction">TaskAction</a>
 
 ---
 
-##### `withItems`<sup>Optional</sup> <a name="withItems" id="cdk-ans.PingTask.property.withItems"></a>
+##### `params`<sup>Required</sup> <a name="params" id="cdk-ans.PingTask.property.params"></a>
 
 ```typescript
-public readonly withItems: {[ key: string ]: any}[];
+public readonly params: {[ key: string ]: any};
 ```
 
-- *Type:* {[ key: string ]: any}[]
+- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -4234,8 +3607,8 @@ new Task(scope: Construct, name: string, props: TaskProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.Task.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.Task.toJson">toJson</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Task.next">next</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Task.toJson">toJson</a></code> | *No description.* |
 
 ---
 
@@ -4246,12 +3619,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `toJson` <a name="toJson" id="cdk-ans.Task.toJson"></a>
-
-```typescript
-public toJson(): any
-```
 
 ##### `next` <a name="next" id="cdk-ans.Task.next"></a>
 
@@ -4264,6 +3631,12 @@ public next(next: INextable): RunDefinition
 - *Type:* <a href="#cdk-ans.INextable">INextable</a>
 
 ---
+
+##### `toJson` <a name="toJson" id="cdk-ans.Task.toJson"></a>
+
+```typescript
+public toJson(): any
+```
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -4310,46 +3683,32 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.Task.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-ans.Task.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Task.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.args">args</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.async">async</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.changedWhen">changedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.connection">connection</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.delay">delay</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Task.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.notify">notify</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.poll">poll</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.port">port</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.when">when</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.with">with</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Task.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.Task.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.Task.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Task.property.params">params</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
 
 ---
@@ -4366,13 +3725,13 @@ The tree node.
 
 ---
 
-##### `action`<sup>Required</sup> <a name="action" id="cdk-ans.Task.property.action"></a>
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.Task.property.name"></a>
 
 ```typescript
-public readonly action: TaskAction;
+public readonly name: string;
 ```
 
-- *Type:* <a href="#cdk-ans.TaskAction">TaskAction</a>
+- *Type:* string
 
 ---
 
@@ -4383,26 +3742,6 @@ public readonly anyErrorsFatal: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `args`<sup>Optional</sup> <a name="args" id="cdk-ans.Task.property.args"></a>
-
-```typescript
-public readonly args: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `async`<sup>Optional</sup> <a name="async" id="cdk-ans.Task.property.async"></a>
-
-```typescript
-public readonly async: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -4456,16 +3795,6 @@ public readonly becomeUser: string;
 
 ---
 
-##### `changedWhen`<sup>Optional</sup> <a name="changedWhen" id="cdk-ans.Task.property.changedWhen"></a>
-
-```typescript
-public readonly changedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.Task.property.checkMode"></a>
 
 ```typescript
@@ -4496,33 +3825,13 @@ public readonly connection: string;
 
 ---
 
-##### `delay`<sup>Optional</sup> <a name="delay" id="cdk-ans.Task.property.delay"></a>
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.Task.property.debugger"></a>
 
 ```typescript
-public readonly delay: number;
-```
-
-- *Type:* number
-
----
-
-##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.Task.property.delegateFacts"></a>
-
-```typescript
-public readonly delegateFacts: boolean;
+public readonly debugger: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.Task.property.delegateTo"></a>
-
-```typescript
-public readonly delegateTo: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -4546,16 +3855,6 @@ public readonly environment: {[ key: string ]: any};
 
 ---
 
-##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.Task.property.failedWhen"></a>
-
-```typescript
-public readonly failedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.Task.property.ignoreErrors"></a>
 
 ```typescript
@@ -4576,36 +3875,6 @@ public readonly ignoreUnreachable: boolean;
 
 ---
 
-##### `localAction`<sup>Optional</sup> <a name="localAction" id="cdk-ans.Task.property.localAction"></a>
-
-```typescript
-public readonly localAction: string;
-```
-
-- *Type:* string
-
----
-
-##### `loop`<sup>Optional</sup> <a name="loop" id="cdk-ans.Task.property.loop"></a>
-
-```typescript
-public readonly loop: string | string[];
-```
-
-- *Type:* string | string[]
-
----
-
-##### `loopControl`<sup>Optional</sup> <a name="loopControl" id="cdk-ans.Task.property.loopControl"></a>
-
-```typescript
-public readonly loopControl: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
 ##### `moduleDefaults`<sup>Optional</sup> <a name="moduleDefaults" id="cdk-ans.Task.property.moduleDefaults"></a>
 
 ```typescript
@@ -4613,16 +3882,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 ```
 
 - *Type:* {[ key: string ]: any}
-
----
-
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.Task.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -4636,26 +3895,6 @@ public readonly noLog: boolean;
 
 ---
 
-##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.Task.property.notify"></a>
-
-```typescript
-public readonly notify: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `poll`<sup>Optional</sup> <a name="poll" id="cdk-ans.Task.property.poll"></a>
-
-```typescript
-public readonly poll: number;
-```
-
-- *Type:* number
-
----
-
 ##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.Task.property.port"></a>
 
 ```typescript
@@ -4666,16 +3905,6 @@ public readonly port: number;
 
 ---
 
-##### `register`<sup>Optional</sup> <a name="register" id="cdk-ans.Task.property.register"></a>
-
-```typescript
-public readonly register: string;
-```
-
-- *Type:* string
-
----
-
 ##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.Task.property.remoteUser"></a>
 
 ```typescript
@@ -4683,16 +3912,6 @@ public readonly remoteUser: string;
 ```
 
 - *Type:* string
-
----
-
-##### `retries`<sup>Optional</sup> <a name="retries" id="cdk-ans.Task.property.retries"></a>
-
-```typescript
-public readonly retries: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -4726,43 +3945,43 @@ public readonly throttle: number;
 
 ---
 
-##### `until`<sup>Optional</sup> <a name="until" id="cdk-ans.Task.property.until"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.Task.property.timeout"></a>
 
 ```typescript
-public readonly until: string;
+public readonly timeout: number;
 ```
 
-- *Type:* string
+- *Type:* number
 
 ---
 
-##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.Task.property.when"></a>
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.Task.property.vars"></a>
 
 ```typescript
-public readonly when: string;
+public readonly vars: {[ key: string ]: any};
 ```
 
-- *Type:* string
+- *Type:* {[ key: string ]: any}
 
 ---
 
-##### `with`<sup>Optional</sup> <a name="with" id="cdk-ans.Task.property.with"></a>
+##### `action`<sup>Required</sup> <a name="action" id="cdk-ans.Task.property.action"></a>
 
 ```typescript
-public readonly with: string[];
+public readonly action: TaskAction;
 ```
 
-- *Type:* string[]
+- *Type:* <a href="#cdk-ans.TaskAction">TaskAction</a>
 
 ---
 
-##### `withItems`<sup>Optional</sup> <a name="withItems" id="cdk-ans.Task.property.withItems"></a>
+##### `params`<sup>Required</sup> <a name="params" id="cdk-ans.Task.property.params"></a>
 
 ```typescript
-public readonly withItems: {[ key: string ]: any}[];
+public readonly params: {[ key: string ]: any};
 ```
 
-- *Type:* {[ key: string ]: any}[]
+- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -4818,7 +4037,6 @@ new TaskBase(scope: Construct, name: string, props: TaskBaseProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.TaskBase.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.TaskBase.toJson">toJson</a></code> | *No description.* |
 
 ---
 
@@ -4829,12 +4047,6 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
-
-##### `toJson` <a name="toJson" id="cdk-ans.TaskBase.toJson"></a>
-
-```typescript
-public toJson(): any
-```
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -4881,46 +4093,30 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.TaskBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-ans.TaskBase.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
+| <code><a href="#cdk-ans.TaskBase.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.args">args</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.async">async</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.changedWhen">changedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.connection">connection</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.delay">delay</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskBase.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.notify">notify</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.poll">poll</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.port">port</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.when">when</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.with">with</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBase.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskBase.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskBase.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 
 ---
 
@@ -4936,13 +4132,13 @@ The tree node.
 
 ---
 
-##### `action`<sup>Required</sup> <a name="action" id="cdk-ans.TaskBase.property.action"></a>
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.TaskBase.property.name"></a>
 
 ```typescript
-public readonly action: TaskAction;
+public readonly name: string;
 ```
 
-- *Type:* <a href="#cdk-ans.TaskAction">TaskAction</a>
+- *Type:* string
 
 ---
 
@@ -4953,26 +4149,6 @@ public readonly anyErrorsFatal: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `args`<sup>Optional</sup> <a name="args" id="cdk-ans.TaskBase.property.args"></a>
-
-```typescript
-public readonly args: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `async`<sup>Optional</sup> <a name="async" id="cdk-ans.TaskBase.property.async"></a>
-
-```typescript
-public readonly async: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -5026,16 +4202,6 @@ public readonly becomeUser: string;
 
 ---
 
-##### `changedWhen`<sup>Optional</sup> <a name="changedWhen" id="cdk-ans.TaskBase.property.changedWhen"></a>
-
-```typescript
-public readonly changedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.TaskBase.property.checkMode"></a>
 
 ```typescript
@@ -5066,33 +4232,13 @@ public readonly connection: string;
 
 ---
 
-##### `delay`<sup>Optional</sup> <a name="delay" id="cdk-ans.TaskBase.property.delay"></a>
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.TaskBase.property.debugger"></a>
 
 ```typescript
-public readonly delay: number;
-```
-
-- *Type:* number
-
----
-
-##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.TaskBase.property.delegateFacts"></a>
-
-```typescript
-public readonly delegateFacts: boolean;
+public readonly debugger: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.TaskBase.property.delegateTo"></a>
-
-```typescript
-public readonly delegateTo: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -5116,16 +4262,6 @@ public readonly environment: {[ key: string ]: any};
 
 ---
 
-##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.TaskBase.property.failedWhen"></a>
-
-```typescript
-public readonly failedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.TaskBase.property.ignoreErrors"></a>
 
 ```typescript
@@ -5146,36 +4282,6 @@ public readonly ignoreUnreachable: boolean;
 
 ---
 
-##### `localAction`<sup>Optional</sup> <a name="localAction" id="cdk-ans.TaskBase.property.localAction"></a>
-
-```typescript
-public readonly localAction: string;
-```
-
-- *Type:* string
-
----
-
-##### `loop`<sup>Optional</sup> <a name="loop" id="cdk-ans.TaskBase.property.loop"></a>
-
-```typescript
-public readonly loop: string | string[];
-```
-
-- *Type:* string | string[]
-
----
-
-##### `loopControl`<sup>Optional</sup> <a name="loopControl" id="cdk-ans.TaskBase.property.loopControl"></a>
-
-```typescript
-public readonly loopControl: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
 ##### `moduleDefaults`<sup>Optional</sup> <a name="moduleDefaults" id="cdk-ans.TaskBase.property.moduleDefaults"></a>
 
 ```typescript
@@ -5183,16 +4289,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 ```
 
 - *Type:* {[ key: string ]: any}
-
----
-
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.TaskBase.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -5206,26 +4302,6 @@ public readonly noLog: boolean;
 
 ---
 
-##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.TaskBase.property.notify"></a>
-
-```typescript
-public readonly notify: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `poll`<sup>Optional</sup> <a name="poll" id="cdk-ans.TaskBase.property.poll"></a>
-
-```typescript
-public readonly poll: number;
-```
-
-- *Type:* number
-
----
-
 ##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.TaskBase.property.port"></a>
 
 ```typescript
@@ -5236,16 +4312,6 @@ public readonly port: number;
 
 ---
 
-##### `register`<sup>Optional</sup> <a name="register" id="cdk-ans.TaskBase.property.register"></a>
-
-```typescript
-public readonly register: string;
-```
-
-- *Type:* string
-
----
-
 ##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.TaskBase.property.remoteUser"></a>
 
 ```typescript
@@ -5253,16 +4319,6 @@ public readonly remoteUser: string;
 ```
 
 - *Type:* string
-
----
-
-##### `retries`<sup>Optional</sup> <a name="retries" id="cdk-ans.TaskBase.property.retries"></a>
-
-```typescript
-public readonly retries: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -5296,43 +4352,23 @@ public readonly throttle: number;
 
 ---
 
-##### `until`<sup>Optional</sup> <a name="until" id="cdk-ans.TaskBase.property.until"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.TaskBase.property.timeout"></a>
 
 ```typescript
-public readonly until: string;
+public readonly timeout: number;
 ```
 
-- *Type:* string
+- *Type:* number
 
 ---
 
-##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.TaskBase.property.when"></a>
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.TaskBase.property.vars"></a>
 
 ```typescript
-public readonly when: string;
+public readonly vars: {[ key: string ]: any};
 ```
 
-- *Type:* string
-
----
-
-##### `with`<sup>Optional</sup> <a name="with" id="cdk-ans.TaskBase.property.with"></a>
-
-```typescript
-public readonly with: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `withItems`<sup>Optional</sup> <a name="withItems" id="cdk-ans.TaskBase.property.withItems"></a>
-
-```typescript
-public readonly withItems: {[ key: string ]: any}[];
-```
-
-- *Type:* {[ key: string ]: any}[]
+- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -5634,44 +4670,29 @@ const commandTaskProps: CommandTaskProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.CommandTaskProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.args">args</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.async">async</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.changedWhen">changedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.connection">connection</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.delay">delay</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTaskProps.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.notify">notify</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.poll">poll</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.port">port</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.when">when</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.with">with</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTaskProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTaskProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.command">command</a></code> | <code><a href="#cdk-ans.CommandTaskActionProps">CommandTaskActionProps</a></code> | *No description.* |
 
 ---
@@ -5683,26 +4704,6 @@ public readonly anyErrorsFatal: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `args`<sup>Optional</sup> <a name="args" id="cdk-ans.CommandTaskProps.property.args"></a>
-
-```typescript
-public readonly args: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `async`<sup>Optional</sup> <a name="async" id="cdk-ans.CommandTaskProps.property.async"></a>
-
-```typescript
-public readonly async: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -5756,16 +4757,6 @@ public readonly becomeUser: string;
 
 ---
 
-##### `changedWhen`<sup>Optional</sup> <a name="changedWhen" id="cdk-ans.CommandTaskProps.property.changedWhen"></a>
-
-```typescript
-public readonly changedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.CommandTaskProps.property.checkMode"></a>
 
 ```typescript
@@ -5796,33 +4787,13 @@ public readonly connection: string;
 
 ---
 
-##### `delay`<sup>Optional</sup> <a name="delay" id="cdk-ans.CommandTaskProps.property.delay"></a>
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.CommandTaskProps.property.debugger"></a>
 
 ```typescript
-public readonly delay: number;
-```
-
-- *Type:* number
-
----
-
-##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.CommandTaskProps.property.delegateFacts"></a>
-
-```typescript
-public readonly delegateFacts: boolean;
+public readonly debugger: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.CommandTaskProps.property.delegateTo"></a>
-
-```typescript
-public readonly delegateTo: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -5846,16 +4817,6 @@ public readonly environment: {[ key: string ]: any};
 
 ---
 
-##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.CommandTaskProps.property.failedWhen"></a>
-
-```typescript
-public readonly failedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.CommandTaskProps.property.ignoreErrors"></a>
 
 ```typescript
@@ -5873,36 +4834,6 @@ public readonly ignoreUnreachable: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `localAction`<sup>Optional</sup> <a name="localAction" id="cdk-ans.CommandTaskProps.property.localAction"></a>
-
-```typescript
-public readonly localAction: string;
-```
-
-- *Type:* string
-
----
-
-##### `loop`<sup>Optional</sup> <a name="loop" id="cdk-ans.CommandTaskProps.property.loop"></a>
-
-```typescript
-public readonly loop: string | string[];
-```
-
-- *Type:* string | string[]
-
----
-
-##### `loopControl`<sup>Optional</sup> <a name="loopControl" id="cdk-ans.CommandTaskProps.property.loopControl"></a>
-
-```typescript
-public readonly loopControl: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -5936,26 +4867,6 @@ public readonly noLog: boolean;
 
 ---
 
-##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.CommandTaskProps.property.notify"></a>
-
-```typescript
-public readonly notify: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `poll`<sup>Optional</sup> <a name="poll" id="cdk-ans.CommandTaskProps.property.poll"></a>
-
-```typescript
-public readonly poll: number;
-```
-
-- *Type:* number
-
----
-
 ##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.CommandTaskProps.property.port"></a>
 
 ```typescript
@@ -5966,16 +4877,6 @@ public readonly port: number;
 
 ---
 
-##### `register`<sup>Optional</sup> <a name="register" id="cdk-ans.CommandTaskProps.property.register"></a>
-
-```typescript
-public readonly register: string;
-```
-
-- *Type:* string
-
----
-
 ##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.CommandTaskProps.property.remoteUser"></a>
 
 ```typescript
@@ -5983,16 +4884,6 @@ public readonly remoteUser: string;
 ```
 
 - *Type:* string
-
----
-
-##### `retries`<sup>Optional</sup> <a name="retries" id="cdk-ans.CommandTaskProps.property.retries"></a>
-
-```typescript
-public readonly retries: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -6026,43 +4917,23 @@ public readonly throttle: number;
 
 ---
 
-##### `until`<sup>Optional</sup> <a name="until" id="cdk-ans.CommandTaskProps.property.until"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.CommandTaskProps.property.timeout"></a>
 
 ```typescript
-public readonly until: string;
+public readonly timeout: number;
 ```
 
-- *Type:* string
+- *Type:* number
 
 ---
 
-##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.CommandTaskProps.property.when"></a>
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.CommandTaskProps.property.vars"></a>
 
 ```typescript
-public readonly when: string;
+public readonly vars: {[ key: string ]: any};
 ```
 
-- *Type:* string
-
----
-
-##### `with`<sup>Optional</sup> <a name="with" id="cdk-ans.CommandTaskProps.property.with"></a>
-
-```typescript
-public readonly with: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `withItems`<sup>Optional</sup> <a name="withItems" id="cdk-ans.CommandTaskProps.property.withItems"></a>
-
-```typescript
-public readonly withItems: {[ key: string ]: any}[];
-```
-
-- *Type:* {[ key: string ]: any}[]
+- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -6356,44 +5227,29 @@ const fileTaskProps: FileTaskProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.FileTaskProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.args">args</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.async">async</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.changedWhen">changedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.connection">connection</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.delay">delay</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.FileTaskProps.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.notify">notify</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.poll">poll</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.port">port</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.when">when</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.with">with</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
+| <code><a href="#cdk-ans.FileTaskProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.FileTaskProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.file">file</a></code> | <code><a href="#cdk-ans.FileTaskActionProps">FileTaskActionProps</a></code> | *No description.* |
 
 ---
@@ -6405,26 +5261,6 @@ public readonly anyErrorsFatal: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `args`<sup>Optional</sup> <a name="args" id="cdk-ans.FileTaskProps.property.args"></a>
-
-```typescript
-public readonly args: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `async`<sup>Optional</sup> <a name="async" id="cdk-ans.FileTaskProps.property.async"></a>
-
-```typescript
-public readonly async: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -6478,16 +5314,6 @@ public readonly becomeUser: string;
 
 ---
 
-##### `changedWhen`<sup>Optional</sup> <a name="changedWhen" id="cdk-ans.FileTaskProps.property.changedWhen"></a>
-
-```typescript
-public readonly changedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.FileTaskProps.property.checkMode"></a>
 
 ```typescript
@@ -6518,33 +5344,13 @@ public readonly connection: string;
 
 ---
 
-##### `delay`<sup>Optional</sup> <a name="delay" id="cdk-ans.FileTaskProps.property.delay"></a>
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.FileTaskProps.property.debugger"></a>
 
 ```typescript
-public readonly delay: number;
-```
-
-- *Type:* number
-
----
-
-##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.FileTaskProps.property.delegateFacts"></a>
-
-```typescript
-public readonly delegateFacts: boolean;
+public readonly debugger: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.FileTaskProps.property.delegateTo"></a>
-
-```typescript
-public readonly delegateTo: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -6568,16 +5374,6 @@ public readonly environment: {[ key: string ]: any};
 
 ---
 
-##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.FileTaskProps.property.failedWhen"></a>
-
-```typescript
-public readonly failedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.FileTaskProps.property.ignoreErrors"></a>
 
 ```typescript
@@ -6595,36 +5391,6 @@ public readonly ignoreUnreachable: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `localAction`<sup>Optional</sup> <a name="localAction" id="cdk-ans.FileTaskProps.property.localAction"></a>
-
-```typescript
-public readonly localAction: string;
-```
-
-- *Type:* string
-
----
-
-##### `loop`<sup>Optional</sup> <a name="loop" id="cdk-ans.FileTaskProps.property.loop"></a>
-
-```typescript
-public readonly loop: string | string[];
-```
-
-- *Type:* string | string[]
-
----
-
-##### `loopControl`<sup>Optional</sup> <a name="loopControl" id="cdk-ans.FileTaskProps.property.loopControl"></a>
-
-```typescript
-public readonly loopControl: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -6658,26 +5424,6 @@ public readonly noLog: boolean;
 
 ---
 
-##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.FileTaskProps.property.notify"></a>
-
-```typescript
-public readonly notify: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `poll`<sup>Optional</sup> <a name="poll" id="cdk-ans.FileTaskProps.property.poll"></a>
-
-```typescript
-public readonly poll: number;
-```
-
-- *Type:* number
-
----
-
 ##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.FileTaskProps.property.port"></a>
 
 ```typescript
@@ -6688,16 +5434,6 @@ public readonly port: number;
 
 ---
 
-##### `register`<sup>Optional</sup> <a name="register" id="cdk-ans.FileTaskProps.property.register"></a>
-
-```typescript
-public readonly register: string;
-```
-
-- *Type:* string
-
----
-
 ##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.FileTaskProps.property.remoteUser"></a>
 
 ```typescript
@@ -6705,16 +5441,6 @@ public readonly remoteUser: string;
 ```
 
 - *Type:* string
-
----
-
-##### `retries`<sup>Optional</sup> <a name="retries" id="cdk-ans.FileTaskProps.property.retries"></a>
-
-```typescript
-public readonly retries: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -6748,43 +5474,23 @@ public readonly throttle: number;
 
 ---
 
-##### `until`<sup>Optional</sup> <a name="until" id="cdk-ans.FileTaskProps.property.until"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.FileTaskProps.property.timeout"></a>
 
 ```typescript
-public readonly until: string;
+public readonly timeout: number;
 ```
 
-- *Type:* string
+- *Type:* number
 
 ---
 
-##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.FileTaskProps.property.when"></a>
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.FileTaskProps.property.vars"></a>
 
 ```typescript
-public readonly when: string;
+public readonly vars: {[ key: string ]: any};
 ```
 
-- *Type:* string
-
----
-
-##### `with`<sup>Optional</sup> <a name="with" id="cdk-ans.FileTaskProps.property.with"></a>
-
-```typescript
-public readonly with: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `withItems`<sup>Optional</sup> <a name="withItems" id="cdk-ans.FileTaskProps.property.withItems"></a>
-
-```typescript
-public readonly withItems: {[ key: string ]: any}[];
-```
-
-- *Type:* {[ key: string ]: any}[]
+- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -6813,44 +5519,29 @@ const handlerProps: HandlerProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.HandlerProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.args">args</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.async">async</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.changedWhen">changedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.connection">connection</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.delay">delay</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.HandlerProps.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.notify">notify</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.poll">poll</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.port">port</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.when">when</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.with">with</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
+| <code><a href="#cdk-ans.HandlerProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.HandlerProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.listen">listen</a></code> | <code>string</code> | *No description.* |
 
@@ -6863,26 +5554,6 @@ public readonly anyErrorsFatal: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `args`<sup>Optional</sup> <a name="args" id="cdk-ans.HandlerProps.property.args"></a>
-
-```typescript
-public readonly args: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `async`<sup>Optional</sup> <a name="async" id="cdk-ans.HandlerProps.property.async"></a>
-
-```typescript
-public readonly async: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -6936,16 +5607,6 @@ public readonly becomeUser: string;
 
 ---
 
-##### `changedWhen`<sup>Optional</sup> <a name="changedWhen" id="cdk-ans.HandlerProps.property.changedWhen"></a>
-
-```typescript
-public readonly changedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.HandlerProps.property.checkMode"></a>
 
 ```typescript
@@ -6976,33 +5637,13 @@ public readonly connection: string;
 
 ---
 
-##### `delay`<sup>Optional</sup> <a name="delay" id="cdk-ans.HandlerProps.property.delay"></a>
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.HandlerProps.property.debugger"></a>
 
 ```typescript
-public readonly delay: number;
-```
-
-- *Type:* number
-
----
-
-##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.HandlerProps.property.delegateFacts"></a>
-
-```typescript
-public readonly delegateFacts: boolean;
+public readonly debugger: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.HandlerProps.property.delegateTo"></a>
-
-```typescript
-public readonly delegateTo: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -7026,16 +5667,6 @@ public readonly environment: {[ key: string ]: any};
 
 ---
 
-##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.HandlerProps.property.failedWhen"></a>
-
-```typescript
-public readonly failedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.HandlerProps.property.ignoreErrors"></a>
 
 ```typescript
@@ -7053,36 +5684,6 @@ public readonly ignoreUnreachable: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `localAction`<sup>Optional</sup> <a name="localAction" id="cdk-ans.HandlerProps.property.localAction"></a>
-
-```typescript
-public readonly localAction: string;
-```
-
-- *Type:* string
-
----
-
-##### `loop`<sup>Optional</sup> <a name="loop" id="cdk-ans.HandlerProps.property.loop"></a>
-
-```typescript
-public readonly loop: string | string[];
-```
-
-- *Type:* string | string[]
-
----
-
-##### `loopControl`<sup>Optional</sup> <a name="loopControl" id="cdk-ans.HandlerProps.property.loopControl"></a>
-
-```typescript
-public readonly loopControl: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -7116,26 +5717,6 @@ public readonly noLog: boolean;
 
 ---
 
-##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.HandlerProps.property.notify"></a>
-
-```typescript
-public readonly notify: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `poll`<sup>Optional</sup> <a name="poll" id="cdk-ans.HandlerProps.property.poll"></a>
-
-```typescript
-public readonly poll: number;
-```
-
-- *Type:* number
-
----
-
 ##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.HandlerProps.property.port"></a>
 
 ```typescript
@@ -7146,16 +5727,6 @@ public readonly port: number;
 
 ---
 
-##### `register`<sup>Optional</sup> <a name="register" id="cdk-ans.HandlerProps.property.register"></a>
-
-```typescript
-public readonly register: string;
-```
-
-- *Type:* string
-
----
-
 ##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.HandlerProps.property.remoteUser"></a>
 
 ```typescript
@@ -7163,16 +5734,6 @@ public readonly remoteUser: string;
 ```
 
 - *Type:* string
-
----
-
-##### `retries`<sup>Optional</sup> <a name="retries" id="cdk-ans.HandlerProps.property.retries"></a>
-
-```typescript
-public readonly retries: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -7206,43 +5767,23 @@ public readonly throttle: number;
 
 ---
 
-##### `until`<sup>Optional</sup> <a name="until" id="cdk-ans.HandlerProps.property.until"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.HandlerProps.property.timeout"></a>
 
 ```typescript
-public readonly until: string;
+public readonly timeout: number;
 ```
 
-- *Type:* string
+- *Type:* number
 
 ---
 
-##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.HandlerProps.property.when"></a>
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.HandlerProps.property.vars"></a>
 
 ```typescript
-public readonly when: string;
+public readonly vars: {[ key: string ]: any};
 ```
 
-- *Type:* string
-
----
-
-##### `with`<sup>Optional</sup> <a name="with" id="cdk-ans.HandlerProps.property.with"></a>
-
-```typescript
-public readonly with: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `withItems`<sup>Optional</sup> <a name="withItems" id="cdk-ans.HandlerProps.property.withItems"></a>
-
-```typescript
-public readonly withItems: {[ key: string ]: any}[];
-```
-
-- *Type:* {[ key: string ]: any}[]
+- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -7425,44 +5966,29 @@ const pingTaskProps: PingTaskProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.PingTaskProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.args">args</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.async">async</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.changedWhen">changedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.connection">connection</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.delay">delay</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PingTaskProps.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.notify">notify</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.poll">poll</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.port">port</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.when">when</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.with">with</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
+| <code><a href="#cdk-ans.PingTaskProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.PingTaskProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 
 ---
 
@@ -7473,26 +5999,6 @@ public readonly anyErrorsFatal: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `args`<sup>Optional</sup> <a name="args" id="cdk-ans.PingTaskProps.property.args"></a>
-
-```typescript
-public readonly args: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `async`<sup>Optional</sup> <a name="async" id="cdk-ans.PingTaskProps.property.async"></a>
-
-```typescript
-public readonly async: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -7546,16 +6052,6 @@ public readonly becomeUser: string;
 
 ---
 
-##### `changedWhen`<sup>Optional</sup> <a name="changedWhen" id="cdk-ans.PingTaskProps.property.changedWhen"></a>
-
-```typescript
-public readonly changedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.PingTaskProps.property.checkMode"></a>
 
 ```typescript
@@ -7586,33 +6082,13 @@ public readonly connection: string;
 
 ---
 
-##### `delay`<sup>Optional</sup> <a name="delay" id="cdk-ans.PingTaskProps.property.delay"></a>
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.PingTaskProps.property.debugger"></a>
 
 ```typescript
-public readonly delay: number;
-```
-
-- *Type:* number
-
----
-
-##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.PingTaskProps.property.delegateFacts"></a>
-
-```typescript
-public readonly delegateFacts: boolean;
+public readonly debugger: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.PingTaskProps.property.delegateTo"></a>
-
-```typescript
-public readonly delegateTo: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -7636,16 +6112,6 @@ public readonly environment: {[ key: string ]: any};
 
 ---
 
-##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.PingTaskProps.property.failedWhen"></a>
-
-```typescript
-public readonly failedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.PingTaskProps.property.ignoreErrors"></a>
 
 ```typescript
@@ -7663,36 +6129,6 @@ public readonly ignoreUnreachable: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `localAction`<sup>Optional</sup> <a name="localAction" id="cdk-ans.PingTaskProps.property.localAction"></a>
-
-```typescript
-public readonly localAction: string;
-```
-
-- *Type:* string
-
----
-
-##### `loop`<sup>Optional</sup> <a name="loop" id="cdk-ans.PingTaskProps.property.loop"></a>
-
-```typescript
-public readonly loop: string | string[];
-```
-
-- *Type:* string | string[]
-
----
-
-##### `loopControl`<sup>Optional</sup> <a name="loopControl" id="cdk-ans.PingTaskProps.property.loopControl"></a>
-
-```typescript
-public readonly loopControl: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -7726,26 +6162,6 @@ public readonly noLog: boolean;
 
 ---
 
-##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.PingTaskProps.property.notify"></a>
-
-```typescript
-public readonly notify: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `poll`<sup>Optional</sup> <a name="poll" id="cdk-ans.PingTaskProps.property.poll"></a>
-
-```typescript
-public readonly poll: number;
-```
-
-- *Type:* number
-
----
-
 ##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.PingTaskProps.property.port"></a>
 
 ```typescript
@@ -7756,16 +6172,6 @@ public readonly port: number;
 
 ---
 
-##### `register`<sup>Optional</sup> <a name="register" id="cdk-ans.PingTaskProps.property.register"></a>
-
-```typescript
-public readonly register: string;
-```
-
-- *Type:* string
-
----
-
 ##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.PingTaskProps.property.remoteUser"></a>
 
 ```typescript
@@ -7773,16 +6179,6 @@ public readonly remoteUser: string;
 ```
 
 - *Type:* string
-
----
-
-##### `retries`<sup>Optional</sup> <a name="retries" id="cdk-ans.PingTaskProps.property.retries"></a>
-
-```typescript
-public readonly retries: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -7816,43 +6212,23 @@ public readonly throttle: number;
 
 ---
 
-##### `until`<sup>Optional</sup> <a name="until" id="cdk-ans.PingTaskProps.property.until"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.PingTaskProps.property.timeout"></a>
 
 ```typescript
-public readonly until: string;
+public readonly timeout: number;
 ```
 
-- *Type:* string
+- *Type:* number
 
 ---
 
-##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.PingTaskProps.property.when"></a>
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.PingTaskProps.property.vars"></a>
 
 ```typescript
-public readonly when: string;
+public readonly vars: {[ key: string ]: any};
 ```
 
-- *Type:* string
-
----
-
-##### `with`<sup>Optional</sup> <a name="with" id="cdk-ans.PingTaskProps.property.with"></a>
-
-```typescript
-public readonly with: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `withItems`<sup>Optional</sup> <a name="withItems" id="cdk-ans.PingTaskProps.property.withItems"></a>
-
-```typescript
-public readonly withItems: {[ key: string ]: any}[];
-```
-
-- *Type:* {[ key: string ]: any}[]
+- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -7898,21 +6274,57 @@ const playProps: PlayProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-ans.PlayProps.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.connection">connection</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.port">port</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.factPath">factPath</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.forceHandlers">forceHandlers</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.gatherFacts">gatherFacts</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.gatherSubset">gatherSubset</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.gatherTimeout">gatherTimeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.handlers">handlers</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.maxFailPercentage">maxFailPercentage</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.order">order</a></code> | <code><a href="#cdk-ans.PlayHostOrder">PlayHostOrder</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.postTasks">postTasks</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.preTasks">preTasks</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.roles">roles</a></code> | <code><a href="#cdk-ans.RoleTarget">RoleTarget</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.runDefinition">runDefinition</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.serial">serial</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.strategy">strategy</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.varPrompt">varPrompt</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.varsFiles">varsFiles</a></code> | <code>string[]</code> | *No description.* |
 
 ---
 
-##### `hosts`<sup>Required</sup> <a name="hosts" id="cdk-ans.PlayProps.property.hosts"></a>
+##### `anyErrorsFatal`<sup>Optional</sup> <a name="anyErrorsFatal" id="cdk-ans.PlayProps.property.anyErrorsFatal"></a>
 
 ```typescript
-public readonly hosts: Host[];
+public readonly anyErrorsFatal: boolean;
 ```
 
-- *Type:* <a href="#cdk-ans.Host">Host</a>[]
+- *Type:* boolean
 
 ---
 
@@ -7926,6 +6338,136 @@ public readonly become: boolean;
 
 ---
 
+##### `becomeExe`<sup>Optional</sup> <a name="becomeExe" id="cdk-ans.PlayProps.property.becomeExe"></a>
+
+```typescript
+public readonly becomeExe: string;
+```
+
+- *Type:* string
+
+---
+
+##### `becomeFlags`<sup>Optional</sup> <a name="becomeFlags" id="cdk-ans.PlayProps.property.becomeFlags"></a>
+
+```typescript
+public readonly becomeFlags: string;
+```
+
+- *Type:* string
+
+---
+
+##### `becomeMethod`<sup>Optional</sup> <a name="becomeMethod" id="cdk-ans.PlayProps.property.becomeMethod"></a>
+
+```typescript
+public readonly becomeMethod: string;
+```
+
+- *Type:* string
+
+---
+
+##### `becomeUser`<sup>Optional</sup> <a name="becomeUser" id="cdk-ans.PlayProps.property.becomeUser"></a>
+
+```typescript
+public readonly becomeUser: string;
+```
+
+- *Type:* string
+
+---
+
+##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.PlayProps.property.checkMode"></a>
+
+```typescript
+public readonly checkMode: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `collections`<sup>Optional</sup> <a name="collections" id="cdk-ans.PlayProps.property.collections"></a>
+
+```typescript
+public readonly collections: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `connection`<sup>Optional</sup> <a name="connection" id="cdk-ans.PlayProps.property.connection"></a>
+
+```typescript
+public readonly connection: string;
+```
+
+- *Type:* string
+
+---
+
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.PlayProps.property.debugger"></a>
+
+```typescript
+public readonly debugger: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `diff`<sup>Optional</sup> <a name="diff" id="cdk-ans.PlayProps.property.diff"></a>
+
+```typescript
+public readonly diff: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `environment`<sup>Optional</sup> <a name="environment" id="cdk-ans.PlayProps.property.environment"></a>
+
+```typescript
+public readonly environment: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.PlayProps.property.ignoreErrors"></a>
+
+```typescript
+public readonly ignoreErrors: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `ignoreUnreachable`<sup>Optional</sup> <a name="ignoreUnreachable" id="cdk-ans.PlayProps.property.ignoreUnreachable"></a>
+
+```typescript
+public readonly ignoreUnreachable: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `moduleDefaults`<sup>Optional</sup> <a name="moduleDefaults" id="cdk-ans.PlayProps.property.moduleDefaults"></a>
+
+```typescript
+public readonly moduleDefaults: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.PlayProps.property.name"></a>
 
 ```typescript
@@ -7933,6 +6475,196 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `noLog`<sup>Optional</sup> <a name="noLog" id="cdk-ans.PlayProps.property.noLog"></a>
+
+```typescript
+public readonly noLog: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.PlayProps.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
+
+- *Type:* number
+
+---
+
+##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.PlayProps.property.remoteUser"></a>
+
+```typescript
+public readonly remoteUser: string;
+```
+
+- *Type:* string
+
+---
+
+##### `runOnce`<sup>Optional</sup> <a name="runOnce" id="cdk-ans.PlayProps.property.runOnce"></a>
+
+```typescript
+public readonly runOnce: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tags`<sup>Optional</sup> <a name="tags" id="cdk-ans.PlayProps.property.tags"></a>
+
+```typescript
+public readonly tags: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `throttle`<sup>Optional</sup> <a name="throttle" id="cdk-ans.PlayProps.property.throttle"></a>
+
+```typescript
+public readonly throttle: number;
+```
+
+- *Type:* number
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.PlayProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.PlayProps.property.vars"></a>
+
+```typescript
+public readonly vars: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `hosts`<sup>Required</sup> <a name="hosts" id="cdk-ans.PlayProps.property.hosts"></a>
+
+```typescript
+public readonly hosts: Host[];
+```
+
+- *Type:* <a href="#cdk-ans.Host">Host</a>[]
+
+---
+
+##### `factPath`<sup>Optional</sup> <a name="factPath" id="cdk-ans.PlayProps.property.factPath"></a>
+
+```typescript
+public readonly factPath: string;
+```
+
+- *Type:* string
+
+---
+
+##### `forceHandlers`<sup>Optional</sup> <a name="forceHandlers" id="cdk-ans.PlayProps.property.forceHandlers"></a>
+
+```typescript
+public readonly forceHandlers: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `gatherFacts`<sup>Optional</sup> <a name="gatherFacts" id="cdk-ans.PlayProps.property.gatherFacts"></a>
+
+```typescript
+public readonly gatherFacts: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `gatherSubset`<sup>Optional</sup> <a name="gatherSubset" id="cdk-ans.PlayProps.property.gatherSubset"></a>
+
+```typescript
+public readonly gatherSubset: string;
+```
+
+- *Type:* string
+
+---
+
+##### `gatherTimeout`<sup>Optional</sup> <a name="gatherTimeout" id="cdk-ans.PlayProps.property.gatherTimeout"></a>
+
+```typescript
+public readonly gatherTimeout: number;
+```
+
+- *Type:* number
+
+---
+
+##### `handlers`<sup>Optional</sup> <a name="handlers" id="cdk-ans.PlayProps.property.handlers"></a>
+
+```typescript
+public readonly handlers: Handler[];
+```
+
+- *Type:* <a href="#cdk-ans.Handler">Handler</a>[]
+
+---
+
+##### `maxFailPercentage`<sup>Optional</sup> <a name="maxFailPercentage" id="cdk-ans.PlayProps.property.maxFailPercentage"></a>
+
+```typescript
+public readonly maxFailPercentage: number;
+```
+
+- *Type:* number
+
+---
+
+##### `order`<sup>Optional</sup> <a name="order" id="cdk-ans.PlayProps.property.order"></a>
+
+```typescript
+public readonly order: PlayHostOrder;
+```
+
+- *Type:* <a href="#cdk-ans.PlayHostOrder">PlayHostOrder</a>
+
+---
+
+##### `postTasks`<sup>Optional</sup> <a name="postTasks" id="cdk-ans.PlayProps.property.postTasks"></a>
+
+```typescript
+public readonly postTasks: RunDefinition;
+```
+
+- *Type:* <a href="#cdk-ans.RunDefinition">RunDefinition</a>
+
+---
+
+##### `preTasks`<sup>Optional</sup> <a name="preTasks" id="cdk-ans.PlayProps.property.preTasks"></a>
+
+```typescript
+public readonly preTasks: RunDefinition;
+```
+
+- *Type:* <a href="#cdk-ans.RunDefinition">RunDefinition</a>
 
 ---
 
@@ -7953,6 +6685,46 @@ public readonly runDefinition: RunDefinition;
 ```
 
 - *Type:* <a href="#cdk-ans.RunDefinition">RunDefinition</a>
+
+---
+
+##### `serial`<sup>Optional</sup> <a name="serial" id="cdk-ans.PlayProps.property.serial"></a>
+
+```typescript
+public readonly serial: number;
+```
+
+- *Type:* number
+
+---
+
+##### `strategy`<sup>Optional</sup> <a name="strategy" id="cdk-ans.PlayProps.property.strategy"></a>
+
+```typescript
+public readonly strategy: string;
+```
+
+- *Type:* string
+
+---
+
+##### `varPrompt`<sup>Optional</sup> <a name="varPrompt" id="cdk-ans.PlayProps.property.varPrompt"></a>
+
+```typescript
+public readonly varPrompt: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `varsFiles`<sup>Optional</sup> <a name="varsFiles" id="cdk-ans.PlayProps.property.varsFiles"></a>
+
+```typescript
+public readonly varsFiles: string[];
+```
+
+- *Type:* string[]
 
 ---
 
@@ -8143,13 +6915,12 @@ const roleTargetProps: RoleTargetProps = { ... }
 | <code><a href="#cdk-ans.RoleTargetProps.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.connection">connection</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTargetProps.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTargetProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.RoleTargetProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.port">port</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
@@ -8158,6 +6929,8 @@ const roleTargetProps: RoleTargetProps = { ... }
 | <code><a href="#cdk-ans.RoleTargetProps.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.RoleTargetProps.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.RoleTargetProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.when">when</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -8262,26 +7035,6 @@ public readonly debugger: boolean;
 
 ---
 
-##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.RoleTargetProps.property.delegateFacts"></a>
-
-```typescript
-public readonly delegateFacts: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.RoleTargetProps.property.delegateTo"></a>
-
-```typescript
-public readonly delegateTo: string;
-```
-
-- *Type:* string
-
----
-
 ##### `diff`<sup>Optional</sup> <a name="diff" id="cdk-ans.RoleTargetProps.property.diff"></a>
 
 ```typescript
@@ -8329,6 +7082,16 @@ public readonly moduleDefaults: {[ key: string ]: any};
 ```
 
 - *Type:* {[ key: string ]: any}
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.RoleTargetProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -8409,6 +7172,26 @@ public readonly vars: {[ key: string ]: any};
 ```
 
 - *Type:* {[ key: string ]: any}
+
+---
+
+##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.RoleTargetProps.property.delegateFacts"></a>
+
+```typescript
+public readonly delegateFacts: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.RoleTargetProps.property.delegateTo"></a>
+
+```typescript
+public readonly delegateTo: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -8599,44 +7382,29 @@ const taskBaseProps: TaskBaseProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.TaskBaseProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.args">args</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.async">async</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.changedWhen">changedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.connection">connection</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.delay">delay</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskBaseProps.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.notify">notify</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.poll">poll</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.port">port</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.when">when</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.with">with</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskBaseProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskBaseProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 
 ---
 
@@ -8647,26 +7415,6 @@ public readonly anyErrorsFatal: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `args`<sup>Optional</sup> <a name="args" id="cdk-ans.TaskBaseProps.property.args"></a>
-
-```typescript
-public readonly args: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `async`<sup>Optional</sup> <a name="async" id="cdk-ans.TaskBaseProps.property.async"></a>
-
-```typescript
-public readonly async: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -8720,16 +7468,6 @@ public readonly becomeUser: string;
 
 ---
 
-##### `changedWhen`<sup>Optional</sup> <a name="changedWhen" id="cdk-ans.TaskBaseProps.property.changedWhen"></a>
-
-```typescript
-public readonly changedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.TaskBaseProps.property.checkMode"></a>
 
 ```typescript
@@ -8760,33 +7498,13 @@ public readonly connection: string;
 
 ---
 
-##### `delay`<sup>Optional</sup> <a name="delay" id="cdk-ans.TaskBaseProps.property.delay"></a>
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.TaskBaseProps.property.debugger"></a>
 
 ```typescript
-public readonly delay: number;
-```
-
-- *Type:* number
-
----
-
-##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.TaskBaseProps.property.delegateFacts"></a>
-
-```typescript
-public readonly delegateFacts: boolean;
+public readonly debugger: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.TaskBaseProps.property.delegateTo"></a>
-
-```typescript
-public readonly delegateTo: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -8810,16 +7528,6 @@ public readonly environment: {[ key: string ]: any};
 
 ---
 
-##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.TaskBaseProps.property.failedWhen"></a>
-
-```typescript
-public readonly failedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.TaskBaseProps.property.ignoreErrors"></a>
 
 ```typescript
@@ -8837,36 +7545,6 @@ public readonly ignoreUnreachable: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `localAction`<sup>Optional</sup> <a name="localAction" id="cdk-ans.TaskBaseProps.property.localAction"></a>
-
-```typescript
-public readonly localAction: string;
-```
-
-- *Type:* string
-
----
-
-##### `loop`<sup>Optional</sup> <a name="loop" id="cdk-ans.TaskBaseProps.property.loop"></a>
-
-```typescript
-public readonly loop: string | string[];
-```
-
-- *Type:* string | string[]
-
----
-
-##### `loopControl`<sup>Optional</sup> <a name="loopControl" id="cdk-ans.TaskBaseProps.property.loopControl"></a>
-
-```typescript
-public readonly loopControl: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -8900,26 +7578,6 @@ public readonly noLog: boolean;
 
 ---
 
-##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.TaskBaseProps.property.notify"></a>
-
-```typescript
-public readonly notify: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `poll`<sup>Optional</sup> <a name="poll" id="cdk-ans.TaskBaseProps.property.poll"></a>
-
-```typescript
-public readonly poll: number;
-```
-
-- *Type:* number
-
----
-
 ##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.TaskBaseProps.property.port"></a>
 
 ```typescript
@@ -8930,16 +7588,6 @@ public readonly port: number;
 
 ---
 
-##### `register`<sup>Optional</sup> <a name="register" id="cdk-ans.TaskBaseProps.property.register"></a>
-
-```typescript
-public readonly register: string;
-```
-
-- *Type:* string
-
----
-
 ##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.TaskBaseProps.property.remoteUser"></a>
 
 ```typescript
@@ -8947,16 +7595,6 @@ public readonly remoteUser: string;
 ```
 
 - *Type:* string
-
----
-
-##### `retries`<sup>Optional</sup> <a name="retries" id="cdk-ans.TaskBaseProps.property.retries"></a>
-
-```typescript
-public readonly retries: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -8990,43 +7628,23 @@ public readonly throttle: number;
 
 ---
 
-##### `until`<sup>Optional</sup> <a name="until" id="cdk-ans.TaskBaseProps.property.until"></a>
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.TaskBaseProps.property.timeout"></a>
 
 ```typescript
-public readonly until: string;
+public readonly timeout: number;
 ```
 
-- *Type:* string
+- *Type:* number
 
 ---
 
-##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.TaskBaseProps.property.when"></a>
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.TaskBaseProps.property.vars"></a>
 
 ```typescript
-public readonly when: string;
+public readonly vars: {[ key: string ]: any};
 ```
 
-- *Type:* string
-
----
-
-##### `with`<sup>Optional</sup> <a name="with" id="cdk-ans.TaskBaseProps.property.with"></a>
-
-```typescript
-public readonly with: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `withItems`<sup>Optional</sup> <a name="withItems" id="cdk-ans.TaskBaseProps.property.withItems"></a>
-
-```typescript
-public readonly withItems: {[ key: string ]: any}[];
-```
-
-- *Type:* {[ key: string ]: any}[]
+- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -9045,45 +7663,47 @@ const taskProps: TaskProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.TaskProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.args">args</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.async">async</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.changedWhen">changedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.connection">connection</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.delay">delay</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.notify">notify</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.poll">poll</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.port">port</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.args">args</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.async">async</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.changedWhen">changedWhen</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.delay">delay</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.poll">poll</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.register">register</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.until">until</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.when">when</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.with">with</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
 
 ---
 
@@ -9094,26 +7714,6 @@ public readonly anyErrorsFatal: boolean;
 ```
 
 - *Type:* boolean
-
----
-
-##### `args`<sup>Optional</sup> <a name="args" id="cdk-ans.TaskProps.property.args"></a>
-
-```typescript
-public readonly args: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `async`<sup>Optional</sup> <a name="async" id="cdk-ans.TaskProps.property.async"></a>
-
-```typescript
-public readonly async: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -9167,16 +7767,6 @@ public readonly becomeUser: string;
 
 ---
 
-##### `changedWhen`<sup>Optional</sup> <a name="changedWhen" id="cdk-ans.TaskProps.property.changedWhen"></a>
-
-```typescript
-public readonly changedWhen: string;
-```
-
-- *Type:* string
-
----
-
 ##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.TaskProps.property.checkMode"></a>
 
 ```typescript
@@ -9201,6 +7791,196 @@ public readonly collections: string[];
 
 ```typescript
 public readonly connection: string;
+```
+
+- *Type:* string
+
+---
+
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.TaskProps.property.debugger"></a>
+
+```typescript
+public readonly debugger: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `diff`<sup>Optional</sup> <a name="diff" id="cdk-ans.TaskProps.property.diff"></a>
+
+```typescript
+public readonly diff: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `environment`<sup>Optional</sup> <a name="environment" id="cdk-ans.TaskProps.property.environment"></a>
+
+```typescript
+public readonly environment: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.TaskProps.property.ignoreErrors"></a>
+
+```typescript
+public readonly ignoreErrors: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `ignoreUnreachable`<sup>Optional</sup> <a name="ignoreUnreachable" id="cdk-ans.TaskProps.property.ignoreUnreachable"></a>
+
+```typescript
+public readonly ignoreUnreachable: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `moduleDefaults`<sup>Optional</sup> <a name="moduleDefaults" id="cdk-ans.TaskProps.property.moduleDefaults"></a>
+
+```typescript
+public readonly moduleDefaults: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.TaskProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `noLog`<sup>Optional</sup> <a name="noLog" id="cdk-ans.TaskProps.property.noLog"></a>
+
+```typescript
+public readonly noLog: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.TaskProps.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
+
+- *Type:* number
+
+---
+
+##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.TaskProps.property.remoteUser"></a>
+
+```typescript
+public readonly remoteUser: string;
+```
+
+- *Type:* string
+
+---
+
+##### `runOnce`<sup>Optional</sup> <a name="runOnce" id="cdk-ans.TaskProps.property.runOnce"></a>
+
+```typescript
+public readonly runOnce: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tags`<sup>Optional</sup> <a name="tags" id="cdk-ans.TaskProps.property.tags"></a>
+
+```typescript
+public readonly tags: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `throttle`<sup>Optional</sup> <a name="throttle" id="cdk-ans.TaskProps.property.throttle"></a>
+
+```typescript
+public readonly throttle: number;
+```
+
+- *Type:* number
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.TaskProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.TaskProps.property.vars"></a>
+
+```typescript
+public readonly vars: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `action`<sup>Required</sup> <a name="action" id="cdk-ans.TaskProps.property.action"></a>
+
+```typescript
+public readonly action: TaskAction;
+```
+
+- *Type:* <a href="#cdk-ans.TaskAction">TaskAction</a>
+
+---
+
+##### `args`<sup>Optional</sup> <a name="args" id="cdk-ans.TaskProps.property.args"></a>
+
+```typescript
+public readonly args: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `async`<sup>Optional</sup> <a name="async" id="cdk-ans.TaskProps.property.async"></a>
+
+```typescript
+public readonly async: number;
+```
+
+- *Type:* number
+
+---
+
+##### `changedWhen`<sup>Optional</sup> <a name="changedWhen" id="cdk-ans.TaskProps.property.changedWhen"></a>
+
+```typescript
+public readonly changedWhen: string;
 ```
 
 - *Type:* string
@@ -9237,26 +8017,6 @@ public readonly delegateTo: string;
 
 ---
 
-##### `diff`<sup>Optional</sup> <a name="diff" id="cdk-ans.TaskProps.property.diff"></a>
-
-```typescript
-public readonly diff: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `environment`<sup>Optional</sup> <a name="environment" id="cdk-ans.TaskProps.property.environment"></a>
-
-```typescript
-public readonly environment: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
 ##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.TaskProps.property.failedWhen"></a>
 
 ```typescript
@@ -9264,26 +8024,6 @@ public readonly failedWhen: string;
 ```
 
 - *Type:* string
-
----
-
-##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.TaskProps.property.ignoreErrors"></a>
-
-```typescript
-public readonly ignoreErrors: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `ignoreUnreachable`<sup>Optional</sup> <a name="ignoreUnreachable" id="cdk-ans.TaskProps.property.ignoreUnreachable"></a>
-
-```typescript
-public readonly ignoreUnreachable: boolean;
-```
-
-- *Type:* boolean
 
 ---
 
@@ -9307,53 +8047,13 @@ public readonly loop: string | string[];
 
 ---
 
-##### `loopControl`<sup>Optional</sup> <a name="loopControl" id="cdk-ans.TaskProps.property.loopControl"></a>
-
-```typescript
-public readonly loopControl: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `moduleDefaults`<sup>Optional</sup> <a name="moduleDefaults" id="cdk-ans.TaskProps.property.moduleDefaults"></a>
-
-```typescript
-public readonly moduleDefaults: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-
----
-
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.TaskProps.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
----
-
-##### `noLog`<sup>Optional</sup> <a name="noLog" id="cdk-ans.TaskProps.property.noLog"></a>
-
-```typescript
-public readonly noLog: boolean;
-```
-
-- *Type:* boolean
-
----
-
 ##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.TaskProps.property.notify"></a>
 
 ```typescript
-public readonly notify: string[];
+public readonly notify: Handler[];
 ```
 
-- *Type:* string[]
+- *Type:* <a href="#cdk-ans.Handler">Handler</a>[]
 
 ---
 
@@ -9361,16 +8061,6 @@ public readonly notify: string[];
 
 ```typescript
 public readonly poll: number;
-```
-
-- *Type:* number
-
----
-
-##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.TaskProps.property.port"></a>
-
-```typescript
-public readonly port: number;
 ```
 
 - *Type:* number
@@ -9387,50 +8077,10 @@ public readonly register: string;
 
 ---
 
-##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.TaskProps.property.remoteUser"></a>
-
-```typescript
-public readonly remoteUser: string;
-```
-
-- *Type:* string
-
----
-
 ##### `retries`<sup>Optional</sup> <a name="retries" id="cdk-ans.TaskProps.property.retries"></a>
 
 ```typescript
 public readonly retries: number;
-```
-
-- *Type:* number
-
----
-
-##### `runOnce`<sup>Optional</sup> <a name="runOnce" id="cdk-ans.TaskProps.property.runOnce"></a>
-
-```typescript
-public readonly runOnce: boolean;
-```
-
-- *Type:* boolean
-
----
-
-##### `tags`<sup>Optional</sup> <a name="tags" id="cdk-ans.TaskProps.property.tags"></a>
-
-```typescript
-public readonly tags: string[];
-```
-
-- *Type:* string[]
-
----
-
-##### `throttle`<sup>Optional</sup> <a name="throttle" id="cdk-ans.TaskProps.property.throttle"></a>
-
-```typescript
-public readonly throttle: number;
 ```
 
 - *Type:* number
@@ -9474,16 +8124,6 @@ public readonly withItems: {[ key: string ]: any}[];
 ```
 
 - *Type:* {[ key: string ]: any}[]
-
----
-
-##### `action`<sup>Required</sup> <a name="action" id="cdk-ans.TaskProps.property.action"></a>
-
-```typescript
-public readonly action: TaskAction;
-```
-
-- *Type:* <a href="#cdk-ans.TaskAction">TaskAction</a>
 
 ---
 
@@ -10253,6 +8893,45 @@ Place all playbooks in the root of the project.
 ##### `IN_DIRECTORY` <a name="IN_DIRECTORY" id="cdk-ans.PlaybookOutputType.IN_DIRECTORY"></a>
 
 Place all playbooks in a directory named "playbooks".
+
+---
+
+
+### PlayHostOrder <a name="PlayHostOrder" id="cdk-ans.PlayHostOrder"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.PlayHostOrder.INVENTORY">INVENTORY</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PlayHostOrder.SORTED">SORTED</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PlayHostOrder.REVERSE_SORTED">REVERSE_SORTED</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PlayHostOrder.REVERSE_INVENTORY">REVERSE_INVENTORY</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PlayHostOrder.SHUFFLED">SHUFFLED</a></code> | *No description.* |
+
+---
+
+##### `INVENTORY` <a name="INVENTORY" id="cdk-ans.PlayHostOrder.INVENTORY"></a>
+
+---
+
+
+##### `SORTED` <a name="SORTED" id="cdk-ans.PlayHostOrder.SORTED"></a>
+
+---
+
+
+##### `REVERSE_SORTED` <a name="REVERSE_SORTED" id="cdk-ans.PlayHostOrder.REVERSE_SORTED"></a>
+
+---
+
+
+##### `REVERSE_INVENTORY` <a name="REVERSE_INVENTORY" id="cdk-ans.PlayHostOrder.REVERSE_INVENTORY"></a>
+
+---
+
+
+##### `SHUFFLED` <a name="SHUFFLED" id="cdk-ans.PlayHostOrder.SHUFFLED"></a>
 
 ---
 
