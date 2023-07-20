@@ -4,6 +4,7 @@ import { Host } from '../hosts/host';
 import { IChainable, INextable, RunDefinition } from '../task/task-definition';
 
 export interface PlayProps { // TODO: add more play props
+  readonly name?: string;
   readonly hosts: Host[];
   readonly become?: boolean;
   readonly runDefinition?: RunDefinition;
@@ -17,14 +18,14 @@ export interface PlayProps { // TODO: add more play props
  */
 export class Play extends Construct implements IChainable, INextable {
   public readonly taskChain: INextable[] = [this];
-
+  readonly name: string;
   readonly become?: boolean;
   readonly roles: RoleTarget[] = [];
   readonly tasks?: RunDefinition;
   readonly hosts: Host[] = [];
   constructor(scope: Construct, name: string, props: PlayProps) {
     super(scope, name);
-
+    this.name = props.name ?? name;
     this.hosts = props.hosts ?? [];
     this.roles = props.roles ?? [];
     this.tasks = props.runDefinition;
@@ -52,7 +53,7 @@ export class Play extends Construct implements IChainable, INextable {
       }
     }
     const j: Record<string, any> = {
-      name: this.node.id,
+      name: this.name,
       hosts: this.flattenHosts(),
       tasks: tasks,
     };

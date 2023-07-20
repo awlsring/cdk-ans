@@ -3329,6 +3329,7 @@ Any object.
 | --- | --- | --- |
 | <code><a href="#cdk-ans.Play.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-ans.Play.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Play.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Play.property.roles">roles</a></code> | <code><a href="#cdk-ans.RoleTarget">RoleTarget</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Play.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Play.property.become">become</a></code> | <code>boolean</code> | *No description.* |
@@ -3355,6 +3356,16 @@ public readonly hosts: Host[];
 ```
 
 - *Type:* <a href="#cdk-ans.Host">Host</a>[]
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.Play.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -7889,6 +7900,7 @@ const playProps: PlayProps = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-ans.PlayProps.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.roles">roles</a></code> | <code><a href="#cdk-ans.RoleTarget">RoleTarget</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.runDefinition">runDefinition</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
 
@@ -7911,6 +7923,16 @@ public readonly become: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.PlayProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 

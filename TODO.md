@@ -11,14 +11,14 @@ Tasks are predictable and documented. Rather than writing all of these, generati
 
 Current plan is something like
 
+* Write a python script that can go to a module page ([such as meta](https://github.com/ansible/ansible/blob/devel/lib/ansible/modules/meta.py)) and extract the DOCUMENTATION into a yaml file.
+* Take this file, and run through a class generator that will generate the classes for the module. This will likely need to be written per language, but there may be a short cut to this. See how CDK8s and CDKTF do this.
+
 #### Variable, Logical Operation, Conditions Wrappers
 A lot of values written in tasks currently need to be as strings that are in the ansible playbooks today. Looks at all these different fields and see how to better abstract them to make safer and cleaner to use. Todos are scattered in the repo, but a few quicks thoughts are...
 
 - Condition wrappers
 - Common variables (item, anisble built in, gather facts, etc) 
-
-* Write a python script that can go to a module page ([such as meta](https://github.com/ansible/ansible/blob/devel/lib/ansible/modules/meta.py)) and extract the DOCUMENTATION into a yaml file.
-* Take this file, and run through a class generator that will generate the classes for the module. This will likely need to be written per language, but there may be a short cut to this. See how CDK8s and CDKTF do this.
 
 These scripts should be part of a new package, `cdk-ans-cli` that more functionality will be added to later.
 

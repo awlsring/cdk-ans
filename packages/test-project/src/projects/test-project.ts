@@ -14,7 +14,9 @@ export class TestProject extends Project {
     });
 
     // declare task
-    const ping = new PingTask(this, 'test-ping');
+    const ping = new PingTask(this, 'test-ping', {
+      name: 'Ping host',
+    });
 
     const commandTask = new CommandTask(this, 'test-command', {
       command: {
@@ -29,6 +31,7 @@ export class TestProject extends Project {
 
     // build plays
     const play = new Play(this, 'play', {
+      name: 'Test play',
       hosts: [host],
       runDefinition: ping,
       roles: [
