@@ -14,6 +14,7 @@ export interface TaskProps extends TaskBaseProps {
   readonly failedWhen?: string;
   readonly localAction?: string;
   readonly loop?: string | string[];
+  readonly loopControl?: Record<string, any>;
   readonly notify?: Handler[];
   readonly poll?: number;
   readonly register?: string;

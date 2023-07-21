@@ -73,7 +73,7 @@ export class PiholeHaProject extends Project {
         regexp: '^',
         line: '{{ inventory_hostname }}',
       }),
-      notify: [reboot.node.id],
+      notify: [reboot],
     });
 
     const setHosts = new Task(this, 'set-hosts', {
@@ -82,7 +82,7 @@ export class PiholeHaProject extends Project {
         regexp: '^',
         line: '127.0.0.1 {{ inventory_hostname }}',
       }),
-      notify: [reboot.node.id],
+      notify: [reboot],
     });
 
     const setCustomDns = new Task(this, 'set-custom-dns', {
@@ -90,7 +90,7 @@ export class PiholeHaProject extends Project {
         path: '/etc/dhcpcd.conf',
         block: 'static domain_name_servers={{ static_dns }}',
       }),
-      notify: [restartDhcpcd.node.id],
+      notify: [restartDhcpcd],
     });
 
     const flush = new Task(this, 'flush', {
@@ -173,7 +173,7 @@ export class PiholeHaProject extends Project {
         content: '{ "ipv6": true, "fixed-cidr-v6": "2001:db8:1::/64" }',
         mode: '0600',
       }),
-      notify: [handler.node.id], // TODO: change to be a handler, see if should be a list or not
+      notify: [handler], // TODO: change to be a handler, see if should be a list or not
     });
 
     const flush = new Task(this, 'flush', {

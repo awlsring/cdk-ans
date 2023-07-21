@@ -7696,6 +7696,7 @@ const taskProps: TaskProps = { ... }
 | <code><a href="#cdk-ans.TaskProps.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.poll">poll</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.register">register</a></code> | <code>string</code> | *No description.* |
@@ -8044,6 +8045,16 @@ public readonly loop: string | string[];
 ```
 
 - *Type:* string | string[]
+
+---
+
+##### `loopControl`<sup>Optional</sup> <a name="loopControl" id="cdk-ans.TaskProps.property.loopControl"></a>
+
+```typescript
+public readonly loopControl: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
 
 ---
 
