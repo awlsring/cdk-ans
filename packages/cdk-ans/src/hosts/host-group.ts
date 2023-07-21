@@ -1,15 +1,20 @@
 import { Construct } from 'constructs';
 import { Host } from './host';
+import { IHostIdentifiable } from './host-identifiable';
 
-export interface HostGroupProps {}
+export interface HostGroupProps {
+  readonly identifier?: string;
+}
 
-export class HostGroup extends Construct {
+export class HostGroup extends Construct implements IHostIdentifiable {
   private _variables: Record<string, string> = {};
+  readonly identifier: string;
   readonly groups: Record<string, HostGroup> = {};
   readonly hosts: Host[] = [];
 
-  constructor(scope: Construct, name: string) {
+  constructor(scope: Construct, name: string, props?: HostGroupProps) {
     super(scope, name);
+    this.identifier = props?.identifier ?? name;
   }
 
   public addVariables(variables: Record<string, string>) {

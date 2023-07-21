@@ -1598,6 +1598,8 @@ public readonly listen: string;
 
 ### Host <a name="Host" id="cdk-ans.Host"></a>
 
+- *Implements:* <a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>
+
 #### Initializers <a name="Initializers" id="cdk-ans.Host.Initializer"></a>
 
 ```typescript
@@ -1719,6 +1721,7 @@ Return whether the given object is a Host.
 | <code><a href="#cdk-ans.Host.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-ans.Host.property.ansibleConnection">ansibleConnection</a></code> | <code><a href="#cdk-ans.AnsibleConnection">AnsibleConnection</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Host.property.ansibleHost">ansibleHost</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Host.property.identifier">identifier</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Host.property.variables">variables</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
 | <code><a href="#cdk-ans.Host.property.ansibleBecome">ansibleBecome</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Host.property.ansiblePassword">ansiblePassword</a></code> | <code>string</code> | *No description.* |
@@ -1753,6 +1756,16 @@ public readonly ansibleConnection: AnsibleConnection;
 
 ```typescript
 public readonly ansibleHost: string;
+```
+
+- *Type:* string
+
+---
+
+##### `identifier`<sup>Required</sup> <a name="identifier" id="cdk-ans.Host.property.identifier"></a>
+
+```typescript
+public readonly identifier: string;
 ```
 
 - *Type:* string
@@ -1812,18 +1825,21 @@ public readonly ansibleUser: string;
 
 ### HostGroup <a name="HostGroup" id="cdk-ans.HostGroup"></a>
 
+- *Implements:* <a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>
+
 #### Initializers <a name="Initializers" id="cdk-ans.HostGroup.Initializer"></a>
 
 ```typescript
 import { HostGroup } from 'cdk-ans'
 
-new HostGroup(scope: Construct, name: string)
+new HostGroup(scope: Construct, name: string, props?: HostGroupProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.HostGroup.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#cdk-ans.HostGroup.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.HostGroup.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-ans.HostGroupProps">HostGroupProps</a></code> | *No description.* |
 
 ---
 
@@ -1836,6 +1852,12 @@ new HostGroup(scope: Construct, name: string)
 ##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.HostGroup.Initializer.parameter.name"></a>
 
 - *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-ans.HostGroup.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-ans.HostGroupProps">HostGroupProps</a>
 
 ---
 
@@ -1955,6 +1977,7 @@ Any object.
 | <code><a href="#cdk-ans.HostGroup.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-ans.HostGroup.property.groups">groups</a></code> | <code>{[ key: string ]: <a href="#cdk-ans.HostGroup">HostGroup</a>}</code> | *No description.* |
 | <code><a href="#cdk-ans.HostGroup.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.HostGroup.property.identifier">identifier</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.HostGroup.property.variables">variables</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
 
 ---
@@ -1988,6 +2011,16 @@ public readonly hosts: Host[];
 ```
 
 - *Type:* <a href="#cdk-ans.Host">Host</a>[]
+
+---
+
+##### `identifier`<sup>Required</sup> <a name="identifier" id="cdk-ans.HostGroup.property.identifier"></a>
+
+```typescript
+public readonly identifier: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -2701,7 +2734,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.Play.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-ans.Play.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Play.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Play.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Play.property.roles">roles</a></code> | <code><a href="#cdk-ans.RoleTarget">RoleTarget</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Play.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
@@ -2725,10 +2758,10 @@ The tree node.
 ##### `hosts`<sup>Required</sup> <a name="hosts" id="cdk-ans.Play.property.hosts"></a>
 
 ```typescript
-public readonly hosts: Host[];
+public readonly hosts: IHostIdentifiable[];
 ```
 
-- *Type:* <a href="#cdk-ans.Host">Host</a>[]
+- *Type:* <a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>[]
 
 ---
 
@@ -5817,6 +5850,23 @@ import { HostGroupProps } from 'cdk-ans'
 const hostGroupProps: HostGroupProps = { ... }
 ```
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.HostGroupProps.property.identifier">identifier</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `identifier`<sup>Optional</sup> <a name="identifier" id="cdk-ans.HostGroupProps.property.identifier"></a>
+
+```typescript
+public readonly identifier: string;
+```
+
+- *Type:* string
+
+---
 
 ### HostProps <a name="HostProps" id="cdk-ans.HostProps"></a>
 
@@ -5838,6 +5888,7 @@ const hostProps: HostProps = { ... }
 | <code><a href="#cdk-ans.HostProps.property.ansiblePort">ansiblePort</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.HostProps.property.ansibleUser">ansibleUser</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.HostProps.property.connectionType">connectionType</a></code> | <code><a href="#cdk-ans.AnsibleConnection">AnsibleConnection</a></code> | *No description.* |
+| <code><a href="#cdk-ans.HostProps.property.identifier">identifier</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.HostProps.property.variables">variables</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
 
 ---
@@ -5899,6 +5950,16 @@ public readonly connectionType: AnsibleConnection;
 ```
 
 - *Type:* <a href="#cdk-ans.AnsibleConnection">AnsibleConnection</a>
+
+---
+
+##### `identifier`<sup>Optional</sup> <a name="identifier" id="cdk-ans.HostProps.property.identifier"></a>
+
+```typescript
+public readonly identifier: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -6298,7 +6359,7 @@ const playProps: PlayProps = { ... }
 | <code><a href="#cdk-ans.PlayProps.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.PlayProps.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.factPath">factPath</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.forceHandlers">forceHandlers</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.gatherFacts">gatherFacts</a></code> | <code>boolean</code> | *No description.* |
@@ -6561,10 +6622,10 @@ public readonly vars: {[ key: string ]: any};
 ##### `hosts`<sup>Required</sup> <a name="hosts" id="cdk-ans.PlayProps.property.hosts"></a>
 
 ```typescript
-public readonly hosts: Host[];
+public readonly hosts: IHostIdentifiable[];
 ```
 
-- *Type:* <a href="#cdk-ans.Host">Host</a>[]
+- *Type:* <a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>[]
 
 ---
 
@@ -8734,6 +8795,29 @@ public readonly taskChain: INextable[];
 ```
 
 - *Type:* <a href="#cdk-ans.INextable">INextable</a>[]
+
+---
+
+### IHostIdentifiable <a name="IHostIdentifiable" id="cdk-ans.IHostIdentifiable"></a>
+
+- *Implemented By:* <a href="#cdk-ans.Host">Host</a>, <a href="#cdk-ans.HostGroup">HostGroup</a>, <a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.IHostIdentifiable.property.identifier">identifier</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `identifier`<sup>Required</sup> <a name="identifier" id="cdk-ans.IHostIdentifiable.property.identifier"></a>
+
+```typescript
+public readonly identifier: string;
+```
+
+- *Type:* string
 
 ---
 

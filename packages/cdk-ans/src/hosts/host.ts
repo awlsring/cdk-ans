@@ -1,4 +1,5 @@
 import { Construct } from 'constructs';
+import { IHostIdentifiable } from './host-identifiable';
 
 export const HOST_SYMBOL = Symbol.for('cdk-ans.Host');
 
@@ -10,6 +11,7 @@ export enum AnsibleConnection {
 
 export interface HostProps {
   readonly host: string;
+  readonly identifier?: string;
   readonly ansiblePort?: number;
   readonly connectionType?: AnsibleConnection;
   readonly ansibleUser?: string;
@@ -18,7 +20,7 @@ export interface HostProps {
   readonly variables?: Record<string, string>;
 }
 
-export class Host extends Construct {
+export class Host extends Construct implements IHostIdentifiable {
   /**
    * Return whether the given object is a Host.
    */
@@ -36,6 +38,7 @@ export class Host extends Construct {
     return Host.isHost(o);
   }
 
+  readonly identifier: string;
   readonly ansibleConnection: AnsibleConnection;
   readonly ansibleHost: string;
   readonly ansiblePort?: number;
@@ -47,6 +50,7 @@ export class Host extends Construct {
   constructor(scope: Construct, name: string, props: HostProps) {
     super(scope, name);
 
+    this.identifier = props.identifier ?? name;
     this.ansibleHost = props.host;
     this.ansibleConnection = props.connectionType ?? AnsibleConnection.SSH;
     this.ansiblePort = props.ansiblePort;

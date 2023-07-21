@@ -1,6 +1,6 @@
 import { Construct } from 'constructs';
 import { RoleTarget } from './role-target';
-import { Host } from '../hosts/host';
+import { IHostIdentifiable } from '../hosts/host-identifiable';
 import { Handler } from '../task/handler';
 import { TaskBaseProps } from '../task/task-base';
 import { IChainable, INextable, RunDefinition } from '../task/task-definition';
@@ -22,7 +22,7 @@ export interface PlayProps extends TaskBaseProps {
   readonly gatherSubset?: string;
   readonly gatherTimeout?: number;
   readonly handlers?: Handler[]; //TODO handler target class?
-  readonly hosts: Host[]; // TODO: ability to add host groups
+  readonly hosts: IHostIdentifiable[]; // TODO: ability to add host groups
   readonly maxFailPercentage?: number;
   readonly order?: PlayHostOrder;
   readonly postTasks?: RunDefinition;
@@ -45,7 +45,7 @@ export class Play extends Construct implements IChainable, INextable { //TODO: U
   readonly become?: boolean;
   readonly roles: RoleTarget[] = [];
   readonly tasks?: RunDefinition;
-  readonly hosts: Host[] = [];
+  readonly hosts: IHostIdentifiable[] = [];
   constructor(scope: Construct, name: string, props: PlayProps) {
     super(scope, name);
     this.name = props.name ?? name;
@@ -61,7 +61,7 @@ export class Play extends Construct implements IChainable, INextable { //TODO: U
   flattenHosts(): string[] {
     const list: string[] = [];
     this.hosts.forEach(host => {
-      list.push(host.node.id);
+      list.push(host.identifier);
     });
     return list;
   }
