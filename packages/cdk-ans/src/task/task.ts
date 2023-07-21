@@ -30,13 +30,15 @@ export interface TaskProps extends TaskBaseProps {
 // make these chainable like aws-cdk sfn?
 // https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html#task
 export class Task extends TaskBase implements IChainable, INextable {
-  public readonly taskChain: INextable[] = [this];
+  readonly taskChain: INextable[] = [this];
   readonly action: TaskAction;
   readonly params: Record<string, any>;
+  readonly notify?: Handler[];
 
   constructor(scope: Construct, name: string, props: TaskProps) {
     super(scope, name, props);
     this.action = props.action;
+    this.notify = props.notify;
     this.params = {
       ...props,
     };
@@ -55,6 +57,10 @@ export class Task extends TaskBase implements IChainable, INextable {
       name: this.name,
       ...this.action.toJson(),
     };
+
+    if (this.notify) {
+      task.notify = this.notify.map(h => h.name);
+    }
 
     return convertKeysToSnakeCase(task);
   }

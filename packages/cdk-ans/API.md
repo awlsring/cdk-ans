@@ -337,6 +337,7 @@ Any object.
 | <code><a href="#cdk-ans.CommandTask.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.params">params</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTask.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
 
 ---
 
@@ -622,6 +623,16 @@ public readonly taskChain: INextable[];
 
 ---
 
+##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.CommandTask.property.notify"></a>
+
+```typescript
+public readonly notify: Handler[];
+```
+
+- *Type:* <a href="#cdk-ans.Handler">Handler</a>[]
+
+---
+
 
 ### File <a name="File" id="cdk-ans.File"></a>
 
@@ -904,6 +915,7 @@ Any object.
 | <code><a href="#cdk-ans.FileTask.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.params">params</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.FileTask.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
 
 ---
 
@@ -1186,6 +1198,16 @@ public readonly taskChain: INextable[];
 ```
 
 - *Type:* <a href="#cdk-ans.INextable">INextable</a>[]
+
+---
+
+##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.FileTask.property.notify"></a>
+
+```typescript
+public readonly notify: Handler[];
+```
+
+- *Type:* <a href="#cdk-ans.Handler">Handler</a>[]
 
 ---
 
@@ -2316,6 +2338,7 @@ Any object.
 | <code><a href="#cdk-ans.PingTask.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.params">params</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.PingTask.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
 
 ---
 
@@ -2598,6 +2621,16 @@ public readonly taskChain: INextable[];
 ```
 
 - *Type:* <a href="#cdk-ans.INextable">INextable</a>[]
+
+---
+
+##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.PingTask.property.notify"></a>
+
+```typescript
+public readonly notify: Handler[];
+```
+
+- *Type:* <a href="#cdk-ans.Handler">Handler</a>[]
 
 ---
 
@@ -3743,6 +3776,7 @@ Any object.
 | <code><a href="#cdk-ans.Task.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.params">params</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Task.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
 
 ---
 
@@ -4025,6 +4059,16 @@ public readonly taskChain: INextable[];
 ```
 
 - *Type:* <a href="#cdk-ans.INextable">INextable</a>[]
+
+---
+
+##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.Task.property.notify"></a>
+
+```typescript
+public readonly notify: Handler[];
+```
+
+- *Type:* <a href="#cdk-ans.Handler">Handler</a>[]
 
 ---
 
