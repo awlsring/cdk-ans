@@ -67,6 +67,7 @@
   "workspaces": {
     "packages": [
       "packages/cdk-ans",
+      "packages/cdk-ans-cli",
       "packages/test-project"
     ],
     "nohoist": [

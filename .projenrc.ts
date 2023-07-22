@@ -2,7 +2,7 @@ import * as path from "path";
 import { NxMonorepoProject } from "@aws-prototyping-sdk/nx-monorepo";
 import { JsiiProject } from "projen/lib/cdk";
 import { GithubCredentials } from "projen/lib/github";
-import { TypeScriptAppProject } from "projen/lib/typescript";
+import { TypeScriptAppProject, TypeScriptProject } from "projen/lib/typescript";
 
 const monorepo = new NxMonorepoProject({
   defaultReleaseBranch: "main",
@@ -51,6 +51,42 @@ const cdkans = new JsiiProject({
   gitignore: ["tmp/*", "dist-test/*"],
 });
 cdkans.package.addPackageResolutions("@types/lodash@4.14.192");
+
+new TypeScriptProject({
+  parent: monorepo,
+  outdir: path.join("packages", "cdk-ans-cli"),
+  defaultReleaseBranch: "main",
+  name: "cdk-ans-cli",
+  bin: {
+    cdk8s: "bin/cdkans",
+  },
+  deps: [
+    cdkans.package.packageName,
+    "constructs",
+    "codemaker",
+    "constructs",
+    "fs-extra@^8",
+    "jsii-srcmak",
+    "jsii-pacmak",
+    "sscaff",
+    "yaml",
+    "yargs@^15",
+    "json2jsii",
+    "colors",
+    "ajv",
+    "table",
+    "semver",
+  ],
+  devDeps: [
+    "@types/fs-extra@^8",
+    "@types/json-schema",
+    "@types/semver",
+    "glob",
+    "@types/glob",
+    "typescript-json-schema",
+  ],
+  gitignore: ["tmp/*", "dist-test/*"],
+});
 
 const testProject = new TypeScriptAppProject({
   parent: monorepo,
