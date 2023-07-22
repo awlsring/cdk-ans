@@ -1,5 +1,6 @@
 import * as path from "path";
 import { NxMonorepoProject } from "@aws-prototyping-sdk/nx-monorepo";
+import { DependencyType } from "projen";
 import { JsiiProject } from "projen/lib/cdk";
 import { GithubCredentials } from "projen/lib/github";
 import { TypeScriptAppProject, TypeScriptProject } from "projen/lib/typescript";
@@ -28,7 +29,7 @@ const monorepo = new NxMonorepoProject({
     "tmp",
     "@types/tmp",
   ],
-  gitignore: [".vscode"],
+  gitignore: [".vscode", "cdkans.yaml"],
 });
 
 const cdkans = new JsiiProject({
@@ -52,13 +53,14 @@ const cdkans = new JsiiProject({
 });
 cdkans.package.addPackageResolutions("@types/lodash@4.14.192");
 
-new TypeScriptProject({
+const cdkansCli = new TypeScriptProject({
   parent: monorepo,
   outdir: path.join("packages", "cdk-ans-cli"),
+  entrypoint: "",
   defaultReleaseBranch: "main",
   name: "cdk-ans-cli",
   bin: {
-    cdk8s: "bin/cdkans",
+    cdkans: "bin/cdkans",
   },
   deps: [
     cdkans.package.packageName,
@@ -87,6 +89,8 @@ new TypeScriptProject({
   ],
   gitignore: ["tmp/*", "dist-test/*"],
 });
+cdkansCli.deps.removeDependency("@types/node", DependencyType.BUILD);
+cdkansCli.deps.addDependency("@types/node@^16", DependencyType.RUNTIME);
 
 const testProject = new TypeScriptAppProject({
   parent: monorepo,

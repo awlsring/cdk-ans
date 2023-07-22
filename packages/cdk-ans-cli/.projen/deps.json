@@ -18,11 +18,6 @@
       "type": "build"
     },
     {
-      "name": "@types/node",
-      "version": "^16",
-      "type": "build"
-    },
-    {
       "name": "@types/semver",
       "type": "build"
     },
@@ -86,6 +81,11 @@
     {
       "name": "typescript-json-schema",
       "type": "build"
+    },
+    {
+      "name": "@types/node",
+      "version": "^16",
+      "type": "runtime"
     },
     {
       "name": "ajv",

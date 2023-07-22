@@ -34,6 +34,7 @@ jspm_packages/
 .tmp
 .nx/cache
 .vscode
+cdkans.yaml
 !/.projenrc.js
 !/.github/workflows/build.yml
 !/.mergify.yml
