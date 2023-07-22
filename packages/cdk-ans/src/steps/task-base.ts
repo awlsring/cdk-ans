@@ -57,12 +57,13 @@ export abstract class TaskBase extends Step {
     this.anyErrorsFatal = props.anyErrorsFatal;
     this.become = props.become;
     this.becomeExe = props.becomeExe;
-    this.becomeUser = props.becomeUser;
     this.becomeMethod = props.becomeMethod;
+    this.becomeUser = props.becomeUser;
     this.becomeFlags = props.becomeFlags;
     this.checkMode = props.checkMode;
     this.collections = props.collections;
     this.connection = props.connection;
+    this.debugger = props.debugger;
     this.diff = props.diff;
     this.environment = props.environment;
     this.ignoreErrors = props.ignoreErrors;
@@ -74,6 +75,7 @@ export abstract class TaskBase extends Step {
     this.runOnce = props.runOnce;
     this.tags = props.tags;
     this.throttle = props.throttle;
+    this.timeout = props.timeout;
+    this.vars = props.vars;
   }
-
 }
