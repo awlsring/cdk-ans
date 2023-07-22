@@ -101,7 +101,7 @@ export class PiholeHaProject extends Project {
 
     return new Role(this, 'bootstrap', {
       handlers: [reboot],
-      runDefinition: addSshKey
+      tasks: addSshKey
         .next(lockPassword)
         .next(bashrcForUser)
         .next(setTimezone)
@@ -183,7 +183,7 @@ export class PiholeHaProject extends Project {
     });
 
     return new Role(this, 'docker', {
-      runDefinition: installDocker
+      tasks: installDocker
         .next(addDockerAptKey)
         .next(addDockerAptRepo)
         .next(installDockerCe)
@@ -294,7 +294,7 @@ export class PiholeHaProject extends Project {
     });
 
     return new Role(this, 'pihole', {
-      runDefinition: createDirectory
+      tasks: createDirectory
         .next(getIpv6Local)
         .next(determineHostIpsHa)
         .next(determineHostIpSingle)
@@ -310,7 +310,6 @@ export class PiholeHaProject extends Project {
     new Play(this, 'init-pi', {
       hosts: inventory.hosts,
       become: true,
-      roles: [],
     });
   }
 }

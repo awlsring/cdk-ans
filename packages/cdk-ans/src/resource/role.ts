@@ -2,12 +2,12 @@ import { Construct } from 'constructs';
 import { Resource } from './resource';
 import { File } from '../file/file';
 import { TemplateFile } from '../file/template';
-import { Handler } from '../task/handler';
-import { Task } from '../task/task';
-import { RunDefinition } from '../task/task-definition';
+import { Handler } from '../steps/handler';
+import { TaskDefinition } from '../steps/run-definition/task-definition';
+import { Task } from '../steps/task';
 
 export interface RoleProps {
-  readonly runDefinition: RunDefinition;
+  readonly tasks: TaskDefinition;
   readonly tasksAlt?: Task[];
   readonly handlers?: Handler[];
   readonly files?: File[];
@@ -17,7 +17,7 @@ export interface RoleProps {
 }
 
 export class Role extends Resource {
-  readonly runDefinition: RunDefinition;
+  readonly tasks: TaskDefinition;
   private _files: File[] = [];
   private _templates: TemplateFile[] = [];
   private _handlers: Handler[] = [];
@@ -26,7 +26,7 @@ export class Role extends Resource {
 
   constructor(scope: Construct, name: string, props: RoleProps) {
     super(scope, name);
-    this.runDefinition = props?.runDefinition;
+    this.tasks = props?.tasks;
   }
 
   get files(): File[] {
@@ -50,7 +50,7 @@ export class Role extends Resource {
   }
 
   addTask(task: Task) {
-    this.runDefinition.taskChain.push(task);
+    this.tasks.chain.push(task);
   }
 
   addFile(file: File) {

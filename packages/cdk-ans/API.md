@@ -193,6 +193,471 @@ The synthesizer that will be used to synthesize the project.
 ---
 
 
+### Block <a name="Block" id="cdk-ans.Block"></a>
+
+- *Implements:* <a href="#cdk-ans.ITaskChainable">ITaskChainable</a>
+
+#### Initializers <a name="Initializers" id="cdk-ans.Block.Initializer"></a>
+
+```typescript
+import { Block } from 'cdk-ans'
+
+new Block(scope: Construct, name: string, props: BlockProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.Block.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-ans.BlockProps">BlockProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-ans.Block.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.Block.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-ans.Block.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-ans.BlockProps">BlockProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.Block.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-ans.Block.toJson">toJson</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Block.next">next</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-ans.Block.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `toJson` <a name="toJson" id="cdk-ans.Block.toJson"></a>
+
+```typescript
+public toJson(): any
+```
+
+##### `next` <a name="next" id="cdk-ans.Block.next"></a>
+
+```typescript
+public next(next: ITaskChainable): TaskDefinition
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.Block.next.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.ITaskChainable">ITaskChainable</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.Block.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-ans.Block.isConstruct"></a>
+
+```typescript
+import { Block } from 'cdk-ans'
+
+Block.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-ans.Block.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.Block.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-ans.Block.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.become">become</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.connection">connection</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.port">port</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.params">params</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.tasks">tasks</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.always">always</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.rescue">rescue</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-ans.Block.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.Block.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.Block.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `anyErrorsFatal`<sup>Optional</sup> <a name="anyErrorsFatal" id="cdk-ans.Block.property.anyErrorsFatal"></a>
+
+```typescript
+public readonly anyErrorsFatal: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `become`<sup>Optional</sup> <a name="become" id="cdk-ans.Block.property.become"></a>
+
+```typescript
+public readonly become: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `becomeExe`<sup>Optional</sup> <a name="becomeExe" id="cdk-ans.Block.property.becomeExe"></a>
+
+```typescript
+public readonly becomeExe: string;
+```
+
+- *Type:* string
+
+---
+
+##### `becomeFlags`<sup>Optional</sup> <a name="becomeFlags" id="cdk-ans.Block.property.becomeFlags"></a>
+
+```typescript
+public readonly becomeFlags: string;
+```
+
+- *Type:* string
+
+---
+
+##### `becomeMethod`<sup>Optional</sup> <a name="becomeMethod" id="cdk-ans.Block.property.becomeMethod"></a>
+
+```typescript
+public readonly becomeMethod: string;
+```
+
+- *Type:* string
+
+---
+
+##### `becomeUser`<sup>Optional</sup> <a name="becomeUser" id="cdk-ans.Block.property.becomeUser"></a>
+
+```typescript
+public readonly becomeUser: string;
+```
+
+- *Type:* string
+
+---
+
+##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.Block.property.checkMode"></a>
+
+```typescript
+public readonly checkMode: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `collections`<sup>Optional</sup> <a name="collections" id="cdk-ans.Block.property.collections"></a>
+
+```typescript
+public readonly collections: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `connection`<sup>Optional</sup> <a name="connection" id="cdk-ans.Block.property.connection"></a>
+
+```typescript
+public readonly connection: string;
+```
+
+- *Type:* string
+
+---
+
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.Block.property.debugger"></a>
+
+```typescript
+public readonly debugger: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `diff`<sup>Optional</sup> <a name="diff" id="cdk-ans.Block.property.diff"></a>
+
+```typescript
+public readonly diff: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `environment`<sup>Optional</sup> <a name="environment" id="cdk-ans.Block.property.environment"></a>
+
+```typescript
+public readonly environment: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.Block.property.ignoreErrors"></a>
+
+```typescript
+public readonly ignoreErrors: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `ignoreUnreachable`<sup>Optional</sup> <a name="ignoreUnreachable" id="cdk-ans.Block.property.ignoreUnreachable"></a>
+
+```typescript
+public readonly ignoreUnreachable: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `moduleDefaults`<sup>Optional</sup> <a name="moduleDefaults" id="cdk-ans.Block.property.moduleDefaults"></a>
+
+```typescript
+public readonly moduleDefaults: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `noLog`<sup>Optional</sup> <a name="noLog" id="cdk-ans.Block.property.noLog"></a>
+
+```typescript
+public readonly noLog: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.Block.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
+
+- *Type:* number
+
+---
+
+##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.Block.property.remoteUser"></a>
+
+```typescript
+public readonly remoteUser: string;
+```
+
+- *Type:* string
+
+---
+
+##### `runOnce`<sup>Optional</sup> <a name="runOnce" id="cdk-ans.Block.property.runOnce"></a>
+
+```typescript
+public readonly runOnce: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tags`<sup>Optional</sup> <a name="tags" id="cdk-ans.Block.property.tags"></a>
+
+```typescript
+public readonly tags: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `throttle`<sup>Optional</sup> <a name="throttle" id="cdk-ans.Block.property.throttle"></a>
+
+```typescript
+public readonly throttle: number;
+```
+
+- *Type:* number
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.Block.property.timeout"></a>
+
+```typescript
+public readonly timeout: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.Block.property.vars"></a>
+
+```typescript
+public readonly vars: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `params`<sup>Required</sup> <a name="params" id="cdk-ans.Block.property.params"></a>
+
+```typescript
+public readonly params: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdk-ans.Block.property.tasks"></a>
+
+```typescript
+public readonly tasks: TaskDefinition;
+```
+
+- *Type:* <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>
+
+---
+
+##### `always`<sup>Optional</sup> <a name="always" id="cdk-ans.Block.property.always"></a>
+
+```typescript
+public readonly always: TaskDefinition;
+```
+
+- *Type:* <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>
+
+---
+
+##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.Block.property.notify"></a>
+
+```typescript
+public readonly notify: Handler[];
+```
+
+- *Type:* <a href="#cdk-ans.Handler">Handler</a>[]
+
+---
+
+##### `rescue`<sup>Optional</sup> <a name="rescue" id="cdk-ans.Block.property.rescue"></a>
+
+```typescript
+public readonly rescue: TaskDefinition;
+```
+
+- *Type:* <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>
+
+---
+
+
 ### CommandTask <a name="CommandTask" id="cdk-ans.CommandTask"></a>
 
 #### Initializers <a name="Initializers" id="cdk-ans.CommandTask.Initializer"></a>
@@ -234,8 +699,8 @@ new CommandTask(scope: Construct, name: string, props: CommandTaskProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.CommandTask.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.CommandTask.next">next</a></code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.toJson">toJson</a></code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTask.next">next</a></code> | *No description.* |
 
 ---
 
@@ -247,23 +712,23 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `next` <a name="next" id="cdk-ans.CommandTask.next"></a>
-
-```typescript
-public next(next: INextable): RunDefinition
-```
-
-###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.CommandTask.next.parameter.next"></a>
-
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>
-
----
-
 ##### `toJson` <a name="toJson" id="cdk-ans.CommandTask.toJson"></a>
 
 ```typescript
 public toJson(): any
 ```
+
+##### `next` <a name="next" id="cdk-ans.CommandTask.next"></a>
+
+```typescript
+public next(next: ITaskChainable): TaskDefinition
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.CommandTask.next.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.ITaskChainable">ITaskChainable</a>
+
+---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -310,6 +775,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.CommandTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-ans.CommandTask.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.become">become</a></code> | <code>boolean</code> | *No description.* |
@@ -336,7 +802,6 @@ Any object.
 | <code><a href="#cdk-ans.CommandTask.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.params">params</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
 
 ---
@@ -350,6 +815,16 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.CommandTask.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
 
 ---
 
@@ -613,16 +1088,6 @@ public readonly params: {[ key: string ]: any};
 
 ---
 
-##### `taskChain`<sup>Required</sup> <a name="taskChain" id="cdk-ans.CommandTask.property.taskChain"></a>
-
-```typescript
-public readonly taskChain: INextable[];
-```
-
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>[]
-
----
-
 ##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.CommandTask.property.notify"></a>
 
 ```typescript
@@ -771,8 +1236,6 @@ public readonly path: string;
 
 ### FileTask <a name="FileTask" id="cdk-ans.FileTask"></a>
 
-- *Implements:* <a href="#cdk-ans.INextable">INextable</a>
-
 #### Initializers <a name="Initializers" id="cdk-ans.FileTask.Initializer"></a>
 
 ```typescript
@@ -812,8 +1275,8 @@ new FileTask(scope: Construct, name: string, props: FileTaskProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.FileTask.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.FileTask.next">next</a></code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.toJson">toJson</a></code> | *No description.* |
+| <code><a href="#cdk-ans.FileTask.next">next</a></code> | *No description.* |
 
 ---
 
@@ -825,23 +1288,23 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `next` <a name="next" id="cdk-ans.FileTask.next"></a>
-
-```typescript
-public next(next: INextable): RunDefinition
-```
-
-###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.FileTask.next.parameter.next"></a>
-
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>
-
----
-
 ##### `toJson` <a name="toJson" id="cdk-ans.FileTask.toJson"></a>
 
 ```typescript
 public toJson(): any
 ```
+
+##### `next` <a name="next" id="cdk-ans.FileTask.next"></a>
+
+```typescript
+public next(next: ITaskChainable): TaskDefinition
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.FileTask.next.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.ITaskChainable">ITaskChainable</a>
+
+---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -888,6 +1351,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.FileTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-ans.FileTask.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.become">become</a></code> | <code>boolean</code> | *No description.* |
@@ -914,7 +1378,6 @@ Any object.
 | <code><a href="#cdk-ans.FileTask.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.params">params</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
 
 ---
@@ -928,6 +1391,16 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.FileTask.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
 
 ---
 
@@ -1191,16 +1664,6 @@ public readonly params: {[ key: string ]: any};
 
 ---
 
-##### `taskChain`<sup>Required</sup> <a name="taskChain" id="cdk-ans.FileTask.property.taskChain"></a>
-
-```typescript
-public readonly taskChain: INextable[];
-```
-
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>[]
-
----
-
 ##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.FileTask.property.notify"></a>
 
 ```typescript
@@ -1316,6 +1779,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.Handler.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-ans.Handler.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Handler.property.become">become</a></code> | <code>boolean</code> | *No description.* |
@@ -1354,6 +1818,16 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.Handler.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
 
 ---
 
@@ -2194,8 +2668,6 @@ public readonly hosts: Host[];
 
 ### PingTask <a name="PingTask" id="cdk-ans.PingTask"></a>
 
-- *Implements:* <a href="#cdk-ans.INextable">INextable</a>
-
 #### Initializers <a name="Initializers" id="cdk-ans.PingTask.Initializer"></a>
 
 ```typescript
@@ -2235,8 +2707,8 @@ new PingTask(scope: Construct, name: string, props?: PingTaskProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.PingTask.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.PingTask.next">next</a></code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.toJson">toJson</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PingTask.next">next</a></code> | *No description.* |
 
 ---
 
@@ -2248,23 +2720,23 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `next` <a name="next" id="cdk-ans.PingTask.next"></a>
-
-```typescript
-public next(next: INextable): RunDefinition
-```
-
-###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.PingTask.next.parameter.next"></a>
-
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>
-
----
-
 ##### `toJson` <a name="toJson" id="cdk-ans.PingTask.toJson"></a>
 
 ```typescript
 public toJson(): any
 ```
+
+##### `next` <a name="next" id="cdk-ans.PingTask.next"></a>
+
+```typescript
+public next(next: ITaskChainable): TaskDefinition
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.PingTask.next.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.ITaskChainable">ITaskChainable</a>
+
+---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -2311,6 +2783,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.PingTask.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-ans.PingTask.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.become">become</a></code> | <code>boolean</code> | *No description.* |
@@ -2337,7 +2810,6 @@ Any object.
 | <code><a href="#cdk-ans.PingTask.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.params">params</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
 
 ---
@@ -2351,6 +2823,16 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.PingTask.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
 
 ---
 
@@ -2614,16 +3096,6 @@ public readonly params: {[ key: string ]: any};
 
 ---
 
-##### `taskChain`<sup>Required</sup> <a name="taskChain" id="cdk-ans.PingTask.property.taskChain"></a>
-
-```typescript
-public readonly taskChain: INextable[];
-```
-
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>[]
-
----
-
 ##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.PingTask.property.notify"></a>
 
 ```typescript
@@ -2637,7 +3109,7 @@ public readonly notify: Handler[];
 
 ### Play <a name="Play" id="cdk-ans.Play"></a>
 
-- *Implements:* <a href="#cdk-ans.IChainable">IChainable</a>, <a href="#cdk-ans.INextable">INextable</a>
+- *Implements:* <a href="#cdk-ans.IPlayChainable">IPlayChainable</a>
 
 A play is a collection of tasks and metadata to execute on a set of hosts.
 
@@ -2684,9 +3156,9 @@ new Play(scope: Construct, name: string, props: PlayProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.Play.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-ans.Play.toJson">toJson</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Play.flattenHosts">flattenHosts</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Play.next">next</a></code> | *No description.* |
-| <code><a href="#cdk-ans.Play.toJson">toJson</a></code> | *No description.* |
 
 ---
 
@@ -2698,6 +3170,12 @@ public toString(): string
 
 Returns a string representation of this construct.
 
+##### `toJson` <a name="toJson" id="cdk-ans.Play.toJson"></a>
+
+```typescript
+public toJson(): any
+```
+
 ##### `flattenHosts` <a name="flattenHosts" id="cdk-ans.Play.flattenHosts"></a>
 
 ```typescript
@@ -2707,20 +3185,14 @@ public flattenHosts(): string[]
 ##### `next` <a name="next" id="cdk-ans.Play.next"></a>
 
 ```typescript
-public next(next: INextable): RunDefinition
+public next(next: IPlayChainable): PlayDefinition
 ```
 
 ###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.Play.next.parameter.next"></a>
 
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>
+- *Type:* <a href="#cdk-ans.IPlayChainable">IPlayChainable</a>
 
 ---
-
-##### `toJson` <a name="toJson" id="cdk-ans.Play.toJson"></a>
-
-```typescript
-public toJson(): any
-```
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -2767,12 +3239,12 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.Play.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-ans.Play.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Play.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Play.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Play.property.roles">roles</a></code> | <code><a href="#cdk-ans.RoleTarget">RoleTarget</a>[]</code> | *No description.* |
-| <code><a href="#cdk-ans.Play.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Play.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Play.property.become">become</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.Play.property.tasks">tasks</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Play.property.roles">roles</a></code> | <code><a href="#cdk-ans.RoleDefinition">RoleDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Play.property.tasks">tasks</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
 
 ---
 
@@ -2788,13 +3260,13 @@ The tree node.
 
 ---
 
-##### `hosts`<sup>Required</sup> <a name="hosts" id="cdk-ans.Play.property.hosts"></a>
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.Play.property.chain"></a>
 
 ```typescript
-public readonly hosts: IHostIdentifiable[];
+public readonly chain: Step[];
 ```
 
-- *Type:* <a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>[]
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
 
 ---
 
@@ -2808,23 +3280,13 @@ public readonly name: string;
 
 ---
 
-##### `roles`<sup>Required</sup> <a name="roles" id="cdk-ans.Play.property.roles"></a>
+##### `hosts`<sup>Required</sup> <a name="hosts" id="cdk-ans.Play.property.hosts"></a>
 
 ```typescript
-public readonly roles: RoleTarget[];
+public readonly hosts: IHostIdentifiable[];
 ```
 
-- *Type:* <a href="#cdk-ans.RoleTarget">RoleTarget</a>[]
-
----
-
-##### `taskChain`<sup>Required</sup> <a name="taskChain" id="cdk-ans.Play.property.taskChain"></a>
-
-```typescript
-public readonly taskChain: INextable[];
-```
-
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>[]
+- *Type:* <a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>[]
 
 ---
 
@@ -2838,13 +3300,23 @@ public readonly become: boolean;
 
 ---
 
+##### `roles`<sup>Optional</sup> <a name="roles" id="cdk-ans.Play.property.roles"></a>
+
+```typescript
+public readonly roles: RoleDefinition;
+```
+
+- *Type:* <a href="#cdk-ans.RoleDefinition">RoleDefinition</a>
+
+---
+
 ##### `tasks`<sup>Optional</sup> <a name="tasks" id="cdk-ans.Play.property.tasks"></a>
 
 ```typescript
-public readonly tasks: RunDefinition;
+public readonly tasks: TaskDefinition;
 ```
 
-- *Type:* <a href="#cdk-ans.RunDefinition">RunDefinition</a>
+- *Type:* <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>
 
 ---
 
@@ -2953,7 +3425,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.Playbook.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#cdk-ans.Playbook.property.playDefinition">playDefinition</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Playbook.property.playDefinition">playDefinition</a></code> | <code><a href="#cdk-ans.PlayDefinition">PlayDefinition</a></code> | *No description.* |
 
 ---
 
@@ -2972,10 +3444,10 @@ The tree node.
 ##### `playDefinition`<sup>Required</sup> <a name="playDefinition" id="cdk-ans.Playbook.property.playDefinition"></a>
 
 ```typescript
-public readonly playDefinition: RunDefinition;
+public readonly playDefinition: PlayDefinition;
 ```
 
-- *Type:* <a href="#cdk-ans.RunDefinition">RunDefinition</a>
+- *Type:* <a href="#cdk-ans.PlayDefinition">PlayDefinition</a>
 
 ---
 
@@ -3410,7 +3882,7 @@ Any object.
 | <code><a href="#cdk-ans.Role.property.defaults">defaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.Role.property.files">files</a></code> | <code><a href="#cdk-ans.File">File</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Role.property.handlers">handlers</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
-| <code><a href="#cdk-ans.Role.property.runDefinition">runDefinition</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Role.property.tasks">tasks</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Role.property.templates">templates</a></code> | <code><a href="#cdk-ans.TemplateFile">TemplateFile</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Role.property.variables">variables</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 
@@ -3458,13 +3930,13 @@ public readonly handlers: Handler[];
 
 ---
 
-##### `runDefinition`<sup>Required</sup> <a name="runDefinition" id="cdk-ans.Role.property.runDefinition"></a>
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdk-ans.Role.property.tasks"></a>
 
 ```typescript
-public readonly runDefinition: RunDefinition;
+public readonly tasks: TaskDefinition;
 ```
 
-- *Type:* <a href="#cdk-ans.RunDefinition">RunDefinition</a>
+- *Type:* <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>
 
 ---
 
@@ -3491,6 +3963,8 @@ public readonly variables: {[ key: string ]: any};
 
 ### RoleTarget <a name="RoleTarget" id="cdk-ans.RoleTarget"></a>
 
+- *Implements:* <a href="#cdk-ans.IRoleChainable">IRoleChainable</a>
+
 Represents a targetted role for use within a playbook.
 
 https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html#role
@@ -3501,6 +3975,7 @@ https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.
 | --- | --- |
 | <code><a href="#cdk-ans.RoleTarget.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#cdk-ans.RoleTarget.toJson">toJson</a></code> | *No description.* |
+| <code><a href="#cdk-ans.RoleTarget.next">next</a></code> | *No description.* |
 
 ---
 
@@ -3515,8 +3990,20 @@ Returns a string representation of this construct.
 ##### `toJson` <a name="toJson" id="cdk-ans.RoleTarget.toJson"></a>
 
 ```typescript
-public toJson(): {[ key: string ]: any}
+public toJson(): any
 ```
+
+##### `next` <a name="next" id="cdk-ans.RoleTarget.next"></a>
+
+```typescript
+public next(next: IRoleChainable): RoleDefinition
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.RoleTarget.next.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.IRoleChainable">IRoleChainable</a>
+
+---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -3592,6 +4079,8 @@ Creates a role target from a role.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.RoleTarget.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-ans.RoleTarget.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.RoleTarget.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTarget.property.role">role</a></code> | <code><a href="#cdk-ans.Role">Role</a></code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTarget.property.props">props</a></code> | <code><a href="#cdk-ans.RoleTargetProps">RoleTargetProps</a></code> | *No description.* |
 
@@ -3606,6 +4095,26 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.RoleTarget.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.RoleTarget.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -3630,9 +4139,151 @@ public readonly props: RoleTargetProps;
 ---
 
 
+### Step <a name="Step" id="cdk-ans.Step"></a>
+
+#### Initializers <a name="Initializers" id="cdk-ans.Step.Initializer"></a>
+
+```typescript
+import { Step } from 'cdk-ans'
+
+new Step(scope: Construct, name: string, props: StepProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.Step.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-ans.Step.Initializer.parameter.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Step.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-ans.StepProps">StepProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-ans.Step.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.Step.Initializer.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-ans.Step.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-ans.StepProps">StepProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.Step.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-ans.Step.toJson">toJson</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-ans.Step.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `toJson` <a name="toJson" id="cdk-ans.Step.toJson"></a>
+
+```typescript
+public toJson(): any
+```
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.Step.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-ans.Step.isConstruct"></a>
+
+```typescript
+import { Step } from 'cdk-ans'
+
+Step.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-ans.Step.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.Step.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-ans.Step.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Step.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-ans.Step.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.Step.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.Step.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+
 ### Task <a name="Task" id="cdk-ans.Task"></a>
 
-- *Implements:* <a href="#cdk-ans.IChainable">IChainable</a>, <a href="#cdk-ans.INextable">INextable</a>
+- *Implements:* <a href="#cdk-ans.ITaskChainable">ITaskChainable</a>
 
 #### Initializers <a name="Initializers" id="cdk-ans.Task.Initializer"></a>
 
@@ -3673,8 +4324,8 @@ new Task(scope: Construct, name: string, props: TaskProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.Task.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.Task.next">next</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Task.toJson">toJson</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Task.next">next</a></code> | *No description.* |
 
 ---
 
@@ -3686,23 +4337,23 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `next` <a name="next" id="cdk-ans.Task.next"></a>
-
-```typescript
-public next(next: INextable): RunDefinition
-```
-
-###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.Task.next.parameter.next"></a>
-
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>
-
----
-
 ##### `toJson` <a name="toJson" id="cdk-ans.Task.toJson"></a>
 
 ```typescript
 public toJson(): any
 ```
+
+##### `next` <a name="next" id="cdk-ans.Task.next"></a>
+
+```typescript
+public next(next: ITaskChainable): TaskDefinition
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.Task.next.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.ITaskChainable">ITaskChainable</a>
+
+---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -3749,6 +4400,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.Task.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-ans.Task.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.become">become</a></code> | <code>boolean</code> | *No description.* |
@@ -3775,7 +4427,6 @@ Any object.
 | <code><a href="#cdk-ans.Task.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.params">params</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
 
 ---
@@ -3789,6 +4440,16 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.Task.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
 
 ---
 
@@ -4052,16 +4713,6 @@ public readonly params: {[ key: string ]: any};
 
 ---
 
-##### `taskChain`<sup>Required</sup> <a name="taskChain" id="cdk-ans.Task.property.taskChain"></a>
-
-```typescript
-public readonly taskChain: INextable[];
-```
-
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>[]
-
----
-
 ##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.Task.property.notify"></a>
 
 ```typescript
@@ -4114,6 +4765,7 @@ new TaskBase(scope: Construct, name: string, props: TaskBaseProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.TaskBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-ans.TaskBase.toJson">toJson</a></code> | *No description.* |
 
 ---
 
@@ -4124,6 +4776,12 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `toJson` <a name="toJson" id="cdk-ans.TaskBase.toJson"></a>
+
+```typescript
+public toJson(): any
+```
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -4170,6 +4828,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.TaskBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-ans.TaskBase.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBase.property.become">become</a></code> | <code>boolean</code> | *No description.* |
@@ -4206,6 +4865,16 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.TaskBase.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
 
 ---
 
@@ -4627,6 +5296,364 @@ public readonly synthesizer: ISynthesizer;
 
 ---
 
+### BlockProps <a name="BlockProps" id="cdk-ans.BlockProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-ans.BlockProps.Initializer"></a>
+
+```typescript
+import { BlockProps } from 'cdk-ans'
+
+const blockProps: BlockProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.BlockProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.becomeFlags">becomeFlags</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.becomeMethod">becomeMethod</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.becomeUser">becomeUser</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.checkMode">checkMode</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.collections">collections</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.connection">connection</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.debugger">debugger</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.diff">diff</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.environment">environment</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.port">port</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.runOnce">runOnce</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.tags">tags</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.tasks">tasks</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.always">always</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.rescue">rescue</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.when">when</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.BlockProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `anyErrorsFatal`<sup>Optional</sup> <a name="anyErrorsFatal" id="cdk-ans.BlockProps.property.anyErrorsFatal"></a>
+
+```typescript
+public readonly anyErrorsFatal: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `become`<sup>Optional</sup> <a name="become" id="cdk-ans.BlockProps.property.become"></a>
+
+```typescript
+public readonly become: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `becomeExe`<sup>Optional</sup> <a name="becomeExe" id="cdk-ans.BlockProps.property.becomeExe"></a>
+
+```typescript
+public readonly becomeExe: string;
+```
+
+- *Type:* string
+
+---
+
+##### `becomeFlags`<sup>Optional</sup> <a name="becomeFlags" id="cdk-ans.BlockProps.property.becomeFlags"></a>
+
+```typescript
+public readonly becomeFlags: string;
+```
+
+- *Type:* string
+
+---
+
+##### `becomeMethod`<sup>Optional</sup> <a name="becomeMethod" id="cdk-ans.BlockProps.property.becomeMethod"></a>
+
+```typescript
+public readonly becomeMethod: string;
+```
+
+- *Type:* string
+
+---
+
+##### `becomeUser`<sup>Optional</sup> <a name="becomeUser" id="cdk-ans.BlockProps.property.becomeUser"></a>
+
+```typescript
+public readonly becomeUser: string;
+```
+
+- *Type:* string
+
+---
+
+##### `checkMode`<sup>Optional</sup> <a name="checkMode" id="cdk-ans.BlockProps.property.checkMode"></a>
+
+```typescript
+public readonly checkMode: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `collections`<sup>Optional</sup> <a name="collections" id="cdk-ans.BlockProps.property.collections"></a>
+
+```typescript
+public readonly collections: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `connection`<sup>Optional</sup> <a name="connection" id="cdk-ans.BlockProps.property.connection"></a>
+
+```typescript
+public readonly connection: string;
+```
+
+- *Type:* string
+
+---
+
+##### `debugger`<sup>Optional</sup> <a name="debugger" id="cdk-ans.BlockProps.property.debugger"></a>
+
+```typescript
+public readonly debugger: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `diff`<sup>Optional</sup> <a name="diff" id="cdk-ans.BlockProps.property.diff"></a>
+
+```typescript
+public readonly diff: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `environment`<sup>Optional</sup> <a name="environment" id="cdk-ans.BlockProps.property.environment"></a>
+
+```typescript
+public readonly environment: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `ignoreErrors`<sup>Optional</sup> <a name="ignoreErrors" id="cdk-ans.BlockProps.property.ignoreErrors"></a>
+
+```typescript
+public readonly ignoreErrors: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `ignoreUnreachable`<sup>Optional</sup> <a name="ignoreUnreachable" id="cdk-ans.BlockProps.property.ignoreUnreachable"></a>
+
+```typescript
+public readonly ignoreUnreachable: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `moduleDefaults`<sup>Optional</sup> <a name="moduleDefaults" id="cdk-ans.BlockProps.property.moduleDefaults"></a>
+
+```typescript
+public readonly moduleDefaults: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `noLog`<sup>Optional</sup> <a name="noLog" id="cdk-ans.BlockProps.property.noLog"></a>
+
+```typescript
+public readonly noLog: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `port`<sup>Optional</sup> <a name="port" id="cdk-ans.BlockProps.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
+
+- *Type:* number
+
+---
+
+##### `remoteUser`<sup>Optional</sup> <a name="remoteUser" id="cdk-ans.BlockProps.property.remoteUser"></a>
+
+```typescript
+public readonly remoteUser: string;
+```
+
+- *Type:* string
+
+---
+
+##### `runOnce`<sup>Optional</sup> <a name="runOnce" id="cdk-ans.BlockProps.property.runOnce"></a>
+
+```typescript
+public readonly runOnce: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `tags`<sup>Optional</sup> <a name="tags" id="cdk-ans.BlockProps.property.tags"></a>
+
+```typescript
+public readonly tags: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `throttle`<sup>Optional</sup> <a name="throttle" id="cdk-ans.BlockProps.property.throttle"></a>
+
+```typescript
+public readonly throttle: number;
+```
+
+- *Type:* number
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="cdk-ans.BlockProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: number;
+```
+
+- *Type:* number
+
+---
+
+##### `vars`<sup>Optional</sup> <a name="vars" id="cdk-ans.BlockProps.property.vars"></a>
+
+```typescript
+public readonly vars: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdk-ans.BlockProps.property.tasks"></a>
+
+```typescript
+public readonly tasks: TaskDefinition;
+```
+
+- *Type:* <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>
+
+---
+
+##### `always`<sup>Optional</sup> <a name="always" id="cdk-ans.BlockProps.property.always"></a>
+
+```typescript
+public readonly always: TaskDefinition;
+```
+
+- *Type:* <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>
+
+---
+
+##### `delegateFacts`<sup>Optional</sup> <a name="delegateFacts" id="cdk-ans.BlockProps.property.delegateFacts"></a>
+
+```typescript
+public readonly delegateFacts: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `delegateTo`<sup>Optional</sup> <a name="delegateTo" id="cdk-ans.BlockProps.property.delegateTo"></a>
+
+```typescript
+public readonly delegateTo: string;
+```
+
+- *Type:* string
+
+---
+
+##### `notify`<sup>Optional</sup> <a name="notify" id="cdk-ans.BlockProps.property.notify"></a>
+
+```typescript
+public readonly notify: Handler[];
+```
+
+- *Type:* <a href="#cdk-ans.Handler">Handler</a>[]
+
+---
+
+##### `rescue`<sup>Optional</sup> <a name="rescue" id="cdk-ans.BlockProps.property.rescue"></a>
+
+```typescript
+public readonly rescue: TaskDefinition;
+```
+
+- *Type:* <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>
+
+---
+
+##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.BlockProps.property.when"></a>
+
+```typescript
+public readonly when: string;
+```
+
+- *Type:* string
+
+---
+
 ### CommandTaskActionProps <a name="CommandTaskActionProps" id="cdk-ans.CommandTaskActionProps"></a>
 
 #### Initializer <a name="Initializer" id="cdk-ans.CommandTaskActionProps.Initializer"></a>
@@ -4746,6 +5773,7 @@ const commandTaskProps: CommandTaskProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-ans.CommandTaskProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
@@ -4761,7 +5789,6 @@ const commandTaskProps: CommandTaskProps = { ... }
 | <code><a href="#cdk-ans.CommandTaskProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTaskProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.port">port</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
@@ -4771,6 +5798,16 @@ const commandTaskProps: CommandTaskProps = { ... }
 | <code><a href="#cdk-ans.CommandTaskProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTaskProps.property.command">command</a></code> | <code><a href="#cdk-ans.CommandTaskActionProps">CommandTaskActionProps</a></code> | *No description.* |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.CommandTaskProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -4921,16 +5958,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 ```
 
 - *Type:* {[ key: string ]: any}
-
----
-
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.CommandTaskProps.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -5303,6 +6330,7 @@ const fileTaskProps: FileTaskProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-ans.FileTaskProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
@@ -5318,7 +6346,6 @@ const fileTaskProps: FileTaskProps = { ... }
 | <code><a href="#cdk-ans.FileTaskProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTaskProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.port">port</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
@@ -5328,6 +6355,16 @@ const fileTaskProps: FileTaskProps = { ... }
 | <code><a href="#cdk-ans.FileTaskProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTaskProps.property.file">file</a></code> | <code><a href="#cdk-ans.FileTaskActionProps">FileTaskActionProps</a></code> | *No description.* |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.FileTaskProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -5481,16 +6518,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 
 ---
 
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.FileTaskProps.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
----
-
 ##### `noLog`<sup>Optional</sup> <a name="noLog" id="cdk-ans.FileTaskProps.property.noLog"></a>
 
 ```typescript
@@ -5595,6 +6622,7 @@ const handlerProps: HandlerProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-ans.HandlerProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
@@ -5610,7 +6638,6 @@ const handlerProps: HandlerProps = { ... }
 | <code><a href="#cdk-ans.HandlerProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.HandlerProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.port">port</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
@@ -5621,6 +6648,16 @@ const handlerProps: HandlerProps = { ... }
 | <code><a href="#cdk-ans.HandlerProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.action">action</a></code> | <code><a href="#cdk-ans.TaskAction">TaskAction</a></code> | *No description.* |
 | <code><a href="#cdk-ans.HandlerProps.property.listen">listen</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.HandlerProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -5771,16 +6808,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 ```
 
 - *Type:* {[ key: string ]: any}
-
----
-
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.HandlerProps.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -6070,6 +7097,7 @@ const pingTaskProps: PingTaskProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-ans.PingTaskProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
@@ -6085,7 +7113,6 @@ const pingTaskProps: PingTaskProps = { ... }
 | <code><a href="#cdk-ans.PingTaskProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTaskProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.port">port</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
@@ -6094,6 +7121,16 @@ const pingTaskProps: PingTaskProps = { ... }
 | <code><a href="#cdk-ans.PingTaskProps.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTaskProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.PingTaskProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -6247,16 +7284,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 
 ---
 
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.PingTaskProps.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
----
-
 ##### `noLog`<sup>Optional</sup> <a name="noLog" id="cdk-ans.PingTaskProps.property.noLog"></a>
 
 ```typescript
@@ -6351,17 +7378,17 @@ const playbookProps: PlaybookProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-ans.PlaybookProps.property.playDefinition">playDefinition</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PlaybookProps.property.playDefinition">playDefinition</a></code> | <code><a href="#cdk-ans.PlayDefinition">PlayDefinition</a></code> | *No description.* |
 
 ---
 
 ##### `playDefinition`<sup>Required</sup> <a name="playDefinition" id="cdk-ans.PlaybookProps.property.playDefinition"></a>
 
 ```typescript
-public readonly playDefinition: RunDefinition;
+public readonly playDefinition: PlayDefinition;
 ```
 
-- *Type:* <a href="#cdk-ans.RunDefinition">RunDefinition</a>
+- *Type:* <a href="#cdk-ans.PlayDefinition">PlayDefinition</a>
 
 ---
 
@@ -6379,6 +7406,7 @@ const playProps: PlayProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-ans.PlayProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
@@ -6394,7 +7422,6 @@ const playProps: PlayProps = { ... }
 | <code><a href="#cdk-ans.PlayProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.PlayProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.port">port</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
@@ -6412,14 +7439,24 @@ const playProps: PlayProps = { ... }
 | <code><a href="#cdk-ans.PlayProps.property.handlers">handlers</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.maxFailPercentage">maxFailPercentage</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.order">order</a></code> | <code><a href="#cdk-ans.PlayHostOrder">PlayHostOrder</a></code> | *No description.* |
-| <code><a href="#cdk-ans.PlayProps.property.postTasks">postTasks</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
-| <code><a href="#cdk-ans.PlayProps.property.preTasks">preTasks</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
-| <code><a href="#cdk-ans.PlayProps.property.roles">roles</a></code> | <code><a href="#cdk-ans.RoleTarget">RoleTarget</a>[]</code> | *No description.* |
-| <code><a href="#cdk-ans.PlayProps.property.runDefinition">runDefinition</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.postTasks">postTasks</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.preTasks">preTasks</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.roles">roles</a></code> | <code><a href="#cdk-ans.RoleDefinition">RoleDefinition</a></code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.serial">serial</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.strategy">strategy</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PlayProps.property.tasks">tasks</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.varPrompt">varPrompt</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PlayProps.property.varsFiles">varsFiles</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.PlayProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -6570,16 +7607,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 ```
 
 - *Type:* {[ key: string ]: any}
-
----
-
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.PlayProps.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -6756,40 +7783,30 @@ public readonly order: PlayHostOrder;
 ##### `postTasks`<sup>Optional</sup> <a name="postTasks" id="cdk-ans.PlayProps.property.postTasks"></a>
 
 ```typescript
-public readonly postTasks: RunDefinition;
+public readonly postTasks: TaskDefinition;
 ```
 
-- *Type:* <a href="#cdk-ans.RunDefinition">RunDefinition</a>
+- *Type:* <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>
 
 ---
 
 ##### `preTasks`<sup>Optional</sup> <a name="preTasks" id="cdk-ans.PlayProps.property.preTasks"></a>
 
 ```typescript
-public readonly preTasks: RunDefinition;
+public readonly preTasks: TaskDefinition;
 ```
 
-- *Type:* <a href="#cdk-ans.RunDefinition">RunDefinition</a>
+- *Type:* <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>
 
 ---
 
 ##### `roles`<sup>Optional</sup> <a name="roles" id="cdk-ans.PlayProps.property.roles"></a>
 
 ```typescript
-public readonly roles: RoleTarget[];
+public readonly roles: RoleDefinition;
 ```
 
-- *Type:* <a href="#cdk-ans.RoleTarget">RoleTarget</a>[]
-
----
-
-##### `runDefinition`<sup>Optional</sup> <a name="runDefinition" id="cdk-ans.PlayProps.property.runDefinition"></a>
-
-```typescript
-public readonly runDefinition: RunDefinition;
-```
-
-- *Type:* <a href="#cdk-ans.RunDefinition">RunDefinition</a>
+- *Type:* <a href="#cdk-ans.RoleDefinition">RoleDefinition</a>
 
 ---
 
@@ -6810,6 +7827,16 @@ public readonly strategy: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `tasks`<sup>Optional</sup> <a name="tasks" id="cdk-ans.PlayProps.property.tasks"></a>
+
+```typescript
+public readonly tasks: TaskDefinition;
+```
+
+- *Type:* <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>
 
 ---
 
@@ -6916,7 +7943,7 @@ const roleProps: RoleProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-ans.RoleProps.property.runDefinition">runDefinition</a></code> | <code><a href="#cdk-ans.RunDefinition">RunDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.RoleProps.property.tasks">tasks</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
 | <code><a href="#cdk-ans.RoleProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleProps.property.files">files</a></code> | <code><a href="#cdk-ans.File">File</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleProps.property.handlers">handlers</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
@@ -6926,13 +7953,13 @@ const roleProps: RoleProps = { ... }
 
 ---
 
-##### `runDefinition`<sup>Required</sup> <a name="runDefinition" id="cdk-ans.RoleProps.property.runDefinition"></a>
+##### `tasks`<sup>Required</sup> <a name="tasks" id="cdk-ans.RoleProps.property.tasks"></a>
 
 ```typescript
-public readonly runDefinition: RunDefinition;
+public readonly tasks: TaskDefinition;
 ```
 
-- *Type:* <a href="#cdk-ans.RunDefinition">RunDefinition</a>
+- *Type:* <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>
 
 ---
 
@@ -7010,6 +8037,7 @@ const roleTargetProps: RoleTargetProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-ans.RoleTargetProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
@@ -7025,7 +8053,6 @@ const roleTargetProps: RoleTargetProps = { ... }
 | <code><a href="#cdk-ans.RoleTargetProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTargetProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.port">port</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
@@ -7037,6 +8064,16 @@ const roleTargetProps: RoleTargetProps = { ... }
 | <code><a href="#cdk-ans.RoleTargetProps.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.when">when</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.RoleTargetProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -7190,16 +8227,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 
 ---
 
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.RoleTargetProps.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
----
-
 ##### `noLog`<sup>Optional</sup> <a name="noLog" id="cdk-ans.RoleTargetProps.property.noLog"></a>
 
 ```typescript
@@ -7304,6 +8331,34 @@ public readonly delegateTo: string;
 
 ```typescript
 public readonly when: string;
+```
+
+- *Type:* string
+
+---
+
+### StepProps <a name="StepProps" id="cdk-ans.StepProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-ans.StepProps.Initializer"></a>
+
+```typescript
+import { StepProps } from 'cdk-ans'
+
+const stepProps: StepProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.StepProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.StepProps.property.name"></a>
+
+```typescript
+public readonly name: string;
 ```
 
 - *Type:* string
@@ -7486,6 +8541,7 @@ const taskBaseProps: TaskBaseProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-ans.TaskBaseProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
@@ -7501,7 +8557,6 @@ const taskBaseProps: TaskBaseProps = { ... }
 | <code><a href="#cdk-ans.TaskBaseProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskBaseProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.port">port</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
@@ -7510,6 +8565,16 @@ const taskBaseProps: TaskBaseProps = { ... }
 | <code><a href="#cdk-ans.TaskBaseProps.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskBaseProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.TaskBaseProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -7663,16 +8728,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 
 ---
 
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.TaskBaseProps.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
----
-
 ##### `noLog`<sup>Optional</sup> <a name="noLog" id="cdk-ans.TaskBaseProps.property.noLog"></a>
 
 ```typescript
@@ -7767,6 +8822,7 @@ const taskProps: TaskProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk-ans.TaskProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.anyErrorsFatal">anyErrorsFatal</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.become">become</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.becomeExe">becomeExe</a></code> | <code>string</code> | *No description.* |
@@ -7782,7 +8838,6 @@ const taskProps: TaskProps = { ... }
 | <code><a href="#cdk-ans.TaskProps.property.ignoreErrors">ignoreErrors</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.ignoreUnreachable">ignoreUnreachable</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.moduleDefaults">moduleDefaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.noLog">noLog</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.port">port</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.remoteUser">remoteUser</a></code> | <code>string</code> | *No description.* |
@@ -7810,6 +8865,16 @@ const taskProps: TaskProps = { ... }
 | <code><a href="#cdk-ans.TaskProps.property.when">when</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.with">with</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.TaskProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -7960,16 +9025,6 @@ public readonly moduleDefaults: {[ key: string ]: any};
 ```
 
 - *Type:* {[ key: string ]: any}
-
----
-
-##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.TaskProps.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
 
 ---
 
@@ -8471,6 +9526,86 @@ Returns the IConstruct this graph vertex represents.
 ---
 
 
+### PlayDefinition <a name="PlayDefinition" id="cdk-ans.PlayDefinition"></a>
+
+- *Implements:* <a href="#cdk-ans.IPlayChainable">IPlayChainable</a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.PlayDefinition.toJson">toJson</a></code> | Iterate over the chain, JSONify it, and return it as an array. |
+| <code><a href="#cdk-ans.PlayDefinition.next">next</a></code> | *No description.* |
+
+---
+
+##### `toJson` <a name="toJson" id="cdk-ans.PlayDefinition.toJson"></a>
+
+```typescript
+public toJson(): any[]
+```
+
+Iterate over the chain, JSONify it, and return it as an array.
+
+##### `next` <a name="next" id="cdk-ans.PlayDefinition.next"></a>
+
+```typescript
+public next(next: IPlayChainable): PlayDefinition
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.PlayDefinition.next.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.IPlayChainable">IPlayChainable</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.PlayDefinition.sequence">sequence</a></code> | *No description.* |
+
+---
+
+##### `sequence` <a name="sequence" id="cdk-ans.PlayDefinition.sequence"></a>
+
+```typescript
+import { PlayDefinition } from 'cdk-ans'
+
+PlayDefinition.sequence(next: IPlayChainable, chain: Step[])
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.PlayDefinition.sequence.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.IPlayChainable">IPlayChainable</a>
+
+---
+
+###### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.PlayDefinition.sequence.parameter.chain"></a>
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.PlayDefinition.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.PlayDefinition.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
+
+---
+
+
 ### ProjectSynthesizer <a name="ProjectSynthesizer" id="cdk-ans.ProjectSynthesizer"></a>
 
 - *Implements:* <a href="#cdk-ans.ISynthesizer">ISynthesizer</a>
@@ -8541,28 +9676,115 @@ public readonly options: ProjectSynthesizerOptions;
 ---
 
 
-### RunDefinition <a name="RunDefinition" id="cdk-ans.RunDefinition"></a>
+### RoleDefinition <a name="RoleDefinition" id="cdk-ans.RoleDefinition"></a>
 
-- *Implements:* <a href="#cdk-ans.IChainable">IChainable</a>
+- *Implements:* <a href="#cdk-ans.IRoleChainable">IRoleChainable</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-ans.RunDefinition.next">next</a></code> | *No description.* |
-| <code><a href="#cdk-ans.RunDefinition.toJson">toJson</a></code> | *No description.* |
+| <code><a href="#cdk-ans.RoleDefinition.toJson">toJson</a></code> | Iterate over the chain, JSONify it, and return it as an array. |
+| <code><a href="#cdk-ans.RoleDefinition.next">next</a></code> | *No description.* |
 
 ---
 
-##### `next` <a name="next" id="cdk-ans.RunDefinition.next"></a>
+##### `toJson` <a name="toJson" id="cdk-ans.RoleDefinition.toJson"></a>
 
 ```typescript
-public next(next: INextable): RunDefinition
+public toJson(): any[]
 ```
 
-###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.RunDefinition.next.parameter.next"></a>
+Iterate over the chain, JSONify it, and return it as an array.
 
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>
+##### `next` <a name="next" id="cdk-ans.RoleDefinition.next"></a>
+
+```typescript
+public next(next: IRoleChainable): RoleDefinition
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.RoleDefinition.next.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.IRoleChainable">IRoleChainable</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.RoleDefinition.sequence">sequence</a></code> | *No description.* |
+
+---
+
+##### `sequence` <a name="sequence" id="cdk-ans.RoleDefinition.sequence"></a>
+
+```typescript
+import { RoleDefinition } from 'cdk-ans'
+
+RoleDefinition.sequence(next: IRoleChainable, chain: Step[])
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.RoleDefinition.sequence.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.IRoleChainable">IRoleChainable</a>
+
+---
+
+###### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.RoleDefinition.sequence.parameter.chain"></a>
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.RoleDefinition.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.RoleDefinition.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
+
+---
+
+
+### RunDefinition <a name="RunDefinition" id="cdk-ans.RunDefinition"></a>
+
+- *Implements:* <a href="#cdk-ans.IChainable">IChainable</a>
+
+#### Initializers <a name="Initializers" id="cdk-ans.RunDefinition.Initializer"></a>
+
+```typescript
+import { RunDefinition } from 'cdk-ans'
+
+new RunDefinition(chain: Step[])
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.RunDefinition.Initializer.parameter.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.RunDefinition.Initializer.parameter.chain"></a>
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.RunDefinition.toJson">toJson</a></code> | Iterate over the chain, JSONify it, and return it as an array. |
 
 ---
 
@@ -8572,49 +9794,24 @@ public next(next: INextable): RunDefinition
 public toJson(): any[]
 ```
 
-#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+Iterate over the chain, JSONify it, and return it as an array.
 
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdk-ans.RunDefinition.sequence">sequence</a></code> | *No description.* |
-
----
-
-##### `sequence` <a name="sequence" id="cdk-ans.RunDefinition.sequence"></a>
-
-```typescript
-import { RunDefinition } from 'cdk-ans'
-
-RunDefinition.sequence(next: INextable, chain: INextable[])
-```
-
-###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.RunDefinition.sequence.parameter.next"></a>
-
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>
-
----
-
-###### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.RunDefinition.sequence.parameter.chain"></a>
-
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>[]
-
----
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-ans.RunDefinition.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.RunDefinition.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
 
 ---
 
-##### `taskChain`<sup>Required</sup> <a name="taskChain" id="cdk-ans.RunDefinition.property.taskChain"></a>
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.RunDefinition.property.chain"></a>
 
 ```typescript
-public readonly taskChain: INextable[];
+public readonly chain: Step[];
 ```
 
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>[]
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
 
 ---
 
@@ -8733,6 +9930,86 @@ public readonly props: {[ key: string ]: any};
 ---
 
 
+### TaskDefinition <a name="TaskDefinition" id="cdk-ans.TaskDefinition"></a>
+
+- *Implements:* <a href="#cdk-ans.ITaskChainable">ITaskChainable</a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.TaskDefinition.toJson">toJson</a></code> | Iterate over the chain, JSONify it, and return it as an array. |
+| <code><a href="#cdk-ans.TaskDefinition.next">next</a></code> | *No description.* |
+
+---
+
+##### `toJson` <a name="toJson" id="cdk-ans.TaskDefinition.toJson"></a>
+
+```typescript
+public toJson(): any[]
+```
+
+Iterate over the chain, JSONify it, and return it as an array.
+
+##### `next` <a name="next" id="cdk-ans.TaskDefinition.next"></a>
+
+```typescript
+public next(next: ITaskChainable): TaskDefinition
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.TaskDefinition.next.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.ITaskChainable">ITaskChainable</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.TaskDefinition.sequence">sequence</a></code> | *No description.* |
+
+---
+
+##### `sequence` <a name="sequence" id="cdk-ans.TaskDefinition.sequence"></a>
+
+```typescript
+import { TaskDefinition } from 'cdk-ans'
+
+TaskDefinition.sequence(next: ITaskChainable, chain: Step[])
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.TaskDefinition.sequence.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.ITaskChainable">ITaskChainable</a>
+
+---
+
+###### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.TaskDefinition.sequence.parameter.chain"></a>
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.TaskDefinition.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.TaskDefinition.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
+
+---
+
+
 ### Yaml <a name="Yaml" id="cdk-ans.Yaml"></a>
 
 YAML utilities.
@@ -8821,24 +10098,24 @@ A set of objects to convert to YAML.
 
 ### IChainable <a name="IChainable" id="cdk-ans.IChainable"></a>
 
-- *Implemented By:* <a href="#cdk-ans.CommandTask">CommandTask</a>, <a href="#cdk-ans.FileTask">FileTask</a>, <a href="#cdk-ans.PingTask">PingTask</a>, <a href="#cdk-ans.Play">Play</a>, <a href="#cdk-ans.RunDefinition">RunDefinition</a>, <a href="#cdk-ans.Task">Task</a>, <a href="#cdk-ans.IChainable">IChainable</a>
+- *Implemented By:* <a href="#cdk-ans.Block">Block</a>, <a href="#cdk-ans.CommandTask">CommandTask</a>, <a href="#cdk-ans.FileTask">FileTask</a>, <a href="#cdk-ans.PingTask">PingTask</a>, <a href="#cdk-ans.Play">Play</a>, <a href="#cdk-ans.PlayDefinition">PlayDefinition</a>, <a href="#cdk-ans.RoleDefinition">RoleDefinition</a>, <a href="#cdk-ans.RoleTarget">RoleTarget</a>, <a href="#cdk-ans.RunDefinition">RunDefinition</a>, <a href="#cdk-ans.Task">Task</a>, <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>, <a href="#cdk-ans.IChainable">IChainable</a>, <a href="#cdk-ans.IPlayChainable">IPlayChainable</a>, <a href="#cdk-ans.IRoleChainable">IRoleChainable</a>, <a href="#cdk-ans.ITaskChainable">ITaskChainable</a>
 
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-ans.IChainable.property.taskChain">taskChain</a></code> | <code><a href="#cdk-ans.INextable">INextable</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.IChainable.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
 
 ---
 
-##### `taskChain`<sup>Required</sup> <a name="taskChain" id="cdk-ans.IChainable.property.taskChain"></a>
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.IChainable.property.chain"></a>
 
 ```typescript
-public readonly taskChain: INextable[];
+public readonly chain: Step[];
 ```
 
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>[]
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
 
 ---
 
@@ -8890,37 +10167,93 @@ public name(construct: IConstruct): string
 ---
 
 
-### INextable <a name="INextable" id="cdk-ans.INextable"></a>
+### IPlayChainable <a name="IPlayChainable" id="cdk-ans.IPlayChainable"></a>
 
-- *Implemented By:* <a href="#cdk-ans.CommandTask">CommandTask</a>, <a href="#cdk-ans.FileTask">FileTask</a>, <a href="#cdk-ans.PingTask">PingTask</a>, <a href="#cdk-ans.Play">Play</a>, <a href="#cdk-ans.Task">Task</a>, <a href="#cdk-ans.INextable">INextable</a>
+- *Extends:* <a href="#cdk-ans.IChainable">IChainable</a>
+
+- *Implemented By:* <a href="#cdk-ans.Play">Play</a>, <a href="#cdk-ans.PlayDefinition">PlayDefinition</a>, <a href="#cdk-ans.IPlayChainable">IPlayChainable</a>
 
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-ans.INextable.next">next</a></code> | *No description.* |
-| <code><a href="#cdk-ans.INextable.toJson">toJson</a></code> | *No description.* |
+| <code><a href="#cdk-ans.IPlayChainable.next">next</a></code> | *No description.* |
 
 ---
 
-##### `next` <a name="next" id="cdk-ans.INextable.next"></a>
+##### `next` <a name="next" id="cdk-ans.IPlayChainable.next"></a>
 
 ```typescript
-public next(state: INextable): RunDefinition
+public next(next: IPlayChainable): PlayDefinition
 ```
 
-###### `state`<sup>Required</sup> <a name="state" id="cdk-ans.INextable.next.parameter.state"></a>
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.IPlayChainable.next.parameter.next"></a>
 
-- *Type:* <a href="#cdk-ans.INextable">INextable</a>
+- *Type:* <a href="#cdk-ans.IPlayChainable">IPlayChainable</a>
 
 ---
 
-##### `toJson` <a name="toJson" id="cdk-ans.INextable.toJson"></a>
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.IPlayChainable.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.IPlayChainable.property.chain"></a>
 
 ```typescript
-public toJson(): any
+public readonly chain: Step[];
 ```
 
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
+
+---
+
+### IRoleChainable <a name="IRoleChainable" id="cdk-ans.IRoleChainable"></a>
+
+- *Extends:* <a href="#cdk-ans.IChainable">IChainable</a>
+
+- *Implemented By:* <a href="#cdk-ans.RoleDefinition">RoleDefinition</a>, <a href="#cdk-ans.RoleTarget">RoleTarget</a>, <a href="#cdk-ans.IRoleChainable">IRoleChainable</a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.IRoleChainable.next">next</a></code> | *No description.* |
+
+---
+
+##### `next` <a name="next" id="cdk-ans.IRoleChainable.next"></a>
+
+```typescript
+public next(next: IRoleChainable): RoleDefinition
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.IRoleChainable.next.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.IRoleChainable">IRoleChainable</a>
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.IRoleChainable.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.IRoleChainable.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
+
+---
 
 ### ISynthesizer <a name="ISynthesizer" id="cdk-ans.ISynthesizer"></a>
 
@@ -8952,6 +10285,50 @@ public synth(project: Project, outDir: string): void
 
 ---
 
+
+### ITaskChainable <a name="ITaskChainable" id="cdk-ans.ITaskChainable"></a>
+
+- *Extends:* <a href="#cdk-ans.IChainable">IChainable</a>
+
+- *Implemented By:* <a href="#cdk-ans.Block">Block</a>, <a href="#cdk-ans.CommandTask">CommandTask</a>, <a href="#cdk-ans.FileTask">FileTask</a>, <a href="#cdk-ans.PingTask">PingTask</a>, <a href="#cdk-ans.Task">Task</a>, <a href="#cdk-ans.TaskDefinition">TaskDefinition</a>, <a href="#cdk-ans.ITaskChainable">ITaskChainable</a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.ITaskChainable.next">next</a></code> | *No description.* |
+
+---
+
+##### `next` <a name="next" id="cdk-ans.ITaskChainable.next"></a>
+
+```typescript
+public next(next: ITaskChainable): TaskDefinition
+```
+
+###### `next`<sup>Required</sup> <a name="next" id="cdk-ans.ITaskChainable.next.parameter.next"></a>
+
+- *Type:* <a href="#cdk-ans.ITaskChainable">ITaskChainable</a>
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.ITaskChainable.property.chain">chain</a></code> | <code><a href="#cdk-ans.Step">Step</a>[]</code> | *No description.* |
+
+---
+
+##### `chain`<sup>Required</sup> <a name="chain" id="cdk-ans.ITaskChainable.property.chain"></a>
+
+```typescript
+public readonly chain: Step[];
+```
+
+- *Type:* <a href="#cdk-ans.Step">Step</a>[]
+
+---
 
 ## Enums <a name="Enums" id="Enums"></a>
 

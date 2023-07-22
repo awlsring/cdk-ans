@@ -1,9 +1,11 @@
 import { Construct } from 'constructs';
-import { RoleTarget } from './role-target';
+import { Handler } from './handler';
+import { IPlayChainable, PlayDefinition } from './run-definition/play-definition';
+import { RoleDefinition } from './run-definition/role-definition';
+import { TaskDefinition } from './run-definition/task-definition';
+import { Step } from './step';
+import { TaskBaseProps } from './task-base';
 import { IHostIdentifiable } from '../hosts/host-identifiable';
-import { Handler } from '../task/handler';
-import { TaskBaseProps } from '../task/task-base';
-import { IChainable, INextable, RunDefinition } from '../task/task-definition';
 
 export enum PlayHostOrder {
   INVENTORY = 'inventory',
@@ -14,7 +16,7 @@ export enum PlayHostOrder {
 }
 
 export interface PlayProps extends TaskBaseProps {
-  readonly runDefinition?: RunDefinition;
+  readonly tasks?: TaskDefinition;
 
   readonly factPath?: string;
   readonly forceHandlers?: boolean;
@@ -25,9 +27,9 @@ export interface PlayProps extends TaskBaseProps {
   readonly hosts: IHostIdentifiable[]; // TODO: ability to add host groups
   readonly maxFailPercentage?: number;
   readonly order?: PlayHostOrder;
-  readonly postTasks?: RunDefinition;
-  readonly preTasks?: RunDefinition;
-  readonly roles?: RoleTarget[];
+  readonly postTasks?: TaskDefinition;
+  readonly preTasks?: TaskDefinition;
+  readonly roles?: RoleDefinition;
   readonly serial?: number;
   readonly strategy?: string; //TODO: Vaidate string is right, uses "connection strategy"
   readonly varsFiles?: string[];
@@ -39,23 +41,21 @@ export interface PlayProps extends TaskBaseProps {
  *
  * https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html#play
  */
-export class Play extends Construct implements IChainable, INextable { //TODO: User props in jsonification
-  public readonly taskChain: INextable[] = [this];
-  readonly name: string;
+export class Play extends Step implements IPlayChainable { //TODO: User props in jsonification
   readonly become?: boolean;
-  readonly roles: RoleTarget[] = [];
-  readonly tasks?: RunDefinition;
+  readonly roles?: RoleDefinition;
+  readonly tasks?: TaskDefinition;
   readonly hosts: IHostIdentifiable[] = [];
+
   constructor(scope: Construct, name: string, props: PlayProps) {
-    super(scope, name);
-    this.name = props.name ?? name;
+    super(scope, name, props);
     this.hosts = props.hosts ?? [];
-    this.roles = props.roles ?? [];
-    this.tasks = props.runDefinition;
+    this.roles = props.roles;
+    this.tasks = props.tasks;
   }
 
-  next(next: INextable): RunDefinition {
-    return RunDefinition.sequence(next, this.taskChain);
+  next(next: IPlayChainable): PlayDefinition {
+    return PlayDefinition.sequence(next, this.chain);
   }
 
   flattenHosts(): string[] {
@@ -80,8 +80,12 @@ export class Play extends Construct implements IChainable, INextable { //TODO: U
       hosts: this.flattenHosts(),
       tasks: tasks,
     };
-    if (this.roles.length > 0) {
-      j.roles = this.roles.map(role => role.toJson());
+    if (this.roles) {
+      let roles = this.roles.toJson();
+      if (!roles.length) {
+        roles = [roles];
+      }
+      j.roles = roles;
     }
     if (this.become) {
       j.become = this.become;

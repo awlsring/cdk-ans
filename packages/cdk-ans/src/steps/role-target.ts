@@ -1,6 +1,8 @@
 import { Construct } from 'constructs';
+import { IRoleChainable, RoleDefinition } from './run-definition/role-definition';
+import { Step } from './step';
+import { TaskBaseProps } from './task-base';
 import { Role } from '../resource/role';
-import { TaskBaseProps } from '../task/task-base';
 import { convertKeysToSnakeCase } from '../util';
 
 export interface RoleTargetProps extends TaskBaseProps {
@@ -14,7 +16,7 @@ export interface RoleTargetProps extends TaskBaseProps {
  *
  * https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html#role
  */
-export class RoleTarget extends Construct {
+export class RoleTarget extends Step implements IRoleChainable {
 
   /**
    * Creates a role target from a role
@@ -26,11 +28,15 @@ export class RoleTarget extends Construct {
   readonly props?: RoleTargetProps;
 
   private constructor(scope: Construct, name: string, readonly role: Role, props?: RoleTargetProps) {
-    super(scope, name);
+    super(scope, name, props ?? {});
     this.props = props;
   }
 
-  toJson() {
+  next(next: IRoleChainable): RoleDefinition {
+    return RoleDefinition.sequence(next, this.chain);
+  }
+
+  toJson(): any {
     const roleJson: Record<string, any> = {
       role: this.role.node.id,
       ...this.props,

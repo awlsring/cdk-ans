@@ -221,9 +221,9 @@ export class ProjectSynthesizer implements ISynthesizer {
 
     switch (outputType) {
       case RoleOutputType.STANDARD:
-        if (role.runDefinition.taskChain.length > 0) {
+        if (role.tasks.chain.length > 0) {
           fs.mkdirSync(path.join(roleDir, 'tasks'), { recursive: true });
-          Yaml.save(path.join(roleDir, 'tasks', 'main.yaml'), [role.runDefinition.taskChain.map(t => t.toJson())]);
+          Yaml.save(path.join(roleDir, 'tasks', 'main.yaml'), [[role.tasks.toJson()]]);
         }
 
         if (role.handlers?.length > 0) {
@@ -280,6 +280,6 @@ export class ProjectSynthesizer implements ISynthesizer {
       gather_facts: false,
       tasks: tasks,
     };
-    Yaml.save(path.join(outDir, 'site.yaml'), [site]);
+    Yaml.save(path.join(outDir, 'site.yaml'), [[site]]);
   }
 }

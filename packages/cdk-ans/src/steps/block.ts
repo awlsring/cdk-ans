@@ -1,30 +1,29 @@
 import { Construct } from 'constructs';
 import { Handler } from './handler';
+import { ITaskChainable, TaskDefinition } from './run-definition/task-definition';
 import { TaskBase, TaskBaseProps } from './task-base';
-import { IChainable, INextable, RunDefinition } from './task-definition';
 import { convertKeysToSnakeCase } from '../util';
 
 export interface BlockProps extends TaskBaseProps {
-  readonly block: RunDefinition;
-  readonly always?: RunDefinition;
-  readonly rescue?: RunDefinition;
-  readonly notify: Handler[];
+  readonly tasks: TaskDefinition;
+  readonly always?: TaskDefinition;
+  readonly rescue?: TaskDefinition;
+  readonly notify?: Handler[];
   readonly delegateFacts?: boolean;
   readonly delegateTo?: string;
   readonly when?: string;
 }
 
-export class Block extends TaskBase implements IChainable, INextable { //TODO: Ensure chainable with tasks
-  readonly taskChain: INextable[] = [this];
+export class Block extends TaskBase implements ITaskChainable { //TODO: Ensure chainable with tasks
   readonly params: Record<string, any>;
-  readonly block: RunDefinition;
-  readonly rescue?: RunDefinition;
-  readonly always?: RunDefinition;
+  readonly tasks: TaskDefinition;
+  readonly rescue?: TaskDefinition;
+  readonly always?: TaskDefinition;
   readonly notify?: Handler[];
 
   constructor(scope: Construct, name: string, props: BlockProps) {
     super(scope, name, props);
-    this.block = props.block;
+    this.tasks = props.tasks;
     this.rescue = props.rescue;
     this.always = props.always;
     this.notify = props.notify;
@@ -34,15 +33,15 @@ export class Block extends TaskBase implements IChainable, INextable { //TODO: E
     };
   }
 
-  next(next: INextable): RunDefinition {
-    return RunDefinition.sequence(next, this.taskChain);
+  next(next: ITaskChainable): TaskDefinition {
+    return TaskDefinition.sequence(next, this.chain);
   }
 
   toJson(): any {
     const task: Record<string, any> = {
       ...this.params,
       name: this.name,
-      block: this.block.toJson(),
+      block: this.tasks.toJson(),
     };
 
     if (this.rescue) {

@@ -1,8 +1,8 @@
 import { Construct } from 'constructs';
 import { Handler } from './handler';
+import { ITaskChainable, TaskDefinition } from './run-definition/task-definition';
 import { TaskAction } from './task-action';
 import { TaskBase, TaskBaseProps } from './task-base';
-import { IChainable, INextable, RunDefinition } from './task-definition';
 import { convertKeysToSnakeCase } from '../util';
 
 export interface TaskProps extends TaskBaseProps {
@@ -29,8 +29,7 @@ export interface TaskProps extends TaskBaseProps {
 
 // make these chainable like aws-cdk sfn?
 // https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html#task
-export class Task extends TaskBase implements IChainable, INextable {
-  readonly taskChain: INextable[] = [this];
+export class Task extends TaskBase implements ITaskChainable {
   readonly action: TaskAction;
   readonly params: Record<string, any>;
   readonly notify?: Handler[];
@@ -42,18 +41,14 @@ export class Task extends TaskBase implements IChainable, INextable {
     this.params = {
       ...props,
     };
-
-    // delete action from params
-    delete this.params.action;
   }
 
-  next(next: INextable): RunDefinition {
-    return RunDefinition.sequence(next, this.taskChain);
+  next(next: ITaskChainable): TaskDefinition {
+    return TaskDefinition.sequence(next, this.chain);
   }
 
   toJson(): any {
     const task = {
-      ...this.params,
       name: this.name,
       ...this.action.toJson(),
     };

@@ -1,7 +1,7 @@
 import { Construct } from 'constructs';
+import { Step, StepProps } from './step';
 
-export interface TaskBaseProps {
-  readonly name?: string;
+export interface TaskBaseProps extends StepProps {
   readonly anyErrorsFatal?: boolean;
   readonly become?: boolean;
   readonly becomeExe?: string;
@@ -27,8 +27,7 @@ export interface TaskBaseProps {
   readonly vars?: Record<string, any>;
 }
 
-export abstract class TaskBase extends Construct {
-  readonly name: string;
+export abstract class TaskBase extends Step {
   readonly anyErrorsFatal?: boolean;
   readonly become?: boolean;
   readonly becomeExe?: string;
@@ -54,8 +53,7 @@ export abstract class TaskBase extends Construct {
   readonly vars?: Record<string, any>;
 
   constructor(scope: Construct, name: string, props: TaskBaseProps) {
-    super(scope, name);
-    this.name = props.name ?? name;
+    super(scope, name, props);
     this.anyErrorsFatal = props.anyErrorsFatal;
     this.become = props.become;
     this.becomeExe = props.becomeExe;

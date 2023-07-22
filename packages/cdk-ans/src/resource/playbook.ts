@@ -1,14 +1,14 @@
 import { Construct } from 'constructs';
 import { Resource } from './resource';
-import { RunDefinition } from '../task/task-definition';
+import { PlayDefinition } from '../steps/run-definition/play-definition';
 
 export interface PlaybookProps {
-  readonly playDefinition: RunDefinition;
+  readonly playDefinition: PlayDefinition;
 }
 
 // Playbook is a collection of Plays
 export class Playbook extends Resource {
-  readonly playDefinition: RunDefinition;
+  readonly playDefinition: PlayDefinition;
 
   constructor(scope: Construct, name: string, props: PlaybookProps) {
     super(scope, name);

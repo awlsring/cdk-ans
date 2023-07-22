@@ -6,13 +6,13 @@ import { DirResult, dirSync } from 'tmp';
 import { App, Host, HostGroup, InventoryOutputType, Playbook, PlaybookOutputType, ProjectSynthesizer, Role, RoleTarget } from '../src';
 import { File } from '../src/file/file';
 import { TemplateFile } from '../src/file/template';
-import { Play } from '../src/playbook/play';
 import { Project } from '../src/project';
 import { Inventory } from '../src/resource/inventory';
-import { CommandTask } from '../src/task/built-in/command';
-import { PingTask } from '../src/task/built-in/ping';
-import { Handler } from '../src/task/handler';
-import { TaskAction } from '../src/task/task-action';
+import { CommandTask } from '../src/steps/built-in/command';
+import { PingTask } from '../src/steps/built-in/ping';
+import { Handler } from '../src/steps/handler';
+import { Play } from '../src/steps/play';
+import { TaskAction } from '../src/steps/task-action';
 
 export const PLAYBOOK_NAME = 'test-playbook';
 export const ROLE_NAME = 'test-role';
@@ -47,7 +47,7 @@ describe('ProjectSynthesizer', () => {
 
         const play = new Play(this, 'test-play', {
           hosts: [host],
-          runDefinition: ping,
+          tasks: ping,
         });
 
         new Playbook(this, PLAYBOOK_NAME, {
@@ -104,12 +104,12 @@ describe('ProjectSynthesizer', () => {
         });
 
         const role = new Role(this, ROLE_NAME, {
-          runDefinition: commandTask,
+          tasks: commandTask,
         });
 
         const play = new Play(this, 'test-play', {
           hosts: [host],
-          roles: [RoleTarget.fromRole(this, role)],
+          roles: RoleTarget.fromRole(this, role),
         });
 
         new Playbook(this, PLAYBOOK_NAME, {
@@ -261,12 +261,12 @@ describe('ProjectSynthesizer', () => {
         });
 
         const role = new Role(this, ROLE_NAME, {
-          runDefinition: commandTask,
+          tasks: commandTask,
         });
 
         const play = new Play(this, 'test-play', {
           hosts: [host],
-          roles: [RoleTarget.fromRole(this, role)],
+          roles: RoleTarget.fromRole(this, role),
         });
 
         new Playbook(this, PLAYBOOK_NAME, {
@@ -306,7 +306,7 @@ describe('ProjectSynthesizer', () => {
         });
 
         const role = new Role(this, ROLE_NAME, {
-          runDefinition: commandTask,
+          tasks: commandTask,
         });
 
         const tmpFile = new File(this, 'tmp-file', {
@@ -334,7 +334,7 @@ describe('ProjectSynthesizer', () => {
 
         const play = new Play(this, 'test-play', {
           hosts: [host],
-          roles: [RoleTarget.fromRole(this, role)],
+          roles: RoleTarget.fromRole(this, role),
         });
 
         new Playbook(this, PLAYBOOK_NAME, {

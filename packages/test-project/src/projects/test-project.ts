@@ -20,23 +20,20 @@ export class TestProject extends Project {
 
     const commandTask = new CommandTask(this, 'test-command', {
       command: {
-        cmd: 'echo',
-        argv: ['hello', 'world'],
+        cmd: 'ls -la',
       },
     });
 
     const role = new Role(this, 'echoer', {
-      runDefinition: commandTask,
+      tasks: commandTask,
     });
 
     // build plays
     const play = new Play(this, 'play', {
       name: 'Test play',
       hosts: [host],
-      runDefinition: ping,
-      roles: [
-        RoleTarget.fromRole(this, role),
-      ],
+      tasks: ping,
+      roles: RoleTarget.fromRole(this, role),
     });
 
     // build playbook
