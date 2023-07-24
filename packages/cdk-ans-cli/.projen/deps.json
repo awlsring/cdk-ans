@@ -92,6 +92,10 @@
       "type": "runtime"
     },
     {
+      "name": "axios",
+      "type": "runtime"
+    },
+    {
       "name": "cdk-ans",
       "type": "runtime"
     },

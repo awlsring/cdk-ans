@@ -2,12 +2,12 @@ import * as os from 'os';
 import * as path from 'path';
 import * as fs from 'fs-extra';
 import * as yaml from 'yaml';
-import { Language } from './import/base';
+import { Language } from './import/importer';
 
 const CONFIG_FILE = 'cdkans.yaml';
 
 export interface ImportSpec {
-  readonly moduleNamePrefix?: string;
+  readonly namespace: string;
   readonly source: string;
 }
 

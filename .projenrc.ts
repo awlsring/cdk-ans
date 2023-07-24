@@ -29,7 +29,7 @@ const monorepo = new NxMonorepoProject({
     "tmp",
     "@types/tmp",
   ],
-  gitignore: [".vscode", "cdkans.yaml"],
+  gitignore: [".vscode", "cdkans.yaml", ".DS_Store"],
 });
 
 const cdkans = new JsiiProject({
@@ -78,6 +78,7 @@ const cdkansCli = new TypeScriptProject({
     "ajv",
     "table",
     "semver",
+    "axios",
   ],
   devDeps: [
     "@types/fs-extra@^8",
