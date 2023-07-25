@@ -39,7 +39,7 @@ export interface AnsibleModuleSpec {
   readonly author: string[];
 }
 
-export class AnsibleModuleCondeGenerator extends CodeGenerator {
+export class AnsibleModuleCodeGenerator extends CodeGenerator {
   constructor(readonly spec: AnsibleModuleSpec, language: Language, prefix?: string) {
     super(spec.module, language, prefix);
     this.name;
@@ -56,11 +56,11 @@ export class ModuleImporter extends Importer {
   async loadModules(options: ImportOptions): Promise<CodeGenerator[]> {
     if (this.spec.source.file) {
       const spec = await this.loadModuleFromFile(this.spec.source.file);
-      return [new AnsibleModuleCondeGenerator(spec, options.targetLanguage, this.spec.prefix)];
+      return [new AnsibleModuleCodeGenerator(spec, options.targetLanguage, this.spec.prefix)];
     }
     if (this.spec.source.repo) {
       const specs = await this.loadModuleFromRepo(this.spec.source.repo);
-      return specs.map((spec) => new AnsibleModuleCondeGenerator(spec, options.targetLanguage, this.spec.prefix));
+      return specs.map((spec) => new AnsibleModuleCodeGenerator(spec, options.targetLanguage, this.spec.prefix));
     }
     throw new Error('Invalid source');
   }
