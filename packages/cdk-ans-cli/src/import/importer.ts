@@ -3,6 +3,7 @@ import axios from 'axios';
 import { CodeMaker } from 'codemaker';
 import * as fs from 'fs-extra';
 import * as srcmak from 'jsii-srcmak';
+import { ImportSpec } from '../config';
 import { mkdtemp } from '../utils';
 
 export enum Language {
@@ -23,6 +24,33 @@ export enum ImportType {
   MODULE = 'module',
 }
 
+export abstract class CodeGenerator {
+  readonly name: string;
+  readonly filename: string;
+  readonly targetLanguage: Language;
+  readonly prefix?: string;
+
+  constructor(name: string, targetLanguage: Language, prefix?: string) {
+    this.name = name;
+    this.targetLanguage = targetLanguage;
+    this.filename = this.determineFilename(name, targetLanguage);
+    this.prefix = prefix;
+  }
+
+  protected determineFilename(name: string, language: Language): string {
+    let newName = name;
+    switch (language) {
+      case Language.PYTHON:
+      case Language.JAVA:
+        newName = name.split('.').reverse().join('.');
+        break;
+    }
+    return newName;
+  }
+
+  abstract generate(code: CodeMaker, options: GenerateOptions): Promise<void>;
+}
+
 export interface GenerateOptions {
   readonly classNamePrefix?: string;
 }
@@ -37,15 +65,10 @@ export interface ImportOptions {
    * @default - jsii file is not emitted
    */
   readonly outputJsii?: string;
-
-  /**
-   * A prefix for all construct classes.
-   */
-  readonly classNamePrefix?: string;
 }
 
 export abstract class Importer {
-  public abstract get moduleNames(): string[];
+  constructor(readonly spec: ImportSpec) {}
 
   protected determineFileType(filePathOrURI: string): string {
     const ext = path.extname(filePathOrURI);
@@ -73,7 +96,7 @@ export abstract class Importer {
     }
   }
 
-  protected abstract generateTypeScript(code: CodeMaker, moduleName: string, options: GenerateOptions): Promise<void>;
+  protected abstract loadModules(options: ImportOptions): Promise<CodeGenerator[]>;
 
   public async import(options: ImportOptions) {
     const code = new CodeMaker();
@@ -81,39 +104,17 @@ export abstract class Importer {
     const outdir = path.resolve(options.outdir);
     await fs.mkdirp(outdir);
     const isTypescript = options.targetLanguage === Language.TYPESCRIPT;
-    const { moduleNamePrefix } = options;
 
-    if (this.moduleNames.length === 0) {
-      console.error('warning: no definitions to import');
-    }
-
-    const mapFunc = ( origName: string ) => {
-      let name = origName;
-      switch (options.targetLanguage) {
-        case Language.PYTHON:
-        case Language.JAVA:
-          name = name.split('.').reverse().join('.');
-          break;
-      }
-      return {
-        origName: origName,
-        name: name,
-      };
-    };
-
-    // sort to ensure python writes parent packages first, so children are not deleted
-    const modules = this.moduleNames.map(mapFunc).sort((a: any, b: any) => a.name.localeCompare(b.name));
+    const modules = await this.loadModules(options);
 
     for (const module of modules) {
       // output the name of the imported resource
-      console.log(module.origName);
+      console.log(module.name);
 
-      const fileName = moduleNamePrefix ? `${moduleNamePrefix}-${module.name}.ts` : `${module.name}.ts`;
+      const fileName = module.prefix ? `${module.prefix}_${module.filename}.ts` : `${module.filename}.ts`;
       code.openFile(fileName);
       code.indentation = 2;
-      await this.generateTypeScript(code, module.origName, {
-        classNamePrefix: options.classNamePrefix,
-      });
+      await module.generate(code, {});
 
       code.closeFile(fileName);
 
@@ -123,7 +124,6 @@ export abstract class Importer {
 
       if (!isTypescript || options.outputJsii) {
         await mkdtemp(async (staging: string) => {
-
           // this is not typescript, so we generate in a staging directory and
           // use jsii-srcmak to compile and extract the language-specific source
           // into our project.
@@ -134,7 +134,7 @@ export abstract class Importer {
 
           const opts: srcmak.Options = {
             entrypoint: fileName,
-            moduleKey: moduleNamePrefix ? `${moduleNamePrefix}_${module.name}` : module.name,
+            moduleKey: module.prefix ? `${module.prefix}_${module.filename}` : module.filename,
             deps: deps.map(dep => path.dirname(require.resolve(`${dep}/package.json`))),
           };
 
@@ -145,7 +145,7 @@ export abstract class Importer {
 
           // python!
           if (options.targetLanguage === Language.PYTHON) {
-            const moduleName = `${moduleNamePrefix ? `${moduleNamePrefix}.${module.name}` : module.name}`.replace(/-/g, '_');
+            const moduleName = `${module.prefix ? `${module.prefix}.${module.filename}` : module.filename}`.replace(/-/g, '_');
             opts.python = {
               outdir: outdir,
               moduleName,
@@ -157,7 +157,7 @@ export abstract class Importer {
             const javaName = module.name.replace(/\//g, '.').replace(/-/g, '_');
             opts.java = {
               outdir: '.',
-              package: `imports.${moduleNamePrefix ? moduleNamePrefix + '.' + javaName : javaName}`,
+              package: `imports.${module.prefix ? module.prefix + '.' + javaName : javaName}`,
             };
           }
 
@@ -165,16 +165,12 @@ export abstract class Importer {
           if (options.targetLanguage === Language.GO) {
             const { userModuleName, userModulePath } = this.getGoModuleName(outdir);
             const relativeDir = path.relative(userModulePath, outdir);
-
-            // go package names may only consist of letters or digits.
-            // underscores are allowed too, but they are less idiomatic
-            // this converts e.g. "cert-manager.path.to.url" to "certmanagerpathtourl"
             const importModuleName = module.name.replace(/[^A-Za-z0-9]/g, '').toLocaleLowerCase();
 
             opts.golang = {
               outdir: outdir,
               moduleName: `${userModuleName}/${relativeDir}`,
-              packageName: moduleNamePrefix ? moduleNamePrefix + '_' + importModuleName : importModuleName,
+              packageName: module.prefix ? module.prefix + '_' + importModuleName : importModuleName,
             };
           }
 

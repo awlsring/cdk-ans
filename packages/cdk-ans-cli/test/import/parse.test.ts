@@ -1,32 +1,37 @@
 import path from 'path';
+import { ImportType } from '../../src/config';
 import { ModuleImporter } from '../../src/import/module';
 
 const NAMESPACE = 'ansible.builtin';
 
 describe('ModuleImporter', () => {
-
   test('read from local file', async () => {
-    const importSpec = {
+    const file = path.join(__dirname, '..', 'resources', 'reboot.py');
+    const importer = new ModuleImporter({
       namespace: NAMESPACE,
-      source: path.join(__dirname, '..', 'resources', 'reboot.py'),
-    };
+      type: ImportType.MODULE,
+      source: {
+        file: file,
+      },
+    });
 
-    const importer = new ModuleImporter(importSpec);
-
-    const spec = await importer.loadSpec();
+    const spec = await importer.loadModuleFromFile(file);
 
     expect(spec !== undefined).toBeTruthy();
     expect(spec.module).toEqual('reboot');
   });
 
   test('read from remote file', async () => {
-    const importSpec = {
+    const file = 'https://raw.githubusercontent.com/ansible/ansible/devel/lib/ansible/modules/file.py';
+    const importer = new ModuleImporter({
       namespace: NAMESPACE,
-      source: 'https://raw.githubusercontent.com/ansible/ansible/devel/lib/ansible/modules/file.py',
-    };
-    const importer = new ModuleImporter(importSpec);
+      type: ImportType.MODULE,
+      source: {
+        file: file,
+      },
+    });
 
-    const spec = await importer.loadSpec();
+    const spec = await importer.loadModuleFromFile(file);
 
     expect(spec !== undefined).toBeTruthy();
     expect(spec.module).toEqual('file');

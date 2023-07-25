@@ -1,7 +1,6 @@
 import { CodeMaker } from 'codemaker';
 import * as YAML from 'yaml';
-import { GenerateOptions, ImportFileType, Importer } from './importer';
-import { ImportSpec } from '../config';
+import { CodeGenerator, GenerateOptions, ImportFileType, ImportOptions, Importer, Language } from './importer';
 import { convertKeysToCamel } from '../utils';
 
 export enum AnsibleModuleArgumentSpecType {
@@ -40,24 +39,35 @@ export interface AnsibleModuleSpec {
   readonly author: string[];
 }
 
-export class ModuleImporter extends Importer {
-  constructor(readonly spec: ImportSpec) {
-    super();
+export class AnsibleModuleCondeGenerator extends CodeGenerator {
+  constructor(readonly spec: AnsibleModuleSpec, language: Language, prefix?: string) {
+    super(spec.module, language, prefix);
+    this.name;
   }
 
-  get moduleNames(): string[] {
-    return [];
-  }
-
-  async generateTypeScript(code: CodeMaker, moduleName: string, options: GenerateOptions) {
+  async generate(code: CodeMaker, options: GenerateOptions) {
     code;
-    moduleName;
     options;
+    throw new Error('Not implemented');
+  }
+}
+
+export class ModuleImporter extends Importer {
+  async loadModules(options: ImportOptions): Promise<CodeGenerator[]> {
+    if (this.spec.source.file) {
+      const spec = await this.loadModuleFromFile(this.spec.source.file);
+      return [new AnsibleModuleCondeGenerator(spec, options.targetLanguage, this.spec.prefix)];
+    }
+    if (this.spec.source.repo) {
+      const specs = await this.loadModuleFromRepo(this.spec.source.repo);
+      return specs.map((spec) => new AnsibleModuleCondeGenerator(spec, options.targetLanguage, this.spec.prefix));
+    }
+    throw new Error('Invalid source');
   }
 
-  async loadSpec() {
-    const extension = this.determineFileType(this.spec.source);
-    const specFile = await this.readFileFromPathOrURI(this.spec.source);
+  async loadModuleFromFile(file: string): Promise<AnsibleModuleSpec> {
+    const extension = this.determineFileType(file);
+    const specFile = await this.readFileFromPathOrURI(file);
     switch (extension) {
       case ImportFileType.YAML:
         return this.extractDocumentationFromYamlFile(specFile);
@@ -66,6 +76,11 @@ export class ModuleImporter extends Importer {
       default:
         throw new Error(`Unsupported file type: ${extension}`);
     }
+  }
+
+  async loadModuleFromRepo(repo: string): Promise<AnsibleModuleSpec[]> {
+    repo;
+    throw new Error('Not implemented');
   }
 
   private async extractDocumentationFromYamlFile(file: string): Promise<AnsibleModuleSpec> {
@@ -89,5 +104,12 @@ export class ModuleImporter extends Importer {
 
     const spec = await this.extractDocumentationFromYamlFile(match[1]);
     return spec;
+  }
+
+  async convertNamespaceToPascalCase(namespace: string): Promise<string> {
+    return namespace
+      .split('.')
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join('');
   }
 }

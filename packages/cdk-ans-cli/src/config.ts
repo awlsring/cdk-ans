@@ -1,37 +1,41 @@
-import * as os from 'os';
-import * as path from 'path';
 import * as fs from 'fs-extra';
 import * as yaml from 'yaml';
 import { Language } from './import/importer';
 
 const CONFIG_FILE = 'cdkans.yaml';
 
-export interface ImportSpec {
-  readonly namespace: string;
-  readonly source: string;
+export enum ImportType {
+  MODULE = 'module',
+  ROLE = 'role',
 }
 
-export interface ValidationConfig {
-  readonly package: string;
-  readonly version: string;
-  readonly class: string;
-  readonly installEnv?: { [key: string]: any };
-  readonly properties?: { [key: string]: any };
+export interface ImportSource {
+  /**
+   * A file to import from. Can be a path or a URI.
+   */
+  readonly file?: string;
+  /**
+   * A git repository to import from.
+   */
+  readonly repo?: string;
+}
+
+export interface ImportSpec {
+  readonly type: ImportType;
+  readonly namespace: string;
+  readonly source: ImportSource;
+  readonly prefix?: string;
 }
 
 export interface Config {
   readonly app?: string;
-  readonly echo?: string;
   readonly language?: Language;
   readonly output?: string;
-  readonly imports?: string[];
-  readonly pluginsDirectory?: string;
-  readonly validations?: string | ValidationConfig[];
+  readonly imports?: ImportSpec[];
 }
 
 const DEFAULTS: Config = {
   output: 'dist',
-  pluginsDirectory: path.join(os.homedir(), '.cdkans', 'plugins'),
 };
 
 export function readConfigSync(): Config {
