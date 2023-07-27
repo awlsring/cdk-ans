@@ -15,6 +15,22 @@ function convertSnakeToCamel(str: string): string {
   return str.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
 }
 
+export function convertToSnakeCase(str: string): string {
+  const s = str.replace(/([A-Z])/g, (_, letter) => `_${letter.toLowerCase()}`);
+  return s.replace(/-/g, '_');
+}
+
+function removeLeadingHyphen(fileName: string): string {
+  const pattern = /^-(?=[a-zA-Z0-9])/;
+  return fileName.replace(pattern, '');
+}
+
+export function convertToFileCase(str: string): string {
+  const snake = convertToSnakeCase(str);
+  const s = snake.replace(/_/g, '-');
+  return removeLeadingHyphen(s);
+}
+
 export function convertKeysToCamel(obj: any): any {
   if (Array.isArray(obj)) {
     return obj.map((item) => convertKeysToCamel(item));

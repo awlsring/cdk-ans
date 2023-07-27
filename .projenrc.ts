@@ -48,8 +48,23 @@ const cdkans = new JsiiProject({
     "@types/follow-redirects",
     "json-schema-to-typescript",
   ],
-
   gitignore: ["tmp/*", "dist-test/*"],
+  publishToPypi: {
+    distName: "cdk-ans",
+    module: "cdk_ans",
+  },
+  publishToNuget: {
+    dotNetNamespace: "CdkAns",
+    packageId: "CdkAns",
+  },
+  publishToMaven: {
+    javaPackage: "org.cdkans",
+    mavenGroupId: "org.cdkans",
+    mavenArtifactId: "cdk-ans",
+  },
+  publishToGo: {
+    moduleName: "github.com/awlsring/cdk-ans",
+  },
 });
 cdkans.package.addPackageResolutions("@types/lodash@4.14.192");
 
