@@ -9882,6 +9882,8 @@ How to organzie role output.
 
 ### TaskActionProps <a name="TaskActionProps" id="cdk-ans.TaskActionProps"></a>
 
+An empty interface TaskActionProps extends from This is a placeholder incase there are base settings ever needed for an Action.
+
 #### Initializer <a name="Initializer" id="cdk-ans.TaskActionProps.Initializer"></a>
 
 ```typescript
@@ -11221,6 +11223,8 @@ public name(construct: IConstruct): string
 
 
 ### TaskAction <a name="TaskAction" id="cdk-ans.TaskAction"></a>
+
+Base class for all Task Actions.
 
 #### Initializers <a name="Initializers" id="cdk-ans.TaskAction.Initializer"></a>
 
