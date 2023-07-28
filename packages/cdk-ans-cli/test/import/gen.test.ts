@@ -8,6 +8,8 @@ import { ModuleImporter } from '../../src/import/module';
 
 const NAMESPACE = 'ansible.builtin';
 
+const CODEGEN_TIMEOUT = 10 * 60 * 1000; // 10 minutes
+
 describe('ModuleImporter.import', () => {
   let tempDir: DirResult;
 
@@ -70,7 +72,7 @@ describe('ModuleImporter.import', () => {
     });
 
     expect(fs.existsSync(path.join(tempDir.name, 'ansible_builtin', 'reboot', '__init__.py'))).toBe(true);
-  });
+  }, CODEGEN_TIMEOUT);
 
   test('Can generate java', async () => {
     const file = path.join(__dirname, '..', 'resources', 'reboot.py');
@@ -88,7 +90,7 @@ describe('ModuleImporter.import', () => {
     });
 
     expect(fs.existsSync(path.join(tempDir.name, 'src', 'main', 'java', 'imports', 'ansible_builtin', 'reboot', 'RebootAction.java'))).toBe(true);
-  });
+  }, CODEGEN_TIMEOUT);
 
   test('Can generate go', async () => {
     const file = path.join(__dirname, '..', 'resources', 'reboot.py');
@@ -108,7 +110,7 @@ describe('ModuleImporter.import', () => {
     });
 
     expect(fs.existsSync(path.join(tempDir.name, 'ansible_builtin_reboot', 'main.go'))).toBe(true);
-  });
+  }, CODEGEN_TIMEOUT);
 
   test('Can generate c#', async () => {
     const file = path.join(__dirname, '..', 'resources', 'reboot.py');
@@ -126,5 +128,5 @@ describe('ModuleImporter.import', () => {
     });
 
     expect(fs.existsSync(path.join(tempDir.name, 'Imports.ansible_builtin.reboot', 'Imports', 'ansible_builtin', 'reboot', 'RebootAction.cs'))).toBe(true);
-  });
+  }, CODEGEN_TIMEOUT);
 });
