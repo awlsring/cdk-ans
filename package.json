@@ -26,7 +26,7 @@
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "eslint": "^8",
-    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-prettier": "^8.9.0",
     "eslint-import-resolver-node": "^0.3.7",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-header": "^3.1.1",
@@ -36,7 +36,7 @@
     "npm-check-updates": "^16",
     "nx": "16.0.0",
     "prettier": "^3.0.0",
-    "projen": "^0.71.151",
+    "projen": "^0.71.153",
     "syncpack": "^10.7.3",
     "tmp": "^0.2.1",
     "ts-node": "^10.9.1",
@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "aws-cdk-lib": "^2.88.0",
-    "cdk-nag": "^2.27.81",
+    "cdk-nag": "^2.27.82",
     "constructs": "^10.2.69"
   },
   "resolutions": {
