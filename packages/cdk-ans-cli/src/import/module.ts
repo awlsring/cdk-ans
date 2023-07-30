@@ -1,3 +1,7 @@
+import * as path from 'path';
+import * as fs from 'fs-extra';
+import simpleGit from 'simple-git';
+import { dirSync } from 'tmp';
 import * as YAML from 'yaml';
 import { ImportFileType, ImportOptions, Importer } from './importer';
 import { CodeGenerator } from '../codegen/code-generator';
@@ -17,6 +21,7 @@ export enum AnsibleModuleArgumentSpecType {
   JSON = 'json',
   BYTES = 'bytes',
   BITS = 'bits',
+  ANY = 'any',
 }
 
 export interface AnsibleModuleArgumentSpec {
@@ -31,7 +36,7 @@ export interface AnsibleModuleArgumentSpec {
 
 export interface AnsibleModuleSpec {
   readonly module: string;
-  readonly options: { [key: string]: AnsibleModuleArgumentSpec };
+  readonly options?: { [key: string]: AnsibleModuleArgumentSpec };
   readonly shortDescription?: string;
   readonly notes?: string[];
   readonly description?: string[];
@@ -67,9 +72,73 @@ export class ModuleImporter extends Importer {
   }
 
   async loadModuleFromRepo(repo: string): Promise<AnsibleModuleSpec[]> {
-    repo;
-    throw new Error('Not implemented');
+    const specs: AnsibleModuleSpec[] = [];
+    const repoDir = dirSync({ unsafeCleanup: true });
+    try {
+      // clone the repo
+      await simpleGit().clone(repo, repoDir.name);
+
+      // walk the repo to find a modules directory
+      const modulesDir = await this.findModulesDirectory(repoDir.name);
+      if (!modulesDir) {
+        throw new Error(`No modules directory found in ${repoDir.name}`);
+      }
+
+      // list all files in the modules directory
+      const files = await this.readDirectory(modulesDir);
+
+      // extract documentation from all files
+      for (const file of files) {
+        try {
+          const extension = this.determineFileType(file);
+          const specFile = await this.readFileFromPathOrURI(file);
+          switch (extension) {
+            case ImportFileType.YAML:
+              specs.push(await this.extractDocumentationFromYamlFile(specFile));
+              break;
+            case ImportFileType.PYTHON:
+              specs.push(await this.extractDocumentationFromPythonFile(specFile));
+              break;
+            default:
+              throw new Error(`Unsupported file type: ${extension}`);
+          }
+        } catch (e) {
+          console.log(`Failed to extract documentation from ${file}: ${e}`);
+          console.log(`Skipping ${file}`);
+        }
+      }
+    } catch (e) {
+      console.log(`Failed to load module from repo ${repo}: ${e}`);
+      repoDir.removeCallback();
+      throw e;
+    }
+    repoDir.removeCallback();
+    return specs;
   }
+
+  private async readDirectory(dir: string): Promise<string[]> {
+    const files = await fs.readdir(dir);
+    const filesWithFullPath = files.map((file) => path.join(dir, file));
+    return filesWithFullPath.filter((file) => !file.endsWith('__init__.py'));
+  }
+
+  private async findModulesDirectory(dir: string): Promise<string | undefined> {
+    const files = await this.readDirectory(dir);
+    let modulesDir = files.find((file) => file.endsWith('modules'));
+    if (modulesDir) {
+      return modulesDir;
+    }
+    const subDirs = await Promise.all(files.map((file) => fs.stat(file).then((stat) => ({ file, stat }))));
+    const subDirsWithFullPath = subDirs.filter((subDir) => subDir.stat.isDirectory()).map((subDir) => subDir.file);
+    for (const subDir of subDirsWithFullPath) {
+      modulesDir = await this.findModulesDirectory(subDir);
+      if (modulesDir) {
+        return modulesDir;
+      }
+    }
+    return undefined;
+  }
+
 
   private async extractDocumentationFromYamlFile(file: string): Promise<AnsibleModuleSpec> {
     const documentationYaml = YAML.parseAllDocuments(file);
@@ -83,7 +152,7 @@ export class ModuleImporter extends Importer {
   }
 
   private async extractDocumentationFromPythonFile(file: string): Promise<AnsibleModuleSpec> {
-    const documentationRegex = new RegExp("r?'''([\\s\\S]*?)'''|r?\"\"\"([\\s\\S]*?)\"\"\"");
+    const documentationRegex = /(?:DOCUMENTATION\s*=\s*r*['"`]{3})(.*?)(?:(['"`]{3}))/s;
     const match = file.match(documentationRegex);
 
     if (!match) {

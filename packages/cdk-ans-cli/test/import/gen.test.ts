@@ -5,6 +5,7 @@ import { DirResult, dirSync } from 'tmp';
 import { Language } from '../../lib/import/importer';
 import { ImportType } from '../../src/config';
 import { ModuleImporter } from '../../src/import/module';
+import { convertToFileCase } from '../../src/utils';
 
 const NAMESPACE = 'ansible.builtin';
 
@@ -15,6 +16,7 @@ describe('ModuleImporter.import', () => {
 
   beforeAll(() => {
     tempDir = dirSync({ unsafeCleanup: true });
+    console.log(tempDir.name);
   });
 
   afterAll(() => {
@@ -38,6 +40,7 @@ describe('ModuleImporter.import', () => {
 
     expect(fs.existsSync(path.join(tempDir.name, 'ansible-builtin-file.ts'))).toBe(true);
   });
+
   test('Can generate typescript', async () => {
     const file = path.join(__dirname, '..', 'resources', 'reboot.py');
     const importer = new ModuleImporter({
@@ -55,6 +58,29 @@ describe('ModuleImporter.import', () => {
 
     expect(fs.existsSync(path.join(tempDir.name, 'ansible-builtin-reboot.ts'))).toBe(true);
   });
+
+  test('Can generate typescript from repo', async () => {
+    const repo = 'https://github.com/ansible/ansible.git';
+    const importer = new ModuleImporter({
+      namespace: NAMESPACE,
+      type: ImportType.MODULE,
+      source: {
+        repo: 'https://github.com/ansible/ansible.git',
+      },
+    });
+
+    const modules = await importer.loadModuleFromRepo(repo);
+
+    await importer.import({
+      targetLanguage: Language.TYPESCRIPT,
+      outdir: tempDir.name,
+    });
+
+    modules.forEach((module) => {
+      expect(fs.existsSync(path.join(tempDir.name, `ansible-builtin-${convertToFileCase(module.module)}.ts`))).toBe(true);
+    });
+
+  }, CODEGEN_TIMEOUT);
 
   test('Can generate python', async () => {
     const file = path.join(__dirname, '..', 'resources', 'reboot.py');

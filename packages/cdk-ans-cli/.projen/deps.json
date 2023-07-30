@@ -133,11 +133,23 @@
       "type": "runtime"
     },
     {
+      "name": "shelljs",
+      "type": "runtime"
+    },
+    {
+      "name": "simple-git",
+      "type": "runtime"
+    },
+    {
       "name": "sscaff",
       "type": "runtime"
     },
     {
       "name": "table",
+      "type": "runtime"
+    },
+    {
+      "name": "tmp",
       "type": "runtime"
     },
     {

@@ -94,6 +94,9 @@ const cdkansCli = new TypeScriptProject({
     "table",
     "semver",
     "axios",
+    "tmp",
+    "simple-git",
+    "shelljs",
   ],
   devDeps: [
     "@types/fs-extra@^8",

@@ -79,8 +79,10 @@ export class AnsibleModuleCodeGenerator extends CodeGenerator {
       case AnsibleModuleArgumentSpecType.BYTES:
       case AnsibleModuleArgumentSpecType.BITS:
         return 'string';
+      case AnsibleModuleArgumentSpecType.ANY:
+        return 'any';
       default:
-        throw new Error(`Unsupported argument type: ${spec.type}`);
+        return 'any';
     }
   }
 
@@ -94,17 +96,30 @@ export class AnsibleModuleCodeGenerator extends CodeGenerator {
     code.closeBlock();
   }
 
+  private writePropsLine(code: CodeMaker, name: string, spec: AnsibleModuleArgumentSpec) {
+    if (spec.description && spec.description.length > 0) {
+      this.writeDocumentationHeader(code, spec.description);
+    }
+    if (name === 'freeForm') {
+      code.line('readonly freeForm?: string;');
+    } else {
+      code.line(`readonly ${name}: ${this.getArgumentType(spec)};`);
+    }
+  }
+
   protected writeConstructProps(code: CodeMaker, options: GenerateOptions) {
     options; // ignore for now
     this.writeDocumentationHeader(code, [
       `Props for the generated action ${this.constructName}`,
     ]);
     code.openBlock(`export interface ${this.constructName}Props extends TaskActionProps`);
-    for (const [name, spec] of Object.entries(this.spec.options)) {
-      if (spec.description && spec.description.length > 0) {
-        this.writeDocumentationHeader(code, spec.description);
+    if (this.spec.options) {
+      for (const [name, spec] of Object.entries(this.spec.options)) {
+        if (spec.description && spec.description.length > 0) {
+          this.writeDocumentationHeader(code, spec.description);
+        }
+        this.writePropsLine(code, name, spec);
       }
-      code.line(`readonly ${name}: ${this.getArgumentType(spec)};`);
     }
     code.closeBlock();
     code.line('');
