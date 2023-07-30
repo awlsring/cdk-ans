@@ -1,6 +1,7 @@
 import { FileTask, Handler, Inventory, Play, Project, ProjectProps, Role, Task, TaskAction } from 'cdk-ans';
 import { Construct } from 'constructs';
-
+import { ServiceAction } from '../../imports/ansible-builtin-service';
+import { AuthorizedKeyAction } from '../../imports/ansible-posix-authorized-key';
 export interface PiholeHaProjectProps extends ProjectProps {
   // readonly inventory: (scope: Construct) => Inventory;
 }
@@ -23,14 +24,14 @@ export class PiholeHaProject extends Project {
     });
 
     const restartDhcpcd = new Handler(this, 'restart-dhcpcd', {
-      action: new TaskAction('service', {
+      action: new ServiceAction({
         name: 'dhcpcd',
         state: 'restarted',
       }),
     });
 
     const addSshKey = new Task(this, 'add-ssh-key', {
-      action: new TaskAction('authorized_key', { // TODO: make an authorized_key task action)
+      action: new AuthorizedKeyAction({ // TODO: make an authorized_key task action)
         key: 'https://github.com/{{ github_user_for_ssh_key }}.keys',
         user: '{{ ansible_user }}',
         comment: 'github{{ github_user_for_ssh_key }}',

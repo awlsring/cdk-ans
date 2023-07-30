@@ -39,10 +39,10 @@ export interface AnsibleModuleSpec {
   readonly options?: { [key: string]: AnsibleModuleArgumentSpec };
   readonly shortDescription?: string;
   readonly notes?: string[];
-  readonly description?: string[];
+  readonly description?: string | string[];
   readonly versionAdded?: string;
   readonly attributes?: Record<string, Record<string, any>>;
-  readonly author?: string[];
+  readonly author?: string | string[];
 }
 
 export class ModuleImporter extends Importer {

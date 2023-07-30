@@ -48,6 +48,13 @@ export abstract class CodeGenerator {
     code.line('');
   }
 
+  protected strOrStrList(s: string | string[]): string[] {
+    if (typeof s === 'string') {
+      return [s];
+    }
+    return s;
+  }
+
   protected determineFilename(name: string, language: Language): string {
     let newName = name;
     switch (language) {

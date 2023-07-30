@@ -17,14 +17,14 @@ export class AnsibleModuleCodeGenerator extends CodeGenerator {
       code.line(' *');
     }
     if (this.spec.description) {
-      for (const line of this.spec.description) {
+      for (const line of this.strOrStrList(this.spec.description)) {
         code.line(` * ${line}`);
       }
       code.line(' *');
     }
     if (this.spec.notes) {
       code.line(' * #### Notes:');
-      for (const line of this.spec.notes) {
+      for (const line of this.strOrStrList(this.spec.notes)) {
         code.line(` * ${line}`);
       }
       code.line(' *');
@@ -41,7 +41,7 @@ export class AnsibleModuleCodeGenerator extends CodeGenerator {
     }
     if (this.spec.author) {
       code.line(' * #### Created by:');
-      for (const line of this.spec.author) {
+      for (const line of this.strOrStrList(this.spec.author)) {
         code.line(` * - ${line}`);
       }
       code.line(' *');
