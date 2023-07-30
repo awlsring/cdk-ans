@@ -118,7 +118,7 @@ const testProject = new TypeScriptAppProject({
   name: "test-cdk-ans",
   deps: [cdkans.package.packageName, "constructs"],
   devDeps: ["@types/follow-redirects", "json-schema-to-typescript"],
-  gitignore: ["tmp/*", "dist-test/*"],
+  gitignore: ["tmp/*", "dist-test/*", "imports"],
 });
 testProject.addTask("synth", {
   description: "synth the project",

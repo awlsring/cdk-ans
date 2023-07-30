@@ -100,10 +100,11 @@ export class AnsibleModuleCodeGenerator extends CodeGenerator {
     if (spec.description && spec.description.length > 0) {
       this.writeDocumentationHeader(code, spec.description);
     }
+    const required = spec.required ? '' : '?';
     if (name === 'freeForm') {
-      code.line('readonly freeForm?: string;');
+      code.line(`readonly freeForm${required}: string;`);
     } else {
-      code.line(`readonly ${name}: ${this.getArgumentType(spec)};`);
+      code.line(`readonly ${name}${required}: ${this.getArgumentType(spec)};`);
     }
   }
 
@@ -115,9 +116,6 @@ export class AnsibleModuleCodeGenerator extends CodeGenerator {
     code.openBlock(`export interface ${this.constructName}Props extends TaskActionProps`);
     if (this.spec.options) {
       for (const [name, spec] of Object.entries(this.spec.options)) {
-        if (spec.description && spec.description.length > 0) {
-          this.writeDocumentationHeader(code, spec.description);
-        }
         this.writePropsLine(code, name, spec);
       }
     }

@@ -1,5 +1,6 @@
 import { CodeMaker } from 'codemaker';
 import { Language } from '../import/importer';
+import { snakeToPascalCase } from '../utils';
 
 export interface GenerateOptions {
   readonly classNamePrefix?: string;
@@ -17,7 +18,7 @@ export abstract class CodeGenerator {
     this.targetLanguage = targetLanguage;
     this.filename = this.determineFilename(name, targetLanguage);
     this.prefix = prefix;
-    this.constructName = this.toPascalCase(this.name);
+    this.constructName = snakeToPascalCase(this.name);
   }
 
   protected abstract writeModuleImports(code: CodeMaker): void;
@@ -26,9 +27,17 @@ export abstract class CodeGenerator {
 
   protected abstract writeConstruct(code: CodeMaker, options: GenerateOptions): void;
 
-  protected writeDocumentationHeader(code: CodeMaker, description: string[]) {
+  protected writeDocumentationHeader(code: CodeMaker, description: string | string[]) {
+    const lines: string[] = [];
+
+    if (typeof description === 'string') {
+      lines.push(description);
+    } else {
+      lines.push(...description);
+    }
+
     code.line('/**');
-    for (const line of description) {
+    for (const line of lines) {
       code.line(` * ${line}`);
     }
     code.line(' */');
@@ -48,10 +57,6 @@ export abstract class CodeGenerator {
         break;
     }
     return newName;
-  }
-
-  private toPascalCase(str: string): string {
-    return str.replace(/(\w)(\w*)/g, (_, g1, g2) => g1.toUpperCase() + g2.toLowerCase());
   }
 
   async generate(code: CodeMaker, options: GenerateOptions): Promise<void> {

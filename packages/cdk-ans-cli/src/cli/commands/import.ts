@@ -4,12 +4,12 @@ import { importDispatch } from '../../import/dispatch';
 
 const config = readConfigSync();
 
-const DEFAULT_OUTDIR = 'imports';
+const DEFAULT_OUTDIR = 'src/imports';
 const LANGUAGES = ['typescript', 'python', 'java', 'go'];
 const IMPORT_TYPES = ['module', 'role'];
 
 class Command implements yargs.CommandModule {
-  public readonly command = 'import [SPEC]';
+  public readonly command = 'import';
   public readonly describe = 'Imports modules from Ansible module files';
   public readonly aliases = ['gen', 'import', 'generate'];
 
@@ -19,7 +19,7 @@ class Command implements yargs.CommandModule {
 
     .option('type', { choices: IMPORT_TYPES, type: 'string', describe: 'The type of import to perform', alias: 't' })
     .option('namespace', { type: 'string', desc: 'The type ', alias: 't' })
-    .option('source', { type: 'string', required: true, desc: 'The source of the import.', alias: 't' })
+    .option('source', { type: 'string', desc: 'The source of the import.', alias: 't' })
     .option('prefix', { type: 'string', desc: 'A prefix to add to all generated class names. By default, this is derived from the provided namespace. Must be PascalCase' })
     .option('output', { default: DEFAULT_OUTDIR, type: 'string', desc: 'Output directory', alias: 'o' })
     .option('language', { default: config.language, demand: true, type: 'string', desc: 'Output programming language', alias: 'l', choices: LANGUAGES });

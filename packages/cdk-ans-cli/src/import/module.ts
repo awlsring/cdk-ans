@@ -26,7 +26,7 @@ export enum AnsibleModuleArgumentSpecType {
 
 export interface AnsibleModuleArgumentSpec {
   readonly type: AnsibleModuleArgumentSpecType;
-  readonly description?: string[];
+  readonly description?: string | string[];
   readonly default?: any;
   readonly elements?: AnsibleModuleArgumentSpecType;
   readonly required?: boolean;

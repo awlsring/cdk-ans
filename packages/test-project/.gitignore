@@ -31,6 +31,7 @@ jspm_packages/
 .cache
 tmp/*
 dist-test/*
+imports
 !/.projenrc.js
 /test-reports/
 junit.xml

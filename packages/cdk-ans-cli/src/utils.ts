@@ -20,6 +20,13 @@ export function convertToSnakeCase(str: string): string {
   return s.replace(/-/g, '_');
 }
 
+export function snakeToPascalCase(input: string): string {
+  return input
+    .split('_')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join('');
+}
+
 function removeLeadingHyphen(fileName: string): string {
   const pattern = /^-(?=[a-zA-Z0-9])/;
   return fileName.replace(pattern, '');
