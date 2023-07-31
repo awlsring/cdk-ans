@@ -124,6 +124,12 @@ testProject.addTask("synth", {
   description: "synth the project",
   exec: "ts-node src/main.ts",
 });
+// override the build task
+testProject.removeTask("build");
+testProject.addTask("build", {
+  description: "don't build ;)",
+  exec: "echo 'no build'",
+});
 testProject.eslint?.addOverride({
   files: ["*.ts"],
   rules: {

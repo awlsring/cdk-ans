@@ -2,22 +2,10 @@
   "tasks": {
     "build": {
       "name": "build",
-      "description": "Full release build",
+      "description": "don't build ;)",
       "steps": [
         {
-          "spawn": "pre-compile"
-        },
-        {
-          "spawn": "compile"
-        },
-        {
-          "spawn": "post-compile"
-        },
-        {
-          "spawn": "test"
-        },
-        {
-          "spawn": "package"
+          "exec": "echo 'no build'"
         }
       ]
     },

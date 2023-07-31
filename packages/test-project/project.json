@@ -44,13 +44,6 @@
         "cwd": "packages/test-project"
       }
     },
-    "build": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "yarn projen build",
-        "cwd": "packages/test-project"
-      }
-    },
     "test:watch": {
       "executor": "nx:run-commands",
       "options": {
@@ -90,6 +83,13 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "yarn projen synth",
+        "cwd": "packages/test-project"
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn projen build",
         "cwd": "packages/test-project"
       }
     }
