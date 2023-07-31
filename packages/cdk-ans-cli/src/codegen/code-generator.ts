@@ -66,6 +66,20 @@ export abstract class CodeGenerator {
     return newName;
   }
 
+  protected writeEnum(code: CodeMaker, name: string, choices: string[]) {
+    code.line('');
+    this.writeDocumentationHeader(code, [
+      `Enum of choices for ${name}`,
+    ]);
+    const pascalName = snakeToPascalCase(name);
+    code.openBlock(`export enum ${pascalName}`);
+    for (const choice of choices) {
+      code.line(`${choice.toLocaleUpperCase()} = '${choice}',`);
+    }
+    code.closeBlock();
+    code.line('');
+  }
+
   async generate(code: CodeMaker, options: GenerateOptions): Promise<void> {
     this.writeImports(code);
     this.writeModuleImports(code);

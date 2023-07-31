@@ -2,6 +2,7 @@ import { CodeMaker } from 'codemaker';
 import { CodeGenerator, GenerateOptions } from './code-generator';
 import { Language } from '../import/importer';
 import { AnsibleModuleArgumentSpec, AnsibleModuleArgumentSpecType, AnsibleModuleSpec } from '../import/module';
+import { snakeToPascalCase } from '../utils';
 
 export class AnsibleModuleCodeGenerator extends CodeGenerator {
   constructor(readonly spec: AnsibleModuleSpec, readonly namespace: string, language: Language, prefix?: string) {
@@ -96,12 +97,14 @@ export class AnsibleModuleCodeGenerator extends CodeGenerator {
     code.closeBlock();
   }
 
-  private writePropsLine(code: CodeMaker, name: string, spec: AnsibleModuleArgumentSpec) {
+  private writePropsLine(code: CodeMaker, name: string, spec: AnsibleModuleArgumentSpec, type?: string) {
     if (spec.description && spec.description.length > 0) {
       this.writeDocumentationHeader(code, spec.description);
     }
     const required = spec.required ? '' : '?';
-    if (name === 'freeForm') {
+    if (type) {
+      code.line(`readonly ${name}${required}: ${type};`);
+    } else if (name === 'freeForm') {
       code.line(`readonly freeForm${required}: string;`);
     } else {
       code.line(`readonly ${name}${required}: ${this.getArgumentType(spec)};`);
@@ -110,13 +113,32 @@ export class AnsibleModuleCodeGenerator extends CodeGenerator {
 
   protected writeConstructProps(code: CodeMaker, options: GenerateOptions) {
     options; // ignore for now
+
+    const propertyWithEnum: Record<string, string> = {};
+
+    // loop through options and create enums if needed
+    if (this.spec.options) {
+      for (const [name, spec] of Object.entries(this.spec.options)) {
+        if (spec.choices) {
+          if (spec.choices.includes('*regex*')) {
+            console.warn(`Skipping enum ${name} because it has a regex choice`);
+            continue;
+          }
+          const enumName = `${this.name}_${name}`;
+          this.writeEnum(code, enumName, spec.choices);
+          propertyWithEnum[name] = snakeToPascalCase(enumName);
+        }
+      }
+    }
+
     this.writeDocumentationHeader(code, [
       `Props for the generated action ${this.constructName}`,
     ]);
     code.openBlock(`export interface ${this.constructName}Props extends TaskActionProps`);
     if (this.spec.options) {
       for (const [name, spec] of Object.entries(this.spec.options)) {
-        this.writePropsLine(code, name, spec);
+        const type = propertyWithEnum.hasOwnProperty(name) ? propertyWithEnum[name] : undefined;
+        this.writePropsLine(code, name, spec, type);
       }
     }
     code.closeBlock();
