@@ -194,7 +194,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade"
+          "exec": "yarn upgrade @aws-prototyping-sdk/nx-monorepo @types/node @types/tmp @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-header eslint-plugin-import eslint-plugin-prettier eslint license-checker npm-check-updates nx prettier projen syncpack tmp ts-node typescript nx aws-cdk-lib cdk-nag constructs"
         },
         {
           "exec": "npx projen"
