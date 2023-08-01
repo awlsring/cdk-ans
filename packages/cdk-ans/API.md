@@ -11378,6 +11378,694 @@ public readonly chain: Step[];
 ---
 
 
+### Variable <a name="Variable" id="cdk-ans.Variable"></a>
+
+Ansible variable.
+
+A class used to format anisble variables.
+
+> [https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html](https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html)
+
+#### Initializers <a name="Initializers" id="cdk-ans.Variable.Initializer"></a>
+
+```typescript
+import { Variable } from 'cdk-ans'
+
+new Variable()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.Variable.of">of</a></code> | Wraps a given string in Ansible's templating syntax. |
+| <code><a href="#cdk-ans.Variable.ofItem">ofItem</a></code> | Wraps a given string in Ansible's templating syntax as a property of an item. |
+
+---
+
+##### `of` <a name="of" id="cdk-ans.Variable.of"></a>
+
+```typescript
+import { Variable } from 'cdk-ans'
+
+Variable.of(value: string)
+```
+
+Wraps a given string in Ansible's templating syntax.
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-ans.Variable.of.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+##### `ofItem` <a name="ofItem" id="cdk-ans.Variable.ofItem"></a>
+
+```typescript
+import { Variable } from 'cdk-ans'
+
+Variable.ofItem(value: string)
+```
+
+Wraps a given string in Ansible's templating syntax as a property of an item.
+
+###### `value`<sup>Required</sup> <a name="value" id="cdk-ans.Variable.ofItem.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.Variable.property.AnsibleBecomeUser">AnsibleBecomeUser</a></code> | <code>string</code> | The user Ansible ‘becomes’ after using privilege escalation. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleCheckMode">AnsibleCheckMode</a></code> | <code>string</code> | Boolean that indicates if we are in check mode or not. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleCheckModeEnabled">AnsibleCheckModeEnabled</a></code> | <code>string</code> | The names of the roles currently imported into the current play as dependencies of other plays. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleCollectionName">AnsibleCollectionName</a></code> | <code>string</code> | The name of the collection the task that is executing is a part of. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleConfigFile">AnsibleConfigFile</a></code> | <code>string</code> | The full path of used Ansible configuration file. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleConnection">AnsibleConnection</a></code> | <code>string</code> | The connection plugin actually used for the task on the target host. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleDiffMode">AnsibleDiffMode</a></code> | <code>string</code> | Boolean that indicates if we are in diff mode or not. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleFacts">AnsibleFacts</a></code> | <code>string</code> | Contains any facts gathered or cached for the inventory_hostname Facts are normally gathered by the setup module automatically in a play, but any module can return facts. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleForks">AnsibleForks</a></code> | <code>string</code> | Integer reflecting the number of maximum forks available to this run. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleHost">AnsibleHost</a></code> | <code>string</code> | The ip/name of the target host to use instead of inventory_hostname. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleIndexVar">AnsibleIndexVar</a></code> | <code>string</code> | The name of the value provided to `loop_control.index_var`. Added in `2.9`. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleInventorySources">AnsibleInventorySources</a></code> | <code>string</code> | List of sources used as inventory. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleLimit">AnsibleLimit</a></code> | <code>string</code> | Contents of the `--limit` CLI option for the current execution of Ansible. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleLocal">AnsibleLocal</a></code> | <code>string</code> | Contains any ‘local facts’ gathered or cached for the inventory_hostname. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleLoop">AnsibleLoop</a></code> | <code>string</code> | A dictionary/map containing extended loop information when enabled through `loop_control.extended`. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleLoopVar">AnsibleLoopVar</a></code> | <code>string</code> | The name of the value provided to `loop_control.loop_var`. Added in `2.8`. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleParentRoleName">AnsibleParentRoleName</a></code> | <code>string</code> | When the current role is being executed by means of an include_role or import_role action, this variable contains a list of all parent roles, with the most recent role (in other words, the role that included/imported this role) being the first item in the list. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleParentRolePath">AnsibleParentRolePath</a></code> | <code>string</code> | When the current role is being executed by means of an include_role or import_role action, this variable contains a list of all parent roles paths, with the most recent role (in other words, the role that included/imported this role) being the first item in the list. |
+| <code><a href="#cdk-ans.Variable.property.AnsiblePlayBatch">AnsiblePlayBatch</a></code> | <code>string</code> | List of active hosts in the current play run limited by the serial, aka ‘batch’. |
+| <code><a href="#cdk-ans.Variable.property.AnsiblePlaybookPython">AnsiblePlaybookPython</a></code> | <code>string</code> | The path to the python interpreter being used by Ansible on the controller. |
+| <code><a href="#cdk-ans.Variable.property.AnsiblePlayHosts">AnsiblePlayHosts</a></code> | <code>string</code> | List of hosts in the current play run, not limited by the serial. |
+| <code><a href="#cdk-ans.Variable.property.AnsiblePlayHostsAll">AnsiblePlayHostsAll</a></code> | <code>string</code> | List of all the hosts that were targeted by the play. |
+| <code><a href="#cdk-ans.Variable.property.AnsiblePlayName">AnsiblePlayName</a></code> | <code>string</code> | The name of the currently executed play. |
+| <code><a href="#cdk-ans.Variable.property.AnsiblePlayRoleNames">AnsiblePlayRoleNames</a></code> | <code>string</code> | The names of the roles currently imported into the current play. |
+| <code><a href="#cdk-ans.Variable.property.AnsiblePort">AnsiblePort</a></code> | <code>string</code> | The port used to connect to the target host. |
+| <code><a href="#cdk-ans.Variable.property.AnsiblePythonInterpreter">AnsiblePythonInterpreter</a></code> | <code>string</code> | The path to the Python executable Ansible should use on the target host. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleRoleName">AnsibleRoleName</a></code> | <code>string</code> | The fully qualified collection role name, in the format of `namespace.collection.role_name`. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleRoleNames">AnsibleRoleNames</a></code> | <code>string</code> | The names of the roles currently imported into the current play, or roles referenced as dependencies of the roles imported into the current play. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleRunTags">AnsibleRunTags</a></code> | <code>string</code> | Contents of the `--tags` CLI option, which specifies which tags will be included for the current run. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleSearchPath">AnsibleSearchPath</a></code> | <code>string</code> | Current search path for action plugins and lookups, in other words, where we search for relative paths when you do `template: src=myfile`. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleSkipTags">AnsibleSkipTags</a></code> | <code>string</code> | Contents of the `--skip-tags` CLI option, which specifies which tags will be skipped for the current run. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleUser">AnsibleUser</a></code> | <code>string</code> | The user Ansible ‘logs in’ as. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleVerbosity">AnsibleVerbosity</a></code> | <code>string</code> | Current verbosity setting for Ansible. |
+| <code><a href="#cdk-ans.Variable.property.AnsibleVersion">AnsibleVersion</a></code> | <code>string</code> | Dictionary/map that contains information about the current running version of ansible, it has the following keys: full, major, minor, revision and string. |
+| <code><a href="#cdk-ans.Variable.property.GroupNames">GroupNames</a></code> | <code>string</code> | List of groups the current host is part of. |
+| <code><a href="#cdk-ans.Variable.property.Groups">Groups</a></code> | <code>string</code> | A dictionary/map with all the groups in inventory and each group has the list of hosts that belong to it. |
+| <code><a href="#cdk-ans.Variable.property.HostVars">HostVars</a></code> | <code>string</code> | A dictionary/map with all the hosts in inventory and variables assigned to them. |
+| <code><a href="#cdk-ans.Variable.property.InventoryDir">InventoryDir</a></code> | <code>string</code> | The directory of the inventory source in which the `inventory_hostname` was first defined. |
+| <code><a href="#cdk-ans.Variable.property.InventoryFile">InventoryFile</a></code> | <code>string</code> | The file name of the inventory source in which the `inventory_hostname` was first defined. |
+| <code><a href="#cdk-ans.Variable.property.InventoryHostname">InventoryHostname</a></code> | <code>string</code> | The inventory name for the ‘current’ host being iterated over in the play. |
+| <code><a href="#cdk-ans.Variable.property.InventoryHostnameShort">InventoryHostnameShort</a></code> | <code>string</code> | The short version of `inventory_hostname`. |
+| <code><a href="#cdk-ans.Variable.property.Omit">Omit</a></code> | <code>string</code> | Special variable that allows you to ‘omit’ an option in a task, for example `- user: name=bob home={{ bobs_home\|default(omit) }}`. |
+| <code><a href="#cdk-ans.Variable.property.PlaybookDir">PlaybookDir</a></code> | <code>string</code> | The path to the directory of the current playbook being executed. |
+| <code><a href="#cdk-ans.Variable.property.RoleName">RoleName</a></code> | <code>string</code> | The name of the role currently being executed. |
+| <code><a href="#cdk-ans.Variable.property.RolePath">RolePath</a></code> | <code>string</code> | The path to the dir of the currently running role. |
+
+---
+
+##### `AnsibleBecomeUser`<sup>Required</sup> <a name="AnsibleBecomeUser" id="cdk-ans.Variable.property.AnsibleBecomeUser"></a>
+
+```typescript
+public readonly AnsibleBecomeUser: string;
+```
+
+- *Type:* string
+
+The user Ansible ‘becomes’ after using privilege escalation.
+
+This must be available to the ‘login user’.
+
+---
+
+##### `AnsibleCheckMode`<sup>Required</sup> <a name="AnsibleCheckMode" id="cdk-ans.Variable.property.AnsibleCheckMode"></a>
+
+```typescript
+public readonly AnsibleCheckMode: string;
+```
+
+- *Type:* string
+
+Boolean that indicates if we are in check mode or not.
+
+---
+
+##### `AnsibleCheckModeEnabled`<sup>Required</sup> <a name="AnsibleCheckModeEnabled" id="cdk-ans.Variable.property.AnsibleCheckModeEnabled"></a>
+
+```typescript
+public readonly AnsibleCheckModeEnabled: string;
+```
+
+- *Type:* string
+
+The names of the roles currently imported into the current play as dependencies of other plays.
+
+---
+
+##### `AnsibleCollectionName`<sup>Required</sup> <a name="AnsibleCollectionName" id="cdk-ans.Variable.property.AnsibleCollectionName"></a>
+
+```typescript
+public readonly AnsibleCollectionName: string;
+```
+
+- *Type:* string
+
+The name of the collection the task that is executing is a part of.
+
+In the format of `namespace.collection`.
+
+---
+
+##### `AnsibleConfigFile`<sup>Required</sup> <a name="AnsibleConfigFile" id="cdk-ans.Variable.property.AnsibleConfigFile"></a>
+
+```typescript
+public readonly AnsibleConfigFile: string;
+```
+
+- *Type:* string
+
+The full path of used Ansible configuration file.
+
+---
+
+##### `AnsibleConnection`<sup>Required</sup> <a name="AnsibleConnection" id="cdk-ans.Variable.property.AnsibleConnection"></a>
+
+```typescript
+public readonly AnsibleConnection: string;
+```
+
+- *Type:* string
+
+The connection plugin actually used for the task on the target host.
+
+---
+
+##### `AnsibleDiffMode`<sup>Required</sup> <a name="AnsibleDiffMode" id="cdk-ans.Variable.property.AnsibleDiffMode"></a>
+
+```typescript
+public readonly AnsibleDiffMode: string;
+```
+
+- *Type:* string
+
+Boolean that indicates if we are in diff mode or not.
+
+---
+
+##### `AnsibleFacts`<sup>Required</sup> <a name="AnsibleFacts" id="cdk-ans.Variable.property.AnsibleFacts"></a>
+
+```typescript
+public readonly AnsibleFacts: string;
+```
+
+- *Type:* string
+
+Contains any facts gathered or cached for the inventory_hostname Facts are normally gathered by the setup module automatically in a play, but any module can return facts.
+
+> [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/setup_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/setup_module.html)
+
+---
+
+##### `AnsibleForks`<sup>Required</sup> <a name="AnsibleForks" id="cdk-ans.Variable.property.AnsibleForks"></a>
+
+```typescript
+public readonly AnsibleForks: string;
+```
+
+- *Type:* string
+
+Integer reflecting the number of maximum forks available to this run.
+
+---
+
+##### `AnsibleHost`<sup>Required</sup> <a name="AnsibleHost" id="cdk-ans.Variable.property.AnsibleHost"></a>
+
+```typescript
+public readonly AnsibleHost: string;
+```
+
+- *Type:* string
+
+The ip/name of the target host to use instead of inventory_hostname.
+
+---
+
+##### `AnsibleIndexVar`<sup>Required</sup> <a name="AnsibleIndexVar" id="cdk-ans.Variable.property.AnsibleIndexVar"></a>
+
+```typescript
+public readonly AnsibleIndexVar: string;
+```
+
+- *Type:* string
+
+The name of the value provided to `loop_control.index_var`. Added in `2.9`.
+
+---
+
+##### `AnsibleInventorySources`<sup>Required</sup> <a name="AnsibleInventorySources" id="cdk-ans.Variable.property.AnsibleInventorySources"></a>
+
+```typescript
+public readonly AnsibleInventorySources: string;
+```
+
+- *Type:* string
+
+List of sources used as inventory.
+
+---
+
+##### `AnsibleLimit`<sup>Required</sup> <a name="AnsibleLimit" id="cdk-ans.Variable.property.AnsibleLimit"></a>
+
+```typescript
+public readonly AnsibleLimit: string;
+```
+
+- *Type:* string
+
+Contents of the `--limit` CLI option for the current execution of Ansible.
+
+---
+
+##### `AnsibleLocal`<sup>Required</sup> <a name="AnsibleLocal" id="cdk-ans.Variable.property.AnsibleLocal"></a>
+
+```typescript
+public readonly AnsibleLocal: string;
+```
+
+- *Type:* string
+
+Contains any ‘local facts’ gathered or cached for the inventory_hostname.
+
+The keys available depend on the custom facts created. See the setup module and facts.d or local facts for more details.
+
+---
+
+##### `AnsibleLoop`<sup>Required</sup> <a name="AnsibleLoop" id="cdk-ans.Variable.property.AnsibleLoop"></a>
+
+```typescript
+public readonly AnsibleLoop: string;
+```
+
+- *Type:* string
+
+A dictionary/map containing extended loop information when enabled through `loop_control.extended`.
+
+---
+
+##### `AnsibleLoopVar`<sup>Required</sup> <a name="AnsibleLoopVar" id="cdk-ans.Variable.property.AnsibleLoopVar"></a>
+
+```typescript
+public readonly AnsibleLoopVar: string;
+```
+
+- *Type:* string
+
+The name of the value provided to `loop_control.loop_var`. Added in `2.8`.
+
+---
+
+##### `AnsibleParentRoleName`<sup>Required</sup> <a name="AnsibleParentRoleName" id="cdk-ans.Variable.property.AnsibleParentRoleName"></a>
+
+```typescript
+public readonly AnsibleParentRoleName: string;
+```
+
+- *Type:* string
+
+When the current role is being executed by means of an include_role or import_role action, this variable contains a list of all parent roles, with the most recent role (in other words, the role that included/imported this role) being the first item in the list.
+
+When multiple inclusions occur, this list lists the last role (in other words, the role that included this role) as the first item in the list. It is also possible that a specific role exists more than once in this list.
+
+For example: When role A includes role B, inside role B, `ansible_parent_role_names` will equal to `['A']`. If role **B** then includes role **C**, the list becomes `['B', 'A']`.
+
+> [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/import_role_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/import_role_module.html)
+
+---
+
+##### `AnsibleParentRolePath`<sup>Required</sup> <a name="AnsibleParentRolePath" id="cdk-ans.Variable.property.AnsibleParentRolePath"></a>
+
+```typescript
+public readonly AnsibleParentRolePath: string;
+```
+
+- *Type:* string
+
+When the current role is being executed by means of an include_role or import_role action, this variable contains a list of all parent roles paths, with the most recent role (in other words, the role that included/imported this role) being the first item in the list.
+
+Please refer to `ansible_parent_role_names` for the order of items in this list.
+
+> [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/import_role_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/import_role_module.html)
+
+---
+
+##### `AnsiblePlayBatch`<sup>Required</sup> <a name="AnsiblePlayBatch" id="cdk-ans.Variable.property.AnsiblePlayBatch"></a>
+
+```typescript
+public readonly AnsiblePlayBatch: string;
+```
+
+- *Type:* string
+
+List of active hosts in the current play run limited by the serial, aka ‘batch’.
+
+Failed/Unreachable hosts are not considered ‘active’.
+
+---
+
+##### `AnsiblePlaybookPython`<sup>Required</sup> <a name="AnsiblePlaybookPython" id="cdk-ans.Variable.property.AnsiblePlaybookPython"></a>
+
+```typescript
+public readonly AnsiblePlaybookPython: string;
+```
+
+- *Type:* string
+
+The path to the python interpreter being used by Ansible on the controller.
+
+---
+
+##### `AnsiblePlayHosts`<sup>Required</sup> <a name="AnsiblePlayHosts" id="cdk-ans.Variable.property.AnsiblePlayHosts"></a>
+
+```typescript
+public readonly AnsiblePlayHosts: string;
+```
+
+- *Type:* string
+
+List of hosts in the current play run, not limited by the serial.
+
+Failed/Unreachable hosts are excluded from this list.
+
+---
+
+##### `AnsiblePlayHostsAll`<sup>Required</sup> <a name="AnsiblePlayHostsAll" id="cdk-ans.Variable.property.AnsiblePlayHostsAll"></a>
+
+```typescript
+public readonly AnsiblePlayHostsAll: string;
+```
+
+- *Type:* string
+
+List of all the hosts that were targeted by the play.
+
+---
+
+##### `AnsiblePlayName`<sup>Required</sup> <a name="AnsiblePlayName" id="cdk-ans.Variable.property.AnsiblePlayName"></a>
+
+```typescript
+public readonly AnsiblePlayName: string;
+```
+
+- *Type:* string
+
+The name of the currently executed play.
+
+Added in `2.8.` (name attribute of the play, not file name of the playbook.)
+
+---
+
+##### `AnsiblePlayRoleNames`<sup>Required</sup> <a name="AnsiblePlayRoleNames" id="cdk-ans.Variable.property.AnsiblePlayRoleNames"></a>
+
+```typescript
+public readonly AnsiblePlayRoleNames: string;
+```
+
+- *Type:* string
+
+The names of the roles currently imported into the current play.
+
+This list does not contain the role names that are implicitly included through dependencies.
+
+---
+
+##### `AnsiblePort`<sup>Required</sup> <a name="AnsiblePort" id="cdk-ans.Variable.property.AnsiblePort"></a>
+
+```typescript
+public readonly AnsiblePort: string;
+```
+
+- *Type:* string
+
+The port used to connect to the target host.
+
+---
+
+##### `AnsiblePythonInterpreter`<sup>Required</sup> <a name="AnsiblePythonInterpreter" id="cdk-ans.Variable.property.AnsiblePythonInterpreter"></a>
+
+```typescript
+public readonly AnsiblePythonInterpreter: string;
+```
+
+- *Type:* string
+
+The path to the Python executable Ansible should use on the target host.
+
+> [https://docs.ansible.com/ansible/latest/reference_appendices/interpreter_discovery.html](https://docs.ansible.com/ansible/latest/reference_appendices/interpreter_discovery.html)
+
+---
+
+##### `AnsibleRoleName`<sup>Required</sup> <a name="AnsibleRoleName" id="cdk-ans.Variable.property.AnsibleRoleName"></a>
+
+```typescript
+public readonly AnsibleRoleName: string;
+```
+
+- *Type:* string
+
+The fully qualified collection role name, in the format of `namespace.collection.role_name`.
+
+---
+
+##### `AnsibleRoleNames`<sup>Required</sup> <a name="AnsibleRoleNames" id="cdk-ans.Variable.property.AnsibleRoleNames"></a>
+
+```typescript
+public readonly AnsibleRoleNames: string;
+```
+
+- *Type:* string
+
+The names of the roles currently imported into the current play, or roles referenced as dependencies of the roles imported into the current play.
+
+---
+
+##### `AnsibleRunTags`<sup>Required</sup> <a name="AnsibleRunTags" id="cdk-ans.Variable.property.AnsibleRunTags"></a>
+
+```typescript
+public readonly AnsibleRunTags: string;
+```
+
+- *Type:* string
+
+Contents of the `--tags` CLI option, which specifies which tags will be included for the current run.
+
+Note that if `--tags` is not passed, this variable will default to `["all"]`.
+
+---
+
+##### `AnsibleSearchPath`<sup>Required</sup> <a name="AnsibleSearchPath" id="cdk-ans.Variable.property.AnsibleSearchPath"></a>
+
+```typescript
+public readonly AnsibleSearchPath: string;
+```
+
+- *Type:* string
+
+Current search path for action plugins and lookups, in other words, where we search for relative paths when you do `template: src=myfile`.
+
+---
+
+##### `AnsibleSkipTags`<sup>Required</sup> <a name="AnsibleSkipTags" id="cdk-ans.Variable.property.AnsibleSkipTags"></a>
+
+```typescript
+public readonly AnsibleSkipTags: string;
+```
+
+- *Type:* string
+
+Contents of the `--skip-tags` CLI option, which specifies which tags will be skipped for the current run.
+
+---
+
+##### `AnsibleUser`<sup>Required</sup> <a name="AnsibleUser" id="cdk-ans.Variable.property.AnsibleUser"></a>
+
+```typescript
+public readonly AnsibleUser: string;
+```
+
+- *Type:* string
+
+The user Ansible ‘logs in’ as.
+
+---
+
+##### `AnsibleVerbosity`<sup>Required</sup> <a name="AnsibleVerbosity" id="cdk-ans.Variable.property.AnsibleVerbosity"></a>
+
+```typescript
+public readonly AnsibleVerbosity: string;
+```
+
+- *Type:* string
+
+Current verbosity setting for Ansible.
+
+---
+
+##### `AnsibleVersion`<sup>Required</sup> <a name="AnsibleVersion" id="cdk-ans.Variable.property.AnsibleVersion"></a>
+
+```typescript
+public readonly AnsibleVersion: string;
+```
+
+- *Type:* string
+
+Dictionary/map that contains information about the current running version of ansible, it has the following keys: full, major, minor, revision and string.
+
+---
+
+##### `GroupNames`<sup>Required</sup> <a name="GroupNames" id="cdk-ans.Variable.property.GroupNames"></a>
+
+```typescript
+public readonly GroupNames: string;
+```
+
+- *Type:* string
+
+List of groups the current host is part of.
+
+---
+
+##### `Groups`<sup>Required</sup> <a name="Groups" id="cdk-ans.Variable.property.Groups"></a>
+
+```typescript
+public readonly Groups: string;
+```
+
+- *Type:* string
+
+A dictionary/map with all the groups in inventory and each group has the list of hosts that belong to it.
+
+---
+
+##### `HostVars`<sup>Required</sup> <a name="HostVars" id="cdk-ans.Variable.property.HostVars"></a>
+
+```typescript
+public readonly HostVars: string;
+```
+
+- *Type:* string
+
+A dictionary/map with all the hosts in inventory and variables assigned to them.
+
+---
+
+##### `InventoryDir`<sup>Required</sup> <a name="InventoryDir" id="cdk-ans.Variable.property.InventoryDir"></a>
+
+```typescript
+public readonly InventoryDir: string;
+```
+
+- *Type:* string
+
+The directory of the inventory source in which the `inventory_hostname` was first defined.
+
+---
+
+##### `InventoryFile`<sup>Required</sup> <a name="InventoryFile" id="cdk-ans.Variable.property.InventoryFile"></a>
+
+```typescript
+public readonly InventoryFile: string;
+```
+
+- *Type:* string
+
+The file name of the inventory source in which the `inventory_hostname` was first defined.
+
+---
+
+##### `InventoryHostname`<sup>Required</sup> <a name="InventoryHostname" id="cdk-ans.Variable.property.InventoryHostname"></a>
+
+```typescript
+public readonly InventoryHostname: string;
+```
+
+- *Type:* string
+
+The inventory name for the ‘current’ host being iterated over in the play.
+
+---
+
+##### `InventoryHostnameShort`<sup>Required</sup> <a name="InventoryHostnameShort" id="cdk-ans.Variable.property.InventoryHostnameShort"></a>
+
+```typescript
+public readonly InventoryHostnameShort: string;
+```
+
+- *Type:* string
+
+The short version of `inventory_hostname`.
+
+---
+
+##### `Omit`<sup>Required</sup> <a name="Omit" id="cdk-ans.Variable.property.Omit"></a>
+
+```typescript
+public readonly Omit: string;
+```
+
+- *Type:* string
+
+Special variable that allows you to ‘omit’ an option in a task, for example `- user: name=bob home={{ bobs_home|default(omit) }}`.
+
+---
+
+##### `PlaybookDir`<sup>Required</sup> <a name="PlaybookDir" id="cdk-ans.Variable.property.PlaybookDir"></a>
+
+```typescript
+public readonly PlaybookDir: string;
+```
+
+- *Type:* string
+
+The path to the directory of the current playbook being executed.
+
+NOTE: This might be different than directory of the playbook passed to the `ansible-playbook` command line when a playbook contains a `import_playbook` statement.
+
+---
+
+##### `RoleName`<sup>Required</sup> <a name="RoleName" id="cdk-ans.Variable.property.RoleName"></a>
+
+```typescript
+public readonly RoleName: string;
+```
+
+- *Type:* string
+
+The name of the role currently being executed.
+
+---
+
+##### `RolePath`<sup>Required</sup> <a name="RolePath" id="cdk-ans.Variable.property.RolePath"></a>
+
+```typescript
+public readonly RolePath: string;
+```
+
+- *Type:* string
+
+The path to the dir of the currently running role.
+
+---
+
 ### Yaml <a name="Yaml" id="cdk-ans.Yaml"></a>
 
 YAML utilities.

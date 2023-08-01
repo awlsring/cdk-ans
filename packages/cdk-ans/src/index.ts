@@ -30,3 +30,4 @@ export * from './namer';
 export * from './project';
 export * from './util';
 export * from './yaml';
+export * from './variable';
