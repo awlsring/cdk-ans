@@ -32,7 +32,6 @@ jspm_packages/
 .yarn-integrity
 .cache
 .tmp
-.nx/cache
 .vscode
 cdkans.yaml
 .DS_Store
@@ -51,6 +50,7 @@ cdkans.yaml
 /lib
 /dist/
 !/.eslintrc.json
+.nx/cache
 !/nx.json
 !/.nxignore
 !/.syncpackrc.json
