@@ -1,4 +1,8 @@
-export type AnisbleStringInput = string | IVariable;
+export type AnsibleStringInput = string | IVariable;
+export type AnsibleDictionaryInput = Record<string, any> | IVariable;
+export type AnsibleBooleanInput = boolean | IVariable;
+export type AnsibleNumberInput = number | IVariable;
+export type AnsibleAnyInput = any | IVariable;
 
 /**
  * A variable that can access any type of variable.

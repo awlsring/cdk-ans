@@ -66,12 +66,12 @@ export class AnsibleModuleCodeGenerator extends CodeGenerator {
         const type = this.getArgumentType({ type: spec.elements });
         return `${type}[]`;
       case AnsibleModuleArgumentSpecType.DICTIONARY:
-        return 'Record<string, any>';
+        return 'AnsibleDictionaryInput';
       case AnsibleModuleArgumentSpecType.BOOLEAN:
-        return 'boolean';
+        return 'AnsibleBooleanInput';
       case AnsibleModuleArgumentSpecType.INTEGER:
       case AnsibleModuleArgumentSpecType.FLOAT:
-        return 'number';
+        return 'AnsibleNumberInput';
       case AnsibleModuleArgumentSpecType.STRING:
       case AnsibleModuleArgumentSpecType.PATH:
       case AnsibleModuleArgumentSpecType.RAW:
@@ -79,11 +79,11 @@ export class AnsibleModuleCodeGenerator extends CodeGenerator {
       case AnsibleModuleArgumentSpecType.JSON:
       case AnsibleModuleArgumentSpecType.BYTES:
       case AnsibleModuleArgumentSpecType.BITS:
-        return 'string';
+        return 'AnsibleStringInput';
       case AnsibleModuleArgumentSpecType.ANY:
-        return 'any';
+        return 'AnsibleAnyInput';
       default:
-        return 'any';
+        return 'AnsibleAnyInput';
     }
   }
 
@@ -146,7 +146,7 @@ export class AnsibleModuleCodeGenerator extends CodeGenerator {
   }
 
   protected writeModuleImports(code: CodeMaker) {
-    code.line('import { TaskAction, TaskActionProps } from \'cdk-ans\';');
+    code.line('import { TaskAction, TaskActionProps, AnsibleStringInput, AnsibleDictionaryInput, AnsibleBooleanInput, AnsibleNumberInput, AnsibleAnyInput } from \'cdk-ans\';');
     code.line('');
   }
 }

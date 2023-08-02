@@ -74,7 +74,7 @@ export abstract class CodeGenerator {
     const pascalName = snakeToPascalCase(name);
     code.openBlock(`export enum ${pascalName}`);
     for (const choice of choices) {
-      code.line(`${choice.toLocaleUpperCase()} = '${choice}',`);
+      code.line(`${choice.toLocaleUpperCase().replace('-', '_')} = '${choice}',`);
     }
     code.closeBlock();
     code.line('');

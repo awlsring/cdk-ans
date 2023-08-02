@@ -1,15 +1,15 @@
-import { FileTask, Handler, Inventory, Play, Project, ProjectProps, Role, Task, TaskAction } from 'cdk-ans';
+import { FileTask, Handler, Inventory, MagicVariable, Play, Project, ProjectProps, Role, Task, TaskAction } from 'cdk-ans';
 import { Construct } from 'constructs';
 import { AptAction } from '../../imports/ansible-builtin-apt';
 import { AptKeyAction } from '../../imports/ansible-builtin-apt-key';
 import { AptRepositoryAction } from '../../imports/ansible-builtin-apt-repository';
 import { BlockinfileAction } from '../../imports/ansible-builtin-blockinfile';
 import { CopyAction } from '../../imports/ansible-builtin-copy';
-import { FileAction } from '../../imports/ansible-builtin-file';
+import { FileAction, FileState } from '../../imports/ansible-builtin-file';
 import { LineinfileAction } from '../../imports/ansible-builtin-lineinfile';
-import { MetaAction } from '../../imports/ansible-builtin-meta';
+import { MetaAction, MetaFreeForm } from '../../imports/ansible-builtin-meta';
 import { PipAction } from '../../imports/ansible-builtin-pip';
-import { ServiceAction } from '../../imports/ansible-builtin-service';
+import { ServiceAction, ServiceState } from '../../imports/ansible-builtin-service';
 import { SetFactAction } from '../../imports/ansible-builtin-set-fact';
 import { UriAction } from '../../imports/ansible-builtin-uri';
 import { UserAction } from '../../imports/ansible-builtin-user';
@@ -38,21 +38,21 @@ export class PiholeHaProject extends Project {
     const restartDhcpcd = new Handler(this, 'restart-dhcpcd', {
       action: new ServiceAction({
         name: 'dhcpcd',
-        state: 'restarted',
+        state: ServiceState.RESTARTED,
       }),
     });
 
     const addSshKey = new Task(this, 'add-ssh-key', {
       action: new AuthorizedKeyAction({
         key: 'https://github.com/{{ github_user_for_ssh_key }}.keys',
-        user: '{{ ansible_user }}',
+        user: MagicVariable.AnsibleUser,
         comment: 'github{{ github_user_for_ssh_key }}',
       }),
     });
 
     const lockPassword = new Task(this, 'lock-password', {
       action: new UserAction({
-        name: '{{ ansible_user }}',
+        name: MagicVariable.AnsibleUser,
         passwordLock: true,
       }),
     });
@@ -76,7 +76,7 @@ export class PiholeHaProject extends Project {
       action: new FileAction({
         src: '/usr/share/zoneinfo/{{ timezone }}',
         path: '/etc/localtime',
-        state: 'link',
+        state: FileState.LINK,
       }),
     });
 
@@ -84,7 +84,7 @@ export class PiholeHaProject extends Project {
       action: new LineinfileAction({
         path: '/etc/hostname',
         regexp: '^',
-        line: '{{ inventory_hostname }}',
+        line: MagicVariable.InventoryHostname,
       }),
       notify: [reboot],
     });
@@ -108,7 +108,7 @@ export class PiholeHaProject extends Project {
 
     const flush = new Task(this, 'flush', {
       action: new MetaAction({
-        freeForm: 'flush_handlers',
+        freeForm: MetaFreeForm.FLUSH_HANDLERS,
       }),
     });
 
@@ -132,7 +132,7 @@ export class PiholeHaProject extends Project {
     const handler = new Handler(this, 'restart-docker', {
       action: new ServiceAction({
         name: 'docker',
-        state: 'restarted',
+        state: ServiceState.RESTARTED,
       }),
     });
 
@@ -174,7 +174,7 @@ export class PiholeHaProject extends Project {
 
     const addUserToDockerGroup = new Task(this, 'add-user-to-docker-group', {
       action: new UserAction({
-        name: '{{ ansible_user }}',
+        name: MagicVariable.AnsibleUser,
         group: 'docker',
         append: true,
       }),
@@ -191,7 +191,7 @@ export class PiholeHaProject extends Project {
 
     const flush = new Task(this, 'flush', {
       action: new MetaAction({
-        freeForm: 'flush_handlers',
+        freeForm: MetaFreeForm.FLUSH_HANDLERS,
       }),
     });
 
