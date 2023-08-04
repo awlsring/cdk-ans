@@ -118,19 +118,7 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor"
-        },
-        {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor"
-        },
-        {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor"
-        },
-        {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor"
-        },
-        {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor"
+          "exec": "npm-check-updates --upgrade --target=minor --filter=@types/fs-extra,@types/glob,@types/jest,@types/json-schema,@types/semver,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,eslint-import-resolver-node,eslint-import-resolver-typescript,eslint-plugin-import,eslint,glob,jest,jest-junit,npm-check-updates,projen,ts-jest,typescript,typescript-json-schema,@types/node,ajv,axios,cdk-ans,codemaker,colors,constructs,fs-extra,jsii-pacmak,jsii-srcmak,json2jsii,semver,shelljs,simple-git,sscaff,table,tmp,yaml,yargs"
         },
         {
           "exec": "yarn install --check-files"

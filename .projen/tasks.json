@@ -176,25 +176,13 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='nx'"
-        },
-        {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='nx'"
-        },
-        {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='nx'"
-        },
-        {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='nx'"
-        },
-        {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='nx'"
+          "exec": "npm-check-updates --upgrade --target=minor --filter=@aws-prototyping-sdk/nx-monorepo,@types/node,@types/tmp,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,eslint-config-prettier,eslint-import-resolver-node,eslint-import-resolver-typescript,eslint-plugin-header,eslint-plugin-import,eslint-plugin-prettier,eslint,license-checker,npm-check-updates,prettier,projen,syncpack,tmp,ts-node,typescript,nx,aws-cdk-lib,cdk-nag,constructs"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @aws-prototyping-sdk/nx-monorepo @types/node @types/tmp @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-header eslint-plugin-import eslint-plugin-prettier eslint license-checker npm-check-updates nx prettier projen syncpack tmp ts-node typescript nx aws-cdk-lib cdk-nag constructs"
+          "exec": "yarn upgrade @aws-prototyping-sdk/nx-monorepo @types/node @types/tmp @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-header eslint-plugin-import eslint-plugin-prettier eslint license-checker npm-check-updates prettier projen syncpack tmp ts-node typescript nx aws-cdk-lib cdk-nag constructs"
         },
         {
           "exec": "npx projen"
