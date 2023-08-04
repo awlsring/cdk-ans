@@ -1,4 +1,5 @@
 import { Construct } from 'constructs';
+import { Conditional } from './conditional';
 import { Handler } from './handler';
 import { ITaskChainable, TaskDefinition } from './run-definition/task-definition';
 import { TaskBase, TaskBaseProps } from './task-base';
@@ -10,7 +11,7 @@ export interface BlockProps extends TaskBaseProps {
   readonly notify?: Handler[];
   readonly delegateFacts?: boolean;
   readonly delegateTo?: string;
-  readonly when?: string;
+  readonly when?: Conditional;
 }
 
 export class Block extends TaskBase implements ITaskChainable {
@@ -18,6 +19,7 @@ export class Block extends TaskBase implements ITaskChainable {
   readonly rescue?: TaskDefinition;
   readonly always?: TaskDefinition;
   readonly notify?: Handler[];
+  readonly when?: Conditional;
 
   constructor(scope: Construct, name: string, props: BlockProps) {
     super(scope, name, props);
@@ -25,6 +27,7 @@ export class Block extends TaskBase implements ITaskChainable {
     this.rescue = props.rescue;
     this.always = props.always;
     this.notify = props.notify;
+    this.when = props.when;
   }
 
   next(next: ITaskChainable): TaskDefinition {
@@ -47,6 +50,10 @@ export class Block extends TaskBase implements ITaskChainable {
 
     if (this.notify) {
       task.notify = this.notify.map(h => h.name);
+    }
+
+    if (this.when) {
+      task.when = this.when.format();
     }
 
     if (this.anyErrorsFatal) {

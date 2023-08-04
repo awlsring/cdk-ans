@@ -146,6 +146,7 @@ export class AnsibleModuleCodeGenerator extends CodeGenerator {
   }
 
   protected writeModuleImports(code: CodeMaker) {
+    code.line('//@ts-ignore'); // TODO: remove this when I think or a smarter way to declare imports
     code.line('import { TaskAction, TaskActionProps, AnsibleStringInput, AnsibleDictionaryInput, AnsibleBooleanInput, AnsibleNumberInput, AnsibleAnyInput } from \'cdk-ans\';');
     code.line('');
   }

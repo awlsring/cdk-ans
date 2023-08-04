@@ -1,4 +1,5 @@
 import { Construct } from 'constructs';
+import { Conditional } from './conditional';
 import { IRoleChainable, RoleDefinition } from './run-definition/role-definition';
 import { Step } from './step';
 import { TaskBaseProps } from './task-base';
@@ -7,7 +8,7 @@ import { Role } from '../resource/role';
 export interface RoleTargetProps extends TaskBaseProps {
   readonly delegateFacts?: boolean;
   readonly delegateTo?: string;
-  readonly when?: string;
+  readonly when?: Conditional;
 }
 
 /**
@@ -48,7 +49,7 @@ export class RoleTarget extends Step implements IRoleChainable {
   readonly vars?: Record<string, any>;
   readonly delegateFacts?: boolean;
   readonly delegateTo?: string;
-  readonly when?: string;
+  readonly when?: Conditional;
 
   private constructor(scope: Construct, name: string, readonly role: Role, props?: RoleTargetProps) {
     super(scope, name, props ?? {});
@@ -98,7 +99,7 @@ export class RoleTarget extends Step implements IRoleChainable {
     }
 
     if (this.when) {
-      task.when = this.when;
+      task.when = this.when.format();
     }
 
     if (this.anyErrorsFatal) {

@@ -99,6 +99,10 @@ export class ListVariable extends BaseVariable {
  * Used by returns of `property` and `index` methods of other variables.
  */
 export class AnyVariable extends BaseVariable {
+  static of(name: string): AnyVariable {
+    return new AnyVariable(name);
+  }
+
   property(key: string): IVariable {
     if (this.parents.length === 0) {
       return new AnyVariable(`['${key}']`, [this.name]);
@@ -108,15 +112,6 @@ export class AnyVariable extends BaseVariable {
 
   index(index: number): IVariable {
     return new AnyVariable('', [...this.parents, this.name, `[${index}]`]);
-  }
-}
-
-/**
- * A special variable to quickly implement an item variable in a loop.
- */
-export class ItemVariable extends AnyVariable {
-  constructor() {
-    super('item');
   }
 }
 
@@ -321,5 +316,9 @@ export class MagicVariable {
    * The path to the dir of the currently running role.
    */
   static readonly RolePath = SimpleVariable.of('role_path');
+  /**
+  * A special variable to quickly implement an item variable in a loop.
+  */
+  static readonly Item = AnyVariable.of('item');
 }
 

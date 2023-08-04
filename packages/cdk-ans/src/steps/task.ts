@@ -1,4 +1,5 @@
 import { Construct } from 'constructs';
+import { Conditional } from './conditional';
 import { Handler } from './handler';
 import { ITaskChainable, TaskDefinition } from './run-definition/task-definition';
 import { TaskAction } from './task-action';
@@ -24,7 +25,7 @@ export interface TaskProps extends TaskBaseProps {
   readonly with?: string[];
   readonly delegateFacts?: boolean;
   readonly delegateTo?: string;
-  readonly when?: string;
+  readonly when?: Conditional;
 }
 
 // make these chainable like aws-cdk sfn?
@@ -49,7 +50,7 @@ export class Task extends TaskBase implements ITaskChainable {
   readonly with?: string[];
   readonly delegateFacts?: boolean;
   readonly delegateTo?: string;
-  readonly when?: string;
+  readonly when?: Conditional;
 
   constructor(scope: Construct, name: string, props: TaskProps) {
     super(scope, name, props);
@@ -102,6 +103,10 @@ export class Task extends TaskBase implements ITaskChainable {
 
     if (this.failedWhen) {
       task.failed_when = this.failedWhen;
+    }
+
+    if (this.when) {
+      task.when = this.when.format();
     }
 
     if (this.localAction) {

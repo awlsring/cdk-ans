@@ -25,6 +25,7 @@ export * from './steps/task-action';
 export * from './steps/task-base';
 export * from './steps/task';
 export * from './steps/variable';
+export * from './steps/conditional';
 export * from './app';
 export * from './dependency';
 export * from './namer';

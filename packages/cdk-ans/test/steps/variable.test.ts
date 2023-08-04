@@ -1,4 +1,4 @@
-import { DictionaryVariable, ItemVariable, ListVariable, MagicVariable, SimpleVariable } from '../../src';
+import { DictionaryVariable, ListVariable, MagicVariable, SimpleVariable } from '../../src';
 
 describe('Variables Primitives', () => {
   test('Simple variable formats as expected', () => {
@@ -60,7 +60,7 @@ describe('Magic Variables', () => {
 
 describe('Item Variables', () => {
   test('Formats correctly', () => {
-    const item = new ItemVariable();
+    const item = MagicVariable.Item;
 
     expect(item.asVariable()).toEqual('{{ item }}');
     expect(item.asRaw()).toEqual('item');

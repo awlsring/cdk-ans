@@ -341,6 +341,7 @@ Any object.
 | <code><a href="#cdk-ans.Block.property.always">always</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Block.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Block.property.rescue">rescue</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Block.property.when">when</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a></code> | *No description.* |
 
 ---
 
@@ -646,6 +647,16 @@ public readonly rescue: TaskDefinition;
 
 ---
 
+##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.Block.property.when"></a>
+
+```typescript
+public readonly when: Conditional;
+```
+
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>
+
+---
+
 
 ### CommandTask <a name="CommandTask" id="cdk-ans.CommandTask"></a>
 
@@ -805,7 +816,7 @@ Any object.
 | <code><a href="#cdk-ans.CommandTask.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.when">when</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTask.property.when">when</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a></code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.with">with</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
 
@@ -1236,10 +1247,10 @@ public readonly until: string;
 ##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.CommandTask.property.when"></a>
 
 ```typescript
-public readonly when: string;
+public readonly when: Conditional;
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>
 
 ---
 
@@ -1557,7 +1568,7 @@ Any object.
 | <code><a href="#cdk-ans.FileTask.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.when">when</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.FileTask.property.when">when</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a></code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.with">with</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
 
@@ -1988,10 +1999,10 @@ public readonly until: string;
 ##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.FileTask.property.when"></a>
 
 ```typescript
-public readonly when: string;
+public readonly when: Conditional;
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>
 
 ---
 
@@ -3165,7 +3176,7 @@ Any object.
 | <code><a href="#cdk-ans.PingTask.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.when">when</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PingTask.property.when">when</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a></code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.with">with</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
 
@@ -3596,10 +3607,10 @@ public readonly until: string;
 ##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.PingTask.property.when"></a>
 
 ```typescript
-public readonly when: string;
+public readonly when: Conditional;
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>
 
 ---
 
@@ -5020,7 +5031,7 @@ Creates a role target from a role.
 | <code><a href="#cdk-ans.RoleTarget.property.throttle">throttle</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTarget.property.timeout">timeout</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTarget.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTarget.property.when">when</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.RoleTarget.property.when">when</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a></code> | *No description.* |
 
 ---
 
@@ -5319,10 +5330,10 @@ public readonly vars: {[ key: string ]: any};
 ##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.RoleTarget.property.when"></a>
 
 ```typescript
-public readonly when: string;
+public readonly when: Conditional;
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>
 
 ---
 
@@ -5629,7 +5640,7 @@ Any object.
 | <code><a href="#cdk-ans.Task.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.when">when</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Task.property.when">when</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.with">with</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
 
@@ -6060,10 +6071,10 @@ public readonly until: string;
 ##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.Task.property.when"></a>
 
 ```typescript
-public readonly when: string;
+public readonly when: Conditional;
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>
 
 ---
 
@@ -6704,7 +6715,7 @@ const blockProps: BlockProps = { ... }
 | <code><a href="#cdk-ans.BlockProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.BlockProps.property.notify">notify</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.BlockProps.property.rescue">rescue</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
-| <code><a href="#cdk-ans.BlockProps.property.when">when</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.BlockProps.property.when">when</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a></code> | *No description.* |
 
 ---
 
@@ -7011,10 +7022,10 @@ public readonly rescue: TaskDefinition;
 ##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.BlockProps.property.when"></a>
 
 ```typescript
-public readonly when: string;
+public readonly when: Conditional;
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>
 
 ---
 
@@ -9427,7 +9438,7 @@ const roleTargetProps: RoleTargetProps = { ... }
 | <code><a href="#cdk-ans.RoleTargetProps.property.vars">vars</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleTargetProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleTargetProps.property.when">when</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.RoleTargetProps.property.when">when</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a></code> | *No description.* |
 
 ---
 
@@ -9694,10 +9705,10 @@ public readonly delegateTo: string;
 ##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.RoleTargetProps.property.when"></a>
 
 ```typescript
-public readonly when: string;
+public readonly when: Conditional;
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>
 
 ---
 
@@ -10228,7 +10239,7 @@ const taskProps: TaskProps = { ... }
 | <code><a href="#cdk-ans.TaskProps.property.register">register</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.retries">retries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.until">until</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.when">when</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.when">when</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a></code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.with">with</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.withItems">withItems</a></code> | <code>{[ key: string ]: any}[]</code> | *No description.* |
 
@@ -10637,10 +10648,10 @@ public readonly until: string;
 ##### `when`<sup>Optional</sup> <a name="when" id="cdk-ans.TaskProps.property.when"></a>
 
 ```typescript
-public readonly when: string;
+public readonly when: Conditional;
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>
 
 ---
 
@@ -10785,6 +10796,27 @@ public property(key: string): IVariable
 
 ---
 
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.AnyVariable.of">of</a></code> | *No description.* |
+
+---
+
+##### `of` <a name="of" id="cdk-ans.AnyVariable.of"></a>
+
+```typescript
+import { AnyVariable } from 'cdk-ans'
+
+AnyVariable.of(name: string)
+```
+
+###### `name`<sup>Required</sup> <a name="name" id="cdk-ans.AnyVariable.of.parameter.name"></a>
+
+- *Type:* string
+
+---
 
 #### Properties <a name="Properties" id="Properties"></a>
 
@@ -10923,6 +10955,331 @@ public readonly parents: string[];
 ```
 
 - *Type:* string[]
+
+---
+
+
+### Conditional <a name="Conditional" id="cdk-ans.Conditional"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.Conditional.format">format</a></code> | *No description.* |
+
+---
+
+##### `format` <a name="format" id="cdk-ans.Conditional.format"></a>
+
+```typescript
+public format(): string
+```
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.Conditional.and">and</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.bool">bool</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.equal">equal</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.greaterThan">greaterThan</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.greaterThanOrEqual">greaterThanOrEqual</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.in">in</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.is">is</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.isNot">isNot</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.lessThan">lessThan</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.lessThanOrEqual">lessThanOrEqual</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.notBool">notBool</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.notEqual">notEqual</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.or">or</a></code> | *No description.* |
+
+---
+
+##### `and` <a name="and" id="cdk-ans.Conditional.and"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.and(condition1: any, condition2: any)
+```
+
+###### `condition1`<sup>Required</sup> <a name="condition1" id="cdk-ans.Conditional.and.parameter.condition1"></a>
+
+- *Type:* any
+
+---
+
+###### `condition2`<sup>Required</sup> <a name="condition2" id="cdk-ans.Conditional.and.parameter.condition2"></a>
+
+- *Type:* any
+
+---
+
+##### `bool` <a name="bool" id="cdk-ans.Conditional.bool"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.bool(bool: any)
+```
+
+###### `bool`<sup>Required</sup> <a name="bool" id="cdk-ans.Conditional.bool.parameter.bool"></a>
+
+- *Type:* any
+
+---
+
+##### `equal` <a name="equal" id="cdk-ans.Conditional.equal"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.equal(var1: any, var2: any)
+```
+
+###### `var1`<sup>Required</sup> <a name="var1" id="cdk-ans.Conditional.equal.parameter.var1"></a>
+
+- *Type:* any
+
+---
+
+###### `var2`<sup>Required</sup> <a name="var2" id="cdk-ans.Conditional.equal.parameter.var2"></a>
+
+- *Type:* any
+
+---
+
+##### `greaterThan` <a name="greaterThan" id="cdk-ans.Conditional.greaterThan"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.greaterThan(var1: any, var2: any)
+```
+
+###### `var1`<sup>Required</sup> <a name="var1" id="cdk-ans.Conditional.greaterThan.parameter.var1"></a>
+
+- *Type:* any
+
+---
+
+###### `var2`<sup>Required</sup> <a name="var2" id="cdk-ans.Conditional.greaterThan.parameter.var2"></a>
+
+- *Type:* any
+
+---
+
+##### `greaterThanOrEqual` <a name="greaterThanOrEqual" id="cdk-ans.Conditional.greaterThanOrEqual"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.greaterThanOrEqual(var1: any, var2: any)
+```
+
+###### `var1`<sup>Required</sup> <a name="var1" id="cdk-ans.Conditional.greaterThanOrEqual.parameter.var1"></a>
+
+- *Type:* any
+
+---
+
+###### `var2`<sup>Required</sup> <a name="var2" id="cdk-ans.Conditional.greaterThanOrEqual.parameter.var2"></a>
+
+- *Type:* any
+
+---
+
+##### `in` <a name="in" id="cdk-ans.Conditional.in"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.in(var1: any, var2: any)
+```
+
+###### `var1`<sup>Required</sup> <a name="var1" id="cdk-ans.Conditional.in.parameter.var1"></a>
+
+- *Type:* any
+
+---
+
+###### `var2`<sup>Required</sup> <a name="var2" id="cdk-ans.Conditional.in.parameter.var2"></a>
+
+- *Type:* any
+
+---
+
+##### `is` <a name="is" id="cdk-ans.Conditional.is"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.is(var1: any, isEval: IsEvaluation)
+```
+
+###### `var1`<sup>Required</sup> <a name="var1" id="cdk-ans.Conditional.is.parameter.var1"></a>
+
+- *Type:* any
+
+---
+
+###### `isEval`<sup>Required</sup> <a name="isEval" id="cdk-ans.Conditional.is.parameter.isEval"></a>
+
+- *Type:* <a href="#cdk-ans.IsEvaluation">IsEvaluation</a>
+
+---
+
+##### `isNot` <a name="isNot" id="cdk-ans.Conditional.isNot"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.isNot(var1: any, isEval: IsEvaluation)
+```
+
+###### `var1`<sup>Required</sup> <a name="var1" id="cdk-ans.Conditional.isNot.parameter.var1"></a>
+
+- *Type:* any
+
+---
+
+###### `isEval`<sup>Required</sup> <a name="isEval" id="cdk-ans.Conditional.isNot.parameter.isEval"></a>
+
+- *Type:* <a href="#cdk-ans.IsEvaluation">IsEvaluation</a>
+
+---
+
+##### `lessThan` <a name="lessThan" id="cdk-ans.Conditional.lessThan"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.lessThan(var1: any, var2: any)
+```
+
+###### `var1`<sup>Required</sup> <a name="var1" id="cdk-ans.Conditional.lessThan.parameter.var1"></a>
+
+- *Type:* any
+
+---
+
+###### `var2`<sup>Required</sup> <a name="var2" id="cdk-ans.Conditional.lessThan.parameter.var2"></a>
+
+- *Type:* any
+
+---
+
+##### `lessThanOrEqual` <a name="lessThanOrEqual" id="cdk-ans.Conditional.lessThanOrEqual"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.lessThanOrEqual(var1: any, var2: any)
+```
+
+###### `var1`<sup>Required</sup> <a name="var1" id="cdk-ans.Conditional.lessThanOrEqual.parameter.var1"></a>
+
+- *Type:* any
+
+---
+
+###### `var2`<sup>Required</sup> <a name="var2" id="cdk-ans.Conditional.lessThanOrEqual.parameter.var2"></a>
+
+- *Type:* any
+
+---
+
+##### `notBool` <a name="notBool" id="cdk-ans.Conditional.notBool"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.notBool(bool: any)
+```
+
+###### `bool`<sup>Required</sup> <a name="bool" id="cdk-ans.Conditional.notBool.parameter.bool"></a>
+
+- *Type:* any
+
+---
+
+##### `notEqual` <a name="notEqual" id="cdk-ans.Conditional.notEqual"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.notEqual(var1: any, var2: any)
+```
+
+###### `var1`<sup>Required</sup> <a name="var1" id="cdk-ans.Conditional.notEqual.parameter.var1"></a>
+
+- *Type:* any
+
+---
+
+###### `var2`<sup>Required</sup> <a name="var2" id="cdk-ans.Conditional.notEqual.parameter.var2"></a>
+
+- *Type:* any
+
+---
+
+##### `or` <a name="or" id="cdk-ans.Conditional.or"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.or(condition1: any, condition2: any)
+```
+
+###### `condition1`<sup>Required</sup> <a name="condition1" id="cdk-ans.Conditional.or.parameter.condition1"></a>
+
+- *Type:* any
+
+---
+
+###### `condition2`<sup>Required</sup> <a name="condition2" id="cdk-ans.Conditional.or.parameter.condition2"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.Conditional.property.mode">mode</a></code> | <code><a href="#cdk-ans.ConditionalEvaluation">ConditionalEvaluation</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.property.var1">var1</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.property.var2">var2</a></code> | <code>any</code> | *No description.* |
+
+---
+
+##### `mode`<sup>Required</sup> <a name="mode" id="cdk-ans.Conditional.property.mode"></a>
+
+```typescript
+public readonly mode: ConditionalEvaluation;
+```
+
+- *Type:* <a href="#cdk-ans.ConditionalEvaluation">ConditionalEvaluation</a>
+
+---
+
+##### `var1`<sup>Required</sup> <a name="var1" id="cdk-ans.Conditional.property.var1"></a>
+
+```typescript
+public readonly var1: any;
+```
+
+- *Type:* any
+
+---
+
+##### `var2`<sup>Optional</sup> <a name="var2" id="cdk-ans.Conditional.property.var2"></a>
+
+```typescript
+public readonly var2: any;
+```
+
+- *Type:* any
 
 ---
 
@@ -11244,101 +11601,6 @@ public readonly parents: string[];
 ---
 
 
-### ItemVariable <a name="ItemVariable" id="cdk-ans.ItemVariable"></a>
-
-A special variable to quickly implement an item variable in a loop.
-
-#### Initializers <a name="Initializers" id="cdk-ans.ItemVariable.Initializer"></a>
-
-```typescript
-import { ItemVariable } from 'cdk-ans'
-
-new ItemVariable()
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdk-ans.ItemVariable.asRaw">asRaw</a></code> | *No description.* |
-| <code><a href="#cdk-ans.ItemVariable.asVariable">asVariable</a></code> | *No description.* |
-| <code><a href="#cdk-ans.ItemVariable.index">index</a></code> | *No description.* |
-| <code><a href="#cdk-ans.ItemVariable.property">property</a></code> | *No description.* |
-
----
-
-##### `asRaw` <a name="asRaw" id="cdk-ans.ItemVariable.asRaw"></a>
-
-```typescript
-public asRaw(): string
-```
-
-##### `asVariable` <a name="asVariable" id="cdk-ans.ItemVariable.asVariable"></a>
-
-```typescript
-public asVariable(): string
-```
-
-##### `index` <a name="index" id="cdk-ans.ItemVariable.index"></a>
-
-```typescript
-public index(index: number): IVariable
-```
-
-###### `index`<sup>Required</sup> <a name="index" id="cdk-ans.ItemVariable.index.parameter.index"></a>
-
-- *Type:* number
-
----
-
-##### `property` <a name="property" id="cdk-ans.ItemVariable.property"></a>
-
-```typescript
-public property(key: string): IVariable
-```
-
-###### `key`<sup>Required</sup> <a name="key" id="cdk-ans.ItemVariable.property.parameter.key"></a>
-
-- *Type:* string
-
----
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#cdk-ans.ItemVariable.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.ItemVariable.property.parents">parents</a></code> | <code>string[]</code> | *No description.* |
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.ItemVariable.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
----
-
-##### `parents`<sup>Required</sup> <a name="parents" id="cdk-ans.ItemVariable.property.parents"></a>
-
-```typescript
-public readonly parents: string[];
-```
-
-- *Type:* string[]
-
----
-
-
 ### ListVariable <a name="ListVariable" id="cdk-ans.ListVariable"></a>
 
 A variable that can be used to access a indexed sub variables.
@@ -11538,6 +11800,7 @@ new MagicVariable()
 | <code><a href="#cdk-ans.MagicVariable.property.InventoryFile">InventoryFile</a></code> | <code><a href="#cdk-ans.SimpleVariable">SimpleVariable</a></code> | The file name of the inventory source in which the `inventory_hostname` was first defined. |
 | <code><a href="#cdk-ans.MagicVariable.property.InventoryHostname">InventoryHostname</a></code> | <code><a href="#cdk-ans.SimpleVariable">SimpleVariable</a></code> | The inventory name for the ‘current’ host being iterated over in the play. |
 | <code><a href="#cdk-ans.MagicVariable.property.InventoryHostnameShort">InventoryHostnameShort</a></code> | <code><a href="#cdk-ans.SimpleVariable">SimpleVariable</a></code> | The short version of `inventory_hostname`. |
+| <code><a href="#cdk-ans.MagicVariable.property.Item">Item</a></code> | <code><a href="#cdk-ans.AnyVariable">AnyVariable</a></code> | A special variable to quickly implement an item variable in a loop. |
 | <code><a href="#cdk-ans.MagicVariable.property.Omit">Omit</a></code> | <code><a href="#cdk-ans.SimpleVariable">SimpleVariable</a></code> | Special variable that allows you to ‘omit’ an option in a task, for example `- user: name=bob home={{ bobs_home\|default(omit) }}`. |
 | <code><a href="#cdk-ans.MagicVariable.property.PlaybookDir">PlaybookDir</a></code> | <code><a href="#cdk-ans.SimpleVariable">SimpleVariable</a></code> | The path to the directory of the current playbook being executed. |
 | <code><a href="#cdk-ans.MagicVariable.property.RoleName">RoleName</a></code> | <code><a href="#cdk-ans.SimpleVariable">SimpleVariable</a></code> | The name of the role currently being executed. |
@@ -12064,6 +12327,18 @@ public readonly InventoryHostnameShort: SimpleVariable;
 - *Type:* <a href="#cdk-ans.SimpleVariable">SimpleVariable</a>
 
 The short version of `inventory_hostname`.
+
+---
+
+##### `Item`<sup>Required</sup> <a name="Item" id="cdk-ans.MagicVariable.property.Item"></a>
+
+```typescript
+public readonly Item: AnyVariable;
+```
+
+- *Type:* <a href="#cdk-ans.AnyVariable">AnyVariable</a>
+
+A special variable to quickly implement an item variable in a loop.
 
 ---
 
@@ -13055,7 +13330,7 @@ public readonly chain: Step[];
 
 ### IVariable <a name="IVariable" id="cdk-ans.IVariable"></a>
 
-- *Implemented By:* <a href="#cdk-ans.AnyVariable">AnyVariable</a>, <a href="#cdk-ans.BaseVariable">BaseVariable</a>, <a href="#cdk-ans.DictionaryVariable">DictionaryVariable</a>, <a href="#cdk-ans.ItemVariable">ItemVariable</a>, <a href="#cdk-ans.ListVariable">ListVariable</a>, <a href="#cdk-ans.SimpleVariable">SimpleVariable</a>, <a href="#cdk-ans.IVariable">IVariable</a>
+- *Implemented By:* <a href="#cdk-ans.AnyVariable">AnyVariable</a>, <a href="#cdk-ans.BaseVariable">BaseVariable</a>, <a href="#cdk-ans.DictionaryVariable">DictionaryVariable</a>, <a href="#cdk-ans.ListVariable">ListVariable</a>, <a href="#cdk-ans.SimpleVariable">SimpleVariable</a>, <a href="#cdk-ans.IVariable">IVariable</a>
 
 A variable that can access any type of variable.
 
@@ -13136,6 +13411,129 @@ public property(name: string): IVariable
 ---
 
 
+### ConditionalEvaluation <a name="ConditionalEvaluation" id="cdk-ans.ConditionalEvaluation"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.ConditionalEvaluation.AND">AND</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.OR">OR</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.IS">IS</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.IS_NOT">IS_NOT</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.IN">IN</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.WHEN_EQUALS">WHEN_EQUALS</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.WHEN_NOT_EQUALS">WHEN_NOT_EQUALS</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.WHEN_GREATER_THAN">WHEN_GREATER_THAN</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.WHEN_LESS_THAN">WHEN_LESS_THAN</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.WHEN_GREATER_THAN_OR_EQUALS">WHEN_GREATER_THAN_OR_EQUALS</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.WHEN_LESS_THAN_OR_EQUALS">WHEN_LESS_THAN_OR_EQUALS</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.BOOL">BOOL</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.BOOL_NOT">BOOL_NOT</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.DEFINED">DEFINED</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.UNDEFINED">UNDEFINED</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.FAILED">FAILED</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.SUCCEEDED">SUCCEEDED</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.SKIPPED">SKIPPED</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.CHANGED">CHANGED</a></code> | *No description.* |
+
+---
+
+##### `AND` <a name="AND" id="cdk-ans.ConditionalEvaluation.AND"></a>
+
+---
+
+
+##### `OR` <a name="OR" id="cdk-ans.ConditionalEvaluation.OR"></a>
+
+---
+
+
+##### `IS` <a name="IS" id="cdk-ans.ConditionalEvaluation.IS"></a>
+
+---
+
+
+##### `IS_NOT` <a name="IS_NOT" id="cdk-ans.ConditionalEvaluation.IS_NOT"></a>
+
+---
+
+
+##### `IN` <a name="IN" id="cdk-ans.ConditionalEvaluation.IN"></a>
+
+---
+
+
+##### `WHEN_EQUALS` <a name="WHEN_EQUALS" id="cdk-ans.ConditionalEvaluation.WHEN_EQUALS"></a>
+
+---
+
+
+##### `WHEN_NOT_EQUALS` <a name="WHEN_NOT_EQUALS" id="cdk-ans.ConditionalEvaluation.WHEN_NOT_EQUALS"></a>
+
+---
+
+
+##### `WHEN_GREATER_THAN` <a name="WHEN_GREATER_THAN" id="cdk-ans.ConditionalEvaluation.WHEN_GREATER_THAN"></a>
+
+---
+
+
+##### `WHEN_LESS_THAN` <a name="WHEN_LESS_THAN" id="cdk-ans.ConditionalEvaluation.WHEN_LESS_THAN"></a>
+
+---
+
+
+##### `WHEN_GREATER_THAN_OR_EQUALS` <a name="WHEN_GREATER_THAN_OR_EQUALS" id="cdk-ans.ConditionalEvaluation.WHEN_GREATER_THAN_OR_EQUALS"></a>
+
+---
+
+
+##### `WHEN_LESS_THAN_OR_EQUALS` <a name="WHEN_LESS_THAN_OR_EQUALS" id="cdk-ans.ConditionalEvaluation.WHEN_LESS_THAN_OR_EQUALS"></a>
+
+---
+
+
+##### `BOOL` <a name="BOOL" id="cdk-ans.ConditionalEvaluation.BOOL"></a>
+
+---
+
+
+##### `BOOL_NOT` <a name="BOOL_NOT" id="cdk-ans.ConditionalEvaluation.BOOL_NOT"></a>
+
+---
+
+
+##### `DEFINED` <a name="DEFINED" id="cdk-ans.ConditionalEvaluation.DEFINED"></a>
+
+---
+
+
+##### `UNDEFINED` <a name="UNDEFINED" id="cdk-ans.ConditionalEvaluation.UNDEFINED"></a>
+
+---
+
+
+##### `FAILED` <a name="FAILED" id="cdk-ans.ConditionalEvaluation.FAILED"></a>
+
+---
+
+
+##### `SUCCEEDED` <a name="SUCCEEDED" id="cdk-ans.ConditionalEvaluation.SUCCEEDED"></a>
+
+---
+
+
+##### `SKIPPED` <a name="SKIPPED" id="cdk-ans.ConditionalEvaluation.SKIPPED"></a>
+
+---
+
+
+##### `CHANGED` <a name="CHANGED" id="cdk-ans.ConditionalEvaluation.CHANGED"></a>
+
+---
+
+
 ### InventoryOutputType <a name="InventoryOutputType" id="cdk-ans.InventoryOutputType"></a>
 
 How inventories should be sythesized in the output directory.
@@ -13159,6 +13557,51 @@ Create a single inventory file including all hosts, hosts vars, and groups in on
 ##### `GROUP_AND_HOST_VAR_FILES` <a name="GROUP_AND_HOST_VAR_FILES" id="cdk-ans.InventoryOutputType.GROUP_AND_HOST_VAR_FILES"></a>
 
 Create a file for hosts, a file for each host's vars, and a file for each group's vars.
+
+---
+
+
+### IsEvaluation <a name="IsEvaluation" id="cdk-ans.IsEvaluation"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.IsEvaluation.DEFINED">DEFINED</a></code> | *No description.* |
+| <code><a href="#cdk-ans.IsEvaluation.UNDEFINED">UNDEFINED</a></code> | *No description.* |
+| <code><a href="#cdk-ans.IsEvaluation.FAILED">FAILED</a></code> | *No description.* |
+| <code><a href="#cdk-ans.IsEvaluation.SUCCEEDED">SUCCEEDED</a></code> | *No description.* |
+| <code><a href="#cdk-ans.IsEvaluation.SKIPPED">SKIPPED</a></code> | *No description.* |
+| <code><a href="#cdk-ans.IsEvaluation.CHANGED">CHANGED</a></code> | *No description.* |
+
+---
+
+##### `DEFINED` <a name="DEFINED" id="cdk-ans.IsEvaluation.DEFINED"></a>
+
+---
+
+
+##### `UNDEFINED` <a name="UNDEFINED" id="cdk-ans.IsEvaluation.UNDEFINED"></a>
+
+---
+
+
+##### `FAILED` <a name="FAILED" id="cdk-ans.IsEvaluation.FAILED"></a>
+
+---
+
+
+##### `SUCCEEDED` <a name="SUCCEEDED" id="cdk-ans.IsEvaluation.SUCCEEDED"></a>
+
+---
+
+
+##### `SKIPPED` <a name="SKIPPED" id="cdk-ans.IsEvaluation.SKIPPED"></a>
+
+---
+
+
+##### `CHANGED` <a name="CHANGED" id="cdk-ans.IsEvaluation.CHANGED"></a>
 
 ---
 
