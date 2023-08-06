@@ -2017,10 +2017,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.90:
-  version "2.27.90"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.90.tgz#a15a0d56e092f6dc2d354313800185df2cf1f59d"
-  integrity sha512-wt/m1az6/Yyzns0GShmGwHJDcRHWsRGqd7d4nZ2NWdUkJQsjbg5m5lVeKqEklDGDzAkRs7MqYticwOy+nSE+rA==
+cdk-nag@^2.27.91:
+  version "2.27.91"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.91.tgz#f2e4e63f5b6111bd21c8be9fcfaf1aa8e62b51ef"
+  integrity sha512-qPgm2dY61J+H5tZlWcxcLBwQbqZuB8LEBSiIGbpy8IXUYMZmsynFcHJE+D2NpYqR8h35A1JHA+B5kKM22UftLA==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
@@ -2781,14 +2781,14 @@ eslint-config-prettier@^8.10.0:
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.10.0.tgz#3a06a662130807e2502fc3ff8b4143d8a0658e11"
   integrity sha512-SM8AMJdeQqRYT9O9zguiruQZaN7+z+E4eAP9oiLNGKMtomwaB1E9dcgUD6ZAn/eQAb52USbvezbiljfZUhbJcg==
 
-eslint-import-resolver-node@^0.3.7:
-  version "0.3.7"
-  resolved "https://registry.yarnpkg.com/eslint-import-resolver-node/-/eslint-import-resolver-node-0.3.7.tgz#83b375187d412324a1963d84fa664377a23eb4d7"
-  integrity sha512-gozW2blMLJCeFpBwugLTGyvVjNoeo1knonXAcatC6bjPBZitotxdWf7Gimr25N4c0AAOo4eOUfaG82IJPDpqCA==
+eslint-import-resolver-node@^0.3.7, eslint-import-resolver-node@^0.3.8:
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/eslint-import-resolver-node/-/eslint-import-resolver-node-0.3.8.tgz#be719e72f5e96dcef7a60f74147c842db0c74b06"
+  integrity sha512-tEe+Pok22qIGaK3KoMP+N96GVDS66B/zreoVVmiavLvRUEmGRtvb4B8wO9jwnb8d2lvHtrkhZ7UD73dWBVnf/Q==
   dependencies:
     debug "^3.2.7"
-    is-core-module "^2.11.0"
-    resolve "^1.22.1"
+    is-core-module "^2.13.0"
+    resolve "^1.22.4"
 
 eslint-import-resolver-typescript@^3.5.5:
   version "3.5.5"
@@ -5811,10 +5811,10 @@ projen@^0.71.141, projen@^0.71.142, projen@^0.71.147:
     yaml "^2.2.2"
     yargs "^17.7.2"
 
-projen@^0.72.2:
-  version "0.72.2"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.72.2.tgz#d6f11f37da38e587bcd3f7ff31a7f369edb15d87"
-  integrity sha512-Hdsc8RcUkfWHHBJHRHY60QkkpDSyqh43FvLVRWSduhdbNOuGAG7lWm0Y+Tt5a0G+CWhuoEFqr7X3DIoH4S+mMQ==
+projen@^0.72.3:
+  version "0.72.3"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.72.3.tgz#df9d7eba5f596c1ed5c29c238996558bd9225c75"
+  integrity sha512-VFXCdJcPFDWH+VtVEPD30J5M+OCgRD6CWKqbKLghHP6aUMgZGPVdri7QKhxijpyNTvqMhjIptoYAXU2NO63x+g==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6092,7 +6092,7 @@ resolve.exports@^2.0.0:
   resolved "https://registry.yarnpkg.com/resolve.exports/-/resolve.exports-2.0.2.tgz#f8c934b8e6a13f539e38b7098e2e36134f01e800"
   integrity sha512-X2UW6Nw3n/aMgDVy+0rSqgHlv39WZAlZrXCdnbyEiKm17DSqHX4MmQMaST3FbeWR5FTuRcUwYAziZajji0Y7mg==
 
-resolve@^1.1.6, resolve@^1.10.0, resolve@^1.22.1, resolve@^1.22.3:
+resolve@^1.1.6, resolve@^1.10.0, resolve@^1.22.3, resolve@^1.22.4:
   version "1.22.4"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.4.tgz#1dc40df46554cdaf8948a486a10f6ba1e2026c34"
   integrity sha512-PXNdCiPqDqeUou+w1C2eTQbNfxKSuMxqTCuvlmmMsk1NWHL5fRrhY6Pl0qEYYc6+QqGClco1Qj8XnjPego4wfg==
