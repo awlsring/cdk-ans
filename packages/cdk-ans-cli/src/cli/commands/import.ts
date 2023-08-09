@@ -21,6 +21,7 @@ class Command implements yargs.CommandModule {
     .option('namespace', { type: 'string', desc: 'The type ', alias: 't' })
     .option('source', { type: 'string', desc: 'The source of the import.', alias: 't' })
     .option('prefix', { type: 'string', desc: 'A prefix to add to all generated class names. By default, this is derived from the provided namespace. Must be PascalCase' })
+    .option('documentation-prefix', { type: 'string', desc: 'A prefix to add to all documentation fragments in modules. Some modules such as `community.docker` utilize this scheme.' })
     .option('output', { default: DEFAULT_OUTDIR, type: 'string', desc: 'Output directory', alias: 'o' })
     .option('language', { default: config.language, demand: true, type: 'string', desc: 'Output programming language', alias: 'l', choices: LANGUAGES });
 
@@ -30,6 +31,8 @@ class Command implements yargs.CommandModule {
     await importDispatch(specs, {
       outdir: argv.output,
       targetLanguage: argv.language,
+      documentationFragmentPrefix: argv['documentation-prefix'],
+      moduleNamePrefix: argv.prefix,
     });
   }
 }

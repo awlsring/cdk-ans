@@ -65,7 +65,7 @@ describe('ModuleImporter.import', () => {
       namespace: NAMESPACE,
       type: ImportType.MODULE,
       source: {
-        repo: 'https://github.com/ansible/ansible.git',
+        repo: repo,
       },
     });
 

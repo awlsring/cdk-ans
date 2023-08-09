@@ -66,6 +66,10 @@ export abstract class CodeGenerator {
     return newName;
   }
 
+  private makeEnumName(name: string): string {
+    return snakeToPascalCase(name.toLocaleUpperCase().replace(/[^a-zA-Z0-9]/g, '_'));
+  }
+
   protected writeEnum(code: CodeMaker, name: string, choices: string[]) {
     code.line('');
     this.writeDocumentationHeader(code, [
@@ -74,7 +78,7 @@ export abstract class CodeGenerator {
     const pascalName = snakeToPascalCase(name);
     code.openBlock(`export enum ${pascalName}`);
     for (const choice of choices) {
-      code.line(`${choice.toLocaleUpperCase().replace('-', '_')} = '${choice}',`);
+      code.line(`${this.makeEnumName(choice)} = '${choice}',`);
     }
     code.closeBlock();
     code.line('');

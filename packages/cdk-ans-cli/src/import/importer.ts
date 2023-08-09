@@ -26,6 +26,10 @@ export enum ImportType {
 }
 
 export interface ImportOptions {
+  /**
+   * Prefix to append to documentation fragments. Some ansible modules utilize this such as community.docker.
+   */
+  readonly documentationFragmentPrefix?: string;
   readonly moduleNamePrefix?: string;
   readonly targetLanguage: Language;
   readonly outdir: string;
@@ -38,6 +42,12 @@ export interface ImportOptions {
 
 export abstract class Importer {
   constructor(readonly spec: ImportSpec) {}
+
+  protected getFileName(file: string): string {
+    const fileName = path.basename(file);
+    const fileNameWithoutExtension = fileName.split('.')[0];
+    return fileNameWithoutExtension;
+  }
 
   protected determineFileType(filePathOrURI: string): string {
     const ext = path.extname(filePathOrURI);

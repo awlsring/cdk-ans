@@ -25,6 +25,7 @@ export interface ImportSpec {
   readonly namespace: string;
   readonly source: ImportSource;
   readonly prefix?: string;
+  readonly documentationPrefix?: string;
 }
 
 export interface Config {
