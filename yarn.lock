@@ -31,9 +31,9 @@
   integrity sha512-j0xnccpUQHXJKPgCwQcGGNu4lRiC1PptYfdxBIH1L4dRK91iBxtSQHESRQX+yB47oGLaF/WfNN/aF3WXwlhikg==
 
 "@aws-prototyping-sdk/nx-monorepo@^0.19.2":
-  version "0.19.59"
-  resolved "https://registry.yarnpkg.com/@aws-prototyping-sdk/nx-monorepo/-/nx-monorepo-0.19.59.tgz#c80524f22d59c6a349582abade96f7ce7b3c677a"
-  integrity sha512-UTDO/u4BgiZD2sdQeGZAXiMf1VjEybvmPsn8vRhJ4O1JOHnFX4tZ4SX8DX/VnrrgV77t1lBOGyux9kzYlG7Oew==
+  version "0.19.60"
+  resolved "https://registry.yarnpkg.com/@aws-prototyping-sdk/nx-monorepo/-/nx-monorepo-0.19.60.tgz#49d726e8f9416b62a28239c90d8a873341ce8d93"
+  integrity sha512-Ze3ARnGo12lIpiAiv6JnNPzJe6hraEvOboaQDpTfAL6kXbwRsLpMaw/MQjfA4zQ1ZHut+umpWKPAr1tRZPNJLA==
   dependencies:
     "@pnpm/reviewing.dependencies-hierarchy" "^2.0.6"
     fs-extra "^11.1.1"
@@ -2028,10 +2028,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.94:
-  version "2.27.94"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.94.tgz#9af4acd662babedd6212d7276a3167cc69975fd5"
-  integrity sha512-yKginlYCzbjYMQo1tV6IPyK9p7du84pgL0+WgTIkA0DgM0vqlZMCWh69vKJHpMraIx43xz75Tezyq9Pnd5tuzw==
+cdk-nag@^2.27.95:
+  version "2.27.95"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.95.tgz#6aa42dcdd24efffcb7541c084e1e7072f7662c40"
+  integrity sha512-Qtssf0wpcjuUAbBWRwkxJp1AoOHYDJWBxzou9RrcZq1ToOvsd5zIsJRKEtHqSuZHQYCBe3Oc248mkanEGdDedA==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
@@ -2809,6 +2809,19 @@ eslint-import-resolver-typescript@^3.5.5:
     is-core-module "^2.11.0"
     is-glob "^4.0.3"
     synckit "^0.8.5"
+
+eslint-import-resolver-typescript@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-import-resolver-typescript/-/eslint-import-resolver-typescript-3.6.0.tgz#36f93e1eb65a635e688e16cae4bead54552e3bbd"
+  integrity sha512-QTHR9ddNnn35RTxlaEnx2gCxqFlF2SEN0SE2d17SqwyM7YOSI2GHWRYp5BiRkObTUNYPupC/3Fq2a0PpT+EKpg==
+  dependencies:
+    debug "^4.3.4"
+    enhanced-resolve "^5.12.0"
+    eslint-module-utils "^2.7.4"
+    fast-glob "^3.3.1"
+    get-tsconfig "^4.5.0"
+    is-core-module "^2.11.0"
+    is-glob "^4.0.3"
 
 eslint-module-utils@^2.7.4, eslint-module-utils@^2.8.0:
   version "2.8.0"
@@ -4042,9 +4055,9 @@ istanbul-reports@^3.1.3:
     istanbul-lib-report "^3.0.0"
 
 jackspeak@^2.0.3:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/jackspeak/-/jackspeak-2.2.2.tgz#707c62733924b8dc2a0a629dc6248577788b5385"
-  integrity sha512-mgNtVv4vUuaKA97yxUHoA3+FkuhtxkjdXEWOyB/N76fjy0FjezEt34oy3epBtvCvS+7DyKwqCFWx/oJLV5+kCg==
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/jackspeak/-/jackspeak-2.2.3.tgz#ac63c57c18d254dc78a1f4ecd1cdeb4daeb6e616"
+  integrity sha512-pF0kfjmg8DJLxDrizHoCZGUFz4P4czQ3HyfW4BU0ffebYkzAVlBywp5zaxW/TM+r0sGbmrQdi8EQQVTJFxnGsQ==
   dependencies:
     "@isaacs/cliui" "^8.0.2"
   optionalDependencies:
@@ -5817,10 +5830,10 @@ projen@^0.71.141, projen@^0.71.142, projen@^0.71.147:
     yaml "^2.2.2"
     yargs "^17.7.2"
 
-projen@^0.72.6:
-  version "0.72.6"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.72.6.tgz#2c598275469d4a81b78b22e65254a462f2a2aed3"
-  integrity sha512-k88xkSppaVyXhPU2Aj0qC4aGNMNrcGKh2aNhiAqTDUYBzPeQG1eHTd/e/eE74Dikhf3PJbnmaIjs2K+DT9WM6w==
+projen@^0.72.7:
+  version "0.72.7"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.72.7.tgz#ab2c7b1c6543609d6dda214b37e7335016ea4854"
+  integrity sha512-GWLPa1San4nUdaOJLGX8Kip9b98rLFmf0a203tRg/X6Drx0ScZI/saRJVn40VuRamyRQLSJQD7Y1ud8JeUVdbQ==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
