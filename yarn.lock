@@ -31,9 +31,9 @@
   integrity sha512-j0xnccpUQHXJKPgCwQcGGNu4lRiC1PptYfdxBIH1L4dRK91iBxtSQHESRQX+yB47oGLaF/WfNN/aF3WXwlhikg==
 
 "@aws-prototyping-sdk/nx-monorepo@^0.19.2":
-  version "0.19.62"
-  resolved "https://registry.yarnpkg.com/@aws-prototyping-sdk/nx-monorepo/-/nx-monorepo-0.19.62.tgz#cef17ec93f1a7b7f20812c5f3c8294ee6bb1ba6b"
-  integrity sha512-ffz20ROtZ32qif3qwEt+a+BcBsMNA9nfPyJLLAWCAI5wTmhzC9tv6LbEeJ6+0EhsPZquMs7OtDN3O/Y7AVKxiw==
+  version "0.19.63"
+  resolved "https://registry.yarnpkg.com/@aws-prototyping-sdk/nx-monorepo/-/nx-monorepo-0.19.63.tgz#d6d4b56ada5455d69967ff6996b6b23f3e38326b"
+  integrity sha512-uhxb6pXTFKf+d2RzTgepZmwp/JEjVuwDyTmCKYY4LmDuZQkXMN1LVxOSBOK0WeA51cpIV3dp8VTUAiUcKjoCAw==
   dependencies:
     "@pnpm/reviewing.dependencies-hierarchy" "^2.0.6"
     fs-extra "^11.1.1"
@@ -2037,10 +2037,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.98:
-  version "2.27.98"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.98.tgz#6cf32721ad1322db9c4b1a5aa94d9572d16fae70"
-  integrity sha512-taIdcU+N3U45kDvMV2wh+48Z5ByJBmfHxGKh+9yLJi3PJBViTHWuasv5Uyjecf+PQDE22NN1XHNMneOHwiOMJA==
+cdk-nag@^2.27.99:
+  version "2.27.99"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.99.tgz#482c9fddd52f0be61ee180b29dbac10cb13ac8e5"
+  integrity sha512-u3kvFhlEAkqpjcTN+Adda9qGykgth+cNIu3cAhljCwbjfIMG+qFXCp53y1y5fNRE39Sl14oddV/ZUR2dT+VY8Q==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
@@ -5839,10 +5839,10 @@ projen@^0.71.141, projen@^0.71.142, projen@^0.71.147:
     yaml "^2.2.2"
     yargs "^17.7.2"
 
-projen@^0.72.10:
-  version "0.72.10"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.72.10.tgz#454553d749eb20a805ebde29425599c5445b3093"
-  integrity sha512-EgfM+Fyrgm9SRFJ2KOCRjc3eKSWFgxIBz82VwSSXxGEQqJL5rSvobfAGRGLKl4yaqa6oRqZF7/k/ZL5Mug1lWQ==
+projen@^0.72.11:
+  version "0.72.11"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.72.11.tgz#4122204fb7ca7d20001bc06ae80297871558dba0"
+  integrity sha512-33MW7qTPWRHCENeRzVMbrlPLTrx2ay/DZf9lYfN3BhCOonUzHp48Yw5rY8ocMqoVqmgymixWnIOFYGUbJn7AjA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
