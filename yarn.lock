@@ -1114,9 +1114,9 @@
     "@sigstore/protobuf-specs" "^0.2.0"
 
 "@sigstore/protobuf-specs@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@sigstore/protobuf-specs/-/protobuf-specs-0.2.0.tgz#5801b2a4d10afe1577be6133be6b132b5677c18c"
-  integrity sha512-8ZhZKAVfXjIspDWwm3D3Kvj0ddbJ0HqDZ/pOs5cx88HpT8mVsotFrg7H1UMnXOuDHz6Zykwxn4mxG3QLuN+RUg==
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@sigstore/protobuf-specs/-/protobuf-specs-0.2.1.tgz#be9ef4f3c38052c43bd399d3f792c97ff9e2277b"
+  integrity sha512-XTWVxnWJu+c1oCshMLwnKvz8ZQJJDVOlciMfgpJBQbThVjKTCG8dwyhgLngBD2KN0ap9F/gOV8rFDEx8uh7R2A==
 
 "@sigstore/sign@^1.0.0":
   version "1.0.0"
@@ -2037,10 +2037,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.101:
-  version "2.27.101"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.101.tgz#d2baf15896a4e9fc6a31ade7ea735af07aa4124f"
-  integrity sha512-7eCF1GR14TLHOK9ZODchP32u8tOQSaiZNjHOP8F9VsRufecjvPqQCeFZtZGogauQeFLD4ruW8ZItu6toH66NaQ==
+cdk-nag@^2.27.102:
+  version "2.27.102"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.102.tgz#43120f13c49ed7365bac814bda79626803159a81"
+  integrity sha512-jjSJBgxfE9UvRPYFmt4o2V45DRtU7fz/T5ptC25PVqgDHZSKi4XbfiP6HUH6UzVk1OWxHJaZuTd4eo2XjKGJWg==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
@@ -4064,9 +4064,9 @@ istanbul-reports@^3.1.3:
     istanbul-lib-report "^3.0.0"
 
 jackspeak@^2.0.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/jackspeak/-/jackspeak-2.2.3.tgz#ac63c57c18d254dc78a1f4ecd1cdeb4daeb6e616"
-  integrity sha512-pF0kfjmg8DJLxDrizHoCZGUFz4P4czQ3HyfW4BU0ffebYkzAVlBywp5zaxW/TM+r0sGbmrQdi8EQQVTJFxnGsQ==
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/jackspeak/-/jackspeak-2.3.0.tgz#aa228a94de830f31d4e4f0184427ce91c4ff1493"
+  integrity sha512-uKmsITSsF4rUWQHzqaRUuyAir3fZfW3f202Ee34lz/gZCi970CPZwyQXLGNgWJvvZbvFyzeyGq0+4fcG/mBKZg==
   dependencies:
     "@isaacs/cliui" "^8.0.2"
   optionalDependencies:
@@ -5294,9 +5294,9 @@ npm-bundled@^3.0.0:
     npm-normalize-package-bin "^3.0.0"
 
 npm-check-updates@^16:
-  version "16.11.1"
-  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-16.11.1.tgz#023d400b2eb75cc400d6e2d4b1858ab64a370a71"
-  integrity sha512-FgfhQc/LpY1u2BZpg+Y/FVoa8XxTjTpnAuSGdHM6CRqOO9pSPFrQ618HS9zf71ox7hPUQqpPvTaIuCpa4px38Q==
+  version "16.11.2"
+  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-16.11.2.tgz#cf9fb6c66aa2316eb0c4c12ca934e14beb09a89a"
+  integrity sha512-WliaMCkuXraU+yqubyTWNaQZCAxiSedBX1H7OoJ+7gulhTk+YF7zt9q30R+u/XYdLrqV6QvcuIqIvL8Q5NcwDA==
   dependencies:
     chalk "^5.3.0"
     cli-table3 "^0.6.3"
@@ -5839,10 +5839,10 @@ projen@^0.71.141, projen@^0.71.142, projen@^0.71.147:
     yaml "^2.2.2"
     yargs "^17.7.2"
 
-projen@^0.72.13:
-  version "0.72.13"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.72.13.tgz#f645eb8699159c5bd7309b5f68f8935d3e459b13"
-  integrity sha512-k0d/w5W+C4d7rqfh+aB4/0h4oNXyG2zlBGYrghrYZUo0YaxdIrHMjn+PiBOq2HWeNMnNemEqe/kFc2bix4tp6w==
+projen@^0.72.14:
+  version "0.72.14"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.72.14.tgz#44afb884bd45294d1b737c14ceb529e725f1a932"
+  integrity sha512-ctLMrFJleQbnFwYXK8slLEeosyYkuFX63uKhe3njov6jECLutxOKuEC7JXdn4emt3/piAsVlkEeZw9Z9kloimg==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
