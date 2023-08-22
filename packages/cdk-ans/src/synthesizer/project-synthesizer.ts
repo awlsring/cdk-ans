@@ -218,15 +218,18 @@ export class ProjectSynthesizer implements ISynthesizer {
   private synthesizeRole(role: Role, outDir: string, outputType: RoleOutputType) {
     const roleDir = path.join(outDir, role.node.id);
     fs.mkdirSync(roleDir, { recursive: true });
-
     switch (outputType) {
       case RoleOutputType.STANDARD:
         if (role.tasks.chain.length > 0) {
           fs.mkdirSync(path.join(roleDir, 'tasks'), { recursive: true });
-          Yaml.save(path.join(roleDir, 'tasks', 'main.yaml'), [[role.tasks.toJson()]]);
+          let taskList = [role.tasks.toJson()];
+          if (!Array.isArray(taskList[0])) {
+            taskList = [taskList];
+          }
+          Yaml.save(path.join(roleDir, 'tasks', 'main.yaml'), taskList);
         }
 
-        if (role.handlers?.length > 0) {
+        if (role.handlers?.length > 0) { //TODO: handlers arent synthing
           fs.mkdirSync(path.join(roleDir, 'handlers'), { recursive: true });
           Yaml.save(path.join(roleDir, 'handlers', 'main.yaml'), [role.handlers.map(h => h.toJson())]);
         }

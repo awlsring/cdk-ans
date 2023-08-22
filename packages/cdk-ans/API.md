@@ -9322,7 +9322,6 @@ const roleProps: RoleProps = { ... }
 | <code><a href="#cdk-ans.RoleProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleProps.property.files">files</a></code> | <code><a href="#cdk-ans.File">File</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleProps.property.handlers">handlers</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
-| <code><a href="#cdk-ans.RoleProps.property.tasksAlt">tasksAlt</a></code> | <code><a href="#cdk-ans.Task">Task</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleProps.property.templates">templates</a></code> | <code><a href="#cdk-ans.TemplateFile">TemplateFile</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleProps.property.variables">variables</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 
@@ -9365,16 +9364,6 @@ public readonly handlers: Handler[];
 ```
 
 - *Type:* <a href="#cdk-ans.Handler">Handler</a>[]
-
----
-
-##### `tasksAlt`<sup>Optional</sup> <a name="tasksAlt" id="cdk-ans.RoleProps.property.tasksAlt"></a>
-
-```typescript
-public readonly tasksAlt: Task[];
-```
-
-- *Type:* <a href="#cdk-ans.Task">Task</a>[]
 
 ---
 

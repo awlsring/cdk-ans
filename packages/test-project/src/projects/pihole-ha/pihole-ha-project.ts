@@ -1,4 +1,4 @@
-import { FileTask, Handler, Inventory, MagicVariable, Play, Project, ProjectProps, Role, Task, TaskAction } from 'cdk-ans';
+import { Conditional, Handler, Inventory, MagicVariable, Play, Project, ProjectProps, Role, SimpleVariable, Task } from 'cdk-ans';
 import { Construct } from 'constructs';
 import { AptAction } from '../../imports/ansible-builtin-apt';
 import { AptKeyAction } from '../../imports/ansible-builtin-apt-key';
@@ -9,11 +9,14 @@ import { FileAction, FileState } from '../../imports/ansible-builtin-file';
 import { LineinfileAction } from '../../imports/ansible-builtin-lineinfile';
 import { MetaAction, MetaFreeForm } from '../../imports/ansible-builtin-meta';
 import { PipAction } from '../../imports/ansible-builtin-pip';
+import { RebootAction } from '../../imports/ansible-builtin-reboot';
 import { ServiceAction, ServiceState } from '../../imports/ansible-builtin-service';
 import { SetFactAction } from '../../imports/ansible-builtin-set-fact';
 import { UriAction } from '../../imports/ansible-builtin-uri';
 import { UserAction } from '../../imports/ansible-builtin-user';
 import { AuthorizedKeyAction } from '../../imports/ansible-posix-authorized-key';
+import { DockerContainerAction, DockerContainerRestartPolicy } from '../../imports/community-docker-docker-container';
+import { DockerPruneAction } from '../../imports/community-docker-docker-prune';
 export interface PiholeHaProjectProps extends ProjectProps {
   // readonly inventory: (scope: Construct) => Inventory;
 }
@@ -32,7 +35,9 @@ export class PiholeHaProject extends Project {
 
   private makeBootstrapRole() {
     const reboot = new Handler(this, 'reboot-after-hostname', {
-      action: new TaskAction('reboot', {}),
+      action: new RebootAction({
+        rebootTimeout: 300,
+      }),
     });
 
     const restartDhcpcd = new Handler(this, 'restart-dhcpcd', {
@@ -59,7 +64,7 @@ export class PiholeHaProject extends Project {
 
     const bashrcForUser = new Task(this, 'bashrc-for-user', {
       action: new BlockinfileAction({
-        path: '/home/{{ ansible_user }}/.bashrc',
+        path: `/home/${MagicVariable.AnsibleUser.asVariable()}/.bashrc`,
         block: 'alias ll=\'ls -la\'',
       }),
     });
@@ -68,7 +73,7 @@ export class PiholeHaProject extends Project {
       action: new LineinfileAction({
         path: '/etc/timezone',
         regexp: '^',
-        line: '{{ timezone }}',
+        line: SimpleVariable.of('timezone'),
       }),
     });
 
@@ -189,7 +194,7 @@ export class PiholeHaProject extends Project {
       notify: [handler],
     });
 
-    const flush = new Task(this, 'flush', {
+    const flush = new Task(this, 'docker-flush', {
       action: new MetaAction({
         freeForm: MetaFreeForm.FLUSH_HANDLERS,
       }),
@@ -210,14 +215,14 @@ export class PiholeHaProject extends Project {
 
   private makePiholeRole(): Role {
     // translated from https://github.com/shaderecker/ansible-pihole/blob/master/roles/pihole/tasks/main.yaml
-    const createDirectory = new FileTask(this, 'create-directory', { // TODO: consider name overrider for task to set not as node id
-      file: {
+    const createDirectory = new Task(this, 'create-directory', { // TODO: consider name overrider for task to set not as node id
+      action: new FileAction({
         path: '/home/{{ ansible_user }}/pihole', // TODO: think about making some sort of String wrapper that can be templated with a var?
-        owner: '{{ ansible_user }}', // TODO: make variable string?
+        owner: MagicVariable.AnsibleUser,
         group: '{{ ansible_user }}',
-        state: 'directory', // TODO: make enum?
-        mode: '0755', // TODO: not important, but maybe make a easy enum for this?
-      },
+        state: FileState.DIRECTORY,
+        mode: '0755',
+      }),
     });
 
     const getIpv6Local = new Task(this, 'get-ipv6-local', {
@@ -228,9 +233,9 @@ export class PiholeHaProject extends Project {
       }),
       loop: "{{ vars['ansible_' + ansible_default_ipv6.interface | default(ansible_default_ipv4.interface)].ipv6 }}", // TODO: understand this :)
       loopControl: { // TODO: make interface for loop control
-        label: '{{ item.address }}',
+        label: MagicVariable.Item.property('address'),
       },
-      when: '\'link\' in item.scope', // TODO: make a when wrapper
+      when: Conditional.in('link', 'item.scope'),
     });
 
     const determineHostIpsHa = new Task(this, 'determine-host-ips-ha', {
@@ -241,26 +246,26 @@ export class PiholeHaProject extends Project {
           execution_mode: 'HA setup with keepalived',
         },
       }),
-      when: 'pihole_ha_mode',
+      when: Conditional.bool('pihole_ha_mode'),
     });
 
     const determineHostIpSingle = new Task(this, 'determine-host-ips-single', {
       action: new SetFactAction({
         keyValue: {
-          pihole_local_ipv4: '{{ ansible_host }}',
+          pihole_local_ipv4: MagicVariable.AnsibleHost,
           pihole_local_ipv6: '{{ ipv6 }}',
           execution_mode: 'HA setup with keepalived',
         },
       }),
-      when: 'not pihole_ha_mode',
+      when: Conditional.notBool('pihole_ha_mode'),
     });
 
     const startDocker = new Task(this, 'start-update-docker', { // TODO: make docker task
-      action: new TaskAction('docker_container', {
+      action: new DockerContainerAction({
         name: 'pihole',
         image: '{{ pihole_image }}',
-        pull: 'yes',
-        restart_policy: 'unless-stopped',
+        pull: true,
+        restartPolicy: DockerContainerRestartPolicy.ALWAYS,
         env: {
           TZ: '{{ timezone }}',
           WEBPASSWORD: '{{ pihole_webpassword }}',
@@ -272,11 +277,11 @@ export class PiholeHaProject extends Project {
           REV_SERVER_CIDR: '{{ pihole_rev_server_cidr }}',
           FTLCONF_MAXDBDAYS: '{{ pihole_ftl_max_db_days }}',
         },
-        dns_servers: ['127.0.0.1', '{{ static_dns }}'],
-        network_mode: 'host', // TODO: make enum
+        dnsServers: ['127.0.0.1', '{{ static_dns }}'],
+        networkMode: 'host',
         volumes: ['/home/{{ ansible_user }}/pihole/pihole/:/etc/pihole/', '/home/{{ ansible_user }}/pihole/dnsmasq.d/:/etc/dnsmasq.d/'], // TODO: make volume wrapper
-        log_driver: 'json-file', // TODO: make enum
-        log_options: {
+        logDriver: 'json-file',
+        logOptions: {
           'max-size': '10m',
           'max-file': '5',
         },
@@ -294,9 +299,9 @@ export class PiholeHaProject extends Project {
     });
 
     const dockerPrune = new Task(this, 'docker-prune', {
-      action: new TaskAction('docker_prune', { // TODO: import docker
-        images: 'yes',
-        images_filters: {
+      action: new DockerPruneAction({
+        images: true,
+        imagesFilters: {
           dangling: true,
         },
       }),
@@ -312,6 +317,65 @@ export class PiholeHaProject extends Project {
         .next(dockerPrune),
     });
   }
+
+  // private makeKeepalivedRole(): Role {
+  //   const sysctlHandler = new Handler(this, 'reload-sysctl-config', {
+  //     name: 'Reload sysctl',
+  //     action: new CommandAction({
+  //       cmd: 'sysctl -p',
+  //     }),
+  //   });
+
+  //   const reloadSysctlHandler = new Handler(this, 'reload-sysctl-config', {
+  //     name: 'Reload sysctl',
+  //     action: new ServiceAction({
+  //       name: 'keepalived',
+  //       state: ServiceState.RESTARTED,
+  //     }),
+  //   });
+
+  //   new Task(this, 'enable-nonlocal-ip-binding', {
+  //     name: 'Enable nonlocal IP binding',
+  //     action: new BlockinfileAction({
+  //       path: '/etc/sysctl.conf',
+  //       block: `|
+  //       net.ipv4.ip_nonlocal_bind = 1
+  //       net.ipv6.ip_nonlocal_bind = 1`,
+  //     }),
+  //     notify: [sysctlHandler],
+  //   });
+
+  //   new Task(this, 'flush', {
+  //     name: 'Flush',
+  //     action: new MetaAction({
+  //       freeForm: MetaFreeForm.FLUSH_HANDLERS,
+  //     }),
+  //   });
+
+  //   new Task(this, 'install-keepalived', {
+  //     action: new AptAction({
+  //       name: ['keepalived'],
+  //       forceAptGet: true,
+  //     }),
+  //   });
+
+  //   new Task(this, 'copy-check-pihole.sh', {
+  //     action: new CopyAction({
+  //       src: 'check-pihole.sh',
+  //       dest: '/etc/keepalived/check_pihole.sh',
+  //       mode: '0755',
+  //     }),
+  //   });
+
+  //   new Task(this, 'configure-keepalived', { //## TODO: Codgen needs to be aware of `extend_documentation_fragment` in the standard lib repo. I need to look into this more to see if this is builtin lib thing or a common practice.
+  //     action: new TemplateAction({
+  //       src: 'keepalived.j2',
+  //       dest: '/etc/keepalived/keepalived.conf',
+  //       mode: '0644',
+  //     }),
+  //   });
+
+  // }
 
   private makePlaybook(name: string, inventory: Inventory) {
     name;
