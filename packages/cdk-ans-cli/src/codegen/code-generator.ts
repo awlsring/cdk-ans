@@ -67,7 +67,7 @@ export abstract class CodeGenerator {
   }
 
   private makeEnumName(name: string): string {
-    return snakeToPascalCase(name.toLocaleUpperCase().replace(/[^a-zA-Z0-9]/g, '_'));
+    return name.toLocaleUpperCase().replace(/[^a-zA-Z0-9]/g, '_');
   }
 
   protected writeEnum(code: CodeMaker, name: string, choices: string[]) {
