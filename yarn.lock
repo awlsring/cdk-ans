@@ -2051,10 +2051,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.112:
-  version "2.27.112"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.112.tgz#c77b89c1a32af943aae2e8019a7f5283d07ff594"
-  integrity sha512-SpaJ5qAEaj6cDNLtPeAOWEopoUe+6e/lxq4OU8u1gn0lnLLtVRsKvJCsaoJ9Zxato/1YXzls+O5TO7uiEo6Wpw==
+cdk-nag@^2.27.113:
+  version "2.27.113"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.113.tgz#2587b56f8b5750e15147705df3e4f99c1814c1e1"
+  integrity sha512-reDhJcI7LeGEVDV2M+x27uCXbx7wbuAZDMdH1Dy4LxWgk6FVT7EuZe7clvuL+mc4CXmr3UjfrSyDmc+33aiwgQ==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
@@ -5878,10 +5878,10 @@ projen@^0.71.141, projen@^0.71.142, projen@^0.71.147:
     yaml "^2.2.2"
     yargs "^17.7.2"
 
-projen@^0.72.25:
-  version "0.72.25"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.72.25.tgz#b6af8378b5421fc675860996e77224797eebacde"
-  integrity sha512-mu9FQIz8drJYrymPihzNFljRnBZm5+uZRTOwwJ3VCRINE45Av/FCB6O21qd0sUpos7ijDXTyN8s4VCS+tSFqFA==
+projen@^0.72.26:
+  version "0.72.26"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.72.26.tgz#ed0f5e780a0293f5a410a3b64d2141d077847044"
+  integrity sha512-W2ZBXgHumkO6WZFEVcQmGSaG7Ck7D1w1dAgeg6bx5c7gQcJCYJnNDo9ZR7GvTnRxJl5tDjhv4G/rwj7kovrDFA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
