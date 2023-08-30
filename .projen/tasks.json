@@ -176,7 +176,7 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --upgrade --target=minor --filter=@aws-prototyping-sdk/nx-monorepo,@types/node,@types/tmp,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,eslint-config-prettier,eslint-import-resolver-node,eslint-import-resolver-typescript,eslint-plugin-header,eslint-plugin-import,eslint-plugin-prettier,eslint,license-checker,npm-check-updates,prettier,projen,syncpack,tmp,ts-node,typescript,nx,aws-cdk-lib,cdk-nag,constructs"
+          "exec": "npm-check-updates --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@aws-prototyping-sdk/nx-monorepo,@types/node,@types/tmp,@typescript-eslint/eslint-plugin,@typescript-eslint/parser,eslint-config-prettier,eslint-import-resolver-node,eslint-import-resolver-typescript,eslint-plugin-header,eslint-plugin-import,eslint-plugin-prettier,eslint,license-checker,npm-check-updates,prettier,projen,syncpack,tmp,ts-node,typescript,nx,aws-cdk-lib,cdk-nag,constructs"
         },
         {
           "exec": "yarn install --check-files"
