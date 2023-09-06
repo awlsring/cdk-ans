@@ -2060,10 +2060,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.121:
-  version "2.27.121"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.121.tgz#c8d55f57a598d8c83f569c6b225d2a391178f029"
-  integrity sha512-98lZB30zsfJSe34UlQuABdo971QBSPnAKSWLypci21vPyF5tXlpMBdGllHW7NQWLkfJukTR+VbETAcflGIJnSw==
+cdk-nag@^2.27.122:
+  version "2.27.122"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.122.tgz#d7b645b7a9107b83708d7c2f3837a32a137e6cef"
+  integrity sha512-im2I4hCn3FCu3tj0sQ6H04bCbA+WC+kls37SILLDT4Bnnl9UOQFUEjmEyRdpzK5b6YfvaYl/xDDFi6QwOB8SLA==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
@@ -5886,9 +5886,9 @@ projen@^0.71.141, projen@^0.71.142, projen@^0.71.147:
     yargs "^17.7.2"
 
 projen@^0.73.0:
-  version "0.73.7"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.7.tgz#bdf7c499aef591d14d2128b57ccc345b7b772932"
-  integrity sha512-HlATeJDGMjpixOrNLd9DI3DikAS6DvN/Y/d1nRUccu++GliaLQqQ3bfwV9zDsEgkRXxk59MtW7vKkfGp44OCHQ==
+  version "0.73.8"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.8.tgz#aad1e92ee702c7b0152d8c95f1049d097ffb8544"
+  integrity sha512-fIlHL/7jJ6hGtnOwRUC/ieKJ0Ae7gfjILLa9WJLOSZehngX4uZmkXHgS43FWZbZ836kpNODPANN8n+AavXLyAQ==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6649,13 +6649,13 @@ string.prototype.trimend@^1.0.6:
     es-abstract "^1.20.4"
 
 string.prototype.trimstart@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/string.prototype.trimstart/-/string.prototype.trimstart-1.0.6.tgz#e90ab66aa8e4007d92ef591bbf3cd422c56bdcf4"
-  integrity sha512-omqjMDaY92pbn5HOX7f9IccLA+U1tA9GvtU4JrodiXFfYB7jPzzHpRzpglLAjtUV6bB557zwClJezTqnAiYnQA==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/string.prototype.trimstart/-/string.prototype.trimstart-1.0.7.tgz#d4cdb44b83a4737ffbac2d406e405d43d0184298"
+  integrity sha512-NGhtDFu3jCEm7B4Fy0DpLewdJQOZcQ0rGbwQ/+stjnrp2i+rlKeCvos9hOIeCmqwratM47OBxY7uFZzjxHXmrg==
   dependencies:
     call-bind "^1.0.2"
-    define-properties "^1.1.4"
-    es-abstract "^1.20.4"
+    define-properties "^1.2.0"
+    es-abstract "^1.22.1"
 
 string_decoder@^1.1.1:
   version "1.3.0"
@@ -6808,9 +6808,9 @@ tar-stream@~2.2.0:
     readable-stream "^3.1.1"
 
 tar@^6.1.11, tar@^6.1.2:
-  version "6.1.15"
-  resolved "https://registry.yarnpkg.com/tar/-/tar-6.1.15.tgz#c9738b0b98845a3b344d334b8fa3041aaba53a69"
-  integrity sha512-/zKt9UyngnxIT/EAGYuxaMYgOIJiP81ab9ZfkILq4oNLPFX50qyYmu7jRj9qeXoxmJHjGlbH0+cm2uy1WCs10A==
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/tar/-/tar-6.2.0.tgz#b14ce49a79cb1cd23bc9b016302dea5474493f73"
+  integrity sha512-/Wo7DcT0u5HUV486xg675HtjNd3BXZ6xDbzsCUZPt5iw8bTQ63bP0Raut3mvro9u+CUyq7YQd8Cx55fsZXxqLQ==
   dependencies:
     chownr "^2.0.0"
     fs-minipass "^2.0.0"
