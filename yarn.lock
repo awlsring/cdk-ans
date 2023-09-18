@@ -1488,9 +1488,9 @@
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
 "@yarnpkg/parsers@^3.0.0-rc.18":
-  version "3.0.0-rc.50"
-  resolved "https://registry.yarnpkg.com/@yarnpkg/parsers/-/parsers-3.0.0-rc.50.tgz#6433be9c65d5621f535cf8a6be43862f1199776c"
-  integrity sha512-rsqnaP3NnFZdmTbgs5WoybBSx4wCvcCM4e3btvH7YdsTmnuSn4mE6KuILxca8MVTSY5xYFsXOb5ZvwhyhsX8qw==
+  version "3.0.0-rc.51"
+  resolved "https://registry.yarnpkg.com/@yarnpkg/parsers/-/parsers-3.0.0-rc.51.tgz#b6628fdb00e984c54f7eca8b8cbd71cc52fabe73"
+  integrity sha512-E3sHAnUcyvGbXDCY1YJTVTwovF1UFP8IVJ6CFGgTST8RGD2gRQqqmW8dZykpaDWKqO6RBqwJcfmJMyqYBBpixw==
   dependencies:
     js-yaml "^3.10.0"
     tslib "^2.4.0"
@@ -2066,10 +2066,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.132:
-  version "2.27.132"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.132.tgz#de9c976b9339df5b42a7191f84290870d0bb31f5"
-  integrity sha512-FG6HSTxvcvRbTqtiHHyzenuqlna10+qAoxbXiOCTglD0H0WsIH2uOW11g++X+TxW6RovTyEQLffUNFS2JtTfLQ==
+cdk-nag@^2.27.133:
+  version "2.27.133"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.133.tgz#46ce0b4410714f6158c18365f9e35876aa08afdc"
+  integrity sha512-1C9X7UCJiWNtDcHuO1TUtY2e46T4dT3Z3QJi8qywVmzwPZAOqMR8bEpjDodFchtwyh+acbUw4Gw4oA/jwEfCog==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
@@ -5355,9 +5355,9 @@ npm-bundled@^3.0.0:
     npm-normalize-package-bin "^3.0.0"
 
 npm-check-updates@^16:
-  version "16.14.3"
-  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-16.14.3.tgz#c2fdf1fe438a96e6258ceeb38f835024cf55d732"
-  integrity sha512-iviPM0LiTFGUtk+kMtcMVLNeGuSORThj9Cho7GV/Z2l5dMdXFrcgIarMSr6d6f1wYJJBIthuNdJWXZ4NH5VPEg==
+  version "16.14.4"
+  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-16.14.4.tgz#561e97e92079ae4dbab9d9cbeb424d292ca01bae"
+  integrity sha512-PKg1wv3vno75/9qgRLqV2huBO7eukOlW+PmIGl7LPXjElfYTUTWUtaMOdOckImaSj4Uqe46W/zMbMFZQp5dHRQ==
   dependencies:
     chalk "^5.3.0"
     cli-table3 "^0.6.3"
@@ -5903,9 +5903,9 @@ projen@^0.71.141, projen@^0.71.142, projen@^0.71.147:
     yargs "^17.7.2"
 
 projen@^0.73.0:
-  version "0.73.22"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.22.tgz#535632fb9af03fb21c58920bcf0edcace649f6ad"
-  integrity sha512-OazEG+uJXsyodIECy90NWsIWiUQffAn7Q5f5TigIaztrLlVKMh3Cl17ObHz4CakIuI6gNnUHGvxRIXbpCjzV9A==
+  version "0.73.23"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.23.tgz#419516bcdc335dfd1f97978c29690c1e97c2c60a"
+  integrity sha512-6EADkVbNI0CnGiQ8LnIAsNnCkKU1NO7YmSR/v4Ih/qBOrUMHNTU/fCkqhSb2EcPpP/xapK9Xve4ViwhHqaro+g==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
