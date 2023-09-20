@@ -2066,10 +2066,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.134:
-  version "2.27.134"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.134.tgz#663c6fef324ea1372d8742907b03838f6d015725"
-  integrity sha512-y78Cit19udoNlJ5H35mhXjLjaax0nKnlD2qlYO/EH+ffpgoeQMEIS7Izm7Fsb+2bEjk08kZ8hsjGIpR3OxLetQ==
+cdk-nag@^2.27.135:
+  version "2.27.135"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.135.tgz#1067c9dd1078e1dcb13121056dcb3ff3ab5ec6ea"
+  integrity sha512-goL5aHhZ1/kNA7zswamm3GW78wc9VXxSXM17YuL307KNcM1F3C+j7e8ohbo1BfhRc8kveh5k6bFxZs+cIIQycw==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
@@ -2639,9 +2639,9 @@ emoji-regex@^9.2.2:
   integrity sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==
 
 encode-registry@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/encode-registry/-/encode-registry-3.0.0.tgz#6e67162a37dca9542bdf8432f1579c462b90b647"
-  integrity sha512-2fRYji8K6FwYuQ6EPBKR/J9mcqb7kIoNqt1vGvJr3NrvKfncRiNm00Oxo6gi/YJF8R5Sp2bNFSFdGKTG0rje1Q==
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/encode-registry/-/encode-registry-3.0.1.tgz#cb925d0db14ce59b18882b62c67133721b0846d1"
+  integrity sha512-6qOwkl1g0fv0DN3Y3ggr2EaZXN71aoAqPp3p/pVaWSBSIo+YjLOWN61Fva43oVyQNPf7kgm8lkudzlzojwE2jw==
   dependencies:
     mem "^8.0.0"
 
@@ -3242,7 +3242,12 @@ flatted@^3.2.7:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.9.tgz#7eb4c67ca1ba34232ca9d2d93e9886e611ad7daf"
   integrity sha512-36yxDn5H7OFZQla0/jFJmbIKTdZAQHngCedGxiMmpNfEZM0sdEeT+WczLQrjK6D7o2aiyLYDnkw0R3JK0Qv1RQ==
 
-follow-redirects@^1.15.0, follow-redirects@^1.15.2:
+follow-redirects@^1.15.0:
+  version "1.15.3"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.3.tgz#fe2f3ef2690afce7e82ed0b44db08165b207123a"
+  integrity sha512-1VzOtuEM8pC9SFU1E+8KfTjZyMztRsgEfwQl44z8A25uy13jSzTj6dyK2Df52iV0vgHCfBwLhDWevLn95w5v6Q==
+
+follow-redirects@^1.15.2:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
   integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
@@ -5903,9 +5908,9 @@ projen@^0.71.141, projen@^0.71.142, projen@^0.71.147:
     yargs "^17.7.2"
 
 projen@^0.73.0:
-  version "0.73.24"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.24.tgz#74ce56a9991a8bf9fbd414dacc707c8412db9bbd"
-  integrity sha512-vGGa5m2pvDR1PQQvNRdNuq1hpjpnpAFX72HY37FlutUVNvn1POg/3tCmd8sX7IQLHGICuKMx9dZblFQLLRL6fg==
+  version "0.73.26"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.26.tgz#46b27b374bab8bf2820d5b782597247ffa85218b"
+  integrity sha512-IPErx9JMuplLVunwdL7ctW8cuS0NSrJjF1p44B+fZJkWyCbSx/x8RO+KFRN+q2J4Bruv1P1OIFhf5g3OraF6FQ==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6566,9 +6571,9 @@ spdx-expression-parse@^3.0.0:
     spdx-license-ids "^3.0.0"
 
 spdx-license-ids@^3.0.0:
-  version "3.0.13"
-  resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.13.tgz#7189a474c46f8d47c7b0da4b987bb45e908bd2d5"
-  integrity sha512-XkD+zwiqXHikFZm4AX/7JSCXA98U5Db4AFd5XUg/+9UNtnH75+Z9KxtpYiJZx36mUDVOwH83pl7yvCer6ewM3w==
+  version "3.0.15"
+  resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.15.tgz#142460aabaca062bc7cd4cc87b7d50725ed6a4ba"
+  integrity sha512-lpT8hSQp9jAKp9mhtBU4Xjon8LPGBvLIuBiSVhMEtmLecTh2mO0tlqrAMp47tBXzMr13NJMQ2lf7RpQGLJ3HsQ==
 
 spdx-license-list@^6.6.0:
   version "6.6.0"
