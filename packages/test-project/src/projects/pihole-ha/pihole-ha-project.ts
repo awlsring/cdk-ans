@@ -1,10 +1,13 @@
-import { Conditional, Handler, Inventory, MagicVariable, Play, Project, ProjectProps, Role, SimpleVariable, Task } from 'cdk-ans';
+import * as path from 'path';
+import { Conditional, File, Handler, Host, Inventory, MagicVariable, Play, Playbook, Project, ProjectProps, Role, RoleTarget, SimpleVariable, Task, TemplateFile } from 'cdk-ans';
 import { Construct } from 'constructs';
-import { AptAction } from '../../imports/ansible-builtin-apt';
+import { AptAction, AptUpgrade } from '../../imports/ansible-builtin-apt';
 import { AptKeyAction } from '../../imports/ansible-builtin-apt-key';
 import { AptRepositoryAction } from '../../imports/ansible-builtin-apt-repository';
 import { BlockinfileAction } from '../../imports/ansible-builtin-blockinfile';
+import { CommandAction } from '../../imports/ansible-builtin-command';
 import { CopyAction } from '../../imports/ansible-builtin-copy';
+import { CronAction } from '../../imports/ansible-builtin-cron';
 import { FileAction, FileState } from '../../imports/ansible-builtin-file';
 import { LineinfileAction } from '../../imports/ansible-builtin-lineinfile';
 import { MetaAction, MetaFreeForm } from '../../imports/ansible-builtin-meta';
@@ -12,11 +15,15 @@ import { PipAction } from '../../imports/ansible-builtin-pip';
 import { RebootAction } from '../../imports/ansible-builtin-reboot';
 import { ServiceAction, ServiceState } from '../../imports/ansible-builtin-service';
 import { SetFactAction } from '../../imports/ansible-builtin-set-fact';
+import { StatAction } from '../../imports/ansible-builtin-stat';
+import { TemplateAction } from '../../imports/ansible-builtin-template';
 import { UriAction } from '../../imports/ansible-builtin-uri';
 import { UserAction } from '../../imports/ansible-builtin-user';
 import { AuthorizedKeyAction } from '../../imports/ansible-posix-authorized-key';
+import { OpensshKeypairAction } from '../../imports/community-crypto-openssh-keypair';
 import { DockerContainerAction, DockerContainerRestartPolicy } from '../../imports/community-docker-docker-container';
 import { DockerPruneAction } from '../../imports/community-docker-docker-prune';
+
 export interface PiholeHaProjectProps extends ProjectProps {
   // readonly inventory: (scope: Construct) => Inventory;
 }
@@ -24,16 +31,99 @@ export interface PiholeHaProjectProps extends ProjectProps {
 export class PiholeHaProject extends Project {
   constructor(scope: Construct, name: string, props: PiholeHaProjectProps) {
     super(scope, name, props);
-    const inventory = new Inventory(this, 'inventory', {});
 
-    this.makePlaybook(name, inventory);
+    const host = new Host(this, 'test-host', {
+      host: 'localhost',
+    }); // TODO: Create some way to make a "All hosts"
+    new Inventory(this, 'test-inv', {
+      hosts: [host],
+    });
 
-    this.makeBootstrapRole();
-    this.makeDockerRole();
-    this.makePiholeRole();
+    const flushHandlers = new Task(this, 'flush-handlers', {
+      action: new MetaAction({
+        freeForm: MetaFreeForm.FLUSH_HANDLERS,
+      }),
+    });
+
+    const bootstrapRole = this.makeBootstrapRole(flushHandlers);
+    const dockerRole = this.makeDockerRole(flushHandlers);
+    const keepalivedRole = this.makeKeepalivedRole(flushHandlers);
+    const piholeRole = this.makePiholeRole();
+    const sshdRole = this.makeSshdRole(flushHandlers);
+    const startKeepAlivedRole = this.makeStartKeepalivedRole();
+    const stopKeepAlivedRole = this.makeStopKeepalivedRole();
+    const syncRole = this.makeSyncRole();
+    const updateRole = this.makeUpdateRole();
+
+    const stopKeepAlivedTarget = RoleTarget.fromRole(this, stopKeepAlivedRole);
+    const startKeepAlivedTarget = RoleTarget.fromRole(this, startKeepAlivedRole);
+    const keepalivedTarget = RoleTarget.fromRole(this, keepalivedRole);
+    const piholeTarget = RoleTarget.fromRole(this, piholeRole);
+    const syncTarget = RoleTarget.fromRole(this, syncRole);
+    const updateTarget = RoleTarget.fromRole(this, updateRole);
+    const dockerTarget = RoleTarget.fromRole(this, dockerRole);
+    const sshdTarget = RoleTarget.fromRole(this, sshdRole);
+    const bootstrapTarget = RoleTarget.fromRole(this, bootstrapRole);
+
+    const initPiPlay = new Play(this, 'init-pi', { // TODO: make tasks not generate if there are none
+      name: 'Init Pi',
+      hosts: [host],
+      become: true,
+      serial: 1,
+      roles: stopKeepAlivedTarget // TODO: make an id field here, declaring multiple causes node conflicts
+        .next(bootstrapTarget) // TODO: Why role target? Why not just role?
+        .next(updateTarget)
+        .next(sshdTarget)
+        .next(dockerTarget)
+        .next(piholeTarget)
+        .next(startKeepAlivedTarget),
+    });
+
+    new Playbook(this, 'bootstrap-pihole', { //TODO: add a name field that will be the name of the file
+      playDefinition: initPiPlay,
+    });
+
+    const keepalivedFailoverPlay = new Play(this, 'keepalived-failover-play', {
+      name: 'Keepalived failover',
+      hosts: [host],
+      become: true,
+      serial: 1,
+      roles: startKeepAlivedTarget
+        .next(keepalivedTarget)
+        .next(stopKeepAlivedTarget),
+    });
+
+    new Playbook(this, 'keepalived-failover', {
+      playDefinition: keepalivedFailoverPlay,
+    });
+
+    const syncPlay = new Play(this, 'sync-play', {
+      name: 'Sync',
+      hosts: [host],
+      serial: 1,
+      roles: syncTarget,
+    });
+
+    new Playbook(this, 'sync', {
+      playDefinition: syncPlay,
+    });
+
+    const updatePlay = new Play(this, 'update-play', {
+      name: 'Update',
+      hosts: [host],
+      serial: 1,
+      roles: stopKeepAlivedTarget // TODO: Weird repetition happens here with shared chains...
+        .next(updateTarget)
+        .next(piholeTarget)
+        .next(startKeepAlivedTarget),
+    });
+
+    new Playbook(this, 'update', {
+      playDefinition: updatePlay,
+    });
   }
 
-  private makeBootstrapRole() {
+  private makeBootstrapRole(flush: Task) {
     const reboot = new Handler(this, 'reboot-after-hostname', {
       action: new RebootAction({
         rebootTimeout: 300,
@@ -111,12 +201,6 @@ export class PiholeHaProject extends Project {
       notify: [restartDhcpcd],
     });
 
-    const flush = new Task(this, 'flush', {
-      action: new MetaAction({
-        freeForm: MetaFreeForm.FLUSH_HANDLERS,
-      }),
-    });
-
     return new Role(this, 'bootstrap', {
       handlers: [reboot],
       tasks: addSshKey
@@ -131,7 +215,7 @@ export class PiholeHaProject extends Project {
     });
   }
 
-  private makeDockerRole(): Role {
+  private makeDockerRole(flush: Task): Role {
     // translated from https://github.com/shaderecker/ansible-pihole/blob/master/roles/docker/tasks/main.yaml
 
     const handler = new Handler(this, 'restart-docker', {
@@ -192,12 +276,6 @@ export class PiholeHaProject extends Project {
         mode: '0600',
       }),
       notify: [handler],
-    });
-
-    const flush = new Task(this, 'docker-flush', {
-      action: new MetaAction({
-        freeForm: MetaFreeForm.FLUSH_HANDLERS,
-      }),
     });
 
     return new Role(this, 'docker', {
@@ -318,70 +396,246 @@ export class PiholeHaProject extends Project {
     });
   }
 
-  // private makeKeepalivedRole(): Role {
-  //   const sysctlHandler = new Handler(this, 'reload-sysctl-config', {
-  //     name: 'Reload sysctl',
-  //     action: new CommandAction({
-  //       cmd: 'sysctl -p',
-  //     }),
-  //   });
+  private makeKeepalivedRole(flush: Task): Role {
+    const checkPiHoleScript = new File(this, 'check-pihole', {
+      path: path.join(__dirname, 'resources', 'check_pihole.sh'),
+    }); //TODO: make file builder in code so you can define simple scripts without keeping them
 
-  //   const reloadSysctlHandler = new Handler(this, 'reload-sysctl-config', {
-  //     name: 'Reload sysctl',
-  //     action: new ServiceAction({
-  //       name: 'keepalived',
-  //       state: ServiceState.RESTARTED,
-  //     }),
-  //   });
+    const keepalivedTemplate = new TemplateFile(this, 'keepalived-template', {
+      path: path.join(__dirname, 'resources', 'keepalived.j2'),
+    }); //TODO: make file builder in code so you can define simple scripts without keeping them
 
-  //   new Task(this, 'enable-nonlocal-ip-binding', {
-  //     name: 'Enable nonlocal IP binding',
-  //     action: new BlockinfileAction({
-  //       path: '/etc/sysctl.conf',
-  //       block: `|
-  //       net.ipv4.ip_nonlocal_bind = 1
-  //       net.ipv6.ip_nonlocal_bind = 1`,
-  //     }),
-  //     notify: [sysctlHandler],
-  //   });
+    const sysctlHandler = new Handler(this, 'reload-sysctl-config', {
+      name: 'Reload sysctl',
+      action: new CommandAction({
+        cmd: 'sysctl -p',
+      }),
+    });
 
-  //   new Task(this, 'flush', {
-  //     name: 'Flush',
-  //     action: new MetaAction({
-  //       freeForm: MetaFreeForm.FLUSH_HANDLERS,
-  //     }),
-  //   });
+    const restartKeepAlivedService = new Handler(this, 'restart-keepalived', {
+      name: 'Restart keepalived service',
+      action: new ServiceAction({
+        name: 'keepalived',
+        state: ServiceState.RESTARTED,
+      }),
+    });
 
-  //   new Task(this, 'install-keepalived', {
-  //     action: new AptAction({
-  //       name: ['keepalived'],
-  //       forceAptGet: true,
-  //     }),
-  //   });
+    const enableNonLocalIpBinding = new Task(this, 'enable-nonlocal-ip-binding', {
+      name: 'Enable nonlocal IP binding',
+      action: new BlockinfileAction({
+        path: '/etc/sysctl.conf',
+        block: `|
+        net.ipv4.ip_nonlocal_bind = 1
+        net.ipv6.ip_nonlocal_bind = 1`,
+      }),
+      notify: [sysctlHandler],
+    });
 
-  //   new Task(this, 'copy-check-pihole.sh', {
-  //     action: new CopyAction({
-  //       src: 'check-pihole.sh',
-  //       dest: '/etc/keepalived/check_pihole.sh',
-  //       mode: '0755',
-  //     }),
-  //   });
+    const installKeepalived = new Task(this, 'install-keepalived', {
+      action: new AptAction({
+        name: ['keepalived'],
+        forceAptGet: true,
+      }),
+    });
 
-  //   new Task(this, 'configure-keepalived', { //## TODO: Codgen needs to be aware of `extend_documentation_fragment` in the standard lib repo. I need to look into this more to see if this is builtin lib thing or a common practice.
-  //     action: new TemplateAction({
-  //       src: 'keepalived.j2',
-  //       dest: '/etc/keepalived/keepalived.conf',
-  //       mode: '0644',
-  //     }),
-  //   });
+    const copyScript = new Task(this, 'copy-check-pihole.sh', {
+      action: new CopyAction({
+        src: 'check-pihole.sh',
+        dest: '/etc/keepalived/check_pihole.sh',
+        mode: '0755',
+      }),
+    });
 
-  // }
+    const configureKeepalived = new Task(this, 'configure-keepalived', {
+      action: new TemplateAction({
+        src: 'keepalived.j2',
+        dest: '/etc/keepalived/keepalived.conf',
+        mode: '0644',
+      }),
+      notify: [restartKeepAlivedService],
+    });
 
-  private makePlaybook(name: string, inventory: Inventory) {
-    name;
-    new Play(this, 'init-pi', {
-      hosts: inventory.hosts,
+    return new Role(this, 'keepalived', {
+      tasks: enableNonLocalIpBinding
+        .next(flush)
+        .next(installKeepalived)
+        .next(copyScript)
+        .next(configureKeepalived)
+        .next(flush),
+      handlers: [sysctlHandler, restartKeepAlivedService],
+      files: [checkPiHoleScript],
+      templates: [keepalivedTemplate],
+    });
+  }
+
+  private makeSshdRole(flush: Task): Role {
+    const sshdHandler = new Handler(this, 'restart-sshd', {
+      name: 'Restart sshd',
+      action: new ServiceAction({
+        name: 'sshd',
+        state: ServiceState.RESTARTED,
+      }),
+    });
+
+    const hardening = new Task(this, 'hardening', {
+      action: new BlockinfileAction({
+        path: '/etc/ssh/sshd_config',
+        validate: 'usr/bin/sshd -t -f %s',
+        block: `|
+        PermitRootLogin no
+        MaxAuthTries 3
+        MaxSessions 5
+        PubkeyAuthentication no`,
+      }),
+    });
+
+    return new Role(this, 'hardening-role', {
+      tasks: hardening
+        .next(flush),
+      handlers: [sshdHandler],
+    });
+  }
+
+  private makeStartKeepalivedRole() {
+    const start = new Task(this, 'start-keepalived', {
+      action: new ServiceAction({
+        name: 'keepalived',
+        state: ServiceState.STARTED,
+      }),
+      register: 'result',
+      // failedWhen: [ // TODO: Make this a list on conditionals
+      //   'result.failed == true',
+      //   '"Could not find the requested service" not in result.msg'
+      // ],
+    });
+
+    return new Role(this, 'start-keepalived-role', {
+      tasks: start,
+    });
+  }
+
+  private makeStopKeepalivedRole() {
+    const start = new Task(this, 'stop-keepalived', {
+      action: new ServiceAction({
+        name: 'keepalived',
+        state: ServiceState.STOPPED,
+      }),
+      register: 'result',
+      // failedWhen: [ // TODO: Make this a list on conditionals
+      //   'result.failed == true',
+      //   '"Could not find the requested service" not in result.msg'
+      // ],
+    });
+
+    return new Role(this, 'stop-keepalived-role', {
+      tasks: start,
+    });
+  }
+
+  private makeSyncRole(): Role {
+    const syncTemplate = new TemplateFile(this, 'sync-template', {
+      path: path.join(__dirname, 'resources', 'pihole_sync.j2'),
+    });
+
+    const sqlite = new Task(this, 'install-sqlite', {
+      name: 'Install sqlite3',
+      action: new AptAction({
+        name: ['sqlite3'],
+        forceAptGet: true,
+      }),
       become: true,
+    });
+
+    const generateKey = new Task(this, 'generate-key', {
+      name: 'Generate SSH keypair',
+      action: new OpensshKeypairAction({
+        comment: `pihole-sync-${MagicVariable.InventoryHostname}`,
+        path: '.ssh/id_rsa_sync',
+      }),
+    });
+
+    const addKeyToOtherNodes = new Task(this, 'add-key-to-other-nodes', {
+      name: 'Add key to authorized_keys on all other nodes',
+      action: new AuthorizedKeyAction({
+        key: '{{ ssh_public_key.public_key }}',
+        user: MagicVariable.AnsibleUser,
+      }),
+      loop: "{{ groups['all']|difference([inventory_hostname]) }}",
+      delegateTo: '{{ item }}',
+    });
+
+    const createSyncFolder = new Task(this, 'create-sync-folder', {
+      name: 'Create sync folder',
+      action: new FileAction({
+        path: 'pihole_sync',
+        mode: '0755',
+        state: FileState.DIRECTORY,
+      }),
+      register: 'sync_dir',
+    });
+
+    const copySyncScript = new Task(this, 'copy-sync-script', {
+      name: 'Copy sync script',
+      action: new TemplateAction({
+        src: 'pihole_sync.j2',
+        dest: '{{ sync_dir.stdout }}/pihole_sync.sh',
+        mode: '0755',
+      }),
+    });
+
+    const scheduleSync = new Task(this, 'schedule-sync', {
+      name: 'Schedule sync with cron',
+      action: new CronAction({
+        name: 'pihole_sync',
+        hour: '2,14',
+        minute: '0',
+        job: '{{ ansible_user_dir }}//{{ sync_dir.path }}//pihole_sync.sh',
+      }),
+    });
+
+    return new Role(this, 'sync-role', {
+      tasks: sqlite
+        .next(generateKey)
+        .next(addKeyToOtherNodes)
+        .next(createSyncFolder)
+        .next(copySyncScript)
+        .next(scheduleSync),
+      templates: [syncTemplate],
+    });
+  }
+
+  private makeUpdateRole(): Role {
+    const updateApt = new Task(this, 'update-apt', {
+      name: 'Update apt packages',
+      action: new AptAction({
+        forceAptGet: true,
+        autoclean: true,
+        autoremove: true,
+        updateCache: true,
+        upgrade: AptUpgrade.DIST,
+      }),
+    });
+
+    const checkReboot = new Task(this, 'check-reboot', {
+      name: 'Check if reboot is required',
+      action: new StatAction({
+        path: '/var/run/reboot-required',
+      }),
+      register: 'reboot_required', // TODO: Make this some variable based method?
+    });
+
+    const reboot = new Task(this, 'reboot', {
+      name: 'Reboot if required',
+      action: new RebootAction({
+        rebootTimeout: 300,
+      }),
+      when: Conditional.bool('reboot_required.stat.exists'),
+    });
+
+    return new Role(this, 'update-role', {
+      tasks: updateApt
+        .next(checkReboot)
+        .next(reboot),
     });
   }
 }

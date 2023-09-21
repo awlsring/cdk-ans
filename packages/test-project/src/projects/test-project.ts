@@ -6,10 +6,10 @@ export class TestProject extends Project {
     super(scope, name);
 
     // construct inventory
-    const host = new Host(this, 'test-host', { // add validation that a host not bound to group fails validation
+    const host = new Host(this, 'test-host', { //TODO: add validation that a host not bound to group fails validation
       host: 'localhost',
     });
-    new Inventory(this, 'test-inv', { // create mechanism to populate inventory from plugin
+    new Inventory(this, 'test-inv', { //TODO: create mechanism to populate inventory from plugin
       hosts: [host],
     });
 
