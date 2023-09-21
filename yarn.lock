@@ -1351,9 +1351,9 @@
   integrity sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==
 
 "@types/node@^16":
-  version "16.18.52"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.52.tgz#70c56b55d0d7e15fafa875127e95a92605c59c9b"
-  integrity sha512-sm2aph6cRSsTMFYFgI+RpPLunXO9ClJkpizUVdT7KmGeyfQ14xnjTMT/f3MHcfKqevXqGT6BgVFzW8wcEoDUtA==
+  version "16.18.53"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.53.tgz#21820fe4d5968aaf8071dabd1ee13d24ada1350a"
+  integrity sha512-vVmHeo4tpF8zsknALU90Hh24VueYdu45ZlXzYWFbom61YR4avJqTFDC3QlWzjuTdAv6/3xHaxiO9NrtVZXrkmw==
 
 "@types/node@^16.9.2":
   version "16.18.39"
@@ -2066,10 +2066,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.135:
-  version "2.27.135"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.135.tgz#1067c9dd1078e1dcb13121056dcb3ff3ab5ec6ea"
-  integrity sha512-goL5aHhZ1/kNA7zswamm3GW78wc9VXxSXM17YuL307KNcM1F3C+j7e8ohbo1BfhRc8kveh5k6bFxZs+cIIQycw==
+cdk-nag@^2.27.136:
+  version "2.27.136"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.136.tgz#832afddd8e3e080138cb2f9b0131bc97df5fba2a"
+  integrity sha512-c0J5wbDB4onEgygjPVaqSlxCHmaoxQgET3xm9YW8RXyE4Fq7cTSOZ2nvwH6Wvn3pNeBp93dZyEMWPY42g+PzFQ==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
@@ -3482,9 +3482,9 @@ glob@7.1.4:
     path-is-absolute "^1.0.0"
 
 glob@^10.2.2, glob@^10.2.5:
-  version "10.3.4"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-10.3.4.tgz#c85c9c7ab98669102b6defda76d35c5b1ef9766f"
-  integrity sha512-6LFElP3A+i/Q8XQKEvZjkEWEOTgAIALR9AO2rwT8bgPhDd1anmqDJDZ6lLddI4ehxxxR1S5RIqKe1uapMQfYaQ==
+  version "10.3.5"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-10.3.5.tgz#4c0e46b5bccd78ac42b06a7eaaeb9ee34062968e"
+  integrity sha512-bYUpUD7XDEHI4Q2O5a7PXGvyw4deKR70kHiDxzQbe925wbZknhOzUt2xBgTkYL6RBcVeXYuD9iNYeqoWbBZQnA==
   dependencies:
     foreground-child "^3.1.0"
     jackspeak "^2.0.3"
@@ -3539,9 +3539,9 @@ globals@^11.1.0:
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
 
 globals@^13.19.0:
-  version "13.21.0"
-  resolved "https://registry.yarnpkg.com/globals/-/globals-13.21.0.tgz#163aae12f34ef502f5153cfbdd3600f36c63c571"
-  integrity sha512-ybyme3s4yy/t/3s35bewwXKOf7cvzfreG2lH0lZl0JB7I4GxRP2ghxOK/Nb9EkRXdbBXZLfq/p/0W2JUONB/Gg==
+  version "13.22.0"
+  resolved "https://registry.yarnpkg.com/globals/-/globals-13.22.0.tgz#0c9fcb9c48a2494fbb5edbfee644285543eba9d8"
+  integrity sha512-H1Ddc/PbZHTDVJSnj8kWptIRSD6AM3pK+mKytuIVF4uoBV7rshFlhhvA58ceJ5wp3Er58w6zj7bykMpYXt3ETw==
   dependencies:
     type-fest "^0.20.2"
 
@@ -5908,9 +5908,9 @@ projen@^0.71.141, projen@^0.71.142, projen@^0.71.147:
     yargs "^17.7.2"
 
 projen@^0.73.0:
-  version "0.73.26"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.26.tgz#46b27b374bab8bf2820d5b782597247ffa85218b"
-  integrity sha512-IPErx9JMuplLVunwdL7ctW8cuS0NSrJjF1p44B+fZJkWyCbSx/x8RO+KFRN+q2J4Bruv1P1OIFhf5g3OraF6FQ==
+  version "0.73.27"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.27.tgz#f620acf1fc0801506fd4262649227220f465199e"
+  integrity sha512-GHKmZ6LPrbNiyWBGSXS8R8QYOZSqRleerYZpSL3sOfvf1If9kjDgojc68gm2nPQfnrqDQaMEbgsRj7U+bnGnBw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
