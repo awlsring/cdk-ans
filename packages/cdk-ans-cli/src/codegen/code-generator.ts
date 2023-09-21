@@ -38,7 +38,8 @@ export abstract class CodeGenerator {
 
     code.line('/**');
     for (const line of lines) {
-      code.line(` * ${line}`);
+      const escapedLine = line.replace(/\//g, '\\/');
+      code.line(` * ${escapedLine}`);
     }
     code.line(' */');
   }
