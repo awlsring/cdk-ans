@@ -268,13 +268,13 @@ export class ProjectSynthesizer implements ISynthesizer {
   private synthesizePlaybook(playbook: Playbook, outDir: string, outputType: PlaybookOutputType) {
     outputType;
     const playbookJson = playbook.toJson();
-    Yaml.save(path.join(outDir, `${playbook.node.id}.yaml`), [playbookJson]);
+    Yaml.save(path.join(outDir, `${playbook.name}.yaml`), [playbookJson]);
   }
 
   private createSitePlaybook(playbooks: Playbook[], outDir: string) {
     const tasks = playbooks.map(p => {
       return {
-        include: `${p.node.id}.yaml`,
+        include: `${p.name}.yaml`,
       };
     });
     const site = {

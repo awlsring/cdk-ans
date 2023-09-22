@@ -153,8 +153,10 @@ export class Play extends Step implements IPlayChainable { //TODO: User props in
     const j: Record<string, any> = {
       name: this.name,
       hosts: this.flattenHosts(),
-      tasks: tasks,
     };
+    if (tasks.length > 0) {
+      j.tasks = tasks;
+    }
     if (this.roles) {
       let roles = this.roles.toJson();
       if (!roles.length) {

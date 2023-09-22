@@ -4349,6 +4349,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.Playbook.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-ans.Playbook.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Playbook.property.playDefinition">playDefinition</a></code> | <code><a href="#cdk-ans.PlayDefinition">PlayDefinition</a></code> | *No description.* |
 
 ---
@@ -4362,6 +4363,16 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.Playbook.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -4975,7 +4986,7 @@ Any object.
 ```typescript
 import { RoleTarget } from 'cdk-ans'
 
-RoleTarget.fromRole(scope: Construct, role: Role, props?: RoleTargetProps)
+RoleTarget.fromRole(scope: Construct, id: string, role: Role, props?: RoleTargetProps)
 ```
 
 Creates a role target from a role.
@@ -4983,6 +4994,12 @@ Creates a role target from a role.
 ###### `scope`<sup>Required</sup> <a name="scope" id="cdk-ans.RoleTarget.fromRole.parameter.scope"></a>
 
 - *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="cdk-ans.RoleTarget.fromRole.parameter.id"></a>
+
+- *Type:* string
 
 ---
 
@@ -8754,6 +8771,7 @@ const playbookProps: PlaybookProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ans.PlaybookProps.property.playDefinition">playDefinition</a></code> | <code><a href="#cdk-ans.PlayDefinition">PlayDefinition</a></code> | *No description.* |
+| <code><a href="#cdk-ans.PlaybookProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -8764,6 +8782,16 @@ public readonly playDefinition: PlayDefinition;
 ```
 
 - *Type:* <a href="#cdk-ans.PlayDefinition">PlayDefinition</a>
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.PlaybookProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 

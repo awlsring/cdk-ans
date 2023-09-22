@@ -84,6 +84,7 @@ export class PiholeHaProject extends Project {
     });
 
     new Playbook(this, 'keepalived-failover', {
+      name: 'keepalived',
       playDefinition: keepalivedFailoverPlay,
     });
 
@@ -468,6 +469,7 @@ export class PiholeHaProject extends Project {
     });
 
     const hardening = new Task(this, 'hardening', {
+      name: 'Hardening sshd',
       action: new BlockinfileAction({
         path: '/etc/ssh/sshd_config',
         validate: 'usr/bin/sshd -t -f %s',
@@ -488,6 +490,7 @@ export class PiholeHaProject extends Project {
 
   private makeStartKeepalivedRole() {
     const start = new Task(this, 'start-keepalived', {
+      name: 'Start keepalived',
       action: new ServiceAction({
         name: 'keepalived',
         state: ServiceState.STARTED,
@@ -506,6 +509,7 @@ export class PiholeHaProject extends Project {
 
   private makeStopKeepalivedRole() {
     const start = new Task(this, 'stop-keepalived', {
+      name: 'Stop keepalived',
       action: new ServiceAction({
         name: 'keepalived',
         state: ServiceState.STOPPED,

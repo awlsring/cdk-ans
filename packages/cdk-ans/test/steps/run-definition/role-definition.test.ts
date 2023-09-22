@@ -16,12 +16,12 @@ describe('TaskDefinition', () => {
       tasks: task2,
     });
 
-    const all = RoleTarget.fromRole(app, role).next(RoleTarget.fromRole(app, role2));
+    const all = RoleTarget.fromRole(app, 'target-1', role).next(RoleTarget.fromRole(app, 'target-2', role2));
 
     expect(all.chain.length).toEqual(2);
 
     all.chain.forEach((p, i) => {
-      expect(p.name).toEqual(`role${i + 1}-target`);
+      expect(p.name).toEqual(`target-${i + 1}`);
     });
   });
 });

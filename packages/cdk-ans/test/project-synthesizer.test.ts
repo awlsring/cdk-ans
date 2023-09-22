@@ -109,7 +109,7 @@ describe('ProjectSynthesizer', () => {
 
         const play = new Play(this, 'test-play', {
           hosts: [host],
-          roles: RoleTarget.fromRole(this, role),
+          roles: RoleTarget.fromRole(this, 'target', role),
         });
 
         new Playbook(this, PLAYBOOK_NAME, {
@@ -266,7 +266,7 @@ describe('ProjectSynthesizer', () => {
 
         const play = new Play(this, 'test-play', {
           hosts: [host],
-          roles: RoleTarget.fromRole(this, role),
+          roles: RoleTarget.fromRole(this, 'target', role),
         });
 
         new Playbook(this, PLAYBOOK_NAME, {
@@ -334,7 +334,7 @@ describe('ProjectSynthesizer', () => {
 
         const play = new Play(this, 'test-play', {
           hosts: [host],
-          roles: RoleTarget.fromRole(this, role),
+          roles: RoleTarget.fromRole(this, 'target', role),
         });
 
         new Playbook(this, PLAYBOOK_NAME, {
