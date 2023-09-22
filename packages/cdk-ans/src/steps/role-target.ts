@@ -20,8 +20,8 @@ export class RoleTarget extends Step implements IRoleChainable {
   /**
    * Creates a role target from a role
    */
-  static fromRole(scope: Construct, role: Role, props?: RoleTargetProps): RoleTarget {
-    return new RoleTarget(scope, role.node.id+'-target', role, props);
+  static fromRole(scope: Construct, name: string, role: Role, props?: RoleTargetProps): RoleTarget {
+    return new RoleTarget(scope, name, role, props);
   }
 
   readonly anyErrorsFatal?: boolean;

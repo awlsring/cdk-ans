@@ -55,28 +55,18 @@ export class PiholeHaProject extends Project {
     const syncRole = this.makeSyncRole();
     const updateRole = this.makeUpdateRole();
 
-    const stopKeepAlivedTarget = RoleTarget.fromRole(this, stopKeepAlivedRole);
-    const startKeepAlivedTarget = RoleTarget.fromRole(this, startKeepAlivedRole);
-    const keepalivedTarget = RoleTarget.fromRole(this, keepalivedRole);
-    const piholeTarget = RoleTarget.fromRole(this, piholeRole);
-    const syncTarget = RoleTarget.fromRole(this, syncRole);
-    const updateTarget = RoleTarget.fromRole(this, updateRole);
-    const dockerTarget = RoleTarget.fromRole(this, dockerRole);
-    const sshdTarget = RoleTarget.fromRole(this, sshdRole);
-    const bootstrapTarget = RoleTarget.fromRole(this, bootstrapRole);
-
     const initPiPlay = new Play(this, 'init-pi', { // TODO: make tasks not generate if there are none
       name: 'Init Pi',
       hosts: [host],
       become: true,
       serial: 1,
-      roles: stopKeepAlivedTarget // TODO: make an id field here, declaring multiple causes node conflicts
-        .next(bootstrapTarget) // TODO: Why role target? Why not just role?
-        .next(updateTarget)
-        .next(sshdTarget)
-        .next(dockerTarget)
-        .next(piholeTarget)
-        .next(startKeepAlivedTarget),
+      roles: RoleTarget.fromRole(this, 'init-stop-keepalived', stopKeepAlivedRole)
+        .next(RoleTarget.fromRole(this, 'init-bootstrap', bootstrapRole))
+        .next(RoleTarget.fromRole(this, 'init-update', updateRole))
+        .next(RoleTarget.fromRole(this, 'init-sshd', sshdRole))
+        .next(RoleTarget.fromRole(this, 'init-docker', dockerRole))
+        .next(RoleTarget.fromRole(this, 'init-pihole', piholeRole))
+        .next(RoleTarget.fromRole(this, 'init-start-keepalived', startKeepAlivedRole)),
     });
 
     new Playbook(this, 'bootstrap-pihole', { //TODO: add a name field that will be the name of the file
@@ -88,9 +78,9 @@ export class PiholeHaProject extends Project {
       hosts: [host],
       become: true,
       serial: 1,
-      roles: startKeepAlivedTarget
-        .next(keepalivedTarget)
-        .next(stopKeepAlivedTarget),
+      roles: RoleTarget.fromRole(this, 'keepalived-failover-stop', stopKeepAlivedRole)
+        .next(RoleTarget.fromRole(this, 'keepalived-failover-keepalived', keepalivedRole))
+        .next(RoleTarget.fromRole(this, 'keepalived-failover-start', startKeepAlivedRole)),
     });
 
     new Playbook(this, 'keepalived-failover', {
@@ -101,7 +91,7 @@ export class PiholeHaProject extends Project {
       name: 'Sync',
       hosts: [host],
       serial: 1,
-      roles: syncTarget,
+      roles: RoleTarget.fromRole(this, 'sync-sync-target', syncRole),
     });
 
     new Playbook(this, 'sync', {
@@ -112,10 +102,10 @@ export class PiholeHaProject extends Project {
       name: 'Update',
       hosts: [host],
       serial: 1,
-      roles: stopKeepAlivedTarget // TODO: Weird repetition happens here with shared chains...
-        .next(updateTarget)
-        .next(piholeTarget)
-        .next(startKeepAlivedTarget),
+      roles: RoleTarget.fromRole(this, 'update-stop-keepalived', stopKeepAlivedRole)
+        .next(RoleTarget.fromRole(this, 'update-upgrade', updateRole))
+        .next(RoleTarget.fromRole(this, 'update-pihole', piholeRole))
+        .next(RoleTarget.fromRole(this, 'update-start-keepalived', startKeepAlivedRole)),
     });
 
     new Playbook(this, 'update', {

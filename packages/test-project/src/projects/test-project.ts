@@ -33,7 +33,7 @@ export class TestProject extends Project {
       name: 'Test play',
       hosts: [host],
       tasks: ping,
-      roles: RoleTarget.fromRole(this, role),
+      roles: RoleTarget.fromRole(this, 'target', role),
     });
 
     // build playbook
