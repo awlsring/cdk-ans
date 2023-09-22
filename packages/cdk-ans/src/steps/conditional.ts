@@ -8,6 +8,7 @@ export enum ConditionalEvaluation {
   IS = 'is',
   IS_NOT = 'is not',
   IN = 'in',
+  NOT_IN = 'not in',
   WHEN_EQUALS = '==',
   WHEN_NOT_EQUALS = '!=',
   WHEN_GREATER_THAN = '>',
@@ -72,6 +73,10 @@ export class Conditional {
 
   static in(var1: Evaluatable, var2: Evaluatable): Conditional {
     return new Conditional(var1, ConditionalEvaluation.IN, var2);
+  }
+
+  static notIn(var1: Evaluatable, var2: Evaluatable): Conditional {
+    return new Conditional(var1, ConditionalEvaluation.NOT_IN, var2);
   }
 
   static isNot(var1: Evaluatable, isEval: IsEvaluation): Conditional {

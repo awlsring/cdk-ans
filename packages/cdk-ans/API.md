@@ -807,7 +807,7 @@ Any object.
 | <code><a href="#cdk-ans.CommandTask.property.delay">delay</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.CommandTask.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.CommandTask.property.failedWhen">failedWhen</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.CommandTask.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
@@ -1157,10 +1157,10 @@ public readonly delegateTo: string;
 ##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.CommandTask.property.failedWhen"></a>
 
 ```typescript
-public readonly failedWhen: string;
+public readonly failedWhen: Conditional[];
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>[]
 
 ---
 
@@ -1559,7 +1559,7 @@ Any object.
 | <code><a href="#cdk-ans.FileTask.property.delay">delay</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.FileTask.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.FileTask.property.failedWhen">failedWhen</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.FileTask.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
@@ -1909,10 +1909,10 @@ public readonly delegateTo: string;
 ##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.FileTask.property.failedWhen"></a>
 
 ```typescript
-public readonly failedWhen: string;
+public readonly failedWhen: Conditional[];
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>[]
 
 ---
 
@@ -3167,7 +3167,7 @@ Any object.
 | <code><a href="#cdk-ans.PingTask.property.delay">delay</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.PingTask.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.PingTask.property.failedWhen">failedWhen</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.PingTask.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
@@ -3517,10 +3517,10 @@ public readonly delegateTo: string;
 ##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.PingTask.property.failedWhen"></a>
 
 ```typescript
-public readonly failedWhen: string;
+public readonly failedWhen: Conditional[];
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>[]
 
 ---
 
@@ -5648,7 +5648,7 @@ Any object.
 | <code><a href="#cdk-ans.Task.property.delay">delay</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Task.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Task.property.failedWhen">failedWhen</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Task.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
@@ -5998,10 +5998,10 @@ public readonly delegateTo: string;
 ##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.Task.property.failedWhen"></a>
 
 ```typescript
-public readonly failedWhen: string;
+public readonly failedWhen: Conditional[];
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>[]
 
 ---
 
@@ -10247,7 +10247,7 @@ const taskProps: TaskProps = { ... }
 | <code><a href="#cdk-ans.TaskProps.property.delay">delay</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.delegateFacts">delegateFacts</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.delegateTo">delegateTo</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.TaskProps.property.failedWhen">failedWhen</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.TaskProps.property.failedWhen">failedWhen</a></code> | <code><a href="#cdk-ans.Conditional">Conditional</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.localAction">localAction</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.loop">loop</a></code> | <code>string \| string[]</code> | *No description.* |
 | <code><a href="#cdk-ans.TaskProps.property.loopControl">loopControl</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
@@ -10575,10 +10575,10 @@ public readonly delegateTo: string;
 ##### `failedWhen`<sup>Optional</sup> <a name="failedWhen" id="cdk-ans.TaskProps.property.failedWhen"></a>
 
 ```typescript
-public readonly failedWhen: string;
+public readonly failedWhen: Conditional[];
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk-ans.Conditional">Conditional</a>[]
 
 ---
 
@@ -11008,6 +11008,7 @@ public format(): string
 | <code><a href="#cdk-ans.Conditional.lessThanOrEqual">lessThanOrEqual</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Conditional.notBool">notBool</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Conditional.notEqual">notEqual</a></code> | *No description.* |
+| <code><a href="#cdk-ans.Conditional.notIn">notIn</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Conditional.or">or</a></code> | *No description.* |
 
 ---
@@ -11235,6 +11236,26 @@ Conditional.notEqual(var1: any, var2: any)
 ---
 
 ###### `var2`<sup>Required</sup> <a name="var2" id="cdk-ans.Conditional.notEqual.parameter.var2"></a>
+
+- *Type:* any
+
+---
+
+##### `notIn` <a name="notIn" id="cdk-ans.Conditional.notIn"></a>
+
+```typescript
+import { Conditional } from 'cdk-ans'
+
+Conditional.notIn(var1: any, var2: any)
+```
+
+###### `var1`<sup>Required</sup> <a name="var1" id="cdk-ans.Conditional.notIn.parameter.var1"></a>
+
+- *Type:* any
+
+---
+
+###### `var2`<sup>Required</sup> <a name="var2" id="cdk-ans.Conditional.notIn.parameter.var2"></a>
 
 - *Type:* any
 
@@ -13439,6 +13460,7 @@ public property(name: string): IVariable
 | <code><a href="#cdk-ans.ConditionalEvaluation.IS">IS</a></code> | *No description.* |
 | <code><a href="#cdk-ans.ConditionalEvaluation.IS_NOT">IS_NOT</a></code> | *No description.* |
 | <code><a href="#cdk-ans.ConditionalEvaluation.IN">IN</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ConditionalEvaluation.NOT_IN">NOT_IN</a></code> | *No description.* |
 | <code><a href="#cdk-ans.ConditionalEvaluation.WHEN_EQUALS">WHEN_EQUALS</a></code> | *No description.* |
 | <code><a href="#cdk-ans.ConditionalEvaluation.WHEN_NOT_EQUALS">WHEN_NOT_EQUALS</a></code> | *No description.* |
 | <code><a href="#cdk-ans.ConditionalEvaluation.WHEN_GREATER_THAN">WHEN_GREATER_THAN</a></code> | *No description.* |
@@ -13477,6 +13499,11 @@ public property(name: string): IVariable
 
 
 ##### `IN` <a name="IN" id="cdk-ans.ConditionalEvaluation.IN"></a>
+
+---
+
+
+##### `NOT_IN` <a name="NOT_IN" id="cdk-ans.ConditionalEvaluation.NOT_IN"></a>
 
 ---
 

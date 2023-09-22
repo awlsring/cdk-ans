@@ -12,7 +12,7 @@ export interface TaskProps extends TaskBaseProps {
   readonly async?: number;
   readonly changedWhen?: string;
   readonly delay?: number;
-  readonly failedWhen?: string;
+  readonly failedWhen?: Conditional[];
   readonly localAction?: string;
   readonly loop?: string | string[];
   readonly loopControl?: Record<string, any>;
@@ -38,7 +38,7 @@ export class Task extends TaskBase implements ITaskChainable {
   readonly async?: number;
   readonly changedWhen?: string;
   readonly delay?: number;
-  readonly failedWhen?: string;
+  readonly failedWhen?: Conditional[];
   readonly localAction?: string;
   readonly loop?: string | string[];
   readonly loopControl?: Record<string, any>;
@@ -102,7 +102,8 @@ export class Task extends TaskBase implements ITaskChainable {
     }
 
     if (this.failedWhen) {
-      task.failed_when = this.failedWhen;
+      const failedStrings = this.failedWhen.map(c => c.format());
+      task.failed_when = failedStrings;
     }
 
     if (this.when) {

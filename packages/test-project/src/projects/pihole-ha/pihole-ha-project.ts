@@ -496,10 +496,10 @@ export class PiholeHaProject extends Project {
         state: ServiceState.STARTED,
       }),
       register: 'result',
-      // failedWhen: [ // TODO: Make this a list on conditionals
-      //   'result.failed == true',
-      //   '"Could not find the requested service" not in result.msg'
-      // ],
+      failedWhen: [
+        Conditional.equal('result.failed', true),
+        Conditional.notIn('Could not find the requested service', 'result.msg'),
+      ],
     });
 
     return new Role(this, 'start-keepalived-role', {
