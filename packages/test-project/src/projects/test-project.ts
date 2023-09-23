@@ -1,4 +1,4 @@
-import { CommandTask, Host, Inventory, PingTask, Play, Playbook, Project, Role, RoleTarget } from 'cdk-ans';
+import { Host, Inventory, Play, Playbook, Project, Role, RoleTarget, Task, TaskAction } from 'cdk-ans';
 import { Construct } from 'constructs';
 
 export class TestProject extends Project {
@@ -14,14 +14,15 @@ export class TestProject extends Project {
     });
 
     // declare task
-    const ping = new PingTask(this, 'test-ping', {
-      name: 'Ping host',
+    const ping = new Task(this, 'test-ping', {
+      action: new TaskAction('ping', {}),
     });
 
-    const commandTask = new CommandTask(this, 'test-command', {
-      command: {
-        cmd: 'ls -la',
-      },
+    const commandTask = new Task(this, 'test-ping', {
+      action: new TaskAction('command', {
+        cmd: 'echo',
+        argv: ['hello', 'world'],
+      }),
     });
 
     const role = new Role(this, 'echoer', {

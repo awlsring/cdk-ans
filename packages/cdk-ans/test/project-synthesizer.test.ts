@@ -3,13 +3,11 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Construct } from 'constructs';
 import { DirResult, dirSync } from 'tmp';
-import { App, Host, HostGroup, InventoryOutputType, Playbook, PlaybookOutputType, ProjectSynthesizer, Role, RoleTarget } from '../src';
+import { App, Host, HostGroup, InventoryOutputType, Playbook, PlaybookOutputType, ProjectSynthesizer, Role, RoleTarget, Task } from '../src';
 import { File } from '../src/file/file';
 import { TemplateFile } from '../src/file/template';
 import { Project } from '../src/project';
 import { Inventory } from '../src/resource/inventory';
-import { CommandTask } from '../src/steps/built-in/command';
-import { PingTask } from '../src/steps/built-in/ping';
 import { Handler } from '../src/steps/handler';
 import { Play } from '../src/steps/play';
 import { TaskAction } from '../src/steps/task-action';
@@ -43,7 +41,9 @@ describe('ProjectSynthesizer', () => {
           hosts: [host],
         });
 
-        const ping = new PingTask(this, 'test-ping');
+        const ping = new Task(this, 'test-ping', {
+          action: new TaskAction('ping', {}),
+        });
 
         const play = new Play(this, 'test-play', {
           hosts: [host],
@@ -96,11 +96,11 @@ describe('ProjectSynthesizer', () => {
           hosts: [host],
         });
 
-        const commandTask = new CommandTask(this, 'test-command', {
-          command: {
+        const commandTask = new Task(this, 'test-ping', {
+          action: new TaskAction('command', {
             cmd: 'echo',
             argv: ['hello', 'world'],
-          },
+          }),
         });
 
         const role = new Role(this, ROLE_NAME, {
@@ -253,11 +253,11 @@ describe('ProjectSynthesizer', () => {
           hosts: [host],
         });
 
-        const commandTask = new CommandTask(this, 'test-command', {
-          command: {
+        const commandTask = new Task(this, 'test-ping', {
+          action: new TaskAction('command', {
             cmd: 'echo',
             argv: ['hello', 'world'],
-          },
+          }),
         });
 
         const role = new Role(this, ROLE_NAME, {
@@ -298,11 +298,11 @@ describe('ProjectSynthesizer', () => {
           hosts: [host],
         });
 
-        const commandTask = new CommandTask(this, 'test-command', {
-          command: {
+        const commandTask = new Task(this, 'test-ping', {
+          action: new TaskAction('command', {
             cmd: 'echo',
             argv: ['hello', 'world'],
-          },
+          }),
         });
 
         const role = new Role(this, ROLE_NAME, {
