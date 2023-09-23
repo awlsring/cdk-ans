@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Construct } from 'constructs';
 import { DirResult, dirSync } from 'tmp';
-import { App, Host, HostGroup, HostVariable, InventoryOutputType, Playbook, PlaybookOutputType, ProjectSynthesizer, Role, RoleTarget, Task } from '../src';
+import { App, Host, HostGroup, HostVariable, InventoryOutputType, Playbook, PlaybookOutputType, ProjectSynthesizer, Role, RoleTarget, Task, Hosts } from '../src';
 import { File } from '../src/file/file';
 import { TemplateFile } from '../src/file/template';
 import { Project } from '../src/project';
@@ -46,7 +46,7 @@ describe('ProjectSynthesizer', () => {
         });
 
         const play = new Play(this, 'test-play', {
-          hosts: [host],
+          hosts: Hosts.All,
           tasks: ping,
         });
 

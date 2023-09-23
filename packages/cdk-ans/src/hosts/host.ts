@@ -12,6 +12,7 @@ export enum AnsibleConnection {
   SMART = 'smart',
   SSH = 'ssh',
   PARAMIKO = 'paramiko',
+  LOCAL = 'local',
 }
 
 /**

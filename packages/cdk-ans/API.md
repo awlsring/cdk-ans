@@ -8109,6 +8109,48 @@ public readonly fileName: string;
 
 ## Classes <a name="Classes" id="Classes"></a>
 
+### AllHosts <a name="AllHosts" id="cdk-ans.AllHosts"></a>
+
+- *Implements:* <a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>
+
+A special host identifier that contains all hosts.
+
+Used from the `Hosts.All` class
+
+#### Initializers <a name="Initializers" id="cdk-ans.AllHosts.Initializer"></a>
+
+```typescript
+import { AllHosts } from 'cdk-ans'
+
+new AllHosts()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.AllHosts.property.identifier">identifier</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `identifier`<sup>Required</sup> <a name="identifier" id="cdk-ans.AllHosts.property.identifier"></a>
+
+```typescript
+public readonly identifier: string;
+```
+
+- *Type:* string
+
+---
+
+
 ### AnyVariable <a name="AnyVariable" id="cdk-ans.AnyVariable"></a>
 
 A variable that can be used to access any type of variable.
@@ -9026,6 +9068,44 @@ public readonly parents: string[];
 
 ---
 
+
+### Hosts <a name="Hosts" id="cdk-ans.Hosts"></a>
+
+A special class to allow for specifying all hosts in a playbook.
+
+#### Initializers <a name="Initializers" id="cdk-ans.Hosts.Initializer"></a>
+
+```typescript
+import { Hosts } from 'cdk-ans'
+
+new Hosts()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+
+
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.Hosts.property.All">All</a></code> | <code><a href="#cdk-ans.AllHosts">AllHosts</a>[]</code> | *No description.* |
+
+---
+
+##### `All`<sup>Required</sup> <a name="All" id="cdk-ans.Hosts.property.All"></a>
+
+```typescript
+public readonly All: AllHosts[];
+```
+
+- *Type:* <a href="#cdk-ans.AllHosts">AllHosts</a>[]
+
+---
 
 ### ListVariable <a name="ListVariable" id="cdk-ans.ListVariable"></a>
 
@@ -10513,7 +10593,7 @@ public readonly chain: Step[];
 
 ### IHostIdentifiable <a name="IHostIdentifiable" id="cdk-ans.IHostIdentifiable"></a>
 
-- *Implemented By:* <a href="#cdk-ans.Host">Host</a>, <a href="#cdk-ans.HostGroup">HostGroup</a>, <a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>
+- *Implemented By:* <a href="#cdk-ans.AllHosts">AllHosts</a>, <a href="#cdk-ans.Host">Host</a>, <a href="#cdk-ans.HostGroup">HostGroup</a>, <a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -10770,6 +10850,7 @@ The connection type to use to connect to the host.
 | <code><a href="#cdk-ans.AnsibleConnection.SMART">SMART</a></code> | *No description.* |
 | <code><a href="#cdk-ans.AnsibleConnection.SSH">SSH</a></code> | *No description.* |
 | <code><a href="#cdk-ans.AnsibleConnection.PARAMIKO">PARAMIKO</a></code> | *No description.* |
+| <code><a href="#cdk-ans.AnsibleConnection.LOCAL">LOCAL</a></code> | *No description.* |
 
 ---
 
@@ -10784,6 +10865,11 @@ The connection type to use to connect to the host.
 
 
 ##### `PARAMIKO` <a name="PARAMIKO" id="cdk-ans.AnsibleConnection.PARAMIKO"></a>
+
+---
+
+
+##### `LOCAL` <a name="LOCAL" id="cdk-ans.AnsibleConnection.LOCAL"></a>
 
 ---
 

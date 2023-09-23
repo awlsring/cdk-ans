@@ -1,4 +1,4 @@
-import { Host, Inventory, Play, Playbook, Project, Role, RoleTarget, Task, TaskAction } from 'cdk-ans';
+import { Hosts, AnsibleConnection, Host, Inventory, Play, Playbook, Project, Role, RoleTarget, Task, TaskAction } from 'cdk-ans';
 import { Construct } from 'constructs';
 import { ShellAction } from '../imports/ansible-builtin-shell';
 
@@ -9,6 +9,7 @@ export class TestProject extends Project {
     // construct inventory
     const host = new Host(this, 'test-host', { //TODO: add validation that a host not bound to group fails validation
       host: 'localhost',
+      connectionType: AnsibleConnection.LOCAL,
     });
     new Inventory(this, 'test-inv', { //TODO: create mechanism to populate inventory from plugin
       hosts: [host],
@@ -21,8 +22,7 @@ export class TestProject extends Project {
 
     const commandTask = new Task(this, 'test-command', {
       action: new TaskAction('command', {
-        cmd: 'echo',
-        argv: ['hello', 'world'],
+        cmd: 'echo hello world',
       }),
     });
 
@@ -39,7 +39,7 @@ export class TestProject extends Project {
     // build plays
     const play = new Play(this, 'play', {
       name: 'Test play',
-      hosts: [host],
+      hosts: Hosts.All,
       tasks: ping.next(shell),
       roles: RoleTarget.fromRole(this, 'target', role),
     });

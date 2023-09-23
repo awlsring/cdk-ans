@@ -160,7 +160,7 @@ export class PiholeHaProject extends Project {
     const syncRole = this.makeSyncRole();
     const updateRole = this.makeUpdateRole();
 
-    const initPiPlay = new Play(this, 'init-pi', { // TODO: make tasks not generate if there are none
+    const initPiPlay = new Play(this, 'init-pi', {
       name: 'Init Pi',
       hosts: inv.inventory.hosts,
       become: true,
@@ -174,7 +174,8 @@ export class PiholeHaProject extends Project {
         .next(RoleTarget.fromRole(this, 'init-start-keepalived', startKeepAlivedRole)),
     });
 
-    new Playbook(this, 'bootstrap-pihole', { //TODO: add a name field that will be the name of the file
+    new Playbook(this, 'bootstrap-pihole', {
+      name: 'bootstrap_pihole',
       playDefinition: initPiPlay,
     });
 
