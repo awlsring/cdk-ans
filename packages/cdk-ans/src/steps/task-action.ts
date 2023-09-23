@@ -18,13 +18,25 @@ export class TaskAction {
   }
 
   toJson(): any {
+    const items = this.convertItems(this.props);
+    if (this.isFreeForm(items)) {
+      return { [this.name]: items.free_form };
+    }
     return {
-      [this.name]: this.convertItems(this.props),
+      [this.name]: items,
     };
   }
 
   private implementsVariable(obj: any): obj is IVariable {
     return obj.asVariable !== undefined;
+  }
+
+  private isFreeForm(items: Record<string, any>): boolean {
+    const keys = Object.keys(items);
+    if (keys.length === 1 && keys[0] === 'free_form') {
+      return true;
+    }
+    return false;
   }
 
   private convertItems(obj: Record<string, AnsibleAnyInput>): Record<string, any> {

@@ -1,5 +1,6 @@
 import { Host, Inventory, Play, Playbook, Project, Role, RoleTarget, Task, TaskAction } from 'cdk-ans';
 import { Construct } from 'constructs';
+import { ShellAction } from '../imports/ansible-builtin-shell';
 
 export class TestProject extends Project {
   constructor(scope: Construct, name: string) {
@@ -18,10 +19,16 @@ export class TestProject extends Project {
       action: new TaskAction('ping', {}),
     });
 
-    const commandTask = new Task(this, 'test-ping', {
+    const commandTask = new Task(this, 'test-command', {
       action: new TaskAction('command', {
         cmd: 'echo',
         argv: ['hello', 'world'],
+      }),
+    });
+
+    const shell = new Task(this, 'shell', {
+      action: new ShellAction({
+        freeForm: 'echo hello world',
       }),
     });
 
@@ -33,7 +40,7 @@ export class TestProject extends Project {
     const play = new Play(this, 'play', {
       name: 'Test play',
       hosts: [host],
-      tasks: ping,
+      tasks: ping.next(shell),
       roles: RoleTarget.fromRole(this, 'target', role),
     });
 
