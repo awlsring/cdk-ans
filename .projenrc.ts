@@ -44,7 +44,7 @@ const cdkans = new JsiiProject({
   peerDeps: ["constructs@^10"],
   bundledDeps: ["yaml", "follow-redirects", "fast-json-patch"],
   devDeps: [
-    "constructs",
+    "constructs@^10.0.0",
     "@types/follow-redirects",
     "json-schema-to-typescript",
   ],
@@ -121,7 +121,7 @@ const testProject = new TypeScriptAppProject({
   outdir: path.join("packages", "test-project"),
   defaultReleaseBranch: "main",
   name: "test-cdk-ans",
-  deps: [cdkans.package.packageName, "constructs"],
+  deps: [cdkans.package.packageName, "constructs@^10.0.0"],
   devDeps: ["@types/follow-redirects", "json-schema-to-typescript"],
   gitignore: ["tmp/*", "dist-test/*", "imports"],
 });
