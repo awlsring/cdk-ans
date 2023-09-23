@@ -1,5 +1,6 @@
 import { Construct } from 'constructs';
 import { Step, StepProps } from './step';
+import { implementsVariable } from './variable';
 
 export interface TaskBaseProps extends StepProps {
   readonly anyErrorsFatal?: boolean;
@@ -77,5 +78,22 @@ export abstract class TaskBase extends Step {
     this.throttle = props.throttle;
     this.timeout = props.timeout;
     this.vars = props.vars;
+  }
+
+  protected convertItems(obj: Record<string, any>): Record<string, any> {
+    const snakeCaseObject: Record<string, any> = {};
+
+    for (const key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        const snakeCaseKey = key.replace(/([A-Z])/g, '_$1').toLowerCase();
+        let value = obj[key];
+        if (implementsVariable(value)) {
+          value = value.asVariable();
+        }
+        snakeCaseObject[snakeCaseKey] = value;
+      }
+    }
+
+    return snakeCaseObject;
   }
 }

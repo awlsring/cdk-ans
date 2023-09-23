@@ -1,4 +1,4 @@
-import { AnsibleAnyInput, implementsVariable } from './variable';
+import { AnsibleAnyInput, convertNestedItems } from './variable';
 
 /**
  * An empty interface TaskActionProps extends from
@@ -18,13 +18,26 @@ export class TaskAction {
   }
 
   toJson(): any {
-    const items = this.convertItems(this.props);
-    if (this.isFreeForm(items)) {
-      return { [this.name]: items.free_form };
+    const items = convertNestedItems(this.props);
+
+    switch (true) {
+      case this.isKeyValue(items):
+        return { [this.name]: convertNestedItems(items.key_value) };
+      case this.isFreeForm(items):
+        return { [this.name]: items.free_form };
+      default:
+        return {
+          [this.name]: items,
+        };
     }
-    return {
-      [this.name]: items,
-    };
+  }
+
+  private isKeyValue(items: Record<string, any>): boolean {
+    const keys = Object.keys(items);
+    if (keys.length === 1 && keys[0] === 'key_value') {
+      return true;
+    }
+    return false;
   }
 
   private isFreeForm(items: Record<string, any>): boolean {
@@ -33,22 +46,5 @@ export class TaskAction {
       return true;
     }
     return false;
-  }
-
-  private convertItems(obj: Record<string, AnsibleAnyInput>): Record<string, any> {
-    const snakeCaseObject: Record<string, AnsibleAnyInput> = {};
-
-    for (const key in obj) {
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        const snakeCaseKey = key.replace(/([A-Z])/g, '_$1').toLowerCase();
-        let value = obj[key];
-        if (implementsVariable(value)) {
-          value = value.asVariable();
-        }
-        snakeCaseObject[snakeCaseKey] = value;
-      }
-    }
-
-    return snakeCaseObject;
   }
 }

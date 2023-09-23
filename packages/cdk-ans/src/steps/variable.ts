@@ -13,6 +13,27 @@ export function implementsVariable(obj: any): obj is IVariable {
 }
 
 /**
+ * Utility function to convert object values to a string if a variable.
+ * @internal
+ */
+export function convertNestedItems(obj: Record<string, AnsibleAnyInput>): Record<string, any> {
+  const snakeCaseObject: Record<string, AnsibleAnyInput> = {};
+
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      const snakeCaseKey = key.replace(/([A-Z])/g, '_$1').toLowerCase();
+      let value = obj[key];
+      if (implementsVariable(value)) {
+        value = value.asVariable();
+      }
+      snakeCaseObject[snakeCaseKey] = value;
+    }
+  }
+
+  return snakeCaseObject;
+}
+
+/**
  * A variable that can access any type of variable.
  */
 export interface IVariable {

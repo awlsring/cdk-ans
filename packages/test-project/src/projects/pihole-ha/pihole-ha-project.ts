@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { Conditional, File, Handler, HostVariable, MagicVariable, Play, Playbook, Project, ProjectProps, Role, RoleTarget, Task, TemplateFile } from 'cdk-ans';
+import { Conditional, File, Handler, HostVariable, MagicVariable, Play, Playbook, Project, Role, RoleTarget, Task, TemplateFile } from 'cdk-ans';
 import { Construct } from 'constructs';
 import { PiholeInventory } from './inventory';
 import { AptAction, AptUpgrade } from '../../imports/ansible-builtin-apt';

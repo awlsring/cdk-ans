@@ -14,7 +14,6 @@ const app = new App({
 
 new TestProject(app, 'test-project');
 
-new PiholeHaProject(app, 'pihole-ha', {
-});
+new PiholeHaProject(app, 'pihole-ha');
 
 app.synth();

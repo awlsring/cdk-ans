@@ -4,6 +4,7 @@ import { Handler } from './handler';
 import { ITaskChainable, TaskDefinition } from './run-definition/task-definition';
 import { TaskAction } from './task-action';
 import { TaskBase, TaskBaseProps } from './task-base';
+import { convertNestedItems } from './variable';
 import { convertKeysToSnakeCase } from '../util';
 
 export interface TaskProps extends TaskBaseProps {
@@ -119,7 +120,7 @@ export class Task extends TaskBase implements ITaskChainable {
     }
 
     if (this.loopControl) {
-      task.loop_control = this.loopControl;
+      task.loop_control = convertNestedItems(this.loopControl);
     }
 
     if (this.poll) {
