@@ -24,6 +24,7 @@ export class RoleTarget extends Step implements IRoleChainable {
     return new RoleTarget(scope, id, role, props);
   }
 
+  readonly name: string;
   readonly anyErrorsFatal?: boolean;
   readonly become?: boolean;
   readonly becomeExe?: string;
@@ -53,6 +54,7 @@ export class RoleTarget extends Step implements IRoleChainable {
 
   private constructor(scope: Construct, name: string, readonly role: Role, props?: RoleTargetProps) {
     super(scope, name, props ?? {});
+    this.name = props?.name ?? name;
     this.anyErrorsFatal = props?.anyErrorsFatal;
     this.become = props?.become;
     this.becomeExe = props?.becomeExe;

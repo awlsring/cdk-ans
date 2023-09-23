@@ -4,9 +4,12 @@ import { Inventory } from './resource/inventory';
 import { Playbook } from './resource/playbook';
 import { Role } from './resource/role';
 
-export interface ProjectProps {}
+export interface ProjectProps {
+  readonly name?: string;
+}
 
 export class Project extends Construct {
+  readonly name: string;
   public get inventories(): Inventory[] {
     const isInventory = (x: IConstruct): x is Inventory => x instanceof Inventory;
     return new DependencyGraph(this.node)
@@ -30,6 +33,6 @@ export class Project extends Construct {
 
   constructor(scope: Construct, name: string, props?: ProjectProps) {
     super(scope, name);
-    props; // do nothing for now
+    this.name = props?.name ?? name;
   }
 }

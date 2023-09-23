@@ -84,7 +84,7 @@ export class ProjectSynthesizer implements ISynthesizer {
     // TODO: 'validate project and nodes';
 
     /// setup project output directory
-    const rootDir = path.join(outDir, project.node.id);
+    const rootDir = path.join(outDir, project.name);
     fs.mkdirSync(rootDir, { recursive: true });
 
     /// if inventories exist, synthesize them
@@ -122,7 +122,7 @@ export class ProjectSynthesizer implements ISynthesizer {
   }
 
   private synthesizeInventory(inventory: Inventory, outDir: string, outputType: InventoryOutputType) {
-    const invDir = path.join(outDir, inventory.node.id);
+    const invDir = path.join(outDir, inventory.name);
     fs.mkdirSync(invDir, { recursive: true });
 
     switch (outputType) {
@@ -133,9 +133,9 @@ export class ProjectSynthesizer implements ISynthesizer {
         if (inventory.groups.length !== 0) {
           let groups: Record<string, any> = {};
           inventory.groups.forEach(g => {
-            groups[g.node.id] = g.toJson();
+            groups[g.identifier] = g.toJson();
             g.hosts.forEach(h => {
-              groupedHosts.push(h.node.id);
+              groupedHosts.push(h.identifier);
             });
           });
           invObject.children = groups;
@@ -144,10 +144,10 @@ export class ProjectSynthesizer implements ISynthesizer {
         if (groupedHosts.length == inventory.hosts.length || inventory.hosts.length != 0) {
           let ungroupedHosts: Record<string, any> = {};
           inventory.hosts.forEach(h => {
-            if (groupedHosts.includes(h.node.id)) {
+            if (groupedHosts.includes(h.identifier)) {
               return;
             }
-            ungroupedHosts[h.node.id] = h.toJson();
+            ungroupedHosts[h.identifier] = h.toJson();
           });
           invObject.hosts = ungroupedHosts;
         };
@@ -166,12 +166,12 @@ export class ProjectSynthesizer implements ISynthesizer {
         if (inventory.groups.length !== 0) {
           let groups: Record<string, any> = {};
           inventory.groups.forEach(g => {
-            groups[g.node.id] = g.toJsonMinimal();
+            groups[g.identifier] = g.toJsonMinimal();
             g.hosts.forEach(h => {
-              hostsInGroup.push(h.node.id);
-              hostVars[h.node.id] = h.toJson();
+              hostsInGroup.push(h.identifier);
+              hostVars[h.identifier] = h.toJson();
             });
-            groupVars[g.node.id] = g.variables;
+            groupVars[g.identifier] = g.variables;
           });
           hostObjects.children = groups;
         }
@@ -179,11 +179,11 @@ export class ProjectSynthesizer implements ISynthesizer {
         if (hostsInGroup.length == inventory.hosts.length || inventory.hosts.length != 0) {
           let ungroupedHosts: Record<string, any> = {};
           inventory.hosts.forEach(h => {
-            if (hostsInGroup.includes(h.node.id)) {
+            if (hostsInGroup.includes(h.identifier)) {
               return;
             }
-            ungroupedHosts[h.node.id] = {};
-            hostVars[h.node.id] = h.toJson();
+            ungroupedHosts[h.identifier] = {};
+            hostVars[h.identifier] = h.toJson();
           });
           hostObjects.hosts = ungroupedHosts;
         };
@@ -216,7 +216,7 @@ export class ProjectSynthesizer implements ISynthesizer {
   }
 
   private synthesizeRole(role: Role, outDir: string, outputType: RoleOutputType) {
-    const roleDir = path.join(outDir, role.node.id);
+    const roleDir = path.join(outDir, role.name);
     fs.mkdirSync(roleDir, { recursive: true });
     switch (outputType) {
       case RoleOutputType.STANDARD:

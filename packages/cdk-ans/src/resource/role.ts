@@ -8,6 +8,7 @@ import { Task } from '../steps/task';
 
 export interface RoleProps {
   readonly tasks: TaskDefinition;
+  readonly name?: string;
   readonly handlers?: Handler[];
   readonly files?: File[];
   readonly templates?: TemplateFile[]; // make a template class
@@ -16,6 +17,7 @@ export interface RoleProps {
 }
 
 export class Role extends Resource {
+  readonly name: string;
   readonly tasks: TaskDefinition;
   private _files: File[] = [];
   private _templates: TemplateFile[] = [];
@@ -25,6 +27,7 @@ export class Role extends Resource {
 
   constructor(scope: Construct, name: string, props: RoleProps) {
     super(scope, name);
+    this.name = props?.name ?? name;
     this.tasks = props?.tasks;
     if (props.handlers) {
       this._handlers = props.handlers;

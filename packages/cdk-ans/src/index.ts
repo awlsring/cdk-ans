@@ -25,7 +25,6 @@ export * from './steps/variable';
 export * from './steps/conditional';
 export * from './app';
 export * from './dependency';
-export * from './namer';
 export * from './project';
 export * from './util';
 export * from './yaml';

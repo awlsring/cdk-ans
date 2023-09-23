@@ -1748,6 +1748,7 @@ Any object.
 | <code><a href="#cdk-ans.Inventory.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-ans.Inventory.property.groups">groups</a></code> | <code><a href="#cdk-ans.HostGroup">HostGroup</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Inventory.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Inventory.property.name">name</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -1780,6 +1781,16 @@ public readonly hosts: Host[];
 ```
 
 - *Type:* <a href="#cdk-ans.Host">Host</a>[]
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.Inventory.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -2634,6 +2645,7 @@ Any object.
 | --- | --- | --- |
 | <code><a href="#cdk-ans.Project.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk-ans.Project.property.inventories">inventories</a></code> | <code><a href="#cdk-ans.Inventory">Inventory</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Project.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Project.property.playbooks">playbooks</a></code> | <code><a href="#cdk-ans.Playbook">Playbook</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Project.property.roles">roles</a></code> | <code><a href="#cdk-ans.Role">Role</a>[]</code> | *No description.* |
 
@@ -2658,6 +2670,16 @@ public readonly inventories: Inventory[];
 ```
 
 - *Type:* <a href="#cdk-ans.Inventory">Inventory</a>[]
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.Project.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -2966,6 +2988,7 @@ Any object.
 | <code><a href="#cdk-ans.Role.property.defaults">defaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.Role.property.files">files</a></code> | <code><a href="#cdk-ans.File">File</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Role.property.handlers">handlers</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.Role.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Role.property.tasks">tasks</a></code> | <code><a href="#cdk-ans.TaskDefinition">TaskDefinition</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Role.property.templates">templates</a></code> | <code><a href="#cdk-ans.TemplateFile">TemplateFile</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Role.property.variables">variables</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
@@ -3011,6 +3034,16 @@ public readonly handlers: Handler[];
 ```
 
 - *Type:* <a href="#cdk-ans.Handler">Handler</a>[]
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.Role.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -5686,6 +5719,7 @@ const inventoryProps: InventoryProps = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk-ans.InventoryProps.property.groups">groups</a></code> | <code><a href="#cdk-ans.HostGroup">HostGroup</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.InventoryProps.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.InventoryProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -5706,6 +5740,16 @@ public readonly hosts: Host[];
 ```
 
 - *Type:* <a href="#cdk-ans.Host">Host</a>[]
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.InventoryProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -6226,6 +6270,23 @@ import { ProjectProps } from 'cdk-ans'
 const projectProps: ProjectProps = { ... }
 ```
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.ProjectProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.ProjectProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
 
 ### ProjectSynthesizerOptions <a name="ProjectSynthesizerOptions" id="cdk-ans.ProjectSynthesizerOptions"></a>
 
@@ -6303,6 +6364,7 @@ const roleProps: RoleProps = { ... }
 | <code><a href="#cdk-ans.RoleProps.property.defaults">defaults</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleProps.property.files">files</a></code> | <code><a href="#cdk-ans.File">File</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleProps.property.handlers">handlers</a></code> | <code><a href="#cdk-ans.Handler">Handler</a>[]</code> | *No description.* |
+| <code><a href="#cdk-ans.RoleProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleProps.property.templates">templates</a></code> | <code><a href="#cdk-ans.TemplateFile">TemplateFile</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.RoleProps.property.variables">variables</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 
@@ -6345,6 +6407,16 @@ public readonly handlers: Handler[];
 ```
 
 - *Type:* <a href="#cdk-ans.Handler">Handler</a>[]
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.RoleProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -9673,46 +9745,6 @@ public readonly chain: Step[];
 ---
 
 
-### SimpleNamer <a name="SimpleNamer" id="cdk-ans.SimpleNamer"></a>
-
-- *Implements:* <a href="#cdk-ans.INamer">INamer</a>
-
-#### Initializers <a name="Initializers" id="cdk-ans.SimpleNamer.Initializer"></a>
-
-```typescript
-import { SimpleNamer } from 'cdk-ans'
-
-new SimpleNamer()
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-
----
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdk-ans.SimpleNamer.name">name</a></code> | *No description.* |
-
----
-
-##### `name` <a name="name" id="cdk-ans.SimpleNamer.name"></a>
-
-```typescript
-public name(construct: IConstruct): string
-```
-
-###### `construct`<sup>Required</sup> <a name="construct" id="cdk-ans.SimpleNamer.name.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
-
-
-
 ### SimpleVariable <a name="SimpleVariable" id="cdk-ans.SimpleVariable"></a>
 
 A variable that represents a flat value (string, number, boolean).
@@ -10130,31 +10162,6 @@ public readonly identifier: string;
 - *Type:* string
 
 ---
-
-### INamer <a name="INamer" id="cdk-ans.INamer"></a>
-
-- *Implemented By:* <a href="#cdk-ans.SimpleNamer">SimpleNamer</a>, <a href="#cdk-ans.INamer">INamer</a>
-
-#### Methods <a name="Methods" id="Methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#cdk-ans.INamer.name">name</a></code> | *No description.* |
-
----
-
-##### `name` <a name="name" id="cdk-ans.INamer.name"></a>
-
-```typescript
-public name(construct: IConstruct): string
-```
-
-###### `construct`<sup>Required</sup> <a name="construct" id="cdk-ans.INamer.name.parameter.construct"></a>
-
-- *Type:* constructs.IConstruct
-
----
-
 
 ### IPlayChainable <a name="IPlayChainable" id="cdk-ans.IPlayChainable"></a>
 

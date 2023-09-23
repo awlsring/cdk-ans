@@ -29,7 +29,7 @@ export class HostGroup extends Construct implements IHostIdentifiable {
 
   public addSubGroups(...groups: HostGroup[]) {
     groups.forEach(group => {
-      this.groups[group.node.id] = group;
+      this.groups[group.identifier] = group;
     });
   }
 
@@ -42,13 +42,13 @@ export class HostGroup extends Construct implements IHostIdentifiable {
     const j: Record<string, any> = {};
 
     Object.keys(this.groups).map(k => this.groups[k]).forEach(g => {
-      j[g.node.id] = g.toJsonMinimal();
+      j[g.identifier] = g.toJsonMinimal();
     });
 
     if (this.hosts.length !== 0) {
       let hosts: Record<string, any> = {};
       this.hosts.forEach(h => {
-        hosts[h.node.id] = {};
+        hosts[h.identifier] = {};
       });
       j.hosts = hosts;
     }
@@ -61,13 +61,13 @@ export class HostGroup extends Construct implements IHostIdentifiable {
     const j: Record<string, any> = {};
 
     Object.keys(this.groups).map(k => this.groups[k]).forEach(g => {
-      j[g.node.id] = g.toJson();
+      j[g.identifier] = g.toJson();
     });
 
     if (this.hosts.length !== 0) {
       let hosts: Record<string, any> = {};
       this.hosts.forEach(h => {
-        hosts[h.node.id] = h.toJson();
+        hosts[h.identifier] = h.toJson();
       });
       j.hosts = hosts;
     }
