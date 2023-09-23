@@ -1,4 +1,4 @@
-import { AnsibleAnyInput, IVariable } from './variable';
+import { AnsibleAnyInput, implementsVariable } from './variable';
 
 /**
  * An empty interface TaskActionProps extends from
@@ -27,10 +27,6 @@ export class TaskAction {
     };
   }
 
-  private implementsVariable(obj: any): obj is IVariable {
-    return obj.asVariable !== undefined;
-  }
-
   private isFreeForm(items: Record<string, any>): boolean {
     const keys = Object.keys(items);
     if (keys.length === 1 && keys[0] === 'free_form') {
@@ -46,7 +42,7 @@ export class TaskAction {
       if (Object.prototype.hasOwnProperty.call(obj, key)) {
         const snakeCaseKey = key.replace(/([A-Z])/g, '_$1').toLowerCase();
         let value = obj[key];
-        if (this.implementsVariable(value)) {
+        if (implementsVariable(value)) {
           value = value.asVariable();
         }
         snakeCaseObject[snakeCaseKey] = value;

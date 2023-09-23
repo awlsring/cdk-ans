@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { InventoryOutputType, PlaybookOutputType, RoleOutputType, ISynthesizer } from './synthesizer';
+import { HostVariable } from '../hosts/host-variable';
 import { Project } from '../project';
 import { Inventory } from '../resource/inventory';
 import { Playbook } from '../resource/playbook';
@@ -43,11 +44,6 @@ export interface SynthesizePlaybookOptions {
    * @default projects
    */
   readonly outDir?: string;
-  /**
-   * If a `site.yaml` should be created that includes all playbooks
-   * @default false
-   */
-  readonly dontCreateSitePlaybook?: boolean;
   /** How to organzie playbook output
    * @default PlaybookOutputType.IN_ROOT
    */
@@ -115,10 +111,18 @@ export class ProjectSynthesizer implements ISynthesizer {
       project.playbooks.forEach(p => {
         this.synthesizePlaybook(p, playbookDir, playbookOutputType);
       });
-      if (!this.options.playbookOptions?.dontCreateSitePlaybook) {
-        this.createSitePlaybook(project.playbooks, playbookDir);
-      }
     }
+  }
+
+  private hostVariablesToJson(variables: HostVariable[]) {
+    if (variables.length === 0) {
+      return undefined;
+    }
+    const vars: Record<string, any> = {};
+    variables.forEach(variable => {
+      vars[variable.name] = variable.value;
+    });
+    return vars;
   }
 
   private synthesizeInventory(inventory: Inventory, outDir: string, outputType: InventoryOutputType) {
@@ -152,6 +156,13 @@ export class ProjectSynthesizer implements ISynthesizer {
           invObject.hosts = ungroupedHosts;
         };
 
+        if (inventory.variables.length !== 0) {
+          const varObj = this.hostVariablesToJson(inventory.variables);
+          if (varObj && Object.keys(varObj).length !== 0) {
+            invObject.vars = varObj;
+          }
+        }
+
         const file = {
           all: invObject,
         };
@@ -165,13 +176,22 @@ export class ProjectSynthesizer implements ISynthesizer {
 
         if (inventory.groups.length !== 0) {
           let groups: Record<string, any> = {};
+          if (inventory.variables.length !== 0) {
+            const varObj = this.hostVariablesToJson(inventory.variables);
+            if (varObj && Object.keys(varObj).length !== 0) {
+              groupVars.all = varObj;
+            }
+          }
           inventory.groups.forEach(g => {
-            groups[g.identifier] = g.toJsonMinimal();
+            groups[g.identifier] = g._toJsonMinimal();
             g.hosts.forEach(h => {
               hostsInGroup.push(h.identifier);
               hostVars[h.identifier] = h.toJson();
             });
-            groupVars[g.identifier] = g.variables;
+            const varObj = this.hostVariablesToJson(g.variables);
+            if (varObj && Object.keys(varObj).length !== 0) {
+              groupVars[g.identifier] = varObj;
+            }
           });
           hostObjects.children = groups;
         }
@@ -271,18 +291,18 @@ export class ProjectSynthesizer implements ISynthesizer {
     Yaml.save(path.join(outDir, `${playbook.name}.yaml`), [playbookJson]);
   }
 
-  private createSitePlaybook(playbooks: Playbook[], outDir: string) {
-    const tasks = playbooks.map(p => {
-      return {
-        include: `${p.name}.yaml`,
-      };
-    });
-    const site = {
-      name: 'Site Playbook',
-      hosts: 'all',
-      gather_facts: false,
-      tasks: tasks,
-    };
-    Yaml.save(path.join(outDir, 'site.yaml'), [[site]]);
-  }
+  // private createSitePlaybook(playbooks: Playbook[], outDir: string) {
+  //   const tasks = playbooks.map(p => {
+  //     return {
+  //       include: `${p.name}.yaml`,
+  //     };
+  //   });
+  //   const site = {
+  //     name: 'Site Playbook',
+  //     hosts: 'all',
+  //     gather_facts: false,
+  //     tasks: tasks,
+  //   };
+  //   Yaml.save(path.join(outDir, 'site.yaml'), [[site]]);
+  // }
 }

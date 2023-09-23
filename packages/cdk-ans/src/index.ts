@@ -3,6 +3,7 @@ export * from './file/template';
 export * from './hosts/host';
 export * from './hosts/host-group';
 export * from './hosts/host-identifiable';
+export * from './hosts/host-variable';
 export * from './synthesizer/project-synthesizer';
 export * from './synthesizer/synthesizer';
 export * from './resource/inventory';

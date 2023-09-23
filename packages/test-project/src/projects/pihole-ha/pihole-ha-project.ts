@@ -1,6 +1,7 @@
 import * as path from 'path';
-import { Conditional, File, Handler, Host, Inventory, MagicVariable, Play, Playbook, Project, ProjectProps, Role, RoleTarget, SimpleVariable, Task, TemplateFile } from 'cdk-ans';
+import { Conditional, File, Handler, HostVariable, MagicVariable, Play, Playbook, Project, ProjectProps, Role, RoleTarget, Task, TemplateFile } from 'cdk-ans';
 import { Construct } from 'constructs';
+import { PiholeInventory } from './inventory';
 import { AptAction, AptUpgrade } from '../../imports/ansible-builtin-apt';
 import { AptKeyAction } from '../../imports/ansible-builtin-apt-key';
 import { AptRepositoryAction } from '../../imports/ansible-builtin-apt-repository';
@@ -24,19 +25,123 @@ import { OpensshKeypairAction } from '../../imports/community-crypto-openssh-key
 import { DockerContainerAction, DockerContainerRestartPolicy } from '../../imports/community-docker-docker-container';
 import { DockerPruneAction } from '../../imports/community-docker-docker-prune';
 
-export interface PiholeHaProjectProps extends ProjectProps {
-  // readonly inventory: (scope: Construct) => Inventory;
-}
-
 export class PiholeHaProject extends Project {
-  constructor(scope: Construct, name: string, props: PiholeHaProjectProps) {
-    super(scope, name, props);
+  constructor(scope: Construct, name: string) {
+    super(scope, name);
 
-    const host = new Host(this, 'test-host', {
-      host: 'localhost',
-    }); // TODO: Create some way to make a "All hosts"
-    new Inventory(this, 'test-inv', {
-      hosts: [host],
+    const userVar = new HostVariable(this, 'group-user', {
+      name: 'ansible_user',
+      value: 'pi',
+    });
+
+    const passVar = new HostVariable(this, 'group-pass', {
+      name: 'ansible_ssh_pass',
+      value: 'raspberry',
+    });
+
+    const pythonVar = new HostVariable(this, 'group-python', {
+      name: 'ansible_python_interpreter',
+      value: '/usr/bin/python3',
+    });
+
+    const githubUserVar = new HostVariable(this, 'group-github-user', {
+      name: 'github_user_for_ssh_key',
+      value: 'github-user',
+    });
+
+    const timezoneVar = new HostVariable(this, 'group-timezone', {
+      name: 'timezone',
+      value: 'America/Los_Angeles',
+    });
+
+    const staticDnsVar = new HostVariable(this, 'group-static-dns', {
+      name: 'static_dns',
+      value: '1.1.1.1',
+    });
+
+    const imageVar = new HostVariable(this, 'group-pihole-image', {
+      name: 'pihole_image',
+      value: 'pihole/pihole:2023.05.2',
+    });
+
+    const ftlDbDaysVar = new HostVariable(this, 'group-pihole-ftl-max-db-days', {
+      name: 'pihole_ftl_max_db_days',
+      value: '180',
+    });
+
+    const webpassVar = new HostVariable(this, 'group-pihole-webpassword', {
+      name: 'pihole_webpassword',
+      value: 'Intranet',
+    });
+
+    const dnsVar = new HostVariable(this, 'group-pihole-dns', {
+      name: 'pihole_dns',
+      value: '1.1.1.1;2606:4700:4700::1111',
+    });
+
+    const revServerVar = new HostVariable(this, 'group-pihole-rev-server', {
+      name: 'pihole_rev_server',
+      value: 'true',
+    });
+
+    const domainVar = new HostVariable(this, 'group-pihole-rev-server-domain', {
+      name: 'pihole_rev_server_domain',
+      value: 'fritz.box',
+    });
+
+    const revServerTarget = new HostVariable(this, 'group-pihole-rev-server-target', {
+      name: 'pihole_rev_server_target',
+      value: '192.168.178.1',
+    });
+
+    const revServerCidr = new HostVariable(this, 'group-pihole-rev-server-cidr', {
+      name: 'pihole_rev_server_cidr',
+      value: '192.168.178.0/24',
+    });
+
+    const haModeVar = new HostVariable(this, 'group-pihole-ha-mode', {
+      name: 'pihole_ha_mode',
+      value: 'yes',
+    });
+
+    const ipv4Var = new HostVariable(this, 'group-pihole-vip-ipv4', {
+      name: 'pihole_vip_ipv4',
+      value: '192.168.178.10/24',
+    });
+
+    const ipv6Var = new HostVariable(this, 'group-pihole-vip-ipv6', {
+      name: 'pihole_vip_ipv6',
+      value: 'fd00::10/64',
+    });
+
+    const syncTargetVar = new HostVariable(this, 'group-sync-target', {
+      name: 'sync_target',
+      value: "{{ pihole_vip_ipv4.split('/')[0] }}",
+    });
+
+    const variables = [
+      userVar,
+      passVar,
+      pythonVar,
+      githubUserVar,
+      timezoneVar,
+      staticDnsVar,
+      imageVar,
+      ftlDbDaysVar,
+      webpassVar,
+      dnsVar,
+      revServerVar,
+      domainVar,
+      revServerTarget,
+      revServerCidr,
+      haModeVar,
+      ipv4Var,
+      ipv6Var,
+      syncTargetVar,
+    ];
+
+    const inv = new PiholeInventory(this, 'pihole-inventory', {
+      variables: variables,
     });
 
     const flushHandlers = new Task(this, 'flush-handlers', {
@@ -45,7 +150,7 @@ export class PiholeHaProject extends Project {
       }),
     });
 
-    const bootstrapRole = this.makeBootstrapRole(flushHandlers);
+    const bootstrapRole = this.makeBootstrapRole(flushHandlers, timezoneVar, staticDnsVar, githubUserVar);
     const dockerRole = this.makeDockerRole(flushHandlers);
     const keepalivedRole = this.makeKeepalivedRole(flushHandlers);
     const piholeRole = this.makePiholeRole();
@@ -57,7 +162,7 @@ export class PiholeHaProject extends Project {
 
     const initPiPlay = new Play(this, 'init-pi', { // TODO: make tasks not generate if there are none
       name: 'Init Pi',
-      hosts: [host],
+      hosts: inv.inventory.hosts,
       become: true,
       serial: 1,
       roles: RoleTarget.fromRole(this, 'init-stop-keepalived', stopKeepAlivedRole)
@@ -75,7 +180,7 @@ export class PiholeHaProject extends Project {
 
     const keepalivedFailoverPlay = new Play(this, 'keepalived-failover-play', {
       name: 'Keepalived failover',
-      hosts: [host],
+      hosts: inv.inventory.hosts,
       become: true,
       serial: 1,
       roles: RoleTarget.fromRole(this, 'keepalived-failover-stop', stopKeepAlivedRole)
@@ -90,7 +195,7 @@ export class PiholeHaProject extends Project {
 
     const syncPlay = new Play(this, 'sync-play', {
       name: 'Sync',
-      hosts: [host],
+      hosts: inv.inventory.hosts,
       serial: 1,
       roles: RoleTarget.fromRole(this, 'sync-sync-target', syncRole),
     });
@@ -101,7 +206,7 @@ export class PiholeHaProject extends Project {
 
     const updatePlay = new Play(this, 'update-play', {
       name: 'Update',
-      hosts: [host],
+      hosts: inv.inventory.hosts,
       serial: 1,
       roles: RoleTarget.fromRole(this, 'update-stop-keepalived', stopKeepAlivedRole)
         .next(RoleTarget.fromRole(this, 'update-upgrade', updateRole))
@@ -114,7 +219,7 @@ export class PiholeHaProject extends Project {
     });
   }
 
-  private makeBootstrapRole(flush: Task) {
+  private makeBootstrapRole(flush: Task, timezone: HostVariable, staticDns: HostVariable, githubUser: HostVariable) {
     const reboot = new Handler(this, 'reboot-after-hostname', {
       action: new RebootAction({
         rebootTimeout: 300,
@@ -130,9 +235,9 @@ export class PiholeHaProject extends Project {
 
     const addSshKey = new Task(this, 'add-ssh-key', {
       action: new AuthorizedKeyAction({
-        key: 'https://github.com/{{ github_user_for_ssh_key }}.keys',
+        key: `https://github.com/${githubUser.asVariable()}.keys`,
         user: MagicVariable.AnsibleUser,
-        comment: 'github{{ github_user_for_ssh_key }}',
+        comment: `github.${githubUser.asVariable()}}`,
       }),
     });
 
@@ -154,13 +259,13 @@ export class PiholeHaProject extends Project {
       action: new LineinfileAction({
         path: '/etc/timezone',
         regexp: '^',
-        line: SimpleVariable.of('timezone'),
+        line: timezone,
       }),
     });
 
     const setLocaltime = new Task(this, 'set-localtime', {
       action: new FileAction({
-        src: '/usr/share/zoneinfo/{{ timezone }}',
+        src: `/usr/share/zoneinfo/${timezone.asVariable()}`,
         path: '/etc/localtime',
         state: FileState.LINK,
       }),
@@ -179,7 +284,7 @@ export class PiholeHaProject extends Project {
       action: new LineinfileAction({
         path: '/etc/hosts',
         regexp: '^',
-        line: '127.0.0.1 {{ inventory_hostname }}',
+        line: `127.0.0.1 ${MagicVariable.InventoryHostname}}`,
       }),
       notify: [reboot],
     });
@@ -187,7 +292,7 @@ export class PiholeHaProject extends Project {
     const setCustomDns = new Task(this, 'set-custom-dns', {
       action: new BlockinfileAction({
         path: '/etc/dhcpcd.conf',
-        block: 'static domain_name_servers={{ static_dns }}',
+        block: `static domain_name_servers=${staticDns.asVariable()}`,
       }),
       notify: [restartDhcpcd],
     });
@@ -286,9 +391,9 @@ export class PiholeHaProject extends Project {
     // translated from https://github.com/shaderecker/ansible-pihole/blob/master/roles/pihole/tasks/main.yaml
     const createDirectory = new Task(this, 'create-directory', { // TODO: consider name overrider for task to set not as node id
       action: new FileAction({
-        path: '/home/{{ ansible_user }}/pihole', // TODO: think about making some sort of String wrapper that can be templated with a var?
+        path: `/home/${MagicVariable.AnsibleUser.asVariable()}/pihole`, // TODO: think about making some sort of String wrapper that can be templated with a var?
         owner: MagicVariable.AnsibleUser,
-        group: '{{ ansible_user }}',
+        group: MagicVariable.AnsibleUser,
         state: FileState.DIRECTORY,
         mode: '0755',
       }),
@@ -296,8 +401,8 @@ export class PiholeHaProject extends Project {
 
     const getIpv6Local = new Task(this, 'get-ipv6-local', {
       action: new SetFactAction({
-        keyValue: { // TODO: figure out how to make this better
-          ipv6: '{{ item.address }}', // TODO: consider ansible item wrapper that exposes these as properties and formats as the dynamic string
+        keyValue: {
+          ipv6: MagicVariable.Item.property('address'),
         },
       }),
       loop: "{{ vars['ansible_' + ansible_default_ipv6.interface | default(ansible_default_ipv4.interface)].ipv6 }}", // TODO: understand this :)
@@ -329,7 +434,7 @@ export class PiholeHaProject extends Project {
       when: Conditional.notBool('pihole_ha_mode'),
     });
 
-    const startDocker = new Task(this, 'start-update-docker', { // TODO: make docker task
+    const startDocker = new Task(this, 'start-update-docker', {
       action: new DockerContainerAction({
         name: 'pihole',
         image: '{{ pihole_image }}',
@@ -348,7 +453,7 @@ export class PiholeHaProject extends Project {
         },
         dnsServers: ['127.0.0.1', '{{ static_dns }}'],
         networkMode: 'host',
-        volumes: ['/home/{{ ansible_user }}/pihole/pihole/:/etc/pihole/', '/home/{{ ansible_user }}/pihole/dnsmasq.d/:/etc/dnsmasq.d/'], // TODO: make volume wrapper
+        volumes: ['/home/{{ ansible_user }}/pihole/pihole/:/etc/pihole/', '/home/{{ ansible_user }}/pihole/dnsmasq.d/:/etc/dnsmasq.d/'],
         logDriver: 'json-file',
         logOptions: {
           'max-size': '10m',
@@ -515,10 +620,10 @@ export class PiholeHaProject extends Project {
         state: ServiceState.STOPPED,
       }),
       register: 'result',
-      // failedWhen: [ // TODO: Make this a list on conditionals
-      //   'result.failed == true',
-      //   '"Could not find the requested service" not in result.msg'
-      // ],
+      failedWhen: [
+        Conditional.equal('result.failed', true),
+        Conditional.notIn('Could not find the requested service', 'result.msg'),
+      ],
     });
 
     return new Role(this, 'stop-keepalived-role', {

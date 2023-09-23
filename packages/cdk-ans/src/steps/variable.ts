@@ -5,10 +5,24 @@ export type AnsibleNumberInput = number | IVariable;
 export type AnsibleAnyInput = any | IVariable;
 
 /**
+ * Utility function to determine if an object implements the `IVariable` interface.
+ * @internal
+ */
+export function implementsVariable(obj: any): obj is IVariable {
+  return obj.asVariable !== undefined;
+}
+
+/**
  * A variable that can access any type of variable.
  */
 export interface IVariable {
-  asVariable(): string;
+  /**
+   * Returns the variable as an ansible variable string `{{ variable }}`.
+   */
+  asVariable(): string; //TODO: Maybe rename as `asTaskVariable`?
+  /**
+   * Returns the variable as a raw string.
+   */
   asRaw(): string;
   property(name: string): IVariable;
   index(index: number): IVariable;

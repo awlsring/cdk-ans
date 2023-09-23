@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Construct } from 'constructs';
 import { DirResult, dirSync } from 'tmp';
-import { App, Host, HostGroup, InventoryOutputType, Playbook, PlaybookOutputType, ProjectSynthesizer, Role, RoleTarget, Task } from '../src';
+import { App, Host, HostGroup, HostVariable, InventoryOutputType, Playbook, PlaybookOutputType, ProjectSynthesizer, Role, RoleTarget, Task } from '../src';
 import { File } from '../src/file/file';
 import { TemplateFile } from '../src/file/template';
 import { Project } from '../src/project';
@@ -68,72 +68,7 @@ describe('ProjectSynthesizer', () => {
     expect(fs.existsSync(path.join(tempDir.name, projectName, 'roles'))).toBe(false);
 
     // synyth should create playbooks
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'site.yaml'))).toBe(true);
     expect(fs.existsSync(path.join(tempDir.name, projectName, `${PLAYBOOK_NAME}.yaml`))).toBe(true);
-
-  });
-
-  test('can skip synth on site.yaml', () => {
-    const projectName = 'site-project';
-    const synthesizer = new ProjectSynthesizer({
-      playbookOptions: {
-        dontCreateSitePlaybook: true,
-      },
-    });
-    const app = new App({
-      outdir: tempDir.name,
-      synthesizer,
-    });
-
-    class TestProject extends Project {
-      constructor(scope: Construct, name: string) {
-        super(scope, name);
-
-        const host = new Host(this, 'test-host', {
-          host: 'localhost',
-        });
-        new Inventory(this, 'test-inv', {
-          hosts: [host],
-        });
-
-        const commandTask = new Task(this, 'test-ping', {
-          action: new TaskAction('command', {
-            cmd: 'echo',
-            argv: ['hello', 'world'],
-          }),
-        });
-
-        const role = new Role(this, ROLE_NAME, {
-          tasks: commandTask,
-        });
-
-        const play = new Play(this, 'test-play', {
-          hosts: [host],
-          roles: RoleTarget.fromRole(this, 'target', role),
-        });
-
-        new Playbook(this, PLAYBOOK_NAME, {
-          playDefinition: play,
-        });
-      }
-    }
-
-    new TestProject(app, projectName);
-
-    app.synth();
-
-    // inventories should exist and have a host.yaml
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'test-inv'))).toBe(true);
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'inventories', 'test-inv', 'hosts.yaml'))).toBe(true);
-
-    // role should be made with all possible dirs
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'roles', ROLE_NAME))).toBe(true);
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'roles', ROLE_NAME, 'tasks', 'main.yaml'))).toBe(true);
-
-    // synyth should create a playbook
-    expect(fs.existsSync(path.join(tempDir.name, projectName, `${PLAYBOOK_NAME}.yaml`))).toBe(true);
-    // and not site.yaml
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'site.yaml'))).toBe(false);
   });
 
   test('can synth a complex inventory', () => {
@@ -159,11 +94,15 @@ describe('ProjectSynthesizer', () => {
         const groupHost = new Host(this, 'group-host', {
           host: 'localhost',
         });
-        const hostGroup = new HostGroup(this, 'test-group');
-        hostGroup.addHosts(groupHost);
-        hostGroup.addVariables({
-          testVar: 'testValue',
+        const hostGroup = new HostGroup(this, 'test-group', {
+          variables: [
+            new HostVariable(this, 'testVar', {
+              name: 'test_var',
+              value: 'test',
+            }),
+          ],
         });
+        hostGroup.addHosts(groupHost);
 
         new Inventory(this, 'test-inv', {
           hosts: [host],
@@ -280,7 +219,6 @@ describe('ProjectSynthesizer', () => {
     app.synth();
 
     expect(fs.existsSync(path.join(tempDir.name, projectName, 'playbooks', `${PLAYBOOK_NAME}.yaml`))).toBe(true);
-    expect(fs.existsSync(path.join(tempDir.name, projectName, 'playbooks', 'site.yaml'))).toBe(true);
   });
 
   test('can synth a role with all possibilities', () => {

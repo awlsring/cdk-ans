@@ -1214,6 +1214,10 @@ public readonly listen: string;
 
 - *Implements:* <a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>
 
+Represents a host in an Ansible inventory.
+
+> [https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html#inventory-basics-formats-hosts-and-groups](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html#inventory-basics-formats-hosts-and-groups)
+
 #### Initializers <a name="Initializers" id="cdk-ans.Host.Initializer"></a>
 
 ```typescript
@@ -1253,6 +1257,7 @@ new Host(scope: Construct, name: string, props: HostProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.Host.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-ans.Host.addVariables">addVariables</a></code> | Assigns additional variables to this host. |
 | <code><a href="#cdk-ans.Host.toJson">toJson</a></code> | *No description.* |
 
 ---
@@ -1264,6 +1269,22 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `addVariables` <a name="addVariables" id="cdk-ans.Host.addVariables"></a>
+
+```typescript
+public addVariables(variables: HostVariable): void
+```
+
+Assigns additional variables to this host.
+
+###### `variables`<sup>Required</sup> <a name="variables" id="cdk-ans.Host.addVariables.parameter.variables"></a>
+
+- *Type:* <a href="#cdk-ans.HostVariable">HostVariable</a>
+
+A list of variables to add to this host.
+
+---
 
 ##### `toJson` <a name="toJson" id="cdk-ans.Host.toJson"></a>
 
@@ -1336,7 +1357,7 @@ Return whether the given object is a Host.
 | <code><a href="#cdk-ans.Host.property.ansibleConnection">ansibleConnection</a></code> | <code><a href="#cdk-ans.AnsibleConnection">AnsibleConnection</a></code> | *No description.* |
 | <code><a href="#cdk-ans.Host.property.ansibleHost">ansibleHost</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Host.property.identifier">identifier</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.Host.property.variables">variables</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+| <code><a href="#cdk-ans.Host.property.variables">variables</a></code> | <code><a href="#cdk-ans.HostVariable">HostVariable</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Host.property.ansibleBecome">ansibleBecome</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#cdk-ans.Host.property.ansiblePassword">ansiblePassword</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk-ans.Host.property.ansiblePort">ansiblePort</a></code> | <code>number</code> | *No description.* |
@@ -1389,10 +1410,10 @@ public readonly identifier: string;
 ##### `variables`<sup>Required</sup> <a name="variables" id="cdk-ans.Host.property.variables"></a>
 
 ```typescript
-public readonly variables: {[ key: string ]: string};
+public readonly variables: HostVariable[];
 ```
 
-- *Type:* {[ key: string ]: string}
+- *Type:* <a href="#cdk-ans.HostVariable">HostVariable</a>[]
 
 ---
 
@@ -1441,6 +1462,10 @@ public readonly ansibleUser: string;
 
 - *Implements:* <a href="#cdk-ans.IHostIdentifiable">IHostIdentifiable</a>
 
+A group of hosts in an Ansible inventory.
+
+> [https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#inventory-basics-formats-hosts-and-groups](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#inventory-basics-formats-hosts-and-groups)
+
 #### Initializers <a name="Initializers" id="cdk-ans.HostGroup.Initializer"></a>
 
 ```typescript
@@ -1480,11 +1505,10 @@ new HostGroup(scope: Construct, name: string, props?: HostGroupProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk-ans.HostGroup.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk-ans.HostGroup.addHosts">addHosts</a></code> | *No description.* |
-| <code><a href="#cdk-ans.HostGroup.addSubGroups">addSubGroups</a></code> | *No description.* |
-| <code><a href="#cdk-ans.HostGroup.addVariables">addVariables</a></code> | *No description.* |
-| <code><a href="#cdk-ans.HostGroup.toJson">toJson</a></code> | *No description.* |
-| <code><a href="#cdk-ans.HostGroup.toJsonMinimal">toJsonMinimal</a></code> | *No description.* |
+| <code><a href="#cdk-ans.HostGroup.addHosts">addHosts</a></code> | Assigns additional hosts to this group. |
+| <code><a href="#cdk-ans.HostGroup.addSubGroups">addSubGroups</a></code> | Assigns additional groups as subgroups to this group. |
+| <code><a href="#cdk-ans.HostGroup.addVariables">addVariables</a></code> | Assigns additional variables to this group. |
+| <code><a href="#cdk-ans.HostGroup.toJson">toJson</a></code> | JSONify this group. |
 
 ---
 
@@ -1502,9 +1526,13 @@ Returns a string representation of this construct.
 public addHosts(hosts: Host): void
 ```
 
+Assigns additional hosts to this group.
+
 ###### `hosts`<sup>Required</sup> <a name="hosts" id="cdk-ans.HostGroup.addHosts.parameter.hosts"></a>
 
 - *Type:* <a href="#cdk-ans.Host">Host</a>
+
+A list of hosts to add to this group.
 
 ---
 
@@ -1514,21 +1542,29 @@ public addHosts(hosts: Host): void
 public addSubGroups(groups: HostGroup): void
 ```
 
+Assigns additional groups as subgroups to this group.
+
 ###### `groups`<sup>Required</sup> <a name="groups" id="cdk-ans.HostGroup.addSubGroups.parameter.groups"></a>
 
 - *Type:* <a href="#cdk-ans.HostGroup">HostGroup</a>
+
+A list of groups to add as subgroups to this group.
 
 ---
 
 ##### `addVariables` <a name="addVariables" id="cdk-ans.HostGroup.addVariables"></a>
 
 ```typescript
-public addVariables(variables: {[ key: string ]: string}): void
+public addVariables(variables: HostVariable): void
 ```
+
+Assigns additional variables to this group.
 
 ###### `variables`<sup>Required</sup> <a name="variables" id="cdk-ans.HostGroup.addVariables.parameter.variables"></a>
 
-- *Type:* {[ key: string ]: string}
+- *Type:* <a href="#cdk-ans.HostVariable">HostVariable</a>
+
+A list of variables to add to this group.
 
 ---
 
@@ -1538,11 +1574,7 @@ public addVariables(variables: {[ key: string ]: string}): void
 public toJson(): {[ key: string ]: any}
 ```
 
-##### `toJsonMinimal` <a name="toJsonMinimal" id="cdk-ans.HostGroup.toJsonMinimal"></a>
-
-```typescript
-public toJsonMinimal(): {[ key: string ]: any}
-```
+JSONify this group.
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -1592,7 +1624,7 @@ Any object.
 | <code><a href="#cdk-ans.HostGroup.property.groups">groups</a></code> | <code>{[ key: string ]: <a href="#cdk-ans.HostGroup">HostGroup</a>}</code> | *No description.* |
 | <code><a href="#cdk-ans.HostGroup.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.HostGroup.property.identifier">identifier</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.HostGroup.property.variables">variables</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+| <code><a href="#cdk-ans.HostGroup.property.variables">variables</a></code> | <code><a href="#cdk-ans.HostVariable">HostVariable</a>[]</code> | *No description.* |
 
 ---
 
@@ -1641,15 +1673,200 @@ public readonly identifier: string;
 ##### `variables`<sup>Required</sup> <a name="variables" id="cdk-ans.HostGroup.property.variables"></a>
 
 ```typescript
-public readonly variables: {[ key: string ]: string};
+public readonly variables: HostVariable[];
 ```
 
-- *Type:* {[ key: string ]: string}
+- *Type:* <a href="#cdk-ans.HostVariable">HostVariable</a>[]
+
+---
+
+
+### HostVariable <a name="HostVariable" id="cdk-ans.HostVariable"></a>
+
+- *Implements:* <a href="#cdk-ans.IVariable">IVariable</a>
+
+#### Initializers <a name="Initializers" id="cdk-ans.HostVariable.Initializer"></a>
+
+```typescript
+import { HostVariable } from 'cdk-ans'
+
+new HostVariable(scope: Construct, id: string, props: HostVariableProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.HostVariable.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-ans.HostVariable.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.HostVariable.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-ans.HostVariableProps">HostVariableProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-ans.HostVariable.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk-ans.HostVariable.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="cdk-ans.HostVariable.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-ans.HostVariableProps">HostVariableProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.HostVariable.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-ans.HostVariable.asRaw">asRaw</a></code> | Returns the variable as a raw string. |
+| <code><a href="#cdk-ans.HostVariable.asVariable">asVariable</a></code> | Returns the variable as an ansible variable string `{{ variable }}`. |
+| <code><a href="#cdk-ans.HostVariable.index">index</a></code> | *No description.* |
+| <code><a href="#cdk-ans.HostVariable.property">property</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="cdk-ans.HostVariable.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `asRaw` <a name="asRaw" id="cdk-ans.HostVariable.asRaw"></a>
+
+```typescript
+public asRaw(): string
+```
+
+Returns the variable as a raw string.
+
+##### `asVariable` <a name="asVariable" id="cdk-ans.HostVariable.asVariable"></a>
+
+```typescript
+public asVariable(): string
+```
+
+Returns the variable as an ansible variable string `{{ variable }}`.
+
+##### `index` <a name="index" id="cdk-ans.HostVariable.index"></a>
+
+```typescript
+public index(_: number): IVariable
+```
+
+###### `_`<sup>Required</sup> <a name="_" id="cdk-ans.HostVariable.index.parameter._"></a>
+
+- *Type:* number
+
+---
+
+##### `property` <a name="property" id="cdk-ans.HostVariable.property"></a>
+
+```typescript
+public property(_: string): IVariable
+```
+
+###### `_`<sup>Required</sup> <a name="_" id="cdk-ans.HostVariable.property.parameter._"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk-ans.HostVariable.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk-ans.HostVariable.isConstruct"></a>
+
+```typescript
+import { HostVariable } from 'cdk-ans'
+
+HostVariable.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk-ans.HostVariable.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.HostVariable.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-ans.HostVariable.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.HostVariable.property.value">value</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk-ans.HostVariable.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.HostVariable.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="cdk-ans.HostVariable.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
 
 ---
 
 
 ### Inventory <a name="Inventory" id="cdk-ans.Inventory"></a>
+
+Represents an Ansible inventory.
+
+> [https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#inventory-basics-formats-hosts-and-groups](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#inventory-basics-formats-hosts-and-groups)
 
 #### Initializers <a name="Initializers" id="cdk-ans.Inventory.Initializer"></a>
 
@@ -1749,6 +1966,7 @@ Any object.
 | <code><a href="#cdk-ans.Inventory.property.groups">groups</a></code> | <code><a href="#cdk-ans.HostGroup">HostGroup</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Inventory.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
 | <code><a href="#cdk-ans.Inventory.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.Inventory.property.variables">variables</a></code> | <code><a href="#cdk-ans.HostVariable">HostVariable</a>[]</code> | *No description.* |
 
 ---
 
@@ -1791,6 +2009,16 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `variables`<sup>Required</sup> <a name="variables" id="cdk-ans.Inventory.property.variables"></a>
+
+```typescript
+public readonly variables: HostVariable[];
+```
+
+- *Type:* <a href="#cdk-ans.HostVariable">HostVariable</a>[]
 
 ---
 
@@ -5572,6 +5800,8 @@ public readonly listen: string;
 
 ### HostGroupProps <a name="HostGroupProps" id="cdk-ans.HostGroupProps"></a>
 
+Properties for a host group.
+
 #### Initializer <a name="Initializer" id="cdk-ans.HostGroupProps.Initializer"></a>
 
 ```typescript
@@ -5584,7 +5814,34 @@ const hostGroupProps: HostGroupProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-ans.HostGroupProps.property.identifier">identifier</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.HostGroupProps.property.groups">groups</a></code> | <code><a href="#cdk-ans.HostGroup">HostGroup</a>[]</code> | Subgroups of this group. |
+| <code><a href="#cdk-ans.HostGroupProps.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | Hosts in this group. |
+| <code><a href="#cdk-ans.HostGroupProps.property.identifier">identifier</a></code> | <code>string</code> | The identifier of the group. |
+| <code><a href="#cdk-ans.HostGroupProps.property.variables">variables</a></code> | <code><a href="#cdk-ans.HostVariable">HostVariable</a>[]</code> | Variables that will be set on all hosts in this group. |
+
+---
+
+##### `groups`<sup>Optional</sup> <a name="groups" id="cdk-ans.HostGroupProps.property.groups"></a>
+
+```typescript
+public readonly groups: HostGroup[];
+```
+
+- *Type:* <a href="#cdk-ans.HostGroup">HostGroup</a>[]
+
+Subgroups of this group.
+
+---
+
+##### `hosts`<sup>Optional</sup> <a name="hosts" id="cdk-ans.HostGroupProps.property.hosts"></a>
+
+```typescript
+public readonly hosts: Host[];
+```
+
+- *Type:* <a href="#cdk-ans.Host">Host</a>[]
+
+Hosts in this group.
 
 ---
 
@@ -5596,9 +5853,25 @@ public readonly identifier: string;
 
 - *Type:* string
 
+The identifier of the group.
+
+---
+
+##### `variables`<sup>Optional</sup> <a name="variables" id="cdk-ans.HostGroupProps.property.variables"></a>
+
+```typescript
+public readonly variables: HostVariable[];
+```
+
+- *Type:* <a href="#cdk-ans.HostVariable">HostVariable</a>[]
+
+Variables that will be set on all hosts in this group.
+
 ---
 
 ### HostProps <a name="HostProps" id="cdk-ans.HostProps"></a>
+
+Configuration for a host in an Ansible inventory.
 
 #### Initializer <a name="Initializer" id="cdk-ans.HostProps.Initializer"></a>
 
@@ -5612,14 +5885,14 @@ const hostProps: HostProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-ans.HostProps.property.host">host</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.HostProps.property.ansibleBecome">ansibleBecome</a></code> | <code>boolean</code> | *No description.* |
-| <code><a href="#cdk-ans.HostProps.property.ansiblePassword">ansiblePassword</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.HostProps.property.ansiblePort">ansiblePort</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk-ans.HostProps.property.ansibleUser">ansibleUser</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.HostProps.property.connectionType">connectionType</a></code> | <code><a href="#cdk-ans.AnsibleConnection">AnsibleConnection</a></code> | *No description.* |
-| <code><a href="#cdk-ans.HostProps.property.identifier">identifier</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-ans.HostProps.property.variables">variables</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
+| <code><a href="#cdk-ans.HostProps.property.host">host</a></code> | <code>string</code> | The hostname or IP address of the host. |
+| <code><a href="#cdk-ans.HostProps.property.ansibleBecome">ansibleBecome</a></code> | <code>boolean</code> | Whether to become privileged. |
+| <code><a href="#cdk-ans.HostProps.property.ansiblePassword">ansiblePassword</a></code> | <code>string</code> | The password to use to connect to the host. |
+| <code><a href="#cdk-ans.HostProps.property.ansiblePort">ansiblePort</a></code> | <code>number</code> | The port to connect to on the remote host. |
+| <code><a href="#cdk-ans.HostProps.property.ansibleUser">ansibleUser</a></code> | <code>string</code> | The user to connect to the host as. |
+| <code><a href="#cdk-ans.HostProps.property.connectionType">connectionType</a></code> | <code><a href="#cdk-ans.AnsibleConnection">AnsibleConnection</a></code> | The connection type to use to connect to the host. |
+| <code><a href="#cdk-ans.HostProps.property.identifier">identifier</a></code> | <code>string</code> | The identifier of the host on syntesis. |
+| <code><a href="#cdk-ans.HostProps.property.variables">variables</a></code> | <code><a href="#cdk-ans.HostVariable">HostVariable</a>[]</code> | Additional variables to set for the host. |
 
 ---
 
@@ -5631,6 +5904,8 @@ public readonly host: string;
 
 - *Type:* string
 
+The hostname or IP address of the host.
+
 ---
 
 ##### `ansibleBecome`<sup>Optional</sup> <a name="ansibleBecome" id="cdk-ans.HostProps.property.ansibleBecome"></a>
@@ -5640,6 +5915,11 @@ public readonly ansibleBecome: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* no become
+
+Whether to become privileged.
+
+> [https://docs.ansible.com/ansible/latest/user_guide/become.html](https://docs.ansible.com/ansible/latest/user_guide/become.html)
 
 ---
 
@@ -5650,6 +5930,11 @@ public readonly ansiblePassword: string;
 ```
 
 - *Type:* string
+- *Default:* no password
+
+The password to use to connect to the host.
+
+> [https://docs.ansible.com/ansible/latest/user_guide/connection_details.html#ssh-connection-variables](https://docs.ansible.com/ansible/latest/user_guide/connection_details.html#ssh-connection-variables)
 
 ---
 
@@ -5660,6 +5945,11 @@ public readonly ansiblePort: number;
 ```
 
 - *Type:* number
+- *Default:* the default port for the connection type
+
+The port to connect to on the remote host.
+
+> [https://docs.ansible.com/ansible/latest/user_guide/connection_details.html#connection-types](https://docs.ansible.com/ansible/latest/user_guide/connection_details.html#connection-types)
 
 ---
 
@@ -5671,6 +5961,8 @@ public readonly ansibleUser: string;
 
 - *Type:* string
 
+The user to connect to the host as.
+
 ---
 
 ##### `connectionType`<sup>Optional</sup> <a name="connectionType" id="cdk-ans.HostProps.property.connectionType"></a>
@@ -5680,6 +5972,9 @@ public readonly connectionType: AnsibleConnection;
 ```
 
 - *Type:* <a href="#cdk-ans.AnsibleConnection">AnsibleConnection</a>
+- *Default:* AnsibleConnection.SSH
+
+The connection type to use to connect to the host.
 
 ---
 
@@ -5690,20 +5985,66 @@ public readonly identifier: string;
 ```
 
 - *Type:* string
+- *Default:* the construct's id
+
+The identifier of the host on syntesis.
 
 ---
 
 ##### `variables`<sup>Optional</sup> <a name="variables" id="cdk-ans.HostProps.property.variables"></a>
 
 ```typescript
-public readonly variables: {[ key: string ]: string};
+public readonly variables: HostVariable[];
 ```
 
-- *Type:* {[ key: string ]: string}
+- *Type:* <a href="#cdk-ans.HostVariable">HostVariable</a>[]
+
+Additional variables to set for the host.
+
+---
+
+### HostVariableProps <a name="HostVariableProps" id="cdk-ans.HostVariableProps"></a>
+
+#### Initializer <a name="Initializer" id="cdk-ans.HostVariableProps.Initializer"></a>
+
+```typescript
+import { HostVariableProps } from 'cdk-ans'
+
+const hostVariableProps: HostVariableProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ans.HostVariableProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.HostVariableProps.property.value">value</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="cdk-ans.HostVariableProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `value`<sup>Required</sup> <a name="value" id="cdk-ans.HostVariableProps.property.value"></a>
+
+```typescript
+public readonly value: string;
+```
+
+- *Type:* string
 
 ---
 
 ### InventoryProps <a name="InventoryProps" id="cdk-ans.InventoryProps"></a>
+
+Properties for an Ansible inventory.
 
 #### Initializer <a name="Initializer" id="cdk-ans.InventoryProps.Initializer"></a>
 
@@ -5717,9 +6058,10 @@ const inventoryProps: InventoryProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-ans.InventoryProps.property.groups">groups</a></code> | <code><a href="#cdk-ans.HostGroup">HostGroup</a>[]</code> | *No description.* |
-| <code><a href="#cdk-ans.InventoryProps.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | *No description.* |
-| <code><a href="#cdk-ans.InventoryProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ans.InventoryProps.property.groups">groups</a></code> | <code><a href="#cdk-ans.HostGroup">HostGroup</a>[]</code> | Groups in the inventory. |
+| <code><a href="#cdk-ans.InventoryProps.property.hosts">hosts</a></code> | <code><a href="#cdk-ans.Host">Host</a>[]</code> | Hosts in the inventory. |
+| <code><a href="#cdk-ans.InventoryProps.property.name">name</a></code> | <code>string</code> | The name of the inventory. |
+| <code><a href="#cdk-ans.InventoryProps.property.variables">variables</a></code> | <code><a href="#cdk-ans.HostVariable">HostVariable</a>[]</code> | Inventory level variables that will be set on all hosts. |
 
 ---
 
@@ -5731,6 +6073,8 @@ public readonly groups: HostGroup[];
 
 - *Type:* <a href="#cdk-ans.HostGroup">HostGroup</a>[]
 
+Groups in the inventory.
+
 ---
 
 ##### `hosts`<sup>Optional</sup> <a name="hosts" id="cdk-ans.InventoryProps.property.hosts"></a>
@@ -5741,6 +6085,10 @@ public readonly hosts: Host[];
 
 - *Type:* <a href="#cdk-ans.Host">Host</a>[]
 
+Hosts in the inventory.
+
+Hosts added here are part of the top level "all" group.
+
 ---
 
 ##### `name`<sup>Optional</sup> <a name="name" id="cdk-ans.InventoryProps.property.name"></a>
@@ -5750,6 +6098,23 @@ public readonly name: string;
 ```
 
 - *Type:* string
+- *Default:* the name of the construct.
+
+The name of the inventory.
+
+---
+
+##### `variables`<sup>Optional</sup> <a name="variables" id="cdk-ans.InventoryProps.property.variables"></a>
+
+```typescript
+public readonly variables: HostVariable[];
+```
+
+- *Type:* <a href="#cdk-ans.HostVariable">HostVariable</a>[]
+
+Inventory level variables that will be set on all hosts.
+
+> [https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html#adding-variables-to-inventory](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html#adding-variables-to-inventory)
 
 ---
 
@@ -6841,22 +7206,8 @@ const synthesizePlaybookOptions: SynthesizePlaybookOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-ans.SynthesizePlaybookOptions.property.dontCreateSitePlaybook">dontCreateSitePlaybook</a></code> | <code>boolean</code> | If a `site.yaml` should be created that includes all playbooks. |
 | <code><a href="#cdk-ans.SynthesizePlaybookOptions.property.outDir">outDir</a></code> | <code>string</code> | Where synthezied playbooks should be saved. |
 | <code><a href="#cdk-ans.SynthesizePlaybookOptions.property.playbookOutputType">playbookOutputType</a></code> | <code><a href="#cdk-ans.PlaybookOutputType">PlaybookOutputType</a></code> | How to organzie playbook output. |
-
----
-
-##### `dontCreateSitePlaybook`<sup>Optional</sup> <a name="dontCreateSitePlaybook" id="cdk-ans.SynthesizePlaybookOptions.property.dontCreateSitePlaybook"></a>
-
-```typescript
-public readonly dontCreateSitePlaybook: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-If a `site.yaml` should be created that includes all playbooks.
 
 ---
 
@@ -7795,8 +8146,8 @@ new AnyVariable(name: string, parents?: string[])
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-ans.AnyVariable.asRaw">asRaw</a></code> | *No description.* |
-| <code><a href="#cdk-ans.AnyVariable.asVariable">asVariable</a></code> | *No description.* |
+| <code><a href="#cdk-ans.AnyVariable.asRaw">asRaw</a></code> | Returns the variable as a raw string. |
+| <code><a href="#cdk-ans.AnyVariable.asVariable">asVariable</a></code> | Returns the variable as an ansible variable string `{{ variable }}`. |
 | <code><a href="#cdk-ans.AnyVariable.index">index</a></code> | *No description.* |
 | <code><a href="#cdk-ans.AnyVariable.property">property</a></code> | *No description.* |
 
@@ -7808,11 +8159,15 @@ new AnyVariable(name: string, parents?: string[])
 public asRaw(): string
 ```
 
+Returns the variable as a raw string.
+
 ##### `asVariable` <a name="asVariable" id="cdk-ans.AnyVariable.asVariable"></a>
 
 ```typescript
 public asVariable(): string
 ```
+
+Returns the variable as an ansible variable string `{{ variable }}`.
 
 ##### `index` <a name="index" id="cdk-ans.AnyVariable.index"></a>
 
@@ -7927,8 +8282,8 @@ new BaseVariable(name: string, parents?: string[])
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-ans.BaseVariable.asRaw">asRaw</a></code> | *No description.* |
-| <code><a href="#cdk-ans.BaseVariable.asVariable">asVariable</a></code> | *No description.* |
+| <code><a href="#cdk-ans.BaseVariable.asRaw">asRaw</a></code> | Returns the variable as a raw string. |
+| <code><a href="#cdk-ans.BaseVariable.asVariable">asVariable</a></code> | Returns the variable as an ansible variable string `{{ variable }}`. |
 | <code><a href="#cdk-ans.BaseVariable.index">index</a></code> | *No description.* |
 | <code><a href="#cdk-ans.BaseVariable.property">property</a></code> | *No description.* |
 
@@ -7940,11 +8295,15 @@ new BaseVariable(name: string, parents?: string[])
 public asRaw(): string
 ```
 
+Returns the variable as a raw string.
+
 ##### `asVariable` <a name="asVariable" id="cdk-ans.BaseVariable.asVariable"></a>
 
 ```typescript
 public asVariable(): string
 ```
+
+Returns the variable as an ansible variable string `{{ variable }}`.
 
 ##### `index` <a name="index" id="cdk-ans.BaseVariable.index"></a>
 
@@ -8569,8 +8928,8 @@ new DictionaryVariable(name: string, parents?: string[])
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-ans.DictionaryVariable.asRaw">asRaw</a></code> | *No description.* |
-| <code><a href="#cdk-ans.DictionaryVariable.asVariable">asVariable</a></code> | *No description.* |
+| <code><a href="#cdk-ans.DictionaryVariable.asRaw">asRaw</a></code> | Returns the variable as a raw string. |
+| <code><a href="#cdk-ans.DictionaryVariable.asVariable">asVariable</a></code> | Returns the variable as an ansible variable string `{{ variable }}`. |
 | <code><a href="#cdk-ans.DictionaryVariable.index">index</a></code> | *No description.* |
 | <code><a href="#cdk-ans.DictionaryVariable.property">property</a></code> | *No description.* |
 
@@ -8582,11 +8941,15 @@ new DictionaryVariable(name: string, parents?: string[])
 public asRaw(): string
 ```
 
+Returns the variable as a raw string.
+
 ##### `asVariable` <a name="asVariable" id="cdk-ans.DictionaryVariable.asVariable"></a>
 
 ```typescript
 public asVariable(): string
 ```
+
+Returns the variable as an ansible variable string `{{ variable }}`.
 
 ##### `index` <a name="index" id="cdk-ans.DictionaryVariable.index"></a>
 
@@ -8699,8 +9062,8 @@ new ListVariable(name: string, parents?: string[])
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-ans.ListVariable.asRaw">asRaw</a></code> | *No description.* |
-| <code><a href="#cdk-ans.ListVariable.asVariable">asVariable</a></code> | *No description.* |
+| <code><a href="#cdk-ans.ListVariable.asRaw">asRaw</a></code> | Returns the variable as a raw string. |
+| <code><a href="#cdk-ans.ListVariable.asVariable">asVariable</a></code> | Returns the variable as an ansible variable string `{{ variable }}`. |
 | <code><a href="#cdk-ans.ListVariable.index">index</a></code> | *No description.* |
 | <code><a href="#cdk-ans.ListVariable.property">property</a></code> | *No description.* |
 
@@ -8712,11 +9075,15 @@ new ListVariable(name: string, parents?: string[])
 public asRaw(): string
 ```
 
+Returns the variable as a raw string.
+
 ##### `asVariable` <a name="asVariable" id="cdk-ans.ListVariable.asVariable"></a>
 
 ```typescript
 public asVariable(): string
 ```
+
+Returns the variable as an ansible variable string `{{ variable }}`.
 
 ##### `index` <a name="index" id="cdk-ans.ListVariable.index"></a>
 
@@ -9780,8 +10147,8 @@ new SimpleVariable(name: string, parents?: string[])
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-ans.SimpleVariable.asRaw">asRaw</a></code> | *No description.* |
-| <code><a href="#cdk-ans.SimpleVariable.asVariable">asVariable</a></code> | *No description.* |
+| <code><a href="#cdk-ans.SimpleVariable.asRaw">asRaw</a></code> | Returns the variable as a raw string. |
+| <code><a href="#cdk-ans.SimpleVariable.asVariable">asVariable</a></code> | Returns the variable as an ansible variable string `{{ variable }}`. |
 | <code><a href="#cdk-ans.SimpleVariable.index">index</a></code> | *No description.* |
 | <code><a href="#cdk-ans.SimpleVariable.property">property</a></code> | *No description.* |
 
@@ -9793,11 +10160,15 @@ new SimpleVariable(name: string, parents?: string[])
 public asRaw(): string
 ```
 
+Returns the variable as a raw string.
+
 ##### `asVariable` <a name="asVariable" id="cdk-ans.SimpleVariable.asVariable"></a>
 
 ```typescript
 public asVariable(): string
 ```
+
+Returns the variable as an ansible variable string `{{ variable }}`.
 
 ##### `index` <a name="index" id="cdk-ans.SimpleVariable.index"></a>
 
@@ -10328,7 +10699,7 @@ public readonly chain: Step[];
 
 ### IVariable <a name="IVariable" id="cdk-ans.IVariable"></a>
 
-- *Implemented By:* <a href="#cdk-ans.AnyVariable">AnyVariable</a>, <a href="#cdk-ans.BaseVariable">BaseVariable</a>, <a href="#cdk-ans.DictionaryVariable">DictionaryVariable</a>, <a href="#cdk-ans.ListVariable">ListVariable</a>, <a href="#cdk-ans.SimpleVariable">SimpleVariable</a>, <a href="#cdk-ans.IVariable">IVariable</a>
+- *Implemented By:* <a href="#cdk-ans.AnyVariable">AnyVariable</a>, <a href="#cdk-ans.BaseVariable">BaseVariable</a>, <a href="#cdk-ans.DictionaryVariable">DictionaryVariable</a>, <a href="#cdk-ans.HostVariable">HostVariable</a>, <a href="#cdk-ans.ListVariable">ListVariable</a>, <a href="#cdk-ans.SimpleVariable">SimpleVariable</a>, <a href="#cdk-ans.IVariable">IVariable</a>
 
 A variable that can access any type of variable.
 
@@ -10336,8 +10707,8 @@ A variable that can access any type of variable.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-ans.IVariable.asRaw">asRaw</a></code> | *No description.* |
-| <code><a href="#cdk-ans.IVariable.asVariable">asVariable</a></code> | *No description.* |
+| <code><a href="#cdk-ans.IVariable.asRaw">asRaw</a></code> | Returns the variable as a raw string. |
+| <code><a href="#cdk-ans.IVariable.asVariable">asVariable</a></code> | Returns the variable as an ansible variable string `{{ variable }}`. |
 | <code><a href="#cdk-ans.IVariable.index">index</a></code> | *No description.* |
 | <code><a href="#cdk-ans.IVariable.property">property</a></code> | *No description.* |
 
@@ -10349,11 +10720,15 @@ A variable that can access any type of variable.
 public asRaw(): string
 ```
 
+Returns the variable as a raw string.
+
 ##### `asVariable` <a name="asVariable" id="cdk-ans.IVariable.asVariable"></a>
 
 ```typescript
 public asVariable(): string
 ```
+
+Returns the variable as an ansible variable string `{{ variable }}`.
 
 ##### `index` <a name="index" id="cdk-ans.IVariable.index"></a>
 
@@ -10383,6 +10758,10 @@ public property(name: string): IVariable
 ## Enums <a name="Enums" id="Enums"></a>
 
 ### AnsibleConnection <a name="AnsibleConnection" id="cdk-ans.AnsibleConnection"></a>
+
+The connection type to use to connect to the host.
+
+> [https://docs.ansible.com/ansible/latest/user_guide/connection_details.html#connection-types](https://docs.ansible.com/ansible/latest/user_guide/connection_details.html#connection-types)
 
 #### Members <a name="Members" id="Members"></a>
 
