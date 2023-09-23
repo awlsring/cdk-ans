@@ -66,6 +66,7 @@ const cdkans = new JsiiProject({
     moduleName: "github.com/awlsring/cdk-ans",
   },
 });
+cdkans.gitattributes.addAttributes("**/test/resources/*", "linguist-generated");
 cdkans.package.addPackageResolutions("@types/lodash@4.14.192");
 
 const cdkansCli = new TypeScriptProject({
@@ -108,6 +109,10 @@ const cdkansCli = new TypeScriptProject({
   ],
   gitignore: ["tmp/*", "dist-test/*"],
 });
+cdkansCli.gitattributes.addAttributes(
+  "**/test/resources/*",
+  "linguist-generated",
+);
 cdkansCli.deps.removeDependency("@types/node", DependencyType.BUILD);
 cdkansCli.deps.addDependency("@types/node@^16", DependencyType.RUNTIME);
 
