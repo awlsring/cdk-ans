@@ -221,12 +221,14 @@ export class PiholeHaProject extends Project {
 
   private makeBootstrapRole(flush: Task, timezone: HostVariable, staticDns: HostVariable, githubUser: HostVariable) {
     const reboot = new Handler(this, 'reboot-after-hostname', {
+      name: 'Reboot after hostname change',
       action: new RebootAction({
         rebootTimeout: 300,
       }),
     });
 
     const restartDhcpcd = new Handler(this, 'restart-dhcpcd', {
+      name: 'Restart dhcpcd',
       action: new ServiceAction({
         name: 'dhcpcd',
         state: ServiceState.RESTARTED,
@@ -234,6 +236,7 @@ export class PiholeHaProject extends Project {
     });
 
     const addSshKey = new Task(this, 'add-ssh-key', {
+      name: 'Add SSH Key',
       action: new AuthorizedKeyAction({
         key: `https://github.com/${githubUser.asVariable()}.keys`,
         user: MagicVariable.AnsibleUser,
@@ -242,6 +245,7 @@ export class PiholeHaProject extends Project {
     });
 
     const lockPassword = new Task(this, 'lock-password', {
+      name: 'Lock password for user',
       action: new UserAction({
         name: MagicVariable.AnsibleUser,
         passwordLock: true,
@@ -249,13 +253,35 @@ export class PiholeHaProject extends Project {
     });
 
     const bashrcForUser = new Task(this, 'bashrc-for-user', {
+      name: 'Add bashrc for user',
       action: new BlockinfileAction({
         path: `/home/${MagicVariable.AnsibleUser.asVariable()}/.bashrc`,
         block: 'alias ll=\'ls -la\'',
       }),
     });
 
+    const bashrcForRoot = new Task(this, 'bashrc-for-rc', {
+      name: 'Add bashrc for root',
+      action: new BlockinfileAction({
+        path: `/home/${MagicVariable.AnsibleUser.asVariable()}/.bashrc`,
+        block: `export LS_OPTIONS='--color=auto'
+eval "\`dircolors\`"
+alias ls='ls $LS_OPTIONS'
+alias ll='ls $LS_OPTIONS -la'
+alias l='ls $LS_OPTIONS -lA'
+
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi`,
+      }),
+    });
+
     const setTimezone = new Task(this, 'set-timezone', {
+      name: 'Set timezone',
       action: new LineinfileAction({
         path: '/etc/timezone',
         regexp: '^',
@@ -264,6 +290,7 @@ export class PiholeHaProject extends Project {
     });
 
     const setLocaltime = new Task(this, 'set-localtime', {
+      name: 'Set localtime',
       action: new FileAction({
         src: `/usr/share/zoneinfo/${timezone.asVariable()}`,
         path: '/etc/localtime',
@@ -272,6 +299,7 @@ export class PiholeHaProject extends Project {
     });
 
     const setHostname = new Task(this, 'set-hostname', {
+      name: 'Set hostname',
       action: new LineinfileAction({
         path: '/etc/hostname',
         regexp: '^',
@@ -281,6 +309,7 @@ export class PiholeHaProject extends Project {
     });
 
     const setHosts = new Task(this, 'set-hosts', {
+      name: 'Set hosts',
       action: new LineinfileAction({
         path: '/etc/hosts',
         regexp: '^',
@@ -290,6 +319,7 @@ export class PiholeHaProject extends Project {
     });
 
     const setCustomDns = new Task(this, 'set-custom-dns', {
+      name: 'Set custom DNS',
       action: new BlockinfileAction({
         path: '/etc/dhcpcd.conf',
         block: `static domain_name_servers=${staticDns.asVariable()}`,
@@ -298,10 +328,12 @@ export class PiholeHaProject extends Project {
     });
 
     return new Role(this, 'bootstrap', {
-      handlers: [reboot],
+      name: 'bootstrap',
+      handlers: [reboot, restartDhcpcd],
       tasks: addSshKey
         .next(lockPassword)
         .next(bashrcForUser)
+        .next(bashrcForRoot)
         .next(setTimezone)
         .next(setLocaltime)
         .next(setHostname)
@@ -315,14 +347,15 @@ export class PiholeHaProject extends Project {
     // translated from https://github.com/shaderecker/ansible-pihole/blob/master/roles/docker/tasks/main.yaml
 
     const handler = new Handler(this, 'restart-docker', {
+      name: 'Restart docker',
       action: new ServiceAction({
         name: 'docker',
         state: ServiceState.RESTARTED,
       }),
     });
 
-
     const installDocker = new Task(this, 'install-dependencies', {
+      name: 'Install dependencies',
       action: new AptAction({
         name: ['gnupg2', 'software-properties-common'],
         forceAptGet: true,
@@ -330,6 +363,7 @@ export class PiholeHaProject extends Project {
     });
 
     const addDockerAptKey = new Task(this, 'add-docker-apt-key', {
+      name: 'Add docker apt key',
       action: new AptKeyAction({
         url: 'https://download.docker.com/linux/raspbian/gpg',
         id: '9DC858229FC7DD38854AE2D88D81803C0EBFCD88',
@@ -337,6 +371,7 @@ export class PiholeHaProject extends Project {
     });
 
     const addDockerAptRepo = new Task(this, 'add-docker-apt-repo', {
+      name: 'Add docker apt repo',
       action: new AptRepositoryAction({
         repo: 'deb https://download.docker.com/linux/raspbian {{ ansible_distribution_release }} stable',
         filename: 'docker',
@@ -344,6 +379,7 @@ export class PiholeHaProject extends Project {
     });
 
     const installDockerCe = new Task(this, 'install-docker-ce', {
+      name: 'Install docker-ce',
       action: new AptAction({
         name: ['docker-ce:armhf', 'python3-setuptools'],
         forceAptGet: true,
@@ -352,12 +388,14 @@ export class PiholeHaProject extends Project {
     });
 
     const installDockerPython = new Task(this, 'install-docker-python', {
+      name: 'Install docker python',
       action: new PipAction({
         name: ['docker'],
       }),
     });
 
     const addUserToDockerGroup = new Task(this, 'add-user-to-docker-group', {
+      name: 'Add user to docker group',
       action: new UserAction({
         name: MagicVariable.AnsibleUser,
         group: 'docker',
@@ -366,6 +404,7 @@ export class PiholeHaProject extends Project {
     });
 
     const enableDockerIpv6 = new Task(this, 'enable-docker-ipv6', {
+      name: 'Enable docker ipv6',
       action: new CopyAction({
         dest: '/etc/docker/daemon.json',
         content: '{ "ipv6": true, "fixed-cidr-v6": "2001:db8:1::/64" }',
@@ -375,6 +414,7 @@ export class PiholeHaProject extends Project {
     });
 
     return new Role(this, 'docker', {
+      name: 'docker',
       tasks: installDocker
         .next(addDockerAptKey)
         .next(addDockerAptRepo)
@@ -388,10 +428,10 @@ export class PiholeHaProject extends Project {
   }
 
   private makePiholeRole(): Role {
-    // translated from https://github.com/shaderecker/ansible-pihole/blob/master/roles/pihole/tasks/main.yaml
-    const createDirectory = new Task(this, 'create-directory', { // TODO: consider name overrider for task to set not as node id
+    const createDirectory = new Task(this, 'create-directory', {
+      name: 'Create directory',
       action: new FileAction({
-        path: `/home/${MagicVariable.AnsibleUser.asVariable()}/pihole`, // TODO: think about making some sort of String wrapper that can be templated with a var?
+        path: `/home/${MagicVariable.AnsibleUser.asVariable()}/pihole`,
         owner: MagicVariable.AnsibleUser,
         group: MagicVariable.AnsibleUser,
         state: FileState.DIRECTORY,
@@ -400,6 +440,7 @@ export class PiholeHaProject extends Project {
     });
 
     const getIpv6Local = new Task(this, 'get-ipv6-local', {
+      name: 'Get ipv6 local',
       action: new SetFactAction({
         keyValue: {
           ipv6: MagicVariable.Item.property('address'),
@@ -413,6 +454,7 @@ export class PiholeHaProject extends Project {
     });
 
     const determineHostIpsHa = new Task(this, 'determine-host-ips-ha', {
+      name: 'Determine host IPs',
       action: new SetFactAction({
         keyValue: {
           pihole_local_ipv4: "{{ pihole_vip_ipv4.split('/')[0] }}",
@@ -424,6 +466,7 @@ export class PiholeHaProject extends Project {
     });
 
     const determineHostIpSingle = new Task(this, 'determine-host-ips-single', {
+      name: 'Determine host IPs (Single)',
       action: new SetFactAction({
         keyValue: {
           pihole_local_ipv4: MagicVariable.AnsibleHost,
@@ -435,6 +478,7 @@ export class PiholeHaProject extends Project {
     });
 
     const startDocker = new Task(this, 'start-update-docker', {
+      name: 'Start/update docker',
       action: new DockerContainerAction({
         name: 'pihole',
         image: '{{ pihole_image }}',
@@ -463,6 +507,7 @@ export class PiholeHaProject extends Project {
     });
 
     const checkUri = new Task(this, 'check-uri', {
+      name: 'Check URI',
       action: new UriAction({
         url: 'http://localhost/admin',
       }),
@@ -473,6 +518,7 @@ export class PiholeHaProject extends Project {
     });
 
     const dockerPrune = new Task(this, 'docker-prune', {
+      name: 'Docker prune',
       action: new DockerPruneAction({
         images: true,
         imagesFilters: {
@@ -482,6 +528,7 @@ export class PiholeHaProject extends Project {
     });
 
     return new Role(this, 'pihole', {
+      name: 'pihole',
       tasks: createDirectory
         .next(getIpv6Local)
         .next(determineHostIpsHa)
@@ -528,6 +575,7 @@ export class PiholeHaProject extends Project {
     });
 
     const installKeepalived = new Task(this, 'install-keepalived', {
+      name: 'Install keepalived',
       action: new AptAction({
         name: ['keepalived'],
         forceAptGet: true,
@@ -535,6 +583,7 @@ export class PiholeHaProject extends Project {
     });
 
     const copyScript = new Task(this, 'copy-check-pihole.sh', {
+      name: 'Copy check_pihole.sh',
       action: new CopyAction({
         src: 'check-pihole.sh',
         dest: '/etc/keepalived/check_pihole.sh',
@@ -543,6 +592,7 @@ export class PiholeHaProject extends Project {
     });
 
     const configureKeepalived = new Task(this, 'configure-keepalived', {
+      name: 'Configure keepalived',
       action: new TemplateAction({
         src: 'keepalived.j2',
         dest: '/etc/keepalived/keepalived.conf',
@@ -587,6 +637,7 @@ export class PiholeHaProject extends Project {
     });
 
     return new Role(this, 'hardening-role', {
+      name: 'hardening',
       tasks: hardening
         .next(flush),
       handlers: [sshdHandler],
@@ -608,6 +659,7 @@ export class PiholeHaProject extends Project {
     });
 
     return new Role(this, 'start-keepalived-role', {
+      name: 'start_keepalived',
       tasks: start,
     });
   }
@@ -627,6 +679,7 @@ export class PiholeHaProject extends Project {
     });
 
     return new Role(this, 'stop-keepalived-role', {
+      name: 'stop_keepalived',
       tasks: start,
     });
   }
@@ -693,6 +746,7 @@ export class PiholeHaProject extends Project {
     });
 
     return new Role(this, 'sync-role', {
+      name: 'sync',
       tasks: sqlite
         .next(generateKey)
         .next(addKeyToOtherNodes)
@@ -732,6 +786,7 @@ export class PiholeHaProject extends Project {
     });
 
     return new Role(this, 'update-role', {
+      name: 'update',
       tasks: updateApt
         .next(checkReboot)
         .next(reboot),
