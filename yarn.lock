@@ -1351,9 +1351,9 @@
   integrity sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==
 
 "@types/node@^16":
-  version "16.18.53"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.53.tgz#21820fe4d5968aaf8071dabd1ee13d24ada1350a"
-  integrity sha512-vVmHeo4tpF8zsknALU90Hh24VueYdu45ZlXzYWFbom61YR4avJqTFDC3QlWzjuTdAv6/3xHaxiO9NrtVZXrkmw==
+  version "16.18.54"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.54.tgz#4a63bdcea5b714f546aa27406a1c60621236a132"
+  integrity sha512-oTmGy68gxZZ21FhTJVVvZBYpQHEBZxHKTsGshobMqm9qWpbqdZsA5jvsuPZcHu0KwpmLrOHWPdEfg7XDpNT9UA==
 
 "@types/node@^16.9.2":
   version "16.18.39"
@@ -1496,7 +1496,6 @@
     tslib "^2.4.0"
 
 "@zkochan/js-yaml@0.0.6", "@zkochan/js-yaml@npm:js-yaml@4.1.0", js-yaml@4.1.0, js-yaml@^4.0.0, js-yaml@^4.1.0:
-  name "@zkochan/js-yaml"
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.1.0.tgz#c1fb65f8f5017901cdd2c951864ba18458a10602"
   integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
@@ -5909,9 +5908,9 @@ projen@^0.71.141, projen@^0.71.142, projen@^0.71.147:
     yargs "^17.7.2"
 
 projen@^0.73.0:
-  version "0.73.29"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.29.tgz#704a467a7458d1b9c60a73858448f207b4e1d1ea"
-  integrity sha512-Eiduyzuw0GriAx0B+yR1Ui5VRCvAa0x1MigT2jmzR9Kp8lbcCddy8WkUOdIySCIRuJvIFIEf5/uWOltCSmR8hg==
+  version "0.73.30"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.30.tgz#4eb0309094bc764c86c8b471f66d1c19771abf67"
+  integrity sha512-9+fpAIuwVaC+u1mQim5J8oStIwykS5wJXO/9KKM+h42XJIVBa0kPhcGn22tGcW23G7yBFaqL91hNoa8aPS6ADA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
