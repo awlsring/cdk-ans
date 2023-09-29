@@ -1797,10 +1797,10 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz#92f95616501069d07d10edb2fc37d3e1c65123b7"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
-aws-cdk-lib@^2.98.0:
-  version "2.98.0"
-  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.98.0.tgz#b1a5cbfa95e630e0440bc025c6281402db98965d"
-  integrity sha512-6APM6zVTCi59L/8lPX47DINlCD9ZG7OEQ28pD/ftmHZ8qC7AlBWwWqOfuSL+DyEbJBLcw3AZ2MLM1AMJPO+sVg==
+aws-cdk-lib@^2.99.0:
+  version "2.99.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.99.0.tgz#2bbd614ef84dfdcecb7db41dafebfe46f8b0e0af"
+  integrity sha512-SxCYjdzHJGi0s0xxD3OlojCgP02kzI9V/ME9XW6oX9K/zBIYiK+6SeGWzARobp9aAfDNQ8dKxWdCJb975DuZDA==
   dependencies:
     "@aws-cdk/asset-awscli-v1" "^2.2.200"
     "@aws-cdk/asset-kubectl-v20" "^2.1.2"
@@ -2091,10 +2091,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.143:
-  version "2.27.143"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.143.tgz#e11f834e019b51b3da73dbf3e3a20aff016e2611"
-  integrity sha512-hIkh/9Hi3hyAlxmv0A8r4xTrT90DoEJ0ip5WLVAoaWUVLMpQfkGht6YR3yMQpA+JIKdOZxeK/WHENAx7REV09g==
+cdk-nag@^2.27.144:
+  version "2.27.144"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.144.tgz#67e1d0d5ae8958ad0cfc08c7f8b9320952f0181d"
+  integrity sha512-XEbEpSTB5BN151uFOf+ltgUniZQODfwjThhQDGS2dvU3p3C2r1fakJVMITtlcXdnnp4l8OOsYBCptp2yE7sv3Q==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
@@ -5226,9 +5226,9 @@ minipass@^5.0.0:
   integrity sha512-3FnjYuehv9k6ovOEbyOswadCDPX1piCfhV8ncmYtHOjuPwylVWsghTLo7rabjC3Rx5xD4HDx8Wm1xnMF7S5qFQ==
 
 "minipass@^5.0.0 || ^6.0.2 || ^7.0.0", minipass@^7.0.3:
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/minipass/-/minipass-7.0.3.tgz#05ea638da44e475037ed94d1c7efcc76a25e1974"
-  integrity sha512-LhbbwCfz3vsb12j/WkWQPZfKTsgqIe1Nf/ti1pKjYESGLHIVjWU96G9/ljLH4F9mWNVhlQOm0VySdAWzf05dpg==
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/minipass/-/minipass-7.0.4.tgz#dbce03740f50a4786ba994c1fb908844d27b038c"
+  integrity sha512-jYofLM5Dam9279rdkWzqHozUo4ybjdZmCsDHePy5V/PbBcVMiSZR97gmAy45aqi8CK1lG2ECd356FU86avfwUQ==
 
 minizlib@^2.1.1, minizlib@^2.1.2:
   version "2.1.2"
@@ -5940,9 +5940,9 @@ projen@^0.71.141, projen@^0.71.142, projen@^0.71.147:
     yargs "^17.7.2"
 
 projen@^0.73.0:
-  version "0.73.34"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.34.tgz#40f1a0447e270d54f6f3923907d488822c452f5c"
-  integrity sha512-s7CE/QchFgX2IsCSBXF7xLrRCwG53UgtWfinCG2o8nOhEIbrYV7vZU1JPf0xughzYr+6cp3JL+Z35o30VTBOMw==
+  version "0.73.35"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.35.tgz#731340becd46faadbe44bd02416186b9ac500908"
+  integrity sha512-9ePu6/Hgby+RNiieAGTwepfdIdN2SdLmZaPxyrYyzaI2Nz4KmpZ8FWppfmV2PbqqfFxZGanmcxwGf4ySkkpmuw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
