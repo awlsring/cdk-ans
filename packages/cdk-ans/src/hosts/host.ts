@@ -24,7 +24,7 @@ export interface HostProps {
   */
   readonly host: string;
   /**
-  * The identifier of the host on syntesis
+  * The identifier of the host on synthesis
   *
   * @default - the construct's id
   */

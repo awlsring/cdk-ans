@@ -1,20 +1,51 @@
-import { App } from 'cdk-ans';
-import { PiholeHaProject } from './projects/pihole-ha/pihole-ha-project';
-import { TestProject } from './projects/test-project';
+import { AnsibleConnection, App, Host, HostVariable, Inventory, Play, Playbook, Project, Role, RoleTarget, Task, TaskAction } from 'cdk-ans';
 
-// const synth = new ProjectSynthesizer({
-//   inventoryOptions: {
-//     inventoryOutputType: InventoryOutputType.GROUP_AND_HOST_VAR_FILES,
-//   },
-// });
-
-// const app = new App({
-//   synthesizer: synth,
-// });
 const app = new App();
 
-new TestProject(app, 'test-project');
+const project = new Project(app, 'test-project');
 
-new PiholeHaProject(app, 'pihole-ha');
+// make the env
+const localhost = new Host(project, 'localhost', {
+  host: 'localhost',
+  connectionType: AnsibleConnection.LOCAL,
+  variables: [
+    new HostVariable(project, 'localhost-user', {
+      name: 'user',
+      value: 'awlsring',
+    }),
+  ],
+});
+new Inventory(project, 'inventory', {
+  hosts: [localhost],
+});
+
+// create the role
+const task = new Task(project, 'test-command', {
+  action: new TaskAction('command', {
+    cmd: 'echo "hello cdk day"',
+  }),
+});
+
+const task2 = new Task(project, 'test-command-2', {
+  action: new TaskAction('command', {
+    cmd: 'echo "hello again"',
+  }),
+});
+
+const role = new Role(project, 'echoer', {
+  name: 'echoer',
+  tasks: task.next(task2),
+});
+
+// define the playbook
+const play = new Play(project, 'play', {
+  name: 'Echo play',
+  hosts: [localhost],
+  roles: RoleTarget.fromRole(project, 'target', role),
+});
+
+new Playbook(project, 'playbook', {
+  playDefinition: play,
+});
 
 app.synth();

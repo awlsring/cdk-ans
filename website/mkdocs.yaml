@@ -1,0 +1,43 @@
+site_name: cdk-ans
+site_url: https://cdkans.io
+repo_url: https://github.com/awlsring/cdk-ans/
+docs_dir: ../docs
+nav: 
+  - Main: index.md
+  - Getting Started: getting-started.md
+  - Concepts:
+    - Overview: concepts/overview.md
+theme: 
+  name: material
+  palette:
+    - media: "(prefers-color-scheme)"
+      primary: deep-purple
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: deep-purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to system preference
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep-purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true

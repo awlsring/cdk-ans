@@ -3,6 +3,7 @@ import { NxMonorepoProject } from "@aws-prototyping-sdk/nx-monorepo";
 import { DependencyType } from "projen";
 import { JsiiProject } from "projen/lib/cdk";
 import { GithubCredentials } from "projen/lib/github";
+import { PythonProject } from "projen/lib/python";
 import { TypeScriptAppProject, TypeScriptProject } from "projen/lib/typescript";
 
 const monorepo = new NxMonorepoProject({
@@ -148,6 +149,40 @@ testProject.eslint?.addOverride({
       },
     ],
   },
+});
+
+const website = new PythonProject({
+  parent: monorepo,
+  moduleName: "nil",
+  name: "cdk-ans-docs",
+  authorName: "awlsring",
+  authorEmail: "awlsring@gmail.com",
+  version: "0.0.1",
+  outdir: "website",
+  deps: ["mkdocs", "mkdocs-material", "mkdocs-redirects"],
+});
+website.gitignore.addPatterns(
+  "tests",
+  "nil",
+  "site",
+  ".projen",
+  "project.json",
+  ".gitignore",
+  ".gitattributes",
+  "requirements.txt",
+  "requirements-dev.txt",
+);
+website.addTask("docs:bundle", {
+  description: "build the docs",
+  exec: "mkdocs build",
+});
+website.addTask("docs:serve", {
+  description: "serve the docs",
+  exec: "mkdocs serve",
+});
+website.addTask("docs:deploy", {
+  description: "deploy the docs",
+  exec: "mkdocs gh-deploy",
 });
 
 monorepo.synth();
