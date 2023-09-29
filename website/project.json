@@ -61,13 +61,6 @@
         "cwd": "website"
       }
     },
-    "docs:bundle": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "npx projen docs:bundle",
-        "cwd": "website"
-      }
-    },
     "docs:serve": {
       "executor": "nx:run-commands",
       "options": {

@@ -172,7 +172,8 @@ website.gitignore.addPatterns(
   "requirements.txt",
   "requirements-dev.txt",
 );
-website.addTask("docs:bundle", {
+website.removeTask("build");
+website.addTask("build", {
   description: "build the docs",
   exec: "mkdocs build",
 });

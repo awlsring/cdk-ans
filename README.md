@@ -7,11 +7,9 @@ This repository is a monorepo containing the following packages:
 * `cdk-ans` - The core framework for defining Ansible playbooks.
 * `cdk-ans-cli` - A CLI for working with cdk-ans. This currently only supports code generation for Anisble modules.
 
-The `website` dir contains mkdocs config to generate github pages for this project.
-
 ## Usage
 
-Documentation on how to use can be found in the [docs](./docs) directory.
+Documentation on how to use can be found in the [docs](./docs) directory or on [cdkans.io](https://cdkans.io).
 
 ## Roadmap
 
@@ -19,5 +17,5 @@ Currently this project is in alpha. Most critical features for defining playbook
 
 Some future feature targets are...
 
-* Pregenerated modules as consumable constrcut libraries.
+* Pregenerated modules as consumable construct libraries.
 * Project template generation

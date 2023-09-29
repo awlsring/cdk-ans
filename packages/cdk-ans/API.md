@@ -1,4 +1,8 @@
 # cdk-ans
+
+This package contains the core code to define Ansible playbooks as CDK.
+
+It is part of the larger repo [cdk-ans](https://github.com/awlsring/cdk-ans) where documentation can be found.
 # API Reference <a name="API Reference" id="api-reference"></a>
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
@@ -5891,7 +5895,7 @@ const hostProps: HostProps = { ... }
 | <code><a href="#cdk-ans.HostProps.property.ansiblePort">ansiblePort</a></code> | <code>number</code> | The port to connect to on the remote host. |
 | <code><a href="#cdk-ans.HostProps.property.ansibleUser">ansibleUser</a></code> | <code>string</code> | The user to connect to the host as. |
 | <code><a href="#cdk-ans.HostProps.property.connectionType">connectionType</a></code> | <code><a href="#cdk-ans.AnsibleConnection">AnsibleConnection</a></code> | The connection type to use to connect to the host. |
-| <code><a href="#cdk-ans.HostProps.property.identifier">identifier</a></code> | <code>string</code> | The identifier of the host on syntesis. |
+| <code><a href="#cdk-ans.HostProps.property.identifier">identifier</a></code> | <code>string</code> | The identifier of the host on synthesis. |
 | <code><a href="#cdk-ans.HostProps.property.variables">variables</a></code> | <code><a href="#cdk-ans.HostVariable">HostVariable</a>[]</code> | Additional variables to set for the host. |
 
 ---
@@ -5987,7 +5991,7 @@ public readonly identifier: string;
 - *Type:* string
 - *Default:* the construct's id
 
-The identifier of the host on syntesis.
+The identifier of the host on synthesis.
 
 ---
 
