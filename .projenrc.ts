@@ -1,12 +1,12 @@
 import * as path from "path";
-import { NxMonorepoProject } from "@aws-prototyping-sdk/nx-monorepo";
+import { MonorepoTsProject } from "@aws/pdk/monorepo";
 import { DependencyType } from "projen";
 import { JsiiProject } from "projen/lib/cdk";
 import { GithubCredentials } from "projen/lib/github";
 import { PythonProject } from "projen/lib/python";
 import { TypeScriptAppProject, TypeScriptProject } from "projen/lib/typescript";
 
-const monorepo = new NxMonorepoProject({
+const monorepo = new MonorepoTsProject({
   defaultReleaseBranch: "main",
   name: "cdk-ans",
   projenrcTs: true,
@@ -24,7 +24,8 @@ const monorepo = new NxMonorepoProject({
     }),
   },
   devDeps: [
-    "@aws-prototyping-sdk/nx-monorepo@^0.19.2",
+    "@aws/pdk",
+    "@aws-prototyping-sdk/nx-monorepo",
     "eslint-plugin-header",
     "license-checker",
     "tmp",
