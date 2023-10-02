@@ -44,5 +44,5 @@ junit.xml
 !/.eslintrc.json
 .jsii
 tsconfig.json
-!/API.md
+!//Users/awlsring/Code/Test/cdk-ans/docs/cdk-ans-api.md
 !/project.json

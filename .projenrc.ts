@@ -37,6 +37,8 @@ monorepo.removeScript("postinstall");
 
 const cdkans = new JsiiProject({
   parent: monorepo,
+  docgen: true,
+  docgenFilePath: path.join(__dirname, "docs", "cdk-ans-api.md"),
   outdir: path.join("packages", "cdk-ans"),
   author: "Matthew Rawlings",
   authorAddress: "awlsring@gmail.com",
