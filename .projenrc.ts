@@ -33,6 +33,7 @@ const monorepo = new MonorepoTsProject({
   ],
   gitignore: [".vscode", "cdkans.yaml", ".DS_Store"],
 });
+monorepo.removeScript("postinstall");
 
 const cdkans = new JsiiProject({
   parent: monorepo,
