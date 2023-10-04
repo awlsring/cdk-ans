@@ -54,10 +54,10 @@
         "cwd": "website"
       }
     },
-    "build": {
+    "docs:build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx projen build",
+        "command": "npx projen docs:build",
         "cwd": "website"
       }
     },

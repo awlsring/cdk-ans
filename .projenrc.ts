@@ -177,7 +177,7 @@ website.gitignore.addPatterns(
   "requirements-dev.txt",
 );
 website.removeTask("build");
-website.addTask("build", {
+website.addTask("docs:build", {
   description: "build the docs",
   exec: "mkdocs build",
 });

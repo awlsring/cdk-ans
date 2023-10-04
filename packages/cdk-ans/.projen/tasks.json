@@ -48,7 +48,7 @@
       "description": "Generate API.md from .jsii manifest",
       "steps": [
         {
-          "exec": "jsii-docgen -o /Users/awlsring/Code/Test/cdk-ans/docs/cdk-ans-api.md"
+          "exec": "jsii-docgen -o /Users/awlsring/Code/cdkans/docs/cdk-ans-api.md"
         }
       ]
     },
