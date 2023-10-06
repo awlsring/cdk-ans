@@ -1357,7 +1357,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/http-cache-semantics@^4.0.1":
+"@types/http-cache-semantics@^4.0.2":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@types/http-cache-semantics/-/http-cache-semantics-4.0.2.tgz#abe102d06ccda1efdf0ed98c10ccf7f36a785a41"
   integrity sha512-FD+nQWA2zJjh4L9+pFXqWOi0Hs1ryBCfI+985NjluQ1p8EYtoLvjLOKidXBtZ4/IcxDX4o8/E8qDS3540tNliw==
@@ -2090,11 +2090,11 @@ cacheable-lookup@^7.0.0:
   integrity sha512-+qJyx4xiKra8mZrcwhjMRMUhD5NR1R8esPkzIYxX96JiecFoxAXFuz/GpR3+ev4PE1WamHip78wV0vcmPQtp8w==
 
 cacheable-request@^10.2.8:
-  version "10.2.13"
-  resolved "https://registry.yarnpkg.com/cacheable-request/-/cacheable-request-10.2.13.tgz#b7012bb4a2acdb18cb54d2dff751d766b3500842"
-  integrity sha512-3SD4rrMu1msNGEtNSt8Od6enwdo//U9s4ykmXfA2TD58kcLkCobtCDiby7kNyj7a/Q7lz/mAesAFI54rTdnvBA==
+  version "10.2.14"
+  resolved "https://registry.yarnpkg.com/cacheable-request/-/cacheable-request-10.2.14.tgz#eb915b665fda41b79652782df3f553449c406b9d"
+  integrity sha512-zkDT5WAF4hSSoUgyfg5tFIxz8XQK+25W/TLVojJTMKBaxevLBBtLxgqguAuVQB8PVW79FVjHcU+GJ9tVbDZ9mQ==
   dependencies:
-    "@types/http-cache-semantics" "^4.0.1"
+    "@types/http-cache-semantics" "^4.0.2"
     get-stream "^6.0.1"
     http-cache-semantics "^4.1.1"
     keyv "^4.5.3"
@@ -2145,10 +2145,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.151:
-  version "2.27.151"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.151.tgz#da91d81c30e4012c1ebbe260dff669038246fac6"
-  integrity sha512-Vi95Z70tjmbAVc7MnGARt2sQhoMKt4ArekZeyrJasorKHroBuw5zkmeLOMIAg1j7kT2nnZfzl02G0dwQ5b8cGw==
+cdk-nag@^2.27.152:
+  version "2.27.152"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.152.tgz#b5bf73730b77c6e3f599d7bb7f1812ca28281894"
+  integrity sha512-2sQz2fptqVjnq42KWloNMr3p1weDT+Qy2snStiy/XsYso7dWY0k9Ju5+wFHE9ecMOQi04s6MixxLz9GL8H9VeQ==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2, chalk@^4.x:
   version "4.1.2"
@@ -3690,9 +3690,9 @@ globals@^11.1.0:
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
 
 globals@^13.19.0:
-  version "13.22.0"
-  resolved "https://registry.yarnpkg.com/globals/-/globals-13.22.0.tgz#0c9fcb9c48a2494fbb5edbfee644285543eba9d8"
-  integrity sha512-H1Ddc/PbZHTDVJSnj8kWptIRSD6AM3pK+mKytuIVF4uoBV7rshFlhhvA58ceJ5wp3Er58w6zj7bykMpYXt3ETw==
+  version "13.23.0"
+  resolved "https://registry.yarnpkg.com/globals/-/globals-13.23.0.tgz#ef31673c926a0976e1f61dab4dca57e0c0a8af02"
+  integrity sha512-XAmF0RjlrjY23MA51q3HltdlGxUpXPvg0GioKiD9X6HD28iMjo2dKC8Vqwm7lne4GNr78+RHTfliktR6ZH09wA==
   dependencies:
     type-fest "^0.20.2"
 
@@ -6176,9 +6176,9 @@ projen@^0.71.141, projen@^0.71.142, projen@^0.71.147:
     yargs "^17.7.2"
 
 projen@^0.73.0:
-  version "0.73.40"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.40.tgz#0010e5331bb73e4c4cdfc818d791936bdedaec4e"
-  integrity sha512-oxJpG4XGpK3jNMTNMF3vlEOT+hZBbu9gVfKrMjo/0YXMYclT8Uiqdg8lplOEWTUMmS5pYeKvQ8QG2ERciviekQ==
+  version "0.73.44"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.73.44.tgz#9c115b30dae298585026089480d1e8d44dc425f3"
+  integrity sha512-WnSwPfyNY1+V1it1gHF3BfArZ0aR0oED4KnFRWa7+j91/UxatSsZbu3I22dpVsd4EvdRdlO18UHlTODaq+XIhA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -6916,9 +6916,9 @@ spdx-expression-parse@^3.0.0:
     spdx-license-ids "^3.0.0"
 
 spdx-license-ids@^3.0.0:
-  version "3.0.15"
-  resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.15.tgz#142460aabaca062bc7cd4cc87b7d50725ed6a4ba"
-  integrity sha512-lpT8hSQp9jAKp9mhtBU4Xjon8LPGBvLIuBiSVhMEtmLecTh2mO0tlqrAMp47tBXzMr13NJMQ2lf7RpQGLJ3HsQ==
+  version "3.0.16"
+  resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.16.tgz#a14f64e0954f6e25cc6587bd4f392522db0d998f"
+  integrity sha512-eWN+LnM3GR6gPu35WxNgbGl8rmY1AEmoMDvL/QD6zYmPWgywxWqJWNdLGT+ke8dKNWrcYgYjPpG5gbTfghP8rw==
 
 spdx-license-list@^6.6.0:
   version "6.6.0"
