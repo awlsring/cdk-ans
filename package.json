@@ -47,8 +47,8 @@
     "nx": "^16"
   },
   "dependencies": {
-    "aws-cdk-lib": "^2.99.1",
-    "cdk-nag": "^2.27.152",
+    "aws-cdk-lib": "^2.100.0",
+    "cdk-nag": "^2.27.153",
     "constructs": "^10.2.70"
   },
   "resolutions": {
