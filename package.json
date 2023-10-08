@@ -48,8 +48,8 @@
   },
   "dependencies": {
     "aws-cdk-lib": "^2.100.0",
-    "cdk-nag": "^2.27.153",
-    "constructs": "^10.2.70"
+    "cdk-nag": "^2.27.154",
+    "constructs": "^10.3.0"
   },
   "resolutions": {
     "@types/babel__traverse": "7.18.2",
