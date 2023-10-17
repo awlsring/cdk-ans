@@ -6,7 +6,6 @@
     },
     {
       "name": "@aws/pdk",
-      "version": "^0",
       "type": "build"
     },
     {
