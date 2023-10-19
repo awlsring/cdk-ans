@@ -23,7 +23,7 @@
     "@aws-prototyping-sdk/nx-monorepo": "^0.19.2",
     "@aws/pdk": "^0",
     "@types/node": "^16",
-    "@types/tmp": "^0.2.4",
+    "@types/tmp": "^0.2.5",
     "@typescript-eslint/eslint-plugin": "^6",
     "@typescript-eslint/parser": "^6",
     "eslint": "^8",
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "aws-cdk-lib": "^2.101.1",
-    "cdk-nag": "^2.27.164",
+    "cdk-nag": "^2.27.165",
     "constructs": "^10.3.0"
   },
   "resolutions": {
