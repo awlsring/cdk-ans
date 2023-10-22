@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "aws-cdk-lib": "^2.102.0",
-    "cdk-nag": "^2.27.167",
+    "cdk-nag": "^2.27.168",
     "constructs": "^10.3.0"
   },
   "resolutions": {
