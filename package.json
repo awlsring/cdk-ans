@@ -17,6 +17,7 @@
     "upgrade": "npx projen upgrade",
     "upgrade-deps": "npx projen upgrade-deps",
     "watch": "npx projen watch",
+    "install:ci": "yarn projen install:ci",
     "synth-workspace": "yarn projen"
   },
   "devDependencies": {
@@ -48,7 +49,7 @@
   },
   "dependencies": {
     "aws-cdk-lib": "^2.103.1",
-    "cdk-nag": "^2.27.176",
+    "cdk-nag": "^2.27.177",
     "constructs": "^10.3.0"
   },
   "resolutions": {
