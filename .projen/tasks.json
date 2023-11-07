@@ -210,6 +210,9 @@
           "exec": "yarn syncpack fix-mismatches"
         },
         {
+          "exec": "rm yarn.lock"
+        },
+        {
           "exec": "yarn install"
         },
         {
