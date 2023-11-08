@@ -24,7 +24,7 @@
     "@aws-prototyping-sdk/nx-monorepo": "^0.19.2",
     "@aws/pdk": "^0",
     "@types/node": "^16",
-    "@types/tmp": "^0.2.5",
+    "@types/tmp": "^0.2.6",
     "@typescript-eslint/eslint-plugin": "^6",
     "@typescript-eslint/parser": "^6",
     "eslint": "^8",
@@ -50,7 +50,7 @@
   "dependencies": {
     "@aws-cdk/aws-cognito-identitypool-alpha": "latest",
     "aws-cdk-lib": "^2.104.0",
-    "cdk-nag": "^2.27.184"
+    "cdk-nag": "^2.27.185"
   },
   "resolutions": {
     "@types/babel__traverse": "7.18.2",
