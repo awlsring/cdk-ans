@@ -49,8 +49,8 @@
   },
   "dependencies": {
     "@aws-cdk/aws-cognito-identitypool-alpha": "latest",
-    "aws-cdk-lib": "^2.109.0",
-    "cdk-nag": "^2.27.192"
+    "aws-cdk-lib": "^2.110.0",
+    "cdk-nag": "^2.27.193"
   },
   "resolutions": {
     "@types/babel__traverse": "7.18.2",
