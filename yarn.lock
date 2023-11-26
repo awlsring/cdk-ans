@@ -483,9 +483,9 @@
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
 "@hpcc-js/wasm@^2.14.1":
-  version "2.14.1"
-  resolved "https://registry.yarnpkg.com/@hpcc-js/wasm/-/wasm-2.14.1.tgz#10e762652aa7ff2659e2b2a313f0998b4e8cfc6d"
-  integrity sha512-ncPvj0dEjoye8jD1NAwdThXlZ5mpuGRyRwaNWU6JVBgyT8TewVDmG+RAOXPysyaP1Ui8Lm7562W4KawZtPwa1A==
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/@hpcc-js/wasm/-/wasm-2.15.0.tgz#6a2e4c64909cb664de6ad25166577acc0ac31938"
+  integrity sha512-JBgUEqPdZiWEc3WFvVNfhndWOsjJ77GkXOLY4c7XUJZOGXnij74Dk5cwed6vS2FLdmJ5w/54lrsa4Eq+EPBAHw==
   dependencies:
     yargs "17.7.2"
 
@@ -2201,10 +2201,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.200:
-  version "2.27.200"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.200.tgz#405cf8f8fb47a2f3ef34ab26624f94a9a11ca1f4"
-  integrity sha512-d6g0R9IgcwnBO8TENNJqBb8k7FklccIPESVFr4BKzGmCiVcXoPmIbzaaTXDbKXaWIhgct/5AyfqsFrGZem7MMA==
+cdk-nag@^2.27.201:
+  version "2.27.201"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.201.tgz#f3ef2c9cd9e788f44c2787dbedc25a200000d2cf"
+  integrity sha512-XYlzd2WhdV8WABgSXuF51iiOHjCzG3mhCjAdld+fQstMdRcsfXA/seG7gAyeOAuRQQreM8NNH1gN2yEWSJQrVw==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2, chalk@^4.x:
   version "4.1.2"
