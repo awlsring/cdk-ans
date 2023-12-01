@@ -45,9 +45,9 @@
     semver "^7.5.1"
 
 "@aws/pdk@^0":
-  version "0.22.42"
-  resolved "https://registry.yarnpkg.com/@aws/pdk/-/pdk-0.22.42.tgz#47c0078f0406b336c75f607909b76951336479de"
-  integrity sha512-vWfICEhga9kDix2rDZT0bYD1R1qN6v6NjtirV/SKWzbUIeQ/qvYkV1Hu5n+Gnqpj+zrtHPgVXhsOkCuRSHla3w==
+  version "0.22.43"
+  resolved "https://registry.yarnpkg.com/@aws/pdk/-/pdk-0.22.43.tgz#3969b78c76fdaf4c426640d93e160d1983e5a564"
+  integrity sha512-9Yuxc9kxR2WDbfaS36gqXVuQJ/v3cvBNYCNIN2BvlwM657Ux3DCTBffgAXFWgNWbrVrWvwOviW5p0E3/0SsYEw==
   dependencies:
     "@hpcc-js/wasm" "^2.14.1"
     "@pnpm/reviewing.dependencies-hierarchy" "^2.1.3"
@@ -2201,10 +2201,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.203:
-  version "2.27.203"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.203.tgz#a1919604e307285812f1ec51609ca975c4bb61f0"
-  integrity sha512-ibXZuJeIqOLRdhui3iLhOyNm4zpzglEF2vZeL3PHPagpNkKr9ecf7J2XlMgEjnM606HblS/W0YiAgeax+r+OKw==
+cdk-nag@^2.27.204:
+  version "2.27.204"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.204.tgz#32dcef2ec4b034bb3309542f015540933043e863"
+  integrity sha512-JVMkiGIFuK/Yx8LrDh13SnNft1dCUJ7qKIqwSw5bZz+CnGcR2lEIneutX7uuMHUZASUNIZYJmHcvFeo7RaDDOw==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2, chalk@^4.x:
   version "4.1.2"
@@ -2680,7 +2680,7 @@ define-lazy-prop@^3.0.0:
   resolved "https://registry.yarnpkg.com/define-lazy-prop/-/define-lazy-prop-3.0.0.tgz#dbb19adfb746d7fc6d734a06b72f4a00d021255f"
   integrity sha512-N+MeXYoqr3pOgn8xfyRPREN7gHakLYjhsHhWGT3fWAiL4IkAt0iDw14QiiEm2bE30c5XX5q0FtAA3CK5f9/BUg==
 
-define-properties@^1.1.3, define-properties@^1.1.4, define-properties@^1.2.0:
+define-properties@^1.1.3, define-properties@^1.2.0, define-properties@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/define-properties/-/define-properties-1.2.1.tgz#10781cc616eb951a80a034bafcaa7377f6af2b6c"
   integrity sha512-8QmQKqEASLd5nx0U1B1okLElbUuuttJ/AnYmRXbbbGDWh6uS208EjD4Xqq/I9wK7u0v6O08XhTWnt5XtEbR6Dg==
@@ -5913,12 +5913,12 @@ object-keys@^1.1.1:
   integrity sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==
 
 object.assign@^4.1.4:
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/object.assign/-/object.assign-4.1.4.tgz#9673c7c7c351ab8c4d0b516f4343ebf4dfb7799f"
-  integrity sha512-1mxKf0e58bvyjSCtKYY4sRe9itRk3PJpquJOjeIkz885CczcI4IvJJDLPS72oowuSh+pBxUFROpX+TU++hxhZQ==
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/object.assign/-/object.assign-4.1.5.tgz#3a833f9ab7fdb80fc9e8d2300c803d216d8fdbb0"
+  integrity sha512-byy+U7gp+FVwmyzKPYhW2h5l3crpmGsxl7X2s8y43IgxvG4g3QZ6CffDtsNQy1WsmZpQbO+ybo0AlW7TY6DcBQ==
   dependencies:
-    call-bind "^1.0.2"
-    define-properties "^1.1.4"
+    call-bind "^1.0.5"
+    define-properties "^1.2.1"
     has-symbols "^1.0.3"
     object-keys "^1.1.1"
 
