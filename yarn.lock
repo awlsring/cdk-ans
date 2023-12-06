@@ -45,9 +45,9 @@
     semver "^7.5.1"
 
 "@aws/pdk@^0":
-  version "0.22.43"
-  resolved "https://registry.yarnpkg.com/@aws/pdk/-/pdk-0.22.43.tgz#3969b78c76fdaf4c426640d93e160d1983e5a564"
-  integrity sha512-9Yuxc9kxR2WDbfaS36gqXVuQJ/v3cvBNYCNIN2BvlwM657Ux3DCTBffgAXFWgNWbrVrWvwOviW5p0E3/0SsYEw==
+  version "0.22.44"
+  resolved "https://registry.yarnpkg.com/@aws/pdk/-/pdk-0.22.44.tgz#94e53193c51fd371c30b2155128da9f5da3900dc"
+  integrity sha512-+aFpoX1iJt8xSKJlHilvXRrToRAReM4fzOEhaVZzhU2aG+TqFu+FlhV6ZENZT5Ud0V3W9HR4M21wkcUyyEZfoA==
   dependencies:
     "@hpcc-js/wasm" "^2.14.1"
     "@pnpm/reviewing.dependencies-hierarchy" "^2.1.3"
@@ -1877,10 +1877,10 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz#92f95616501069d07d10edb2fc37d3e1c65123b7"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
-aws-cdk-lib@^2.113.0:
-  version "2.113.0"
-  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.113.0.tgz#dacc835f11c6df14bbe04746085f070bdde99eac"
-  integrity sha512-wZYooUd8nb3ADFtg1dSnsRt1MJmeqEK8cKOnPfCGCfm852YnVdb0qIEclURCQ4ygDJSuqiw9CE+xWVeTQTG6Dw==
+aws-cdk-lib@^2.114.0:
+  version "2.114.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.114.0.tgz#92af3afa55901592d5c79031b11dbf07dcdbf52b"
+  integrity sha512-6YRyr7+3PJd8D0elPX8v8psZBIuTjA/EcN6ydFXKjHNADUYgbU2IHpebOOila2XssOuZswOM8UgIfXchPHKs8g==
   dependencies:
     "@aws-cdk/asset-awscli-v1" "^2.2.201"
     "@aws-cdk/asset-kubectl-v20" "^2.1.2"
@@ -2201,10 +2201,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.207:
-  version "2.27.207"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.207.tgz#2158c743086631c0b5b7d3eca9401f39a1c7b431"
-  integrity sha512-KyO5xVnvhSsugW7v3D84wFSgUltm5XHwqT/gb4MA1q2IjWjusWkr1Hn+3AsNK3PP7knvVfYVSUq3aIcKDwZMIA==
+cdk-nag@^2.27.208:
+  version "2.27.208"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.208.tgz#553b021e138151eb8258afff5d12b76cc60d4076"
+  integrity sha512-Ul2w+oG062jyjmaZptLh981vjSOton3/D5G204O8bdYp7cjjhFE6EAISz0i+a8nRXELudOqEYYHxvvoO7wj76g==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2, chalk@^4.x:
   version "4.1.2"
