@@ -42,15 +42,15 @@
     "syncpack": "^10.9.3",
     "tmp": "^0.2.1",
     "ts-node": "^10.9.1",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
     "nx": "^16"
   },
   "dependencies": {
     "@aws-cdk/aws-cognito-identitypool-alpha": "latest",
-    "aws-cdk-lib": "^2.114.0",
-    "cdk-nag": "^2.27.208"
+    "aws-cdk-lib": "^2.114.1",
+    "cdk-nag": "^2.27.209"
   },
   "resolutions": {
     "@types/babel__traverse": "7.18.2",
