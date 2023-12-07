@@ -1632,9 +1632,9 @@ acorn-jsx@^5.3.2:
   integrity sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==
 
 acorn-walk@^8.1.1:
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-8.3.0.tgz#2097665af50fd0cf7a2dfccd2b9368964e66540f"
-  integrity sha512-FS7hV565M5l1R08MXqo8odwMTB02C2UqzB17RVgu9EyuYFBqJZ3/ZY97sQD5FewVu1UyDFc1yztUDrAwT0EypA==
+  version "8.3.1"
+  resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-8.3.1.tgz#2f10f5b69329d90ae18c58bf1fa8fccd8b959a43"
+  integrity sha512-TgUZgYvqZprrl7YldZNoa9OciCAyZR+Ejm9eXzKCmjsF5IKp/wgQ7Z/ZpjpGTIUPwrHQIcYeI8qDh4PsEwxMbw==
 
 acorn@^8.4.1, acorn@^8.9.0:
   version "8.11.2"
@@ -1877,10 +1877,10 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz#92f95616501069d07d10edb2fc37d3e1c65123b7"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
-aws-cdk-lib@^2.114.0:
-  version "2.114.0"
-  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.114.0.tgz#92af3afa55901592d5c79031b11dbf07dcdbf52b"
-  integrity sha512-6YRyr7+3PJd8D0elPX8v8psZBIuTjA/EcN6ydFXKjHNADUYgbU2IHpebOOila2XssOuZswOM8UgIfXchPHKs8g==
+aws-cdk-lib@^2.114.1:
+  version "2.114.1"
+  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.114.1.tgz#005a1d87eeaa1d2647e96b79e4d4fb71cbe11ce1"
+  integrity sha512-pJy+Sa3+s6K9I0CXYGU8J5jumw9uQEbl8zPK8EMA+A6hP9qb1JN+a8ohyw6a1O1cb4D5S6gwH+hE7Fq7hGPY3A==
   dependencies:
     "@aws-cdk/asset-awscli-v1" "^2.2.201"
     "@aws-cdk/asset-kubectl-v20" "^2.1.2"
@@ -2201,10 +2201,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.208:
-  version "2.27.208"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.208.tgz#553b021e138151eb8258afff5d12b76cc60d4076"
-  integrity sha512-Ul2w+oG062jyjmaZptLh981vjSOton3/D5G204O8bdYp7cjjhFE6EAISz0i+a8nRXELudOqEYYHxvvoO7wj76g==
+cdk-nag@^2.27.209:
+  version "2.27.209"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.209.tgz#a72097f87e9572da40cb5ac164dd65b99a068710"
+  integrity sha512-S3Fa39LVdf7x0A2tDnIzYmVxX6uEMhq3UZkE+kfi7dXZajZQMGM0WNix7ghmTLcllhC7L1RfpUW6IILOOPhr5w==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2, chalk@^4.x:
   version "4.1.2"
@@ -7696,10 +7696,10 @@ typescript@^5.1.6, typescript@~5.1.6:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.1.6.tgz#02f8ac202b6dad2c0dd5e0913745b47a37998274"
   integrity sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==
 
-typescript@^5.3.2:
-  version "5.3.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.2.tgz#00d1c7c1c46928c5845c1ee8d0cc2791031d4c43"
-  integrity sha512-6l+RyNy7oAHDfxC4FzSJcz9vnjTKxrLpDG5M2Vu4SHRVNg6xzqZp6LYSR9zjqQTu8DU/f5xwxUdADOkbrIX2gQ==
+typescript@^5.3.3:
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.3.tgz#b3ce6ba258e72e6305ba66f5c9b452aaee3ffe37"
+  integrity sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==
 
 typescript@next:
   version "5.2.0-dev.20230731"
