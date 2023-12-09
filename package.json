@@ -41,7 +41,7 @@
     "projen": "^0.73.0",
     "syncpack": "^10.9.3",
     "tmp": "^0.2.1",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
@@ -50,7 +50,7 @@
   "dependencies": {
     "@aws-cdk/aws-cognito-identitypool-alpha": "latest",
     "aws-cdk-lib": "^2.114.1",
-    "cdk-nag": "^2.27.210"
+    "cdk-nag": "^2.27.211"
   },
   "resolutions": {
     "@types/babel__traverse": "7.18.2",

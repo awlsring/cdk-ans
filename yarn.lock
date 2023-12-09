@@ -483,9 +483,9 @@
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
 "@hpcc-js/wasm@^2.14.1":
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/@hpcc-js/wasm/-/wasm-2.15.0.tgz#6a2e4c64909cb664de6ad25166577acc0ac31938"
-  integrity sha512-JBgUEqPdZiWEc3WFvVNfhndWOsjJ77GkXOLY4c7XUJZOGXnij74Dk5cwed6vS2FLdmJ5w/54lrsa4Eq+EPBAHw==
+  version "2.15.1"
+  resolved "https://registry.yarnpkg.com/@hpcc-js/wasm/-/wasm-2.15.1.tgz#46ed7a1c1260604d871fc499ca74c894e0a7d0ed"
+  integrity sha512-sCD7LmQKF7j+dO5cyI+l1D6ht2bZMz26pYJ0q91E+zB9ufOTh17L5GvI0FWPpjPQ+Mo6QrVXkKcX0S1/Sb7LIw==
   dependencies:
     yargs "17.7.2"
 
@@ -2201,10 +2201,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.210:
-  version "2.27.210"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.210.tgz#3e717f2d16d05e3bbb9bd8c249124af872feee4f"
-  integrity sha512-RD2l1sRnaZfZgUpfoReqCn64+psW4dKFnLyPyJpss04e/iI+Mu2k58wNN+njk+nz0QDgHmohhVw003oxi+Ycug==
+cdk-nag@^2.27.211:
+  version "2.27.211"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.211.tgz#1aca5b4d5f5a2366772a0eb2ef9ce09427786bd9"
+  integrity sha512-k2zVv8gk0N/IX5kTZ0uxP+izy3oN0Wv5xoTjIzNil+KCUxRPamMddDSXHgERvEoX0Gws+PLUrpXCzFZdai4OfA==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2, chalk@^4.x:
   version "4.1.2"
@@ -7131,9 +7131,9 @@ streamroller@^3.1.5:
     fs-extra "^8.1.0"
 
 streamx@^2.15.0:
-  version "2.15.5"
-  resolved "https://registry.yarnpkg.com/streamx/-/streamx-2.15.5.tgz#87bcef4dc7f0b883f9359671203344a4e004c7f1"
-  integrity sha512-9thPGMkKC2GctCzyCUjME3yR03x2xNo0GPKGkRw2UMYN+gqWa9uqpyNWhmsNCutU5zHmkUum0LsCRQTXUgUCAg==
+  version "2.15.6"
+  resolved "https://registry.yarnpkg.com/streamx/-/streamx-2.15.6.tgz#28bf36997ebc7bf6c08f9eba958735231b833887"
+  integrity sha512-q+vQL4AAz+FdfT137VF69Cc/APqUbxy+MDOImRrMvchJpigHj9GksgDU2LYbO9rx7RX6osWgxJB2WxhYv4SZAw==
   dependencies:
     fast-fifo "^1.1.0"
     queue-tick "^1.0.1"
@@ -7510,10 +7510,10 @@ ts-jest@^29.1.1:
     semver "^7.5.3"
     yargs-parser "^21.0.1"
 
-ts-node@^10.9.1:
-  version "10.9.1"
-  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-10.9.1.tgz#e73de9102958af9e1f0b168a6ff320e25adcff4b"
-  integrity sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==
+ts-node@^10.9.1, ts-node@^10.9.2:
+  version "10.9.2"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-10.9.2.tgz#70f021c9e185bccdca820e26dc413805c101c71f"
+  integrity sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==
   dependencies:
     "@cspotcode/source-map-support" "^0.8.0"
     "@tsconfig/node10" "^1.0.7"
