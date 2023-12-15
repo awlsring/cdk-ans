@@ -32,7 +32,7 @@
     "eslint-import-resolver-node": "^0.3.9",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-header": "^3.1.1",
-    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.0.1",
     "license-checker": "^25.0.1",
     "npm-check-updates": "^16",
@@ -49,8 +49,8 @@
   },
   "dependencies": {
     "@aws-cdk/aws-cognito-identitypool-alpha": "latest",
-    "aws-cdk-lib": "^2.114.1",
-    "cdk-nag": "^2.27.215"
+    "aws-cdk-lib": "^2.115.0",
+    "cdk-nag": "^2.27.216"
   },
   "resolutions": {
     "@types/babel__traverse": "7.18.2",
