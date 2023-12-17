@@ -50,7 +50,7 @@
   "dependencies": {
     "@aws-cdk/aws-cognito-identitypool-alpha": "latest",
     "aws-cdk-lib": "^2.115.0",
-    "cdk-nag": "^2.27.217"
+    "cdk-nag": "^2.27.218"
   },
   "resolutions": {
     "@types/babel__traverse": "7.18.2",
