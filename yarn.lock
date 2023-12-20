@@ -45,9 +45,9 @@
     semver "^7.5.1"
 
 "@aws/pdk@^0":
-  version "0.22.46"
-  resolved "https://registry.yarnpkg.com/@aws/pdk/-/pdk-0.22.46.tgz#c544142b82df0f6932eeb3f8e715e741ff851a97"
-  integrity sha512-6b5vUQWkrYxfIM4JofHFz4xIQAQD9u+cn8UvEWfAqfpLNf4wDLbVKy0/DR+FBnqfmctj5cGiy3ZTYqrRfQ67Sw==
+  version "0.22.47"
+  resolved "https://registry.yarnpkg.com/@aws/pdk/-/pdk-0.22.47.tgz#c024914bc6e06bad137991b37dd7247cdd30405d"
+  integrity sha512-u7OenJwcw7YTBUrx4+IOCn9ZMvWfFsaTjf9nE9YfNPMWdbWUFk6f6KSEu2vWbjm3kc+0LeuYxJOhbNCy873svQ==
   dependencies:
     "@hpcc-js/wasm" "^2.14.1"
     "@pnpm/reviewing.dependencies-hierarchy" "^2.1.3"
@@ -2201,10 +2201,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.220:
-  version "2.27.220"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.220.tgz#a2ffaf6110292ad05a411b7e6387d71c31ca058b"
-  integrity sha512-1fMsz6JF7oxHX/kJLYQJ+Zr+nb+Arhlyf1vRXb3SETGopcHSuEpnqS8lhDBjhe9JwnpGhOtiTNvDI4RmGsuiaA==
+cdk-nag@^2.27.221:
+  version "2.27.221"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.221.tgz#0c76e3436ef43663a4708cd156b1c01eb709514a"
+  integrity sha512-mKCsY65MFL6hvImFcvZWJPvwSh3BC3jJ3cw6QtLRYmXdntgbFpPtraobDKOAh03pxeCZad0oWmvFKaEp8XZoYw==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2, chalk@^4.x:
   version "4.1.2"
@@ -3114,10 +3114,10 @@ eslint-plugin-import@^2.29.1:
     semver "^6.3.1"
     tsconfig-paths "^3.15.0"
 
-eslint-plugin-prettier@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.0.1.tgz#a3b399f04378f79f066379f544e42d6b73f11515"
-  integrity sha512-m3u5RnR56asrwV/lDC4GHorlW75DsFfmUcjfCYylTUs85dBRnB7VM6xG8eCMJdeDRnppzmxZVf1GEPJvl1JmNg==
+eslint-plugin-prettier@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.1.0.tgz#f14bb2b18756ad54f1ad3dc4c989cb73dfa326a3"
+  integrity sha512-hQc+2zbnMeXcIkg+pKZtVa+3Yqx4WY7SMkn1PLZ4VbBEU7jJIpVn9347P8BBhTbz6ne85aXvQf30kvexcqBeWw==
   dependencies:
     prettier-linter-helpers "^1.0.0"
     synckit "^0.8.5"
