@@ -483,9 +483,9 @@
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
 "@hpcc-js/wasm@^2.14.1":
-  version "2.15.2"
-  resolved "https://registry.yarnpkg.com/@hpcc-js/wasm/-/wasm-2.15.2.tgz#97c4cc74e53e3699c0369a0aeae1c39b3e0cc069"
-  integrity sha512-Dpf3SJpbwcvpVxvV2O6fgkOhQ/aSydS9iXLcXDTTcFncztg6Nos4GuCXUhcHT+BL+6ktrkhLFXO267U+2AvTGg==
+  version "2.15.3"
+  resolved "https://registry.yarnpkg.com/@hpcc-js/wasm/-/wasm-2.15.3.tgz#2a276fb413adcdcd1a04712d1cfeb7edefc84212"
+  integrity sha512-enmVW4APrv6jBCRP5V/WdIjYvxidNgBbgdWOdLpiygoE0g0ZurM1qsysBo4TbZfdS81SCdkjRSU/URWf+gpQUA==
   dependencies:
     yargs "17.7.2"
 
