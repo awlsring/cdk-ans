@@ -998,6 +998,11 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
+"@pkgr/core@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pkgr/core/-/core-0.1.0.tgz#7d8dacb7fdef0e4387caf7396cbd77f179867d06"
+  integrity sha512-Zwq5OCzuwJC2jwqmpEQt7Ds1DTi6BWSwoGkbb1n9pO3hzb35BoJELx7c0T23iDkBGkh2e7tvOtjF3tr3OaQHDQ==
+
 "@pkgr/utils@^2.4.2":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-2.4.2.tgz#9e638bbe9a6a6f165580dc943f138fd3309a2cbc"
@@ -1027,13 +1032,13 @@
   dependencies:
     rfc4648 "^1.5.2"
 
-"@pnpm/dependency-path@2.1.6":
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/@pnpm/dependency-path/-/dependency-path-2.1.6.tgz#651392ba6574b953de6c58d558206e29d551c8e7"
-  integrity sha512-xHld0DIIfMMTYmestpNInVpDQL7VC/9uXYzj1fNrDC4wLafgSBcjljlFPaWVCRC1xyrNcsepQD86Bl2hgZ7sJg==
+"@pnpm/dependency-path@2.1.7":
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/@pnpm/dependency-path/-/dependency-path-2.1.7.tgz#a3b86cd84c341e2f40ea1836ddc029b8c0410312"
+  integrity sha512-/q3xNNgAEKkG0FvU8o/6B06nrBhSl1i34ZMEQDOhHFMDzS0mWqnIogb54seVKySNxfdJdyqfedjNnNIzKrPbkg==
   dependencies:
     "@pnpm/crypto.base32-hash" "2.0.0"
-    "@pnpm/types" "9.4.1"
+    "@pnpm/types" "9.4.2"
     encode-registry "^3.0.1"
     semver "^7.5.4"
 
@@ -1051,18 +1056,18 @@
   dependencies:
     execa "npm:safe-execa@0.1.2"
 
-"@pnpm/lockfile-file@8.1.5":
-  version "8.1.5"
-  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-file/-/lockfile-file-8.1.5.tgz#d5126bf565f6395bf4c4ea7cdc0eb647fffab031"
-  integrity sha512-F4/dgJ5jzF3m9GR6oY/c5j2/cnaY70uwQpnTdxmcEmCUXomVpimvYzhL4dlsqZhHoOwh9A+yJuXwCkS37VzNAA==
+"@pnpm/lockfile-file@8.1.6":
+  version "8.1.6"
+  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-file/-/lockfile-file-8.1.6.tgz#872f8531eaacc9ef8a0458796ae565b6b33a2681"
+  integrity sha512-ObCi2cONJ5DXqWu+h5TxlRvHTlGN9E63zGW/kghqiJFG562OxIS1pDndqwtSvqPyCt7DuoKSR/LVd/+XkpZwiw==
   dependencies:
     "@pnpm/constants" "7.1.1"
-    "@pnpm/dependency-path" "2.1.6"
+    "@pnpm/dependency-path" "2.1.7"
     "@pnpm/error" "5.0.2"
     "@pnpm/git-utils" "1.0.0"
-    "@pnpm/lockfile-types" "5.1.4"
-    "@pnpm/merge-lockfile-changes" "5.0.6"
-    "@pnpm/types" "9.4.1"
+    "@pnpm/lockfile-types" "5.1.5"
+    "@pnpm/merge-lockfile-changes" "5.0.7"
+    "@pnpm/types" "9.4.2"
     "@pnpm/util.lex-comparator" "1.0.0"
     "@zkochan/rimraf" "^2.1.3"
     comver-to-semver "^1.0.0"
@@ -1074,23 +1079,23 @@
     strip-bom "^4.0.0"
     write-file-atomic "^5.0.1"
 
-"@pnpm/lockfile-types@5.1.4":
-  version "5.1.4"
-  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-types/-/lockfile-types-5.1.4.tgz#d89528a4c480974e347b68d571e3e252da21572b"
-  integrity sha512-m2alyNWTPjg63rQfBHpzbbl9FmbxfwNJ0H1dTM++FHQiUymS4MXvch6Uo0dQrxWLBb1tJ2C9Vb+LjjblVns8RA==
+"@pnpm/lockfile-types@5.1.5":
+  version "5.1.5"
+  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-types/-/lockfile-types-5.1.5.tgz#14b85c976ddcf7474f5a6a29351cb579959d0ec8"
+  integrity sha512-02FP0HynzX+2DcuPtuMy7PH+kLIC0pevAydAOK+zug2bwdlSLErlvSkc+4+3dw60eRWgUXUqyfO2eR/Ansdbng==
   dependencies:
-    "@pnpm/types" "9.4.1"
+    "@pnpm/types" "9.4.2"
 
-"@pnpm/lockfile-utils@9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-utils/-/lockfile-utils-9.0.3.tgz#3a1635d8f005fdd64090ae0a7489d9665e1f6b71"
-  integrity sha512-FBobJy+QOc+iX6hcUVCegOlG/1FupzIXBUTuuAE3uhrubSOQcWvo/Gx3HFuTn3cEnbwTkYzL2fZg8hB2bf/b/A==
+"@pnpm/lockfile-utils@9.0.4":
+  version "9.0.4"
+  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-utils/-/lockfile-utils-9.0.4.tgz#3d1fa58677044196424c738596b6036365078eee"
+  integrity sha512-TlmB9QETUtNUzww/e+FKGyM4UCyH8zcS84e2fcCXxzoEJbBqP1nJM1Z8xYP3abxrI+X7iFR2S47OCaN8tbH1fQ==
   dependencies:
-    "@pnpm/dependency-path" "2.1.6"
-    "@pnpm/lockfile-types" "5.1.4"
+    "@pnpm/dependency-path" "2.1.7"
+    "@pnpm/lockfile-types" "5.1.5"
     "@pnpm/pick-fetcher" "2.0.1"
-    "@pnpm/resolver-base" "11.0.1"
-    "@pnpm/types" "9.4.1"
+    "@pnpm/resolver-base" "11.0.2"
+    "@pnpm/types" "9.4.2"
     get-npm-tarball-url "^2.1.0"
     ramda "npm:@pnpm/ramda@0.28.1"
 
@@ -1101,22 +1106,22 @@
   dependencies:
     escape-string-regexp "^4.0.0"
 
-"@pnpm/merge-lockfile-changes@5.0.6":
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/@pnpm/merge-lockfile-changes/-/merge-lockfile-changes-5.0.6.tgz#41f4dfa5ec8ce1f597fe5de7a984322befcd1f8b"
-  integrity sha512-UwBa6wp/UFGQwIy7ejIcg+yROKg+eNV1vrnqPf/Ot2EcNKUnKjtz/TDzVxk9wiCr7YpoQfIyhaW0ddFVv6jj/Q==
+"@pnpm/merge-lockfile-changes@5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@pnpm/merge-lockfile-changes/-/merge-lockfile-changes-5.0.7.tgz#b9664db4b496af00b1a0101e190532330e1e1b12"
+  integrity sha512-fYmX1+EHv3wg7l4A9FCEkjgEBIHaY6JosknkLk3pL8dbB9k6unjIrF9f2onNtpj3XUlWxZ3aBw9THk/Bf6hKow==
   dependencies:
-    "@pnpm/lockfile-types" "5.1.4"
+    "@pnpm/lockfile-types" "5.1.5"
     comver-to-semver "^1.0.0"
     ramda "npm:@pnpm/ramda@0.28.1"
     semver "^7.5.4"
 
-"@pnpm/modules-yaml@12.1.5":
-  version "12.1.5"
-  resolved "https://registry.yarnpkg.com/@pnpm/modules-yaml/-/modules-yaml-12.1.5.tgz#e687e7f865951c5bf5daf112e35389880dc54927"
-  integrity sha512-CqwwTxT/MANGUmDnpeZI/VkdQz6up7D88FNMnZ8QG2tjXNopju/4GlbwtDjpejvkqJ/A5PnzrwKResVCfuTAoA==
+"@pnpm/modules-yaml@12.1.6":
+  version "12.1.6"
+  resolved "https://registry.yarnpkg.com/@pnpm/modules-yaml/-/modules-yaml-12.1.6.tgz#f2b88862f70500e6ae1229903c3187f59c60c98f"
+  integrity sha512-PvAWyccI3S7kphTwaKkam/w7k1XHJXPXrMlIyWnaIb+OVWak0UIRuVbaVOoV/es+/hLl3Lo5U2LHA8A5UUjbKA==
   dependencies:
-    "@pnpm/types" "9.4.1"
+    "@pnpm/types" "9.4.2"
     is-windows "^1.0.2"
     ramda "npm:@pnpm/ramda@0.28.1"
     read-yaml-file "^2.1.0"
@@ -1129,12 +1134,12 @@
   dependencies:
     graceful-fs "4.2.10"
 
-"@pnpm/normalize-registries@5.0.5":
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/@pnpm/normalize-registries/-/normalize-registries-5.0.5.tgz#994b8e7e19f96dd36619c27d6d1c85703fac7db7"
-  integrity sha512-XyGVy1er21iA2KYlv4ZWRGrMuyA08CiFkTkUKiNPCZfRWHtEsiOiwRiGPzmWVFuaZK0cYDG0xEjp59sWVHmr9Q==
+"@pnpm/normalize-registries@5.0.6":
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/@pnpm/normalize-registries/-/normalize-registries-5.0.6.tgz#5ba7a03637d5b00a5600ca3eff9cd18b38751ada"
+  integrity sha512-wu6DvcSyBJbD99XLjBqlakeoYxQBdDOPPonkApFYvRntDv4k1YvIak92c5jeqz2ZDqCXiXhSo/ZcpPooAI/+nQ==
   dependencies:
-    "@pnpm/types" "9.4.1"
+    "@pnpm/types" "9.4.2"
     normalize-registry-url "2.0.0"
     ramda "npm:@pnpm/ramda@0.28.1"
 
@@ -1168,47 +1173,47 @@
   dependencies:
     graceful-fs "^4.2.11"
 
-"@pnpm/read-package-json@8.0.6":
-  version "8.0.6"
-  resolved "https://registry.yarnpkg.com/@pnpm/read-package-json/-/read-package-json-8.0.6.tgz#98fc1a034b386bf632cedeb818541614b6a4db32"
-  integrity sha512-FdrkqKbUATOlqqyvrXfFkTk1GCtzPW3SbV2dXhvddZeE4fLktD/Ix28LQVqzlpA/1O9I1gP6/2D5YhULtJO4Fw==
+"@pnpm/read-package-json@8.0.7":
+  version "8.0.7"
+  resolved "https://registry.yarnpkg.com/@pnpm/read-package-json/-/read-package-json-8.0.7.tgz#19a756990ab403b429199eb2e25a9689445e3886"
+  integrity sha512-871bLdy470WVP8arsXsYfVs2qlvsg3Uvkjl3I34z9GKBViG5jb1J53y7nKwa2vv4imK0fZfZzul2eHcr/G0KoA==
   dependencies:
     "@pnpm/error" "5.0.2"
-    "@pnpm/types" "9.4.1"
+    "@pnpm/types" "9.4.2"
     load-json-file "^6.2.0"
     normalize-package-data "^5.0.0"
 
-"@pnpm/resolver-base@11.0.1":
-  version "11.0.1"
-  resolved "https://registry.yarnpkg.com/@pnpm/resolver-base/-/resolver-base-11.0.1.tgz#67f12c05b69d7f17bcf2fb8a92886880a50314c0"
-  integrity sha512-0EJ8dZqsaa/MCwB49NGNGy2WIIv3KU8xGkskDfSPpi5I5EyiIEVSi7NzUJp8rchrCbotFbOc+IHswHLeF2TSsw==
+"@pnpm/resolver-base@11.0.2":
+  version "11.0.2"
+  resolved "https://registry.yarnpkg.com/@pnpm/resolver-base/-/resolver-base-11.0.2.tgz#e448577cc4235b6d48b08e7b068da1132e7cde18"
+  integrity sha512-g6VXB/LK7DugXiCPG62qmYtuypVt44nnwyXYkTv86FKudI5d5Wy1FLkYAYKCj+No9h1GG3eSSwGH1NL0y4IbYg==
   dependencies:
-    "@pnpm/types" "9.4.1"
+    "@pnpm/types" "9.4.2"
 
 "@pnpm/reviewing.dependencies-hierarchy@^2.0.6", "@pnpm/reviewing.dependencies-hierarchy@^2.1.3":
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/@pnpm/reviewing.dependencies-hierarchy/-/reviewing.dependencies-hierarchy-2.1.6.tgz#ae6d91e962924152e5a4225b1c7c2b1ead4550f4"
-  integrity sha512-/Jlp45v+cqzUnnTSF4+koPNnj0rYALuCPKfkaGrDCrbvkKtVUVPzgwtFwxXuWuHXcxmN0t073OV2fCflF/Xk5w==
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/@pnpm/reviewing.dependencies-hierarchy/-/reviewing.dependencies-hierarchy-2.1.7.tgz#11d966198e833c4bff72c344a5f7a05ffecd5825"
+  integrity sha512-v5lwIEQKB9056TM9r8agMMIeg2QrUnIEKRoNjH4wb2pyP8u7h2FLWS6Rcozv1ZsjnHu9dqSVFvRUjrbc+/0ZLg==
   dependencies:
-    "@pnpm/dependency-path" "2.1.6"
-    "@pnpm/lockfile-file" "8.1.5"
-    "@pnpm/lockfile-utils" "9.0.3"
+    "@pnpm/dependency-path" "2.1.7"
+    "@pnpm/lockfile-file" "8.1.6"
+    "@pnpm/lockfile-utils" "9.0.4"
     "@pnpm/matcher" "5.0.0"
-    "@pnpm/modules-yaml" "12.1.5"
-    "@pnpm/normalize-registries" "5.0.5"
+    "@pnpm/modules-yaml" "12.1.6"
+    "@pnpm/normalize-registries" "5.0.6"
     "@pnpm/npm-package-arg" "^1.0.0"
     "@pnpm/read-modules-dir" "6.0.1"
-    "@pnpm/read-package-json" "8.0.6"
-    "@pnpm/types" "9.4.1"
+    "@pnpm/read-package-json" "8.0.7"
+    "@pnpm/types" "9.4.2"
     normalize-path "^3.0.0"
     realpath-missing "^1.1.0"
     resolve-link-target "^2.0.0"
     semver "^7.5.4"
 
-"@pnpm/types@9.4.1":
-  version "9.4.1"
-  resolved "https://registry.yarnpkg.com/@pnpm/types/-/types-9.4.1.tgz#ba1c3457014f3ea85383c51ddaf80ee6c900aeac"
-  integrity sha512-X7k9wdk5XlW1uo9Nq38nSzqRvOAxrPcrzgx8xm2T3DtRsLYsiBbzcGZyqrGpsW37lYf/KLZwoTVMeQkACPE64Q==
+"@pnpm/types@9.4.2":
+  version "9.4.2"
+  resolved "https://registry.yarnpkg.com/@pnpm/types/-/types-9.4.2.tgz#0a34c3c41d5452461d8d8958374a727f9c46cfb2"
+  integrity sha512-g1hcF8Nv4gd76POilz9gD4LITAPXOe5nX4ijgr8ixCbLQZfcpYiMfJ+C1RlMNRUDo8vhlNB4O3bUlxmT6EAQXA==
 
 "@pnpm/util.lex-comparator@1.0.0":
   version "1.0.0"
@@ -1898,9 +1903,9 @@ aws-cdk-lib@^2.116.1:
     yaml "1.10.2"
 
 axios@^1.0.0:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.2.tgz#de67d42c755b571d3e698df1b6504cde9b0ee9f2"
-  integrity sha512-7i24Ri4pmDRfJTR7LDBhsOTtcm+9kjX5WiY1X3wIisx6G9So3pfMkEiU7emUBe46oceVImccTEM3k6C5dbVW8A==
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.3.tgz#7f50f23b3aa246eff43c54834272346c396613f4"
+  integrity sha512-fWyNdeawGam70jXSVlKl+SUNVcL6j6W79CuSIPfi6HnDUmSCH6gyUys/HrqHeA/wU0Az41rRgean494d0Jb+ww==
   dependencies:
     follow-redirects "^1.15.0"
     form-data "^4.0.0"
@@ -2202,10 +2207,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.222:
-  version "2.27.222"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.222.tgz#e2e134bd713c7ba23e35abd56ae32bc417449f2f"
-  integrity sha512-iY2gN2SU5Ni9A9D1yeAX6aq3E4T23iMslKEoF/POn8oGeZYqciAyA5pu0XSEidL/beJ5YCKgeeKoyo99Hn1pRg==
+cdk-nag@^2.27.223:
+  version "2.27.223"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.223.tgz#cd274be0af4b842e2f81141ddf99d6626190deef"
+  integrity sha512-olFbl6BjFSTyEEPsWUWieSO8qGHi5o6gDWsg8AhG37uUWs0X612bTXGlXFwy8PVbcPq78xt6mxQU0aMiOfUaYQ==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2, chalk@^4.x:
   version "4.1.2"
@@ -7296,12 +7301,20 @@ svgson@^5.3.1:
     deep-rename-keys "^0.2.1"
     xml-reader "2.4.3"
 
-synckit@^0.8.5, synckit@^0.8.6:
+synckit@^0.8.5:
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/synckit/-/synckit-0.8.6.tgz#b69b7fbce3917c2673cbdc0d87fb324db4a5b409"
   integrity sha512-laHF2savN6sMeHCjLRkheIU4wo3Zg9Ln5YOjOo7sZ5dVQW8yF5pPE5SIw1dsPhq3TRp1jisKRCdPhfs/1WMqDA==
   dependencies:
     "@pkgr/utils" "^2.4.2"
+    tslib "^2.6.2"
+
+synckit@^0.8.6:
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/synckit/-/synckit-0.8.8.tgz#fe7fe446518e3d3d49f5e429f443cf08b6edfcd7"
+  integrity sha512-HwOKAP7Wc5aRGYdKH+dw0PRRpbO841v2DENBtjnR5HFWoiNByAl7vrx3p0G/rCyYXQsrxqtX48TImFtPcIHSpQ==
+  dependencies:
+    "@pkgr/core" "^0.1.0"
     tslib "^2.6.2"
 
 syncpack@^10.9.3:
