@@ -1883,10 +1883,10 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz#92f95616501069d07d10edb2fc37d3e1c65123b7"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
-aws-cdk-lib@^2.117.0:
-  version "2.117.0"
-  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.117.0.tgz#9079e256c334108add9252a89c22cf46e7c2e542"
-  integrity sha512-My5T4hn34H6+tnZxKK2VlcvGI2N5SjqGt9lXWADcahdobuUcNizYrls7h/vcQ3BfwcZ5/tHTKtivkNyL8I1LDg==
+aws-cdk-lib@^2.118.0:
+  version "2.118.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.118.0.tgz#3e126dc014d9c82128523067e1bd89540b04a3e8"
+  integrity sha512-i3At9HOuXNVLxQCo/y7Sb2Zj4Ir4tichG+755AAldebRcqXrCJizZq+sMMt6/Bkjggj2imWmhwHPZw518M9VMw==
   dependencies:
     "@aws-cdk/asset-awscli-v1" "^2.2.201"
     "@aws-cdk/asset-kubectl-v20" "^2.1.2"
@@ -1903,11 +1903,11 @@ aws-cdk-lib@^2.117.0:
     yaml "1.10.2"
 
 axios@^1.0.0:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.3.tgz#7f50f23b3aa246eff43c54834272346c396613f4"
-  integrity sha512-fWyNdeawGam70jXSVlKl+SUNVcL6j6W79CuSIPfi6HnDUmSCH6gyUys/HrqHeA/wU0Az41rRgean494d0Jb+ww==
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.4.tgz#184ee1f63d412caffcf30d2c50982253c3ee86e0"
+  integrity sha512-heJnIs6N4aa1eSthhN9M5ioILu8Wi8vmQW9iHQ9NUvfkJb0lEEDUiIdQNAuBtfUt3FxReaKdpQA5DbmMOqzF/A==
   dependencies:
-    follow-redirects "^1.15.0"
+    follow-redirects "^1.15.4"
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
@@ -2207,10 +2207,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.27.228:
-  version "2.27.228"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.228.tgz#7efb09890b66d0218157be27c80657f866209458"
-  integrity sha512-NJRhVKhorlBU6nwjYakrCdDOl0IurOyu3+g1kNxui0xaFcRD0VS3DlQxZK7Qt1E+R/MbDdd7QbRxl7r+IsNYHQ==
+cdk-nag@^2.27.229:
+  version "2.27.229"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.27.229.tgz#c5c2df7dcc242d4fa687be2836e98956eb3dbdd9"
+  integrity sha512-jaANqpJHmoF1FK6Mse1kWkaDwvxfzNBXoOt1Q0s9UZ95vX2V9b/ti1TL8I8a1z+Nfo4LkkFODDJO07S01eaD8w==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2, chalk@^4.x:
   version "4.1.2"
@@ -3462,7 +3462,7 @@ flatted@^3.2.7, flatted@^3.2.9:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.9.tgz#7eb4c67ca1ba34232ca9d2d93e9886e611ad7daf"
   integrity sha512-36yxDn5H7OFZQla0/jFJmbIKTdZAQHngCedGxiMmpNfEZM0sdEeT+WczLQrjK6D7o2aiyLYDnkw0R3JK0Qv1RQ==
 
-follow-redirects@^1.15.0:
+follow-redirects@^1.15.0, follow-redirects@^1.15.4:
   version "1.15.4"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.4.tgz#cdc7d308bf6493126b17ea2191ea0ccf3e535adf"
   integrity sha512-Cr4D/5wlrb0z9dgERpUL3LrmPKVDsETIJhaCMeDfuFYcqa5bldGV6wBsAN6X/vxlXQtFBMrXdXxdL8CbDTGniw==
