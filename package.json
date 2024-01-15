@@ -37,7 +37,7 @@
     "license-checker": "^25.0.1",
     "npm-check-updates": "^16",
     "nx": "16.0.0",
-    "prettier": "^3.2.1",
+    "prettier": "^3.2.2",
     "projen": "^0.73.0",
     "syncpack": "^10.9.3",
     "tmp": "^0.2.1",
