@@ -1422,9 +1422,9 @@
   integrity sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==
 
 "@types/node@^16":
-  version "16.18.77"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.77.tgz#85b3b0a7026d9c9caea0e201c78b4433b876ae55"
-  integrity sha512-zwqAbRkHjGlxH9PBv8i9dmeaDpBRgfQDSFuREMF2Z+WUi8uc13gfRquMV/8LxBqwm+7jBz+doTVkEEA1CIWOnQ==
+  version "16.18.78"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.78.tgz#3d97264128712f2eb59f1f8456bcfc5d56d8105c"
+  integrity sha512-2poPMDdsGfvhcLmgJZ85QrIfN6z3PijYRMiV0FWIEUiQW/t/lzH7BEm4vN+HMhjZXbtIKssMcAxTcgu4Rm83YA==
 
 "@types/node@^16.9.2":
   version "16.18.39"
@@ -1578,7 +1578,6 @@
     tslib "^2.4.0"
 
 "@zkochan/js-yaml@0.0.6", "@zkochan/js-yaml@npm:js-yaml@4.1.0", js-yaml@4.1.0, js-yaml@^4.0.0, js-yaml@^4.1.0:
-  name "@zkochan/js-yaml"
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.1.0.tgz#c1fb65f8f5017901cdd2c951864ba18458a10602"
   integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
@@ -2179,10 +2178,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-nag@^2.28.25:
-  version "2.28.25"
-  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.28.25.tgz#63571ef3c6b51a93d5d5e504b790e551372018e4"
-  integrity sha512-TM6aKYSqSeV8Mv27gIqCbRedVquVvbvUzJA/h+dbuFP+/x+Ux4bBHY08Xd7oKI6rtNTsc7SNkj+hrQzYkzxw0Q==
+cdk-nag@^2.28.26:
+  version "2.28.26"
+  resolved "https://registry.yarnpkg.com/cdk-nag/-/cdk-nag-2.28.26.tgz#d960dcc1405ec8ee1606dc62c8687261290bc81b"
+  integrity sha512-UvqK+Mkt/aamcyRE2jxW4Y9y7Q8dnyVHmz9dEXR2fnv3cXuuNxo9uPz63Q/+VaQWuk/I6X0+QWUQGfj+Ao4nEg==
 
 chalk@4.1.2, chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2, chalk@^4.x:
   version "4.1.2"
