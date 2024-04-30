@@ -51,7 +51,7 @@
     "jsii-rosetta": "^5",
     "json-schema-to-typescript": "^13.0.2",
     "npm-check-updates": "^16",
-    "projen": "^0.71.141",
+    "projen": "^0.79.24",
     "ts-jest": "^29.1.1",
     "typescript": "^5.1.6"
   },
