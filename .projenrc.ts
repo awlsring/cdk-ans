@@ -45,7 +45,7 @@ const cdkans = new JsiiProject({
   defaultReleaseBranch: "main",
   name: "cdk-ans",
   repositoryUrl: "https://github.com/awlsring/cdk-ans.git",
-  jsiiVersion: "^5",
+  jsiiVersion: "^5.4",
   peerDeps: ["constructs@^10"],
   bundledDeps: ["yaml", "follow-redirects", "fast-json-patch"],
   devDeps: [
