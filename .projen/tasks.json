@@ -108,6 +108,10 @@
       "steps": [
         {
           "exec": "yarn install --check-files --frozen-lockfile"
+        },
+        {
+          "exec": "yarn nx run-many --target=install:ci --output-style=stream --nx-bail",
+          "receiveArgs": true
         }
       ]
     },
@@ -202,7 +206,16 @@
     },
     "upgrade-deps": {
       "name": "upgrade-deps",
+      "description": "Upgrade dependencies in the monorepo for all affected projects",
       "steps": [
+        {
+          "exec": "yarn nx run-many --target=upgrade --output-style=stream --nx-bail --projects=cdk-ans-docs",
+          "receiveArgs": true
+        },
+        {
+          "exec": "yarn nx run-many --target=install --output-style=stream --nx-bail --projects=cdk-ans-docs",
+          "receiveArgs": true
+        },
         {
           "exec": "yarn npm-check-updates --deep --rejectVersion 0.0.0 -u --dep prod,dev,peer,optional,bundle --target=minor"
         },
