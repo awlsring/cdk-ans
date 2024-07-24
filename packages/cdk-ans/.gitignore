@@ -4,7 +4,6 @@
 !/.projen/deps.json
 !/.projen/files.json
 !/package.json
-!/LICENSE
 !/.npmignore
 logs
 *.log
@@ -46,3 +45,4 @@ junit.xml
 tsconfig.json
 !//home/runner/work/cdk-ans/cdk-ans/docs/cdk-ans-api.md
 !/project.json
+!/LICENSE

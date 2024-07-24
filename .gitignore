@@ -6,7 +6,6 @@
 !/.github/workflows/pull-request-lint.yml
 !/.github/workflows/auto-approve.yml
 !/package.json
-!/LICENSE
 !/.npmignore
 logs
 *.log
@@ -50,7 +49,9 @@ cdkans.yaml
 /lib
 /dist/
 !/.eslintrc.json
-.nx/cache
+.nx/*
+!.nx/plugins
 !/nx.json
 !/.nxignore
 !/.syncpackrc.json
+!/LICENSE
